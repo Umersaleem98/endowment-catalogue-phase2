@@ -1,0 +1,61 @@
+ /* Your CSS styles here */
+ .btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Adjust the gap as needed */
+}
+input.form-control {
+    color: black;
+}
+/* Style for placeholder text color */
+input.form-control::placeholder {
+    color: black;
+    opacity: 1; /* Override default opacity */
+}
+select.form-control {
+    color: black;
+}
+/* Style for select option text color */
+select.form-control option {
+    color: black;
+}
+.total-amount{
+    font-size: 20px;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust margin as needed */
+}
+.form-group label {
+    margin-right: 10px; /* Adjust margin as needed */
+}
+/* Adjust the input width and margin */
+.form-group input,
+.form-group select {
+    flex: 1; /* Take up remaining space */
+    margin-right: 10px; /* Adjust margin as needed */
+}
+label{
+    color: black;
+}
+.btn{
+    background-color: #004476;
+    color: white;
+}
+.custom-tab {
+    background-color: #004476;
+    color: white;
+}
+.custom-tab.active {
+    background-color: orange !important;
+    color: white !important;
+}
+h3{
+    color: black;
+    font-size: 15px;
+}
+p{
+    color: black;
+    font-size: 12px;
+}
