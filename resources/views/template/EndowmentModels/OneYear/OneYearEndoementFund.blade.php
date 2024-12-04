@@ -158,22 +158,18 @@
                                                         <select name="school" id="school_select"
                                                             class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)
-                                                                <option value="{{ $item->schoolname }}">
-                                                                    {{ $item->schoolname }}</option>
+                                                            @foreach ($schools as $item)                                                                
+                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
                                                             @endforeach
-
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
                                                         <label for="country_select">Select Country</label>
                                                         <select name="country" id="country_select"
                                                             class="form-control">
-                                                            <option value="" selected>Select Country</option>
-                                                           @foreach ($countries as $item)
-                                                               <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                           @endforeach
-
+                                                            @foreach ($countries as $item)                                                                
+                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
@@ -183,8 +179,8 @@
                                                             <option value="" selected>Select Year of Graduation
                                                             </option>
                                                             @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                <option value="{{ $i }}">{{ $i }}
-                                                                </option>
+                                                                <option value="{{ $i }}">
+                                                                    {{ $i }}</option>
                                                             @endfor
                                                         </select>
                                                     </div>
@@ -310,7 +306,7 @@
                                                 <script>
                                                     document.getElementById('select-single-noneng-ug').addEventListener('change', function() {
                                                         const philanthropistOneYearNonEngUgDiv = document.getElementById(
-                                                            'philanthropist_oneyear_noneng_ug_div');
+                                                        'philanthropist_oneyear_noneng_ug_div');
 
                                                         // Check if the selected option is either "Philanthropist" or "Industrial Partner"
                                                         if (this.value === 'Philanthropist' || this.value === 'Industrial-Partner') {
@@ -329,22 +325,18 @@
                                                         <select name="school" id="school_select"
                                                             class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)
-                                                                <option value="{{ $item->schoolname }}">
-                                                                    {{ $item->schoolname }}</option>
+                                                            @foreach ($schools as $item)                                                                
+                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
                                                             @endforeach
-
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
                                                         <label for="country_select">Select Country</label>
                                                         <select name="country" id="country_select"
                                                             class="form-control">
-                                                            <option value="" selected>Select Country</option>
-                                                           @foreach ($countries as $item)
-                                                               <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                           @endforeach
-
+                                                            @foreach ($countries as $item)                                                                
+                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
@@ -354,8 +346,8 @@
                                                             <option value="" selected>Select Year of Graduation
                                                             </option>
                                                             @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                <option value="{{ $i }}">{{ $i }}
-                                                                </option>
+                                                                <option value="{{ $i }}">
+                                                                    {{ $i }}</option>
                                                             @endfor
                                                         </select>
                                                     </div>
@@ -406,8 +398,7 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="text" name="program_type" id="program" value="UG One Year"
-                                            hidden>
+                                        <input type="text" name="program_type" id="program" value="UG One Year" hidden>
                                         <div class="form-group">
                                             <label for="degree">Select Degree:</label>
                                             <select id="degree" name="degree" class="form-control">
@@ -524,7 +515,7 @@
                                                 <script>
                                                     document.getElementById('select-one-year-custom-ug').addEventListener('change', function() {
                                                         const philanthropistOneYearCustomUgDiv = document.getElementById(
-                                                            'philanthropist_oneyear_custom_ug_div');
+                                                        'philanthropist_oneyear_custom_ug_div');
 
                                                         // Check if the selected option is either "Philanthropist" or "Industrial Partner"
                                                         if (this.value === 'Philanthropist' || this.value === 'Industrial-Partner') {
@@ -543,36 +534,21 @@
                                                         <select name="school" id="school_select"
                                                             class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)
-                                                                <option value="{{ $item->schoolname }}">
-                                                                    {{ $item->schoolname }}</option>
+                                                            @foreach ($schools as $item)                                                                
+                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
                                                             @endforeach
-
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
                                                         <label for="country_select">Select Country</label>
                                                         <select name="country" id="country_select"
                                                             class="form-control">
-                                                            <option value="" selected>Select Country</option>
-                                                           @foreach ($countries as $item)
-                                                               <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                           @endforeach
-
+                                                            @foreach ($countries as $item)                                                                
+                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
-                                                        <label for="year" class="form-label">Select Year of
-                                                            Graduation</label>
-                                                        <select id="year" name="year" class="form-control">
-                                                            <option value="" selected>Select Year of Graduation
-                                                            </option>
-                                                            @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                <option value="{{ $i }}">{{ $i }}
-                                                                </option>
-                                                            @endfor
-                                                        </select>
-                                                    </div>
                                                         <label for="year" class="form-label">Select Year of
                                                             Graduation</label>
                                                         <select id="year" name="year" class="form-control">
@@ -729,22 +705,18 @@
                                                         <select name="school" id="school_select"
                                                             class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)
-                                                                <option value="{{ $item->schoolname }}">
-                                                                    {{ $item->schoolname }}</option>
+                                                            @foreach ($schools as $item)                                                                
+                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
                                                             @endforeach
-
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
                                                         <label for="country_select">Select Country</label>
                                                         <select name="country" id="country_select"
                                                             class="form-control">
-                                                            <option value="" selected>Select Country</option>
-                                                           @foreach ($countries as $item)
-                                                               <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                           @endforeach
-
+                                                            @foreach ($countries as $item)                                                                
+                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
@@ -754,8 +726,8 @@
                                                             <option value="" selected>Select Year of Graduation
                                                             </option>
                                                             @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                <option value="{{ $i }}">{{ $i }}
-                                                                </option>
+                                                                <option value="{{ $i }}">
+                                                                    {{ $i }}</option>
                                                             @endfor
                                                         </select>
                                                     </div>
@@ -899,22 +871,18 @@
                                                         <select name="school" id="school_select"
                                                             class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)
-                                                                <option value="{{ $item->schoolname }}">
-                                                                    {{ $item->schoolname }}</option>
+                                                            @foreach ($schools as $item)                                                                
+                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
                                                             @endforeach
-
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
                                                         <label for="country_select">Select Country</label>
                                                         <select name="country" id="country_select"
                                                             class="form-control">
-                                                            <option value="" selected>Select Country</option>
-                                                           @foreach ($countries as $item)
-                                                               <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                           @endforeach
-
+                                                            @foreach ($countries as $item)                                                                
+                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
@@ -924,8 +892,8 @@
                                                             <option value="" selected>Select Year of Graduation
                                                             </option>
                                                             @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                <option value="{{ $i }}">{{ $i }}
-                                                                </option>
+                                                                <option value="{{ $i }}">
+                                                                    {{ $i }}</option>
                                                             @endfor
                                                         </select>
                                                     </div>
@@ -973,8 +941,7 @@
 
                                 <br>
                                 <div class="row">
-                                    <input type="text" name="program_type" value="PG One Year" hidden
-                                        id="">
+                                    <input type="text" name="program_type" value="PG One Year" hidden id="">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="pgDegree">Select Degree:</label>
@@ -1108,22 +1075,18 @@
                                                         <select name="school" id="school_select"
                                                             class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)
-                                                                <option value="{{ $item->schoolname }}">
-                                                                    {{ $item->schoolname }}</option>
+                                                            @foreach ($schools as $item)                                                                
+                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
                                                             @endforeach
-
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
                                                         <label for="country_select">Select Country</label>
                                                         <select name="country" id="country_select"
                                                             class="form-control">
-                                                            <option value="" selected>Select Country</option>
-                                                           @foreach ($countries as $item)
-                                                               <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                           @endforeach
-
+                                                            @foreach ($countries as $item)                                                                
+                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
@@ -1133,8 +1096,8 @@
                                                             <option value="" selected>Select Year of Graduation
                                                             </option>
                                                             @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                <option value="{{ $i }}">{{ $i }}
-                                                                </option>
+                                                                <option value="{{ $i }}">
+                                                                    {{ $i }}</option>
                                                             @endfor
                                                         </select>
                                                     </div>
