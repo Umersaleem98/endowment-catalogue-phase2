@@ -31,5 +31,6 @@ Route::get('/select_endowment_model',[EndowmentHomeController::class, 'index']);
 // One Year support endoement fund routes and controllers 
 Route::get('/support_for_one_year',[OneYearSupportController::class, 'index']);
 Route::post('/default_one_year_degree',[OneYearSupportController::class, 'DefultOneYearundergraduate']);
+Route::post('/endowmentsupportoneyear',[OneYearSupportController::class, 'CustomOneYearundergraduate']);
 
 

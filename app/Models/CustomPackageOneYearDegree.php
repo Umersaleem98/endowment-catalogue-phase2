@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DefaultPackageOneYearDegree extends Model
+class CustomPackageOneYearDegree extends Model
 {
-    protected $table = 'default_package_oneyear_degree';
+    protected $table = 'custom_package_oneyear_degree';
 
+    // Define fillable fields for mass assignment
     protected $fillable = [
         'program_type',
         'degree',
