@@ -974,7 +974,7 @@
                                         style="display: none;">
                                         <div class="form-group">
                                             <label for="pgSelectedDegree">Selected Degree:</label>
-                                            <input type="text" id="pgSelectedDegree" name="degree_name"
+                                            <input type="text" id="pgSelectedDegree" name="degree"
                                                 class="form-control" readonly>
                                         </div>
                                     </div>

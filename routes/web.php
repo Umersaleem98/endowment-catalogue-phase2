@@ -9,7 +9,9 @@ use App\Http\Controllers\Pages\NustTrustFundController;
 use App\Http\Controllers\OneYear\OneYearSupportController;
 use App\Http\Controllers\Pages\SignatureProgramController;
 use App\Http\Controllers\Endownment\EndowmentHomeController;
+use App\Http\Controllers\Endownment\Four\FourYearSupportController;
 use App\Http\Controllers\Pages\ResourceMobilizationOfficerController;
+use App\Http\Controllers\Endownment\PerpetualSeat\PerpetualSeatSupportController;
 
 Route::get('/', function () {
     return view('index');
@@ -32,5 +34,11 @@ Route::get('/select_endowment_model',[EndowmentHomeController::class, 'index']);
 Route::get('/support_for_one_year',[OneYearSupportController::class, 'index']);
 Route::post('/default_one_year_degree',[OneYearSupportController::class, 'DefultOneYearundergraduate']);
 Route::post('/endowmentsupportoneyear',[OneYearSupportController::class, 'CustomOneYearundergraduate']);
-
-
+// One Year support endoement fund routes and controllers 
+Route::get('support_for_entire_year', [FourYearSupportController::class, 'index']);
+Route::post('/default_package_full_degree',[FourYearSupportController::class, 'DefultFourYearundergraduate']);
+Route::post('/endowmentsupportentireyear',[FourYearSupportController::class, 'CustomFourYearundergraduate']);
+// perpetual_seat support endoement fund routes and controllers 
+Route::get('perpetualseatyourname', [PerpetualSeatSupportController::class, 'index']);
+Route::post('/default_perpetual_seat',[PerpetualSeatSupportController::class, 'DefultPerpetualSeatundergraduate']);
+Route::post('/perpetualseatyourname',[PerpetualSeatSupportController::class, 'CustomPerpetualSeatundergraduate']);
