@@ -87,6 +87,7 @@
                             </div>
                             <div class="col-lg-2  mb-3 filter-col">
                                 <select name="province" id="provinceFilter" class="form-control filter-select" aria-label="Select Province">
+                                    <option value="all" selected>All Province</option>
                                     @foreach ($provinces as $item)
                                     <option value="{{ $item->provinces}}">{{ $item->provinces }}</option>
                                     @endforeach

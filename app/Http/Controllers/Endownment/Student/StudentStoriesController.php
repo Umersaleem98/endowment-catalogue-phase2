@@ -8,6 +8,7 @@ use App\Models\Discipline;
 use Illuminate\Http\Request;
 use App\Models\OpenfundStudent;
 use App\Http\Controllers\Controller;
+use App\Models\StudentsStoryPayments;
 
 class StudentStoriesController extends Controller
 { 
@@ -82,8 +83,48 @@ public function student_stories_ind($id)
         return view('template.support_scholar.student_stories', compact('students', 'isPledgeApproved', 'isPaymentApproved'));
     }
 
+    public function payment_index($id)
+    {
+        $students= OpenfundStudent::find($id);
+        return view('template.support_scholar.payments.payments', compact('students'));
+    }
 
 
+    public function Make_a_Pledge($id)
+    {
+        $students= OpenfundStudent::find($id);
+        return view('template.support_scholar.payments.pledge', compact('students'));
+    }
+
+
+    public function paymentsstore(Request $request)
+    {
+        $StudentsStoryPayments = new StudentsStoryPayments;
+        $StudentsStoryPayments->student_name = $request->student_name;
+        $StudentsStoryPayments->donor_name = $request->donor_name;
+        $StudentsStoryPayments->donor_email = $request->donor_email;
+        $StudentsStoryPayments->phone = $request->phone;
+        $StudentsStoryPayments->amount = $request->amount;
+        $StudentsStoryPayments->donation_percent = $request->donation_percent;
+        $StudentsStoryPayments->donation_for = $request->donation_for;
+        $StudentsStoryPayments->donation_for = $request->donation_for;
+        $StudentsStoryPayments->student_name = $request->student_name;
+        $StudentsStoryPayments->duration = $request->duration;
+        $StudentsStoryPayments->student_name = $request->student_name;
+
+        if ($request->hasFile('prove')) {
+            $file = $request->file('prove');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/Storypayments-proof'), $filename);
+            $StudentsStoryPayments->prove = 'uploads/Storypayments-proof/' . $filename;
+        }
+           
+        $StudentsStoryPayments->payment_approved = $request->payment_approved;
+        $StudentsStoryPayments->save();
+
+        return redirect()->back()->with('success', 'your payments is successfully');
+            
+    }
   
 
 }

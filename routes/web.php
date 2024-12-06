@@ -10,6 +10,7 @@ use App\Http\Controllers\Endownment\Zakat\ZakatController;
 use App\Http\Controllers\OneYear\OneYearSupportController;
 use App\Http\Controllers\Pages\SignatureProgramController;
 use App\Http\Controllers\Endownment\EndowmentHomeController;
+use App\Http\Controllers\Fund_Project\FundProjectController;
 use App\Http\Controllers\Endownment\Four\FourYearSupportController;
 use App\Http\Controllers\Endownment\Student\StudentStoriesController;
 use App\Http\Controllers\Pages\ResourceMobilizationOfficerController;
@@ -52,3 +53,12 @@ Route::post('endowment_zakat_payment', [ZakatController::class, 'payments']);
 
 Route::get('student_stories', [StudentStoriesController::class, 'student_stories']);
 Route::get('student_stories_indiviual/{id}', [StudentStoriesController::class, 'student_stories_ind']);
+Route::get('payment/{id}', [StudentStoriesController::class, 'payment_index']);
+Route::get('Make_a_Pledge/{id}', [StudentStoriesController::class, 'Make_a_Pledge']);
+Route::post('payments', [StudentStoriesController::class, 'paymentsstore']);
+// Other Projects routes and controllers 
+
+Route::get('select_project', [FundProjectController::class, 'index']);
+Route::get('fund_project/{id}', [FundProjectController::class, 'FundProject']);
+Route::get('payments_project/{id}', [FundProjectController::class, 'payment_fund_a_project']);
+Route::post('fund_a_project', [FundProjectController::class, 'payment_fund_a_project_store']);
