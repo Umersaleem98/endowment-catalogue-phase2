@@ -11,6 +11,7 @@ use App\Http\Controllers\OneYear\OneYearSupportController;
 use App\Http\Controllers\Pages\SignatureProgramController;
 use App\Http\Controllers\Endownment\EndowmentHomeController;
 use App\Http\Controllers\Endownment\Four\FourYearSupportController;
+use App\Http\Controllers\Endownment\Student\StudentStoriesController;
 use App\Http\Controllers\Pages\ResourceMobilizationOfficerController;
 use App\Http\Controllers\Endownment\PerpetualSeat\PerpetualSeatSupportController;
 
@@ -47,3 +48,7 @@ Route::post('/perpetualseatyourname',[PerpetualSeatSupportController::class, 'Cu
 Route::get('endowment_zakat_funds', [ZakatController::class, 'index']);
 Route::get('endowment_zakat_payment', [ZakatController::class, 'zakatPayment']);
 Route::post('endowment_zakat_payment', [ZakatController::class, 'payments']);
+// Students stories routes and controllers 
+
+Route::get('student_stories', [StudentStoriesController::class, 'student_stories']);
+Route::get('student_stories_indiviual/{id}', [StudentStoriesController::class, 'student_stories_ind']);
