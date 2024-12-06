@@ -6,6 +6,7 @@ use App\Http\Controllers\Pages\TeamController;
 use App\Http\Controllers\Pages\AboutUsController;
 use App\Http\Controllers\Pages\ContactUsController;
 use App\Http\Controllers\Pages\NustTrustFundController;
+use App\Http\Controllers\Endownment\Zakat\ZakatController;
 use App\Http\Controllers\OneYear\OneYearSupportController;
 use App\Http\Controllers\Pages\SignatureProgramController;
 use App\Http\Controllers\Endownment\EndowmentHomeController;
@@ -42,3 +43,7 @@ Route::post('/endowmentsupportentireyear',[FourYearSupportController::class, 'Cu
 Route::get('perpetualseatyourname', [PerpetualSeatSupportController::class, 'index']);
 Route::post('/default_perpetual_seat',[PerpetualSeatSupportController::class, 'DefultPerpetualSeatundergraduate']);
 Route::post('/perpetualseatyourname',[PerpetualSeatSupportController::class, 'CustomPerpetualSeatundergraduate']);
+// Zakat fund routes and controllers 
+Route::get('endowment_zakat_funds', [ZakatController::class, 'index']);
+Route::get('endowment_zakat_payment', [ZakatController::class, 'zakatPayment']);
+Route::post('endowment_zakat_payment', [ZakatController::class, 'payments']);

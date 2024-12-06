@@ -140,33 +140,93 @@
                                                 <div class="row d-none ml-3" id="alumni">
                                                     <div class="col-md-10">
                                                         <label for="school_select">Select School</label>
-                                                        <select name="school" id="school_select"
-                                                            class="form-control">
+                                                        <select name="school" id="school_select" class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)                                                                
-                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
-                                                            @endforeach
+                                                            <option value="SCHOOL OF CIVIL & ENVIRONMENTAL ENGINEERING">SCEE</option>
+                                                            <option value="SCHOOL OF CHEMICAL & MATERIALS ENGINEERING">SCME</option>
+                                                            <option value="SCHOOL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCE">SEECS</option>
+                                                            <option value="SCHOOL OF MECHANICAL & MANUFACTURING ENGINEERING">SMME</option>
+                                                            <option value="US-PAKISTAN CENTER FOR ADVANCED STUDIES IN ENERGY">US-PCASE</option>
+                                                            <option value="NUST BALOCHISTAN CAMPUS, QUETTA">NUST BALOCHISTAN CAMPUS, QUETTA</option>
+                                                            <option value="COLLEGE OF AERONAUTICAL ENGINEERING">COLLEGE OF AERONAUTICAL ENGINEERING</option>
+                                                            <option value="COLLEGE OF ELECTRICAL & MECHANICAL ENGINEERING">COLLEGE OF EME</option>
+                                                            <option value="MILITARY COLLEGE OF ENGINEERING">MCE</option>
+                                                            <option value="MILITARY COLLEGE OF SIGNALS">MCS</option>
+                                                            <option value="PAKISTAN NAVY ENGINEERING COLLEGE">PAKISTAN NAVY ENGINEERING COLLEGE</option>
+                                                            <option value="NATIONAL INSTITUTE OF TRANSPORTATION">NATIONAL INSTITUTE OF TRANSPORTATION</option>
+                                                            <option value="INSTITUTE OF ENVIRONMENTAL SCIENCES & ENGINEERING">IESE</option>
+                                                            <option value="NUST INSTITUTE OF CIVIL ENGINEERING">NUST ICE</option>
+                                                            <option value="INSTITUTE OF GEOGRAPHICAL INFORMATION SYSTEMS">IGIS</option>
+                                                            <option value="NUST BUSINESS SCHOOL">NBS</option>
+                                                            <option value="SCHOOL OF ART, DESIGN & ARCHITECTURE">SADA</option>
+                                                            <option value="CENTRE FOR INTERNATIONAL PEACE & STABILITY">CIPS</option>
+                                                            <option value="NUST INSTITUTE OF PEACE & CONFLICT STUDIES">NUST IPCS</option>
+                                                            <option value="SCHOOL OF SOCIAL SCIENCES & HUMANITIES">SSSH</option>
+                                                            <option value="ATTA-UR-RAHMAN SCHOOL OF APPLIED BIO SCIENCES">ASABS</option>
+                                                            <option value="SCHOOL OF NATURAL SCIENCES">SNS</option>
+                                                            <option value="NUST SCHOOL OF HEALTH SCIENCES">NUST SHS</option>
+                                                            <option value="SCHOOL OF INTERDISCIPLINARY ENGINEERING & SCIENCES">SIES</option>
+                                                            <!-- Add your school options here -->
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
                                                         <label for="country_select">Select Country</label>
-                                                        <select name="country" id="country_select"
-                                                            class="form-control">
-                                                            @foreach ($countries as $item)                                                                
-                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                            @endforeach
+                                                        <select name="country" id="country_select" class="form-control">
+                                                            <option value="" selected>Select Country</option>
+                                                            <option value="Pakistan">Pakistan</option>
+                                                            <option value="Australia">Australia</option>
+                                                            <option value="Canada">Canada</option>
+                                                            <option value="China">China</option>
+                                                            <option value="Germany">Germany</option>
+                                                            <option value="Pakistan">Pakistan</option>
+                                                            <option value="Qatar">Qatar</option>
+                                                            <option value="Saudi Arabia">Saudi Arabia</option>
+                                                            <option value="Turkey">Turkey</option>
+                                                            <option value="United Arab Emirates">United Arab Emirates</option>
+                                                            <option value="United Kingdom">United Kingdom</option>
+                                                            <option value="United States">United States</option>
+
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
-                                                        <label for="year" class="form-label">Select Year of
-                                                            Graduation</label>
+                                                        <label for="year" class="form-label">Select Year of Graduation</label>
                                                         <select id="year" name="year" class="form-control">
-                                                            <option value="" selected>Select Year of Graduation
-                                                            </option>
-                                                            @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                <option value="{{ $i }}">
-                                                                    {{ $i }}</option>
-                                                            @endfor
+                                                            <option value="" selected>Select Year of Graduation</option>
+                                                            <option value="1990">1990</option>
+                                                            <option value="1991">1991</option>
+                                                            <option value="1992">1992</option>
+                                                            <option value="1993">1993</option>
+                                                            <option value="1994">1994</option>
+                                                            <option value="1995">1995</option>
+                                                            <option value="1996">1996</option>
+                                                            <option value="1997">1997</option>
+                                                            <option value="1998">1998</option>
+                                                            <option value="1999">1999</option>
+                                                            <option value="2000">2000</option>
+                                                            <option value="2001">2001</option>
+                                                            <option value="2002">2002</option>
+                                                            <option value="2003">2003</option>
+                                                            <option value="2004">2004</option>
+                                                            <option value="2005">2005</option>
+                                                            <option value="2006">2006</option>
+                                                            <option value="2007">2007</option>
+                                                            <option value="2008">2008</option>
+                                                            <option value="2009">2009</option>
+                                                            <option value="2010">2010</option>
+                                                            <option value="2011">2011</option>
+                                                            <option value="2012">2012</option>
+                                                            <option value="2013">2013</option>
+                                                            <option value="2014">2014</option>
+                                                            <option value="2015">2015</option>
+                                                            <option value="2016">2016</option>
+                                                            <option value="2017">2017</option>
+                                                            <option value="2018">2018</option>
+                                                            <option value="2019">2019</option>
+                                                            <option value="2020">2020</option>
+                                                            <option value="2021">2021</option>
+                                                            <option value="2022">2022</option>
+                                                            <option value="2023">2023</option>
+                                                            <option value="2024">2024</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -281,37 +341,97 @@
                                                         });
                                                     </script>
                                                                                                         <div class="row d-none ml-3" id="single-endwment-ug-eng">
-                                                                                                            <div class="col-md-10">
-                                                                                                                <label for="school_select">Select School</label>
-                                                                                                                <select name="school" id="school_select"
-                                                                                                                    class="form-control">
-                                                                                                                    <option value="" selected>Select School</option>
-                                                                                                                    @foreach ($schools as $item)                                                                
-                                                                                                                    <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
-                                                                                                                    @endforeach
-                                                                                                                </select>
-                                                                                                            </div>
-                                                                                                            <div class="col-md-10">
-                                                                                                                <label for="country_select">Select Country</label>
-                                                                                                                <select name="country" id="country_select"
-                                                                                                                    class="form-control">
-                                                                                                                    @foreach ($countries as $item)                                                                
-                                                                                                                    <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                                                                                    @endforeach
-                                                                                                                </select>
-                                                                                                            </div>
-                                                                                                            <div class="col-md-10">
-                                                                                                                <label for="year" class="form-label">Select Year of
-                                                                                                                    Graduation</label>
-                                                                                                                <select id="year" name="year" class="form-control">
-                                                                                                                    <option value="" selected>Select Year of Graduation
-                                                                                                                    </option>
-                                                                                                                    @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                                                                        <option value="{{ $i }}">
-                                                                                                                            {{ $i }}</option>
-                                                                                                                    @endfor
-                                                                                                                </select>
-                                                                                                            </div>
+                                                        <div class="col-md-10">
+                                                            <label for="school_select">Select School</label>
+                                                            <select name="school" id="school_select" class="form-control">
+                                                                <option value="" selected>Select School</option>
+                                                                <option value="SCHOOL OF CIVIL & ENVIRONMENTAL ENGINEERING">SCEE</option>
+                                                                <option value="SCHOOL OF CHEMICAL & MATERIALS ENGINEERING">SCME</option>
+                                                                <option value="SCHOOL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCE">SEECS</option>
+                                                                <option value="SCHOOL OF MECHANICAL & MANUFACTURING ENGINEERING">SMME</option>
+                                                                <option value="US-PAKISTAN CENTER FOR ADVANCED STUDIES IN ENERGY">US-PCASE</option>
+                                                                <option value="NUST BALOCHISTAN CAMPUS, QUETTA">NUST BALOCHISTAN CAMPUS, QUETTA</option>
+                                                                <option value="COLLEGE OF AERONAUTICAL ENGINEERING">COLLEGE OF AERONAUTICAL ENGINEERING</option>
+                                                                <option value="COLLEGE OF ELECTRICAL & MECHANICAL ENGINEERING">COLLEGE OF EME</option>
+                                                                <option value="MILITARY COLLEGE OF ENGINEERING">MCE</option>
+                                                                <option value="MILITARY COLLEGE OF SIGNALS">MCS</option>
+                                                                <option value="PAKISTAN NAVY ENGINEERING COLLEGE">PAKISTAN NAVY ENGINEERING COLLEGE</option>
+                                                                <option value="NATIONAL INSTITUTE OF TRANSPORTATION">NATIONAL INSTITUTE OF TRANSPORTATION</option>
+                                                                <option value="INSTITUTE OF ENVIRONMENTAL SCIENCES & ENGINEERING">IESE</option>
+                                                                <option value="NUST INSTITUTE OF CIVIL ENGINEERING">NUST ICE</option>
+                                                                <option value="INSTITUTE OF GEOGRAPHICAL INFORMATION SYSTEMS">IGIS</option>
+                                                                <option value="NUST BUSINESS SCHOOL">NBS</option>
+                                                                <option value="SCHOOL OF ART, DESIGN & ARCHITECTURE">SADA</option>
+                                                                <option value="CENTRE FOR INTERNATIONAL PEACE & STABILITY">CIPS</option>
+                                                                <option value="NUST INSTITUTE OF PEACE & CONFLICT STUDIES">NUST IPCS</option>
+                                                                <option value="SCHOOL OF SOCIAL SCIENCES & HUMANITIES">SSSH</option>
+                                                                <option value="ATTA-UR-RAHMAN SCHOOL OF APPLIED BIO SCIENCES">ASABS</option>
+                                                                <option value="SCHOOL OF NATURAL SCIENCES">SNS</option>
+                                                                <option value="NUST SCHOOL OF HEALTH SCIENCES">NUST SHS</option>
+                                                                <option value="SCHOOL OF INTERDISCIPLINARY ENGINEERING & SCIENCES">SIES</option>
+                                                                <!-- Add your school options here -->
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <label for="country_select">Select Country</label>
+                                                            <select name="country" id="country_select" class="form-control">
+                                                                <option value="" selected>Select Country</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="China">China</option>
+                                                                <option value="Germany">Germany</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Qatar">Qatar</option>
+                                                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                                                <option value="Turkey">Turkey</option>
+                                                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                                                <option value="United Kingdom">United Kingdom</option>
+                                                                <option value="United States">United States</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <label for="year" class="form-label">Select Year of Graduation</label>
+                                                            <select id="year" name="year" class="form-control">
+                                                                <option value="" selected>Select Year of Graduation</option>
+                                                                <option value="1990">1990</option>
+                                                                <option value="1991">1991</option>
+                                                                <option value="1992">1992</option>
+                                                                <option value="1993">1993</option>
+                                                                <option value="1994">1994</option>
+                                                                <option value="1995">1995</option>
+                                                                <option value="1996">1996</option>
+                                                                <option value="1997">1997</option>
+                                                                <option value="1998">1998</option>
+                                                                <option value="1999">1999</option>
+                                                                <option value="2000">2000</option>
+                                                                <option value="2001">2001</option>
+                                                                <option value="2002">2002</option>
+                                                                <option value="2003">2003</option>
+                                                                <option value="2004">2004</option>
+                                                                <option value="2005">2005</option>
+                                                                <option value="2006">2006</option>
+                                                                <option value="2007">2007</option>
+                                                                <option value="2008">2008</option>
+                                                                <option value="2009">2009</option>
+                                                                <option value="2010">2010</option>
+                                                                <option value="2011">2011</option>
+                                                                <option value="2012">2012</option>
+                                                                <option value="2013">2013</option>
+                                                                <option value="2014">2014</option>
+                                                                <option value="2015">2015</option>
+                                                                <option value="2016">2016</option>
+                                                                <option value="2017">2017</option>
+                                                                <option value="2018">2018</option>
+                                                                <option value="2019">2019</option>
+                                                                <option value="2020">2020</option>
+                                                                <option value="2021">2021</option>
+                                                                <option value="2022">2022</option>
+                                                                <option value="2023">2023</option>
+                                                                <option value="2024">2024</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
 
                                                    </div>
@@ -350,17 +470,14 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="text" name="program_type" value="UG_Single_endowment" hidden>
+                                        <input type="text" name="program" value="UG" hidden>
                                         <input type="text" name="endowment_type" value="Single_endowment" hidden>
                                         <div class="form-group">
-                                            <label for="degree">Select Degree:</label>
-                                            <select id="degree" name="degree" class="form-control">
+                                            <label for="degree">Select Options:</label>
+                                            <select id="degree" name="degree" class="form-control form-control-sm">
                                                 <option value="">Select Degree</option>
                                                 @foreach ($undergraduate as $degree)
-                                                    <option value="{{ $degree->fee }}"
-                                                        data-degree-name="{{ $degree->degree }}">
-                                                        {{ $degree->degree }}
-                                                    </option>
+                                                    <option value="{{ $degree->fee }}" data-degree-name="{{ $degree->degree }}">{{ $degree->degree }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -458,33 +575,93 @@
                                                 <div class="row d-none ml-3" id="custom-endwment-ug-eng">
                                                     <div class="col-md-10">
                                                         <label for="school_select">Select School</label>
-                                                        <select name="school" id="school_select"
-                                                            class="form-control">
+                                                        <select name="school" id="school_select" class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)                                                                
-                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
-                                                            @endforeach
+                                                            <option value="SCHOOL OF CIVIL & ENVIRONMENTAL ENGINEERING">SCEE</option>
+                                                            <option value="SCHOOL OF CHEMICAL & MATERIALS ENGINEERING">SCME</option>
+                                                            <option value="SCHOOL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCE">SEECS</option>
+                                                            <option value="SCHOOL OF MECHANICAL & MANUFACTURING ENGINEERING">SMME</option>
+                                                            <option value="US-PAKISTAN CENTER FOR ADVANCED STUDIES IN ENERGY">US-PCASE</option>
+                                                            <option value="NUST BALOCHISTAN CAMPUS, QUETTA">NUST BALOCHISTAN CAMPUS, QUETTA</option>
+                                                            <option value="COLLEGE OF AERONAUTICAL ENGINEERING">COLLEGE OF AERONAUTICAL ENGINEERING</option>
+                                                            <option value="COLLEGE OF ELECTRICAL & MECHANICAL ENGINEERING">COLLEGE OF EME</option>
+                                                            <option value="MILITARY COLLEGE OF ENGINEERING">MCE</option>
+                                                            <option value="MILITARY COLLEGE OF SIGNALS">MCS</option>
+                                                            <option value="PAKISTAN NAVY ENGINEERING COLLEGE">PAKISTAN NAVY ENGINEERING COLLEGE</option>
+                                                            <option value="NATIONAL INSTITUTE OF TRANSPORTATION">NATIONAL INSTITUTE OF TRANSPORTATION</option>
+                                                            <option value="INSTITUTE OF ENVIRONMENTAL SCIENCES & ENGINEERING">IESE</option>
+                                                            <option value="NUST INSTITUTE OF CIVIL ENGINEERING">NUST ICE</option>
+                                                            <option value="INSTITUTE OF GEOGRAPHICAL INFORMATION SYSTEMS">IGIS</option>
+                                                            <option value="NUST BUSINESS SCHOOL">NBS</option>
+                                                            <option value="SCHOOL OF ART, DESIGN & ARCHITECTURE">SADA</option>
+                                                            <option value="CENTRE FOR INTERNATIONAL PEACE & STABILITY">CIPS</option>
+                                                            <option value="NUST INSTITUTE OF PEACE & CONFLICT STUDIES">NUST IPCS</option>
+                                                            <option value="SCHOOL OF SOCIAL SCIENCES & HUMANITIES">SSSH</option>
+                                                            <option value="ATTA-UR-RAHMAN SCHOOL OF APPLIED BIO SCIENCES">ASABS</option>
+                                                            <option value="SCHOOL OF NATURAL SCIENCES">SNS</option>
+                                                            <option value="NUST SCHOOL OF HEALTH SCIENCES">NUST SHS</option>
+                                                            <option value="SCHOOL OF INTERDISCIPLINARY ENGINEERING & SCIENCES">SIES</option>
+                                                            <!-- Add your school options here -->
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
                                                         <label for="country_select">Select Country</label>
-                                                        <select name="country" id="country_select"
-                                                            class="form-control">
-                                                            @foreach ($countries as $item)                                                                
-                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                            @endforeach
+                                                        <select name="country" id="country_select" class="form-control">
+                                                            <option value="" selected>Select Country</option>
+                                                            <option value="Pakistan">Pakistan</option>
+                                                            <option value="Australia">Australia</option>
+                                                            <option value="Canada">Canada</option>
+                                                            <option value="China">China</option>
+                                                            <option value="Germany">Germany</option>
+                                                            <option value="Pakistan">Pakistan</option>
+                                                            <option value="Qatar">Qatar</option>
+                                                            <option value="Saudi Arabia">Saudi Arabia</option>
+                                                            <option value="Turkey">Turkey</option>
+                                                            <option value="United Arab Emirates">United Arab Emirates</option>
+                                                            <option value="United Kingdom">United Kingdom</option>
+                                                            <option value="United States">United States</option>
+
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
-                                                        <label for="year" class="form-label">Select Year of
-                                                            Graduation</label>
+                                                        <label for="year" class="form-label">Select Year of Graduation</label>
                                                         <select id="year" name="year" class="form-control">
-                                                            <option value="" selected>Select Year of Graduation
-                                                            </option>
-                                                            @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                <option value="{{ $i }}">
-                                                                    {{ $i }}</option>
-                                                            @endfor
+                                                            <option value="" selected>Select Year of Graduation</option>
+                                                            <option value="1990">1990</option>
+                                                            <option value="1991">1991</option>
+                                                            <option value="1992">1992</option>
+                                                            <option value="1993">1993</option>
+                                                            <option value="1994">1994</option>
+                                                            <option value="1995">1995</option>
+                                                            <option value="1996">1996</option>
+                                                            <option value="1997">1997</option>
+                                                            <option value="1998">1998</option>
+                                                            <option value="1999">1999</option>
+                                                            <option value="2000">2000</option>
+                                                            <option value="2001">2001</option>
+                                                            <option value="2002">2002</option>
+                                                            <option value="2003">2003</option>
+                                                            <option value="2004">2004</option>
+                                                            <option value="2005">2005</option>
+                                                            <option value="2006">2006</option>
+                                                            <option value="2007">2007</option>
+                                                            <option value="2008">2008</option>
+                                                            <option value="2009">2009</option>
+                                                            <option value="2010">2010</option>
+                                                            <option value="2011">2011</option>
+                                                            <option value="2012">2012</option>
+                                                            <option value="2013">2013</option>
+                                                            <option value="2014">2014</option>
+                                                            <option value="2015">2015</option>
+                                                            <option value="2016">2016</option>
+                                                            <option value="2017">2017</option>
+                                                            <option value="2018">2018</option>
+                                                            <option value="2019">2019</option>
+                                                            <option value="2020">2020</option>
+                                                            <option value="2021">2021</option>
+                                                            <option value="2022">2022</option>
+                                                            <option value="2023">2023</option>
+                                                            <option value="2024">2024</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -620,33 +797,93 @@
                                                     <div class="row d-none ml-3" id="circular-endwment-ug-eng">
                                                         <div class="col-md-10">
                                                             <label for="school_select">Select School</label>
-                                                            <select name="school" id="school_select"
-                                                                class="form-control">
+                                                            <select name="school" id="school_select" class="form-control">
                                                                 <option value="" selected>Select School</option>
-                                                                @foreach ($schools as $item)                                                                
-                                                                <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
-                                                                @endforeach
+                                                                <option value="SCHOOL OF CIVIL & ENVIRONMENTAL ENGINEERING">SCEE</option>
+                                                                <option value="SCHOOL OF CHEMICAL & MATERIALS ENGINEERING">SCME</option>
+                                                                <option value="SCHOOL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCE">SEECS</option>
+                                                                <option value="SCHOOL OF MECHANICAL & MANUFACTURING ENGINEERING">SMME</option>
+                                                                <option value="US-PAKISTAN CENTER FOR ADVANCED STUDIES IN ENERGY">US-PCASE</option>
+                                                                <option value="NUST BALOCHISTAN CAMPUS, QUETTA">NUST BALOCHISTAN CAMPUS, QUETTA</option>
+                                                                <option value="COLLEGE OF AERONAUTICAL ENGINEERING">COLLEGE OF AERONAUTICAL ENGINEERING</option>
+                                                                <option value="COLLEGE OF ELECTRICAL & MECHANICAL ENGINEERING">COLLEGE OF EME</option>
+                                                                <option value="MILITARY COLLEGE OF ENGINEERING">MCE</option>
+                                                                <option value="MILITARY COLLEGE OF SIGNALS">MCS</option>
+                                                                <option value="PAKISTAN NAVY ENGINEERING COLLEGE">PAKISTAN NAVY ENGINEERING COLLEGE</option>
+                                                                <option value="NATIONAL INSTITUTE OF TRANSPORTATION">NATIONAL INSTITUTE OF TRANSPORTATION</option>
+                                                                <option value="INSTITUTE OF ENVIRONMENTAL SCIENCES & ENGINEERING">IESE</option>
+                                                                <option value="NUST INSTITUTE OF CIVIL ENGINEERING">NUST ICE</option>
+                                                                <option value="INSTITUTE OF GEOGRAPHICAL INFORMATION SYSTEMS">IGIS</option>
+                                                                <option value="NUST BUSINESS SCHOOL">NBS</option>
+                                                                <option value="SCHOOL OF ART, DESIGN & ARCHITECTURE">SADA</option>
+                                                                <option value="CENTRE FOR INTERNATIONAL PEACE & STABILITY">CIPS</option>
+                                                                <option value="NUST INSTITUTE OF PEACE & CONFLICT STUDIES">NUST IPCS</option>
+                                                                <option value="SCHOOL OF SOCIAL SCIENCES & HUMANITIES">SSSH</option>
+                                                                <option value="ATTA-UR-RAHMAN SCHOOL OF APPLIED BIO SCIENCES">ASABS</option>
+                                                                <option value="SCHOOL OF NATURAL SCIENCES">SNS</option>
+                                                                <option value="NUST SCHOOL OF HEALTH SCIENCES">NUST SHS</option>
+                                                                <option value="SCHOOL OF INTERDISCIPLINARY ENGINEERING & SCIENCES">SIES</option>
+                                                                <!-- Add your school options here -->
                                                             </select>
                                                         </div>
                                                         <div class="col-md-10">
                                                             <label for="country_select">Select Country</label>
-                                                            <select name="country" id="country_select"
-                                                                class="form-control">
-                                                                @foreach ($countries as $item)                                                                
-                                                                <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                                @endforeach
+                                                            <select name="country" id="country_select" class="form-control">
+                                                                <option value="" selected>Select Country</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="China">China</option>
+                                                                <option value="Germany">Germany</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Qatar">Qatar</option>
+                                                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                                                <option value="Turkey">Turkey</option>
+                                                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                                                <option value="United Kingdom">United Kingdom</option>
+                                                                <option value="United States">United States</option>
+
                                                             </select>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <label for="year" class="form-label">Select Year of
-                                                                Graduation</label>
+                                                            <label for="year" class="form-label">Select Year of Graduation</label>
                                                             <select id="year" name="year" class="form-control">
-                                                                <option value="" selected>Select Year of Graduation
-                                                                </option>
-                                                                @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                    <option value="{{ $i }}">
-                                                                        {{ $i }}</option>
-                                                                @endfor
+                                                                <option value="" selected>Select Year of Graduation</option>
+                                                                <option value="1990">1990</option>
+                                                                <option value="1991">1991</option>
+                                                                <option value="1992">1992</option>
+                                                                <option value="1993">1993</option>
+                                                                <option value="1994">1994</option>
+                                                                <option value="1995">1995</option>
+                                                                <option value="1996">1996</option>
+                                                                <option value="1997">1997</option>
+                                                                <option value="1998">1998</option>
+                                                                <option value="1999">1999</option>
+                                                                <option value="2000">2000</option>
+                                                                <option value="2001">2001</option>
+                                                                <option value="2002">2002</option>
+                                                                <option value="2003">2003</option>
+                                                                <option value="2004">2004</option>
+                                                                <option value="2005">2005</option>
+                                                                <option value="2006">2006</option>
+                                                                <option value="2007">2007</option>
+                                                                <option value="2008">2008</option>
+                                                                <option value="2009">2009</option>
+                                                                <option value="2010">2010</option>
+                                                                <option value="2011">2011</option>
+                                                                <option value="2012">2012</option>
+                                                                <option value="2013">2013</option>
+                                                                <option value="2014">2014</option>
+                                                                <option value="2015">2015</option>
+                                                                <option value="2016">2016</option>
+                                                                <option value="2017">2017</option>
+                                                                <option value="2018">2018</option>
+                                                                <option value="2019">2019</option>
+                                                                <option value="2020">2020</option>
+                                                                <option value="2021">2021</option>
+                                                                <option value="2022">2022</option>
+                                                                <option value="2023">2023</option>
+                                                                <option value="2024">2024</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -767,33 +1004,93 @@
                                                     <div class="row d-none ml-3" id="circular-endwment-ug-neng">
                                                         <div class="col-md-10">
                                                             <label for="school_select">Select School</label>
-                                                            <select name="school" id="school_select"
-                                                                class="form-control">
+                                                            <select name="school" id="school_select" class="form-control">
                                                                 <option value="" selected>Select School</option>
-                                                                @foreach ($schools as $item)                                                                
-                                                                <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
-                                                                @endforeach
+                                                                <option value="SCHOOL OF CIVIL & ENVIRONMENTAL ENGINEERING">SCEE</option>
+                                                                <option value="SCHOOL OF CHEMICAL & MATERIALS ENGINEERING">SCME</option>
+                                                                <option value="SCHOOL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCE">SEECS</option>
+                                                                <option value="SCHOOL OF MECHANICAL & MANUFACTURING ENGINEERING">SMME</option>
+                                                                <option value="US-PAKISTAN CENTER FOR ADVANCED STUDIES IN ENERGY">US-PCASE</option>
+                                                                <option value="NUST BALOCHISTAN CAMPUS, QUETTA">NUST BALOCHISTAN CAMPUS, QUETTA</option>
+                                                                <option value="COLLEGE OF AERONAUTICAL ENGINEERING">COLLEGE OF AERONAUTICAL ENGINEERING</option>
+                                                                <option value="COLLEGE OF ELECTRICAL & MECHANICAL ENGINEERING">COLLEGE OF EME</option>
+                                                                <option value="MILITARY COLLEGE OF ENGINEERING">MCE</option>
+                                                                <option value="MILITARY COLLEGE OF SIGNALS">MCS</option>
+                                                                <option value="PAKISTAN NAVY ENGINEERING COLLEGE">PAKISTAN NAVY ENGINEERING COLLEGE</option>
+                                                                <option value="NATIONAL INSTITUTE OF TRANSPORTATION">NATIONAL INSTITUTE OF TRANSPORTATION</option>
+                                                                <option value="INSTITUTE OF ENVIRONMENTAL SCIENCES & ENGINEERING">IESE</option>
+                                                                <option value="NUST INSTITUTE OF CIVIL ENGINEERING">NUST ICE</option>
+                                                                <option value="INSTITUTE OF GEOGRAPHICAL INFORMATION SYSTEMS">IGIS</option>
+                                                                <option value="NUST BUSINESS SCHOOL">NBS</option>
+                                                                <option value="SCHOOL OF ART, DESIGN & ARCHITECTURE">SADA</option>
+                                                                <option value="CENTRE FOR INTERNATIONAL PEACE & STABILITY">CIPS</option>
+                                                                <option value="NUST INSTITUTE OF PEACE & CONFLICT STUDIES">NUST IPCS</option>
+                                                                <option value="SCHOOL OF SOCIAL SCIENCES & HUMANITIES">SSSH</option>
+                                                                <option value="ATTA-UR-RAHMAN SCHOOL OF APPLIED BIO SCIENCES">ASABS</option>
+                                                                <option value="SCHOOL OF NATURAL SCIENCES">SNS</option>
+                                                                <option value="NUST SCHOOL OF HEALTH SCIENCES">NUST SHS</option>
+                                                                <option value="SCHOOL OF INTERDISCIPLINARY ENGINEERING & SCIENCES">SIES</option>
+                                                                <!-- Add your school options here -->
                                                             </select>
                                                         </div>
                                                         <div class="col-md-10">
                                                             <label for="country_select">Select Country</label>
-                                                            <select name="country" id="country_select"
-                                                                class="form-control">
-                                                                @foreach ($countries as $item)                                                                
-                                                                <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                                @endforeach
+                                                            <select name="country" id="country_select" class="form-control">
+                                                                <option value="" selected>Select Country</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="China">China</option>
+                                                                <option value="Germany">Germany</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Qatar">Qatar</option>
+                                                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                                                <option value="Turkey">Turkey</option>
+                                                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                                                <option value="United Kingdom">United Kingdom</option>
+                                                                <option value="United States">United States</option>
+
                                                             </select>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <label for="year" class="form-label">Select Year of
-                                                                Graduation</label>
+                                                            <label for="year" class="form-label">Select Year of Graduation</label>
                                                             <select id="year" name="year" class="form-control">
-                                                                <option value="" selected>Select Year of Graduation
-                                                                </option>
-                                                                @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                    <option value="{{ $i }}">
-                                                                        {{ $i }}</option>
-                                                                @endfor
+                                                                <option value="" selected>Select Year of Graduation</option>
+                                                                <option value="1990">1990</option>
+                                                                <option value="1991">1991</option>
+                                                                <option value="1992">1992</option>
+                                                                <option value="1993">1993</option>
+                                                                <option value="1994">1994</option>
+                                                                <option value="1995">1995</option>
+                                                                <option value="1996">1996</option>
+                                                                <option value="1997">1997</option>
+                                                                <option value="1998">1998</option>
+                                                                <option value="1999">1999</option>
+                                                                <option value="2000">2000</option>
+                                                                <option value="2001">2001</option>
+                                                                <option value="2002">2002</option>
+                                                                <option value="2003">2003</option>
+                                                                <option value="2004">2004</option>
+                                                                <option value="2005">2005</option>
+                                                                <option value="2006">2006</option>
+                                                                <option value="2007">2007</option>
+                                                                <option value="2008">2008</option>
+                                                                <option value="2009">2009</option>
+                                                                <option value="2010">2010</option>
+                                                                <option value="2011">2011</option>
+                                                                <option value="2012">2012</option>
+                                                                <option value="2013">2013</option>
+                                                                <option value="2014">2014</option>
+                                                                <option value="2015">2015</option>
+                                                                <option value="2016">2016</option>
+                                                                <option value="2017">2017</option>
+                                                                <option value="2018">2018</option>
+                                                                <option value="2019">2019</option>
+                                                                <option value="2020">2020</option>
+                                                                <option value="2021">2021</option>
+                                                                <option value="2022">2022</option>
+                                                                <option value="2023">2023</option>
+                                                                <option value="2024">2024</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -834,17 +1131,14 @@
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name="program_type" value="UG_circular_endowment" hidden>
+                                            <input type="text" name="program" value="UG" hidden>
                                             <input type="text" name="endowment_type" value="Circular_endowment" hidden>
                                             <div class="form-group">
-                                                <label for="degree">Select Options:</label>
+                                                <label for="circular_ugDegree">Select Options:</label>
                                                 <select id="circular_ugDegree" name="degree" class="form-control form-control-sm">
                                                     <option value="">Select Degree</option>
                                                     @foreach ($undergraduate as $degree)
-                                                    <option value="{{ $degree->fee }}"
-                                                        data-degree-name="{{ $degree->degree }}">
-                                                        {{ $degree->degree }}
-                                                    </option>
+                                                        <option value="{{ $degree->fee }}" data-degree-name="{{ $degree->degree }}">{{ $degree->degree }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -944,33 +1238,93 @@
                                                     <div class="row d-none ml-3" id="custom-circular-endwment-ug-eng">
                                                         <div class="col-md-10">
                                                             <label for="school_select">Select School</label>
-                                                            <select name="school" id="school_select"
-                                                                class="form-control">
+                                                            <select name="school" id="school_select" class="form-control">
                                                                 <option value="" selected>Select School</option>
-                                                                @foreach ($schools as $item)                                                                
-                                                                <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
-                                                                @endforeach
+                                                                <option value="SCHOOL OF CIVIL & ENVIRONMENTAL ENGINEERING">SCEE</option>
+                                                                <option value="SCHOOL OF CHEMICAL & MATERIALS ENGINEERING">SCME</option>
+                                                                <option value="SCHOOL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCE">SEECS</option>
+                                                                <option value="SCHOOL OF MECHANICAL & MANUFACTURING ENGINEERING">SMME</option>
+                                                                <option value="US-PAKISTAN CENTER FOR ADVANCED STUDIES IN ENERGY">US-PCASE</option>
+                                                                <option value="NUST BALOCHISTAN CAMPUS, QUETTA">NUST BALOCHISTAN CAMPUS, QUETTA</option>
+                                                                <option value="COLLEGE OF AERONAUTICAL ENGINEERING">COLLEGE OF AERONAUTICAL ENGINEERING</option>
+                                                                <option value="COLLEGE OF ELECTRICAL & MECHANICAL ENGINEERING">COLLEGE OF EME</option>
+                                                                <option value="MILITARY COLLEGE OF ENGINEERING">MCE</option>
+                                                                <option value="MILITARY COLLEGE OF SIGNALS">MCS</option>
+                                                                <option value="PAKISTAN NAVY ENGINEERING COLLEGE">PAKISTAN NAVY ENGINEERING COLLEGE</option>
+                                                                <option value="NATIONAL INSTITUTE OF TRANSPORTATION">NATIONAL INSTITUTE OF TRANSPORTATION</option>
+                                                                <option value="INSTITUTE OF ENVIRONMENTAL SCIENCES & ENGINEERING">IESE</option>
+                                                                <option value="NUST INSTITUTE OF CIVIL ENGINEERING">NUST ICE</option>
+                                                                <option value="INSTITUTE OF GEOGRAPHICAL INFORMATION SYSTEMS">IGIS</option>
+                                                                <option value="NUST BUSINESS SCHOOL">NBS</option>
+                                                                <option value="SCHOOL OF ART, DESIGN & ARCHITECTURE">SADA</option>
+                                                                <option value="CENTRE FOR INTERNATIONAL PEACE & STABILITY">CIPS</option>
+                                                                <option value="NUST INSTITUTE OF PEACE & CONFLICT STUDIES">NUST IPCS</option>
+                                                                <option value="SCHOOL OF SOCIAL SCIENCES & HUMANITIES">SSSH</option>
+                                                                <option value="ATTA-UR-RAHMAN SCHOOL OF APPLIED BIO SCIENCES">ASABS</option>
+                                                                <option value="SCHOOL OF NATURAL SCIENCES">SNS</option>
+                                                                <option value="NUST SCHOOL OF HEALTH SCIENCES">NUST SHS</option>
+                                                                <option value="SCHOOL OF INTERDISCIPLINARY ENGINEERING & SCIENCES">SIES</option>
+                                                                <!-- Add your school options here -->
                                                             </select>
                                                         </div>
                                                         <div class="col-md-10">
                                                             <label for="country_select">Select Country</label>
-                                                            <select name="country" id="country_select"
-                                                                class="form-control">
-                                                                @foreach ($countries as $item)                                                                
-                                                                <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                                @endforeach
+                                                            <select name="country" id="country_select" class="form-control">
+                                                                <option value="" selected>Select Country</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="China">China</option>
+                                                                <option value="Germany">Germany</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Qatar">Qatar</option>
+                                                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                                                <option value="Turkey">Turkey</option>
+                                                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                                                <option value="United Kingdom">United Kingdom</option>
+                                                                <option value="United States">United States</option>
+
                                                             </select>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <label for="year" class="form-label">Select Year of
-                                                                Graduation</label>
+                                                            <label for="year" class="form-label">Select Year of Graduation</label>
                                                             <select id="year" name="year" class="form-control">
-                                                                <option value="" selected>Select Year of Graduation
-                                                                </option>
-                                                                @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                    <option value="{{ $i }}">
-                                                                        {{ $i }}</option>
-                                                                @endfor
+                                                                <option value="" selected>Select Year of Graduation</option>
+                                                                <option value="1990">1990</option>
+                                                                <option value="1991">1991</option>
+                                                                <option value="1992">1992</option>
+                                                                <option value="1993">1993</option>
+                                                                <option value="1994">1994</option>
+                                                                <option value="1995">1995</option>
+                                                                <option value="1996">1996</option>
+                                                                <option value="1997">1997</option>
+                                                                <option value="1998">1998</option>
+                                                                <option value="1999">1999</option>
+                                                                <option value="2000">2000</option>
+                                                                <option value="2001">2001</option>
+                                                                <option value="2002">2002</option>
+                                                                <option value="2003">2003</option>
+                                                                <option value="2004">2004</option>
+                                                                <option value="2005">2005</option>
+                                                                <option value="2006">2006</option>
+                                                                <option value="2007">2007</option>
+                                                                <option value="2008">2008</option>
+                                                                <option value="2009">2009</option>
+                                                                <option value="2010">2010</option>
+                                                                <option value="2011">2011</option>
+                                                                <option value="2012">2012</option>
+                                                                <option value="2013">2013</option>
+                                                                <option value="2014">2014</option>
+                                                                <option value="2015">2015</option>
+                                                                <option value="2016">2016</option>
+                                                                <option value="2017">2017</option>
+                                                                <option value="2018">2018</option>
+                                                                <option value="2019">2019</option>
+                                                                <option value="2020">2020</option>
+                                                                <option value="2021">2021</option>
+                                                                <option value="2022">2022</option>
+                                                                <option value="2023">2023</option>
+                                                                <option value="2024">2024</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -1101,33 +1455,93 @@
                                                     <div class="row d-none ml-3" id="single-endwment-pg-eng">
                                                         <div class="col-md-10">
                                                             <label for="school_select">Select School</label>
-                                                            <select name="school" id="school_select"
-                                                                class="form-control">
+                                                            <select name="school" id="school_select" class="form-control">
                                                                 <option value="" selected>Select School</option>
-                                                                @foreach ($schools as $item)                                                                
-                                                                <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
-                                                                @endforeach
+                                                                <option value="SCHOOL OF CIVIL & ENVIRONMENTAL ENGINEERING">SCEE</option>
+                                                                <option value="SCHOOL OF CHEMICAL & MATERIALS ENGINEERING">SCME</option>
+                                                                <option value="SCHOOL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCE">SEECS</option>
+                                                                <option value="SCHOOL OF MECHANICAL & MANUFACTURING ENGINEERING">SMME</option>
+                                                                <option value="US-PAKISTAN CENTER FOR ADVANCED STUDIES IN ENERGY">US-PCASE</option>
+                                                                <option value="NUST BALOCHISTAN CAMPUS, QUETTA">NUST BALOCHISTAN CAMPUS, QUETTA</option>
+                                                                <option value="COLLEGE OF AERONAUTICAL ENGINEERING">COLLEGE OF AERONAUTICAL ENGINEERING</option>
+                                                                <option value="COLLEGE OF ELECTRICAL & MECHANICAL ENGINEERING">COLLEGE OF EME</option>
+                                                                <option value="MILITARY COLLEGE OF ENGINEERING">MCE</option>
+                                                                <option value="MILITARY COLLEGE OF SIGNALS">MCS</option>
+                                                                <option value="PAKISTAN NAVY ENGINEERING COLLEGE">PAKISTAN NAVY ENGINEERING COLLEGE</option>
+                                                                <option value="NATIONAL INSTITUTE OF TRANSPORTATION">NATIONAL INSTITUTE OF TRANSPORTATION</option>
+                                                                <option value="INSTITUTE OF ENVIRONMENTAL SCIENCES & ENGINEERING">IESE</option>
+                                                                <option value="NUST INSTITUTE OF CIVIL ENGINEERING">NUST ICE</option>
+                                                                <option value="INSTITUTE OF GEOGRAPHICAL INFORMATION SYSTEMS">IGIS</option>
+                                                                <option value="NUST BUSINESS SCHOOL">NBS</option>
+                                                                <option value="SCHOOL OF ART, DESIGN & ARCHITECTURE">SADA</option>
+                                                                <option value="CENTRE FOR INTERNATIONAL PEACE & STABILITY">CIPS</option>
+                                                                <option value="NUST INSTITUTE OF PEACE & CONFLICT STUDIES">NUST IPCS</option>
+                                                                <option value="SCHOOL OF SOCIAL SCIENCES & HUMANITIES">SSSH</option>
+                                                                <option value="ATTA-UR-RAHMAN SCHOOL OF APPLIED BIO SCIENCES">ASABS</option>
+                                                                <option value="SCHOOL OF NATURAL SCIENCES">SNS</option>
+                                                                <option value="NUST SCHOOL OF HEALTH SCIENCES">NUST SHS</option>
+                                                                <option value="SCHOOL OF INTERDISCIPLINARY ENGINEERING & SCIENCES">SIES</option>
+                                                                <!-- Add your school options here -->
                                                             </select>
                                                         </div>
                                                         <div class="col-md-10">
                                                             <label for="country_select">Select Country</label>
-                                                            <select name="country" id="country_select"
-                                                                class="form-control">
-                                                                @foreach ($countries as $item)                                                                
-                                                                <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                                @endforeach
+                                                            <select name="country" id="country_select" class="form-control">
+                                                                <option value="" selected>Select Country</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="China">China</option>
+                                                                <option value="Germany">Germany</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Qatar">Qatar</option>
+                                                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                                                <option value="Turkey">Turkey</option>
+                                                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                                                <option value="United Kingdom">United Kingdom</option>
+                                                                <option value="United States">United States</option>
+
                                                             </select>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <label for="year" class="form-label">Select Year of
-                                                                Graduation</label>
+                                                            <label for="year" class="form-label">Select Year of Graduation</label>
                                                             <select id="year" name="year" class="form-control">
-                                                                <option value="" selected>Select Year of Graduation
-                                                                </option>
-                                                                @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                    <option value="{{ $i }}">
-                                                                        {{ $i }}</option>
-                                                                @endfor
+                                                                <option value="" selected>Select Year of Graduation</option>
+                                                                <option value="1990">1990</option>
+                                                                <option value="1991">1991</option>
+                                                                <option value="1992">1992</option>
+                                                                <option value="1993">1993</option>
+                                                                <option value="1994">1994</option>
+                                                                <option value="1995">1995</option>
+                                                                <option value="1996">1996</option>
+                                                                <option value="1997">1997</option>
+                                                                <option value="1998">1998</option>
+                                                                <option value="1999">1999</option>
+                                                                <option value="2000">2000</option>
+                                                                <option value="2001">2001</option>
+                                                                <option value="2002">2002</option>
+                                                                <option value="2003">2003</option>
+                                                                <option value="2004">2004</option>
+                                                                <option value="2005">2005</option>
+                                                                <option value="2006">2006</option>
+                                                                <option value="2007">2007</option>
+                                                                <option value="2008">2008</option>
+                                                                <option value="2009">2009</option>
+                                                                <option value="2010">2010</option>
+                                                                <option value="2011">2011</option>
+                                                                <option value="2012">2012</option>
+                                                                <option value="2013">2013</option>
+                                                                <option value="2014">2014</option>
+                                                                <option value="2015">2015</option>
+                                                                <option value="2016">2016</option>
+                                                                <option value="2017">2017</option>
+                                                                <option value="2018">2018</option>
+                                                                <option value="2019">2019</option>
+                                                                <option value="2020">2020</option>
+                                                                <option value="2021">2021</option>
+                                                                <option value="2022">2022</option>
+                                                                <option value="2023">2023</option>
+                                                                <option value="2024">2024</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -1246,33 +1660,93 @@
                                                     <div class="row d-none ml-3" id="single-endwment-pg-neng">
                                                         <div class="col-md-10">
                                                             <label for="school_select">Select School</label>
-                                                            <select name="school" id="school_select"
-                                                                class="form-control">
+                                                            <select name="school" id="school_select" class="form-control">
                                                                 <option value="" selected>Select School</option>
-                                                                @foreach ($schools as $item)                                                                
-                                                                <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
-                                                                @endforeach
+                                                                <option value="SCHOOL OF CIVIL & ENVIRONMENTAL ENGINEERING">SCEE</option>
+                                                                <option value="SCHOOL OF CHEMICAL & MATERIALS ENGINEERING">SCME</option>
+                                                                <option value="SCHOOL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCE">SEECS</option>
+                                                                <option value="SCHOOL OF MECHANICAL & MANUFACTURING ENGINEERING">SMME</option>
+                                                                <option value="US-PAKISTAN CENTER FOR ADVANCED STUDIES IN ENERGY">US-PCASE</option>
+                                                                <option value="NUST BALOCHISTAN CAMPUS, QUETTA">NUST BALOCHISTAN CAMPUS, QUETTA</option>
+                                                                <option value="COLLEGE OF AERONAUTICAL ENGINEERING">COLLEGE OF AERONAUTICAL ENGINEERING</option>
+                                                                <option value="COLLEGE OF ELECTRICAL & MECHANICAL ENGINEERING">COLLEGE OF EME</option>
+                                                                <option value="MILITARY COLLEGE OF ENGINEERING">MCE</option>
+                                                                <option value="MILITARY COLLEGE OF SIGNALS">MCS</option>
+                                                                <option value="PAKISTAN NAVY ENGINEERING COLLEGE">PAKISTAN NAVY ENGINEERING COLLEGE</option>
+                                                                <option value="NATIONAL INSTITUTE OF TRANSPORTATION">NATIONAL INSTITUTE OF TRANSPORTATION</option>
+                                                                <option value="INSTITUTE OF ENVIRONMENTAL SCIENCES & ENGINEERING">IESE</option>
+                                                                <option value="NUST INSTITUTE OF CIVIL ENGINEERING">NUST ICE</option>
+                                                                <option value="INSTITUTE OF GEOGRAPHICAL INFORMATION SYSTEMS">IGIS</option>
+                                                                <option value="NUST BUSINESS SCHOOL">NBS</option>
+                                                                <option value="SCHOOL OF ART, DESIGN & ARCHITECTURE">SADA</option>
+                                                                <option value="CENTRE FOR INTERNATIONAL PEACE & STABILITY">CIPS</option>
+                                                                <option value="NUST INSTITUTE OF PEACE & CONFLICT STUDIES">NUST IPCS</option>
+                                                                <option value="SCHOOL OF SOCIAL SCIENCES & HUMANITIES">SSSH</option>
+                                                                <option value="ATTA-UR-RAHMAN SCHOOL OF APPLIED BIO SCIENCES">ASABS</option>
+                                                                <option value="SCHOOL OF NATURAL SCIENCES">SNS</option>
+                                                                <option value="NUST SCHOOL OF HEALTH SCIENCES">NUST SHS</option>
+                                                                <option value="SCHOOL OF INTERDISCIPLINARY ENGINEERING & SCIENCES">SIES</option>
+                                                                <!-- Add your school options here -->
                                                             </select>
                                                         </div>
                                                         <div class="col-md-10">
                                                             <label for="country_select">Select Country</label>
-                                                            <select name="country" id="country_select"
-                                                                class="form-control">
-                                                                @foreach ($countries as $item)                                                                
-                                                                <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                                @endforeach
+                                                            <select name="country" id="country_select" class="form-control">
+                                                                <option value="" selected>Select Country</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="China">China</option>
+                                                                <option value="Germany">Germany</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Qatar">Qatar</option>
+                                                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                                                <option value="Turkey">Turkey</option>
+                                                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                                                <option value="United Kingdom">United Kingdom</option>
+                                                                <option value="United States">United States</option>
+
                                                             </select>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <label for="year" class="form-label">Select Year of
-                                                                Graduation</label>
+                                                            <label for="year" class="form-label">Select Year of Graduation</label>
                                                             <select id="year" name="year" class="form-control">
-                                                                <option value="" selected>Select Year of Graduation
-                                                                </option>
-                                                                @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                    <option value="{{ $i }}">
-                                                                        {{ $i }}</option>
-                                                                @endfor
+                                                                <option value="" selected>Select Year of Graduation</option>
+                                                                <option value="1990">1990</option>
+                                                                <option value="1991">1991</option>
+                                                                <option value="1992">1992</option>
+                                                                <option value="1993">1993</option>
+                                                                <option value="1994">1994</option>
+                                                                <option value="1995">1995</option>
+                                                                <option value="1996">1996</option>
+                                                                <option value="1997">1997</option>
+                                                                <option value="1998">1998</option>
+                                                                <option value="1999">1999</option>
+                                                                <option value="2000">2000</option>
+                                                                <option value="2001">2001</option>
+                                                                <option value="2002">2002</option>
+                                                                <option value="2003">2003</option>
+                                                                <option value="2004">2004</option>
+                                                                <option value="2005">2005</option>
+                                                                <option value="2006">2006</option>
+                                                                <option value="2007">2007</option>
+                                                                <option value="2008">2008</option>
+                                                                <option value="2009">2009</option>
+                                                                <option value="2010">2010</option>
+                                                                <option value="2011">2011</option>
+                                                                <option value="2012">2012</option>
+                                                                <option value="2013">2013</option>
+                                                                <option value="2014">2014</option>
+                                                                <option value="2015">2015</option>
+                                                                <option value="2016">2016</option>
+                                                                <option value="2017">2017</option>
+                                                                <option value="2018">2018</option>
+                                                                <option value="2019">2019</option>
+                                                                <option value="2020">2020</option>
+                                                                <option value="2021">2021</option>
+                                                                <option value="2022">2022</option>
+                                                                <option value="2023">2023</option>
+                                                                <option value="2024">2024</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -1315,17 +1789,14 @@
 
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <input type="text" name="program_type" value="PG_Single_endowment" hidden>
+                                                <input type="text" name="program" value="PG" hidden>
                                                 <input type="text" name="endowment_type" value="Single_endowment" hidden>
                                                 <div class="form-group">
                                                     <label for="single_pgDegree">Select Options:</label>
                                                     <select id="single_pgDegree" name="degree" class="form-control form-control-sm">
                                                         <option value="">Select Degree</option>
                                                         @foreach ($postgraduate as $pgDegree)
-                                                        <option value="{{ $degree->fee }}"
-                                                            data-degree-name="{{ $degree->degree }}">
-                                                            {{ $degree->degree }}
-                                                        </option>
+                                                            <option value="{{ $pgDegree->fee }}" data-degree-name="{{ $pgDegree->degree }}">{{ $pgDegree->degree }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -1426,33 +1897,93 @@
                                                         <div class="row d-none ml-3" id="single-custom-endwment-pg">
                                                             <div class="col-md-10">
                                                                 <label for="school_select">Select School</label>
-                                                                <select name="school" id="school_select"
-                                                                    class="form-control">
+                                                                <select name="school" id="school_select" class="form-control">
                                                                     <option value="" selected>Select School</option>
-                                                                    @foreach ($schools as $item)                                                                
-                                                                    <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
-                                                                    @endforeach
+                                                                    <option value="SCHOOL OF CIVIL & ENVIRONMENTAL ENGINEERING">SCEE</option>
+                                                                    <option value="SCHOOL OF CHEMICAL & MATERIALS ENGINEERING">SCME</option>
+                                                                    <option value="SCHOOL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCE">SEECS</option>
+                                                                    <option value="SCHOOL OF MECHANICAL & MANUFACTURING ENGINEERING">SMME</option>
+                                                                    <option value="US-PAKISTAN CENTER FOR ADVANCED STUDIES IN ENERGY">US-PCASE</option>
+                                                                    <option value="NUST BALOCHISTAN CAMPUS, QUETTA">NUST BALOCHISTAN CAMPUS, QUETTA</option>
+                                                                    <option value="COLLEGE OF AERONAUTICAL ENGINEERING">COLLEGE OF AERONAUTICAL ENGINEERING</option>
+                                                                    <option value="COLLEGE OF ELECTRICAL & MECHANICAL ENGINEERING">COLLEGE OF EME</option>
+                                                                    <option value="MILITARY COLLEGE OF ENGINEERING">MCE</option>
+                                                                    <option value="MILITARY COLLEGE OF SIGNALS">MCS</option>
+                                                                    <option value="PAKISTAN NAVY ENGINEERING COLLEGE">PAKISTAN NAVY ENGINEERING COLLEGE</option>
+                                                                    <option value="NATIONAL INSTITUTE OF TRANSPORTATION">NATIONAL INSTITUTE OF TRANSPORTATION</option>
+                                                                    <option value="INSTITUTE OF ENVIRONMENTAL SCIENCES & ENGINEERING">IESE</option>
+                                                                    <option value="NUST INSTITUTE OF CIVIL ENGINEERING">NUST ICE</option>
+                                                                    <option value="INSTITUTE OF GEOGRAPHICAL INFORMATION SYSTEMS">IGIS</option>
+                                                                    <option value="NUST BUSINESS SCHOOL">NBS</option>
+                                                                    <option value="SCHOOL OF ART, DESIGN & ARCHITECTURE">SADA</option>
+                                                                    <option value="CENTRE FOR INTERNATIONAL PEACE & STABILITY">CIPS</option>
+                                                                    <option value="NUST INSTITUTE OF PEACE & CONFLICT STUDIES">NUST IPCS</option>
+                                                                    <option value="SCHOOL OF SOCIAL SCIENCES & HUMANITIES">SSSH</option>
+                                                                    <option value="ATTA-UR-RAHMAN SCHOOL OF APPLIED BIO SCIENCES">ASABS</option>
+                                                                    <option value="SCHOOL OF NATURAL SCIENCES">SNS</option>
+                                                                    <option value="NUST SCHOOL OF HEALTH SCIENCES">NUST SHS</option>
+                                                                    <option value="SCHOOL OF INTERDISCIPLINARY ENGINEERING & SCIENCES">SIES</option>
+                                                                    <!-- Add your school options here -->
                                                                 </select>
                                                             </div>
                                                             <div class="col-md-10">
                                                                 <label for="country_select">Select Country</label>
-                                                                <select name="country" id="country_select"
-                                                                    class="form-control">
-                                                                    @foreach ($countries as $item)                                                                
-                                                                    <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                                    @endforeach
+                                                                <select name="country" id="country_select" class="form-control">
+                                                                    <option value="" selected>Select Country</option>
+                                                                    <option value="Pakistan">Pakistan</option>
+                                                                    <option value="Australia">Australia</option>
+                                                                    <option value="Canada">Canada</option>
+                                                                    <option value="China">China</option>
+                                                                    <option value="Germany">Germany</option>
+                                                                    <option value="Pakistan">Pakistan</option>
+                                                                    <option value="Qatar">Qatar</option>
+                                                                    <option value="Saudi Arabia">Saudi Arabia</option>
+                                                                    <option value="Turkey">Turkey</option>
+                                                                    <option value="United Arab Emirates">United Arab Emirates</option>
+                                                                    <option value="United Kingdom">United Kingdom</option>
+                                                                    <option value="United States">United States</option>
+
                                                                 </select>
                                                             </div>
                                                             <div class="col-md-10">
-                                                                <label for="year" class="form-label">Select Year of
-                                                                    Graduation</label>
+                                                                <label for="year" class="form-label">Select Year of Graduation</label>
                                                                 <select id="year" name="year" class="form-control">
-                                                                    <option value="" selected>Select Year of Graduation
-                                                                    </option>
-                                                                    @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                        <option value="{{ $i }}">
-                                                                            {{ $i }}</option>
-                                                                    @endfor
+                                                                    <option value="" selected>Select Year of Graduation</option>
+                                                                    <option value="1990">1990</option>
+                                                                    <option value="1991">1991</option>
+                                                                    <option value="1992">1992</option>
+                                                                    <option value="1993">1993</option>
+                                                                    <option value="1994">1994</option>
+                                                                    <option value="1995">1995</option>
+                                                                    <option value="1996">1996</option>
+                                                                    <option value="1997">1997</option>
+                                                                    <option value="1998">1998</option>
+                                                                    <option value="1999">1999</option>
+                                                                    <option value="2000">2000</option>
+                                                                    <option value="2001">2001</option>
+                                                                    <option value="2002">2002</option>
+                                                                    <option value="2003">2003</option>
+                                                                    <option value="2004">2004</option>
+                                                                    <option value="2005">2005</option>
+                                                                    <option value="2006">2006</option>
+                                                                    <option value="2007">2007</option>
+                                                                    <option value="2008">2008</option>
+                                                                    <option value="2009">2009</option>
+                                                                    <option value="2010">2010</option>
+                                                                    <option value="2011">2011</option>
+                                                                    <option value="2012">2012</option>
+                                                                    <option value="2013">2013</option>
+                                                                    <option value="2014">2014</option>
+                                                                    <option value="2015">2015</option>
+                                                                    <option value="2016">2016</option>
+                                                                    <option value="2017">2017</option>
+                                                                    <option value="2018">2018</option>
+                                                                    <option value="2019">2019</option>
+                                                                    <option value="2020">2020</option>
+                                                                    <option value="2021">2021</option>
+                                                                    <option value="2022">2022</option>
+                                                                    <option value="2023">2023</option>
+                                                                    <option value="2024">2024</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -1578,33 +2109,93 @@
                                                 <div class="row d-none ml-3" id="circular-endwment-pg-eng">
                                                     <div class="col-md-10">
                                                         <label for="school_select">Select School</label>
-                                                        <select name="school" id="school_select"
-                                                            class="form-control">
+                                                        <select name="school" id="school_select" class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)                                                                
-                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
-                                                            @endforeach
+                                                            <option value="SCHOOL OF CIVIL & ENVIRONMENTAL ENGINEERING">SCEE</option>
+                                                            <option value="SCHOOL OF CHEMICAL & MATERIALS ENGINEERING">SCME</option>
+                                                            <option value="SCHOOL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCE">SEECS</option>
+                                                            <option value="SCHOOL OF MECHANICAL & MANUFACTURING ENGINEERING">SMME</option>
+                                                            <option value="US-PAKISTAN CENTER FOR ADVANCED STUDIES IN ENERGY">US-PCASE</option>
+                                                            <option value="NUST BALOCHISTAN CAMPUS, QUETTA">NUST BALOCHISTAN CAMPUS, QUETTA</option>
+                                                            <option value="COLLEGE OF AERONAUTICAL ENGINEERING">COLLEGE OF AERONAUTICAL ENGINEERING</option>
+                                                            <option value="COLLEGE OF ELECTRICAL & MECHANICAL ENGINEERING">COLLEGE OF EME</option>
+                                                            <option value="MILITARY COLLEGE OF ENGINEERING">MCE</option>
+                                                            <option value="MILITARY COLLEGE OF SIGNALS">MCS</option>
+                                                            <option value="PAKISTAN NAVY ENGINEERING COLLEGE">PAKISTAN NAVY ENGINEERING COLLEGE</option>
+                                                            <option value="NATIONAL INSTITUTE OF TRANSPORTATION">NATIONAL INSTITUTE OF TRANSPORTATION</option>
+                                                            <option value="INSTITUTE OF ENVIRONMENTAL SCIENCES & ENGINEERING">IESE</option>
+                                                            <option value="NUST INSTITUTE OF CIVIL ENGINEERING">NUST ICE</option>
+                                                            <option value="INSTITUTE OF GEOGRAPHICAL INFORMATION SYSTEMS">IGIS</option>
+                                                            <option value="NUST BUSINESS SCHOOL">NBS</option>
+                                                            <option value="SCHOOL OF ART, DESIGN & ARCHITECTURE">SADA</option>
+                                                            <option value="CENTRE FOR INTERNATIONAL PEACE & STABILITY">CIPS</option>
+                                                            <option value="NUST INSTITUTE OF PEACE & CONFLICT STUDIES">NUST IPCS</option>
+                                                            <option value="SCHOOL OF SOCIAL SCIENCES & HUMANITIES">SSSH</option>
+                                                            <option value="ATTA-UR-RAHMAN SCHOOL OF APPLIED BIO SCIENCES">ASABS</option>
+                                                            <option value="SCHOOL OF NATURAL SCIENCES">SNS</option>
+                                                            <option value="NUST SCHOOL OF HEALTH SCIENCES">NUST SHS</option>
+                                                            <option value="SCHOOL OF INTERDISCIPLINARY ENGINEERING & SCIENCES">SIES</option>
+                                                            <!-- Add your school options here -->
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
                                                         <label for="country_select">Select Country</label>
-                                                        <select name="country" id="country_select"
-                                                            class="form-control">
-                                                            @foreach ($countries as $item)                                                                
-                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                            @endforeach
+                                                        <select name="country" id="country_select" class="form-control">
+                                                            <option value="" selected>Select Country</option>
+                                                            <option value="Pakistan">Pakistan</option>
+                                                            <option value="Australia">Australia</option>
+                                                            <option value="Canada">Canada</option>
+                                                            <option value="China">China</option>
+                                                            <option value="Germany">Germany</option>
+                                                            <option value="Pakistan">Pakistan</option>
+                                                            <option value="Qatar">Qatar</option>
+                                                            <option value="Saudi Arabia">Saudi Arabia</option>
+                                                            <option value="Turkey">Turkey</option>
+                                                            <option value="United Arab Emirates">United Arab Emirates</option>
+                                                            <option value="United Kingdom">United Kingdom</option>
+                                                            <option value="United States">United States</option>
+
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
-                                                        <label for="year" class="form-label">Select Year of
-                                                            Graduation</label>
+                                                        <label for="year" class="form-label">Select Year of Graduation</label>
                                                         <select id="year" name="year" class="form-control">
-                                                            <option value="" selected>Select Year of Graduation
-                                                            </option>
-                                                            @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                <option value="{{ $i }}">
-                                                                    {{ $i }}</option>
-                                                            @endfor
+                                                            <option value="" selected>Select Year of Graduation</option>
+                                                            <option value="1990">1990</option>
+                                                            <option value="1991">1991</option>
+                                                            <option value="1992">1992</option>
+                                                            <option value="1993">1993</option>
+                                                            <option value="1994">1994</option>
+                                                            <option value="1995">1995</option>
+                                                            <option value="1996">1996</option>
+                                                            <option value="1997">1997</option>
+                                                            <option value="1998">1998</option>
+                                                            <option value="1999">1999</option>
+                                                            <option value="2000">2000</option>
+                                                            <option value="2001">2001</option>
+                                                            <option value="2002">2002</option>
+                                                            <option value="2003">2003</option>
+                                                            <option value="2004">2004</option>
+                                                            <option value="2005">2005</option>
+                                                            <option value="2006">2006</option>
+                                                            <option value="2007">2007</option>
+                                                            <option value="2008">2008</option>
+                                                            <option value="2009">2009</option>
+                                                            <option value="2010">2010</option>
+                                                            <option value="2011">2011</option>
+                                                            <option value="2012">2012</option>
+                                                            <option value="2013">2013</option>
+                                                            <option value="2014">2014</option>
+                                                            <option value="2015">2015</option>
+                                                            <option value="2016">2016</option>
+                                                            <option value="2017">2017</option>
+                                                            <option value="2018">2018</option>
+                                                            <option value="2019">2019</option>
+                                                            <option value="2020">2020</option>
+                                                            <option value="2021">2021</option>
+                                                            <option value="2022">2022</option>
+                                                            <option value="2023">2023</option>
+                                                            <option value="2024">2024</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -1724,33 +2315,93 @@
                                                 <div class="row d-none ml-3" id="circular-endwment-pg-neng">
                                                     <div class="col-md-10">
                                                         <label for="school_select">Select School</label>
-                                                        <select name="school" id="school_select"
-                                                            class="form-control">
+                                                        <select name="school" id="school_select" class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)                                                                
-                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
-                                                            @endforeach
+                                                            <option value="SCHOOL OF CIVIL & ENVIRONMENTAL ENGINEERING">SCEE</option>
+                                                            <option value="SCHOOL OF CHEMICAL & MATERIALS ENGINEERING">SCME</option>
+                                                            <option value="SCHOOL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCE">SEECS</option>
+                                                            <option value="SCHOOL OF MECHANICAL & MANUFACTURING ENGINEERING">SMME</option>
+                                                            <option value="US-PAKISTAN CENTER FOR ADVANCED STUDIES IN ENERGY">US-PCASE</option>
+                                                            <option value="NUST BALOCHISTAN CAMPUS, QUETTA">NUST BALOCHISTAN CAMPUS, QUETTA</option>
+                                                            <option value="COLLEGE OF AERONAUTICAL ENGINEERING">COLLEGE OF AERONAUTICAL ENGINEERING</option>
+                                                            <option value="COLLEGE OF ELECTRICAL & MECHANICAL ENGINEERING">COLLEGE OF EME</option>
+                                                            <option value="MILITARY COLLEGE OF ENGINEERING">MCE</option>
+                                                            <option value="MILITARY COLLEGE OF SIGNALS">MCS</option>
+                                                            <option value="PAKISTAN NAVY ENGINEERING COLLEGE">PAKISTAN NAVY ENGINEERING COLLEGE</option>
+                                                            <option value="NATIONAL INSTITUTE OF TRANSPORTATION">NATIONAL INSTITUTE OF TRANSPORTATION</option>
+                                                            <option value="INSTITUTE OF ENVIRONMENTAL SCIENCES & ENGINEERING">IESE</option>
+                                                            <option value="NUST INSTITUTE OF CIVIL ENGINEERING">NUST ICE</option>
+                                                            <option value="INSTITUTE OF GEOGRAPHICAL INFORMATION SYSTEMS">IGIS</option>
+                                                            <option value="NUST BUSINESS SCHOOL">NBS</option>
+                                                            <option value="SCHOOL OF ART, DESIGN & ARCHITECTURE">SADA</option>
+                                                            <option value="CENTRE FOR INTERNATIONAL PEACE & STABILITY">CIPS</option>
+                                                            <option value="NUST INSTITUTE OF PEACE & CONFLICT STUDIES">NUST IPCS</option>
+                                                            <option value="SCHOOL OF SOCIAL SCIENCES & HUMANITIES">SSSH</option>
+                                                            <option value="ATTA-UR-RAHMAN SCHOOL OF APPLIED BIO SCIENCES">ASABS</option>
+                                                            <option value="SCHOOL OF NATURAL SCIENCES">SNS</option>
+                                                            <option value="NUST SCHOOL OF HEALTH SCIENCES">NUST SHS</option>
+                                                            <option value="SCHOOL OF INTERDISCIPLINARY ENGINEERING & SCIENCES">SIES</option>
+                                                            <!-- Add your school options here -->
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
                                                         <label for="country_select">Select Country</label>
-                                                        <select name="country" id="country_select"
-                                                            class="form-control">
-                                                            @foreach ($countries as $item)                                                                
-                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                            @endforeach
+                                                        <select name="country" id="country_select" class="form-control">
+                                                            <option value="" selected>Select Country</option>
+                                                            <option value="Pakistan">Pakistan</option>
+                                                            <option value="Australia">Australia</option>
+                                                            <option value="Canada">Canada</option>
+                                                            <option value="China">China</option>
+                                                            <option value="Germany">Germany</option>
+                                                            <option value="Pakistan">Pakistan</option>
+                                                            <option value="Qatar">Qatar</option>
+                                                            <option value="Saudi Arabia">Saudi Arabia</option>
+                                                            <option value="Turkey">Turkey</option>
+                                                            <option value="United Arab Emirates">United Arab Emirates</option>
+                                                            <option value="United Kingdom">United Kingdom</option>
+                                                            <option value="United States">United States</option>
+
                                                         </select>
                                                     </div>
                                                     <div class="col-md-10">
-                                                        <label for="year" class="form-label">Select Year of
-                                                            Graduation</label>
+                                                        <label for="year" class="form-label">Select Year of Graduation</label>
                                                         <select id="year" name="year" class="form-control">
-                                                            <option value="" selected>Select Year of Graduation
-                                                            </option>
-                                                            @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                <option value="{{ $i }}">
-                                                                    {{ $i }}</option>
-                                                            @endfor
+                                                            <option value="" selected>Select Year of Graduation</option>
+                                                            <option value="1990">1990</option>
+                                                            <option value="1991">1991</option>
+                                                            <option value="1992">1992</option>
+                                                            <option value="1993">1993</option>
+                                                            <option value="1994">1994</option>
+                                                            <option value="1995">1995</option>
+                                                            <option value="1996">1996</option>
+                                                            <option value="1997">1997</option>
+                                                            <option value="1998">1998</option>
+                                                            <option value="1999">1999</option>
+                                                            <option value="2000">2000</option>
+                                                            <option value="2001">2001</option>
+                                                            <option value="2002">2002</option>
+                                                            <option value="2003">2003</option>
+                                                            <option value="2004">2004</option>
+                                                            <option value="2005">2005</option>
+                                                            <option value="2006">2006</option>
+                                                            <option value="2007">2007</option>
+                                                            <option value="2008">2008</option>
+                                                            <option value="2009">2009</option>
+                                                            <option value="2010">2010</option>
+                                                            <option value="2011">2011</option>
+                                                            <option value="2012">2012</option>
+                                                            <option value="2013">2013</option>
+                                                            <option value="2014">2014</option>
+                                                            <option value="2015">2015</option>
+                                                            <option value="2016">2016</option>
+                                                            <option value="2017">2017</option>
+                                                            <option value="2018">2018</option>
+                                                            <option value="2019">2019</option>
+                                                            <option value="2020">2020</option>
+                                                            <option value="2021">2021</option>
+                                                            <option value="2022">2022</option>
+                                                            <option value="2023">2023</option>
+                                                            <option value="2024">2024</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -1794,17 +2445,14 @@
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name="program_type" value="PG_Circular_endowment" hidden>
+                                            <input type="text" name="program" value="PG" hidden>
                                             <input type="text" name="endowment_type" value="Circular_endowment" hidden>
                                             <div class="form-group">
                                                 <label for="circular_pgDegree">Select Options:</label>
                                                 <select id="circular_pgDegree" name="degree" class="form-control form-control-sm">
                                                     <option value="">Select Degree</option>
                                                     @foreach ($postgraduate as $pgDegree)
-                                                    <option value="{{ $degree->fee }}"
-                                                        data-degree-name="{{ $degree->degree }}">
-                                                        {{ $degree->degree }}
-                                                    </option>
+                                                        <option value="{{ $pgDegree->fee }}" data-degree-name="{{ $pgDegree->degree }}">{{ $pgDegree->degree }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -1905,33 +2553,93 @@
                                                     <div class="row d-none ml-3" id="circular-custom-endwment-pg">
                                                         <div class="col-md-10">
                                                             <label for="school_select">Select School</label>
-                                                            <select name="school" id="school_select"
-                                                                class="form-control">
+                                                            <select name="school" id="school_select" class="form-control">
                                                                 <option value="" selected>Select School</option>
-                                                                @foreach ($schools as $item)                                                                
-                                                                <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
-                                                                @endforeach
+                                                                <option value="SCHOOL OF CIVIL & ENVIRONMENTAL ENGINEERING">SCEE</option>
+                                                                <option value="SCHOOL OF CHEMICAL & MATERIALS ENGINEERING">SCME</option>
+                                                                <option value="SCHOOL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCE">SEECS</option>
+                                                                <option value="SCHOOL OF MECHANICAL & MANUFACTURING ENGINEERING">SMME</option>
+                                                                <option value="US-PAKISTAN CENTER FOR ADVANCED STUDIES IN ENERGY">US-PCASE</option>
+                                                                <option value="NUST BALOCHISTAN CAMPUS, QUETTA">NUST BALOCHISTAN CAMPUS, QUETTA</option>
+                                                                <option value="COLLEGE OF AERONAUTICAL ENGINEERING">COLLEGE OF AERONAUTICAL ENGINEERING</option>
+                                                                <option value="COLLEGE OF ELECTRICAL & MECHANICAL ENGINEERING">COLLEGE OF EME</option>
+                                                                <option value="MILITARY COLLEGE OF ENGINEERING">MCE</option>
+                                                                <option value="MILITARY COLLEGE OF SIGNALS">MCS</option>
+                                                                <option value="PAKISTAN NAVY ENGINEERING COLLEGE">PAKISTAN NAVY ENGINEERING COLLEGE</option>
+                                                                <option value="NATIONAL INSTITUTE OF TRANSPORTATION">NATIONAL INSTITUTE OF TRANSPORTATION</option>
+                                                                <option value="INSTITUTE OF ENVIRONMENTAL SCIENCES & ENGINEERING">IESE</option>
+                                                                <option value="NUST INSTITUTE OF CIVIL ENGINEERING">NUST ICE</option>
+                                                                <option value="INSTITUTE OF GEOGRAPHICAL INFORMATION SYSTEMS">IGIS</option>
+                                                                <option value="NUST BUSINESS SCHOOL">NBS</option>
+                                                                <option value="SCHOOL OF ART, DESIGN & ARCHITECTURE">SADA</option>
+                                                                <option value="CENTRE FOR INTERNATIONAL PEACE & STABILITY">CIPS</option>
+                                                                <option value="NUST INSTITUTE OF PEACE & CONFLICT STUDIES">NUST IPCS</option>
+                                                                <option value="SCHOOL OF SOCIAL SCIENCES & HUMANITIES">SSSH</option>
+                                                                <option value="ATTA-UR-RAHMAN SCHOOL OF APPLIED BIO SCIENCES">ASABS</option>
+                                                                <option value="SCHOOL OF NATURAL SCIENCES">SNS</option>
+                                                                <option value="NUST SCHOOL OF HEALTH SCIENCES">NUST SHS</option>
+                                                                <option value="SCHOOL OF INTERDISCIPLINARY ENGINEERING & SCIENCES">SIES</option>
+                                                                <!-- Add your school options here -->
                                                             </select>
                                                         </div>
                                                         <div class="col-md-10">
                                                             <label for="country_select">Select Country</label>
-                                                            <select name="country" id="country_select"
-                                                                class="form-control">
-                                                                @foreach ($countries as $item)                                                                
-                                                                <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
-                                                                @endforeach
+                                                            <select name="country" id="country_select" class="form-control">
+                                                                <option value="" selected>Select Country</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Canada">Canada</option>
+                                                                <option value="China">China</option>
+                                                                <option value="Germany">Germany</option>
+                                                                <option value="Pakistan">Pakistan</option>
+                                                                <option value="Qatar">Qatar</option>
+                                                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                                                <option value="Turkey">Turkey</option>
+                                                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                                                <option value="United Kingdom">United Kingdom</option>
+                                                                <option value="United States">United States</option>
+
                                                             </select>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <label for="year" class="form-label">Select Year of
-                                                                Graduation</label>
+                                                            <label for="year" class="form-label">Select Year of Graduation</label>
                                                             <select id="year" name="year" class="form-control">
-                                                                <option value="" selected>Select Year of Graduation
-                                                                </option>
-                                                                @for ($i = 1990; $i <= date('Y'); $i++)
-                                                                    <option value="{{ $i }}">
-                                                                        {{ $i }}</option>
-                                                                @endfor
+                                                                <option value="" selected>Select Year of Graduation</option>
+                                                                <option value="1990">1990</option>
+                                                                <option value="1991">1991</option>
+                                                                <option value="1992">1992</option>
+                                                                <option value="1993">1993</option>
+                                                                <option value="1994">1994</option>
+                                                                <option value="1995">1995</option>
+                                                                <option value="1996">1996</option>
+                                                                <option value="1997">1997</option>
+                                                                <option value="1998">1998</option>
+                                                                <option value="1999">1999</option>
+                                                                <option value="2000">2000</option>
+                                                                <option value="2001">2001</option>
+                                                                <option value="2002">2002</option>
+                                                                <option value="2003">2003</option>
+                                                                <option value="2004">2004</option>
+                                                                <option value="2005">2005</option>
+                                                                <option value="2006">2006</option>
+                                                                <option value="2007">2007</option>
+                                                                <option value="2008">2008</option>
+                                                                <option value="2009">2009</option>
+                                                                <option value="2010">2010</option>
+                                                                <option value="2011">2011</option>
+                                                                <option value="2012">2012</option>
+                                                                <option value="2013">2013</option>
+                                                                <option value="2014">2014</option>
+                                                                <option value="2015">2015</option>
+                                                                <option value="2016">2016</option>
+                                                                <option value="2017">2017</option>
+                                                                <option value="2018">2018</option>
+                                                                <option value="2019">2019</option>
+                                                                <option value="2020">2020</option>
+                                                                <option value="2021">2021</option>
+                                                                <option value="2022">2022</option>
+                                                                <option value="2023">2023</option>
+                                                                <option value="2024">2024</option>
                                                             </select>
                                                         </div>
                                                     </div>
