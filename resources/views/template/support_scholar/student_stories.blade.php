@@ -65,6 +65,7 @@
                         <!-- Add an ID to the paragraph tag for easier targeting with JavaScript -->
                         {{-- <h2>Son/Doughter of <span>{{$students->father_name}}</span></h2> --}}
                         <h3>Hometown: <span>{{$students->province}}</span></h3>
+                        <h3>Hometown: <span>{{$students->student_name}}</span></h3>
                         <!-- Add a unique ID to the paragraph tag for targeting -->
                         <h3>Discipline: <span>{{$students->discipline}}</span></h3>
                         <!-- Add a unique ID to the paragraph tag for targeting -->

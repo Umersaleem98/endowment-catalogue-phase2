@@ -7,10 +7,7 @@
         width: 100%; /* Ensure the image covers the full width of its container */
         height: 200px; /* Set a fixed height for all images */
         object-fit: cover; /* Ensure the image covers the area without distortion */
-    }
-
-    .blurred {
-        filter: blur(20px); /* Apply blur effect to the image */
+        filter: blur(10px); /* Apply blur effect to all images */
     }
 
     .stamp {
@@ -22,7 +19,6 @@
         object-fit: cover; /* Ensure the stamp covers the area without distortion */
         opacity: 0.7; /* Adjust opacity if needed */
         pointer-events: none; /* Ensure the stamp does not interfere with user interaction */
-        color: white;
     }
 
     .disabled-link {
@@ -35,18 +31,22 @@
 @foreach ($students as $item)
 <div class="col-lg-3 teacher" data-gender="{{ $item->gender }}">
     <div class="card">
-        <div class="card_img">
+        <div class="card_img" 
+             onclick="handleCardClick({{ $item->make_pledge }}, {{ $item->payment_approved }})">
             @php
-                // Determine the image path based on the condition
+                // Determine the image path
                 $imagePath = ($item->make_pledge == 0 && $item->payment_approved == 0)
                              ? asset('templates/logo/Adopted Stamp.png')
                              : asset('templates/students_images/' . $item->images);
-                $imageClass = ($item->make_pledge == 0 && $item->payment_approved == 0) ? 'blurred' : '';
             @endphp
-            <img class="card-img-top trans_200 {{ $imageClass }}" src="{{ $imagePath }}" alt="Student Image" style="filter: blur(10px)">
+            <img 
+                class="card-img-top trans_200" 
+                src="{{ $imagePath }}" 
+                alt="Student Image"
+            >
 
             @if($item->make_pledge == 0 && $item->payment_approved == 0)
-                <img class="stamp" src="{{ asset('templates/logo/Adopted Stamp.png') }}" alt="Stamp" style="color: white;">
+                <img class="stamp" src="{{ asset('templates/logo/Adopted Stamp.png') }}" alt="Stamp">
                 <div class="card_plus trans_200 text-center">
                     <a href="#" class="disabled-link">+</a>
                 </div>
@@ -67,8 +67,16 @@
             </div>
             <div class="card-text text-dark mb-2">{{ $item->discipline }}</div>
             <div class="card-text text-dark mb-2">{{ $item->gender }}</div>
-            {{-- <div class="card-text text-dark mb-2">{{ $item->monthly_income }}</div> --}}
         </div>
     </div>
 </div>
 @endforeach
+
+<script>
+    function handleCardClick(makePledge, paymentApproved) {
+        // Only show an alert if both make_pledge and payment_approved are 0
+        if (makePledge === 0 && paymentApproved === 0) {
+            alert('This student is already adopted.');
+        }
+    }
+</script>

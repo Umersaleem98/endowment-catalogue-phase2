@@ -17,7 +17,7 @@ a{
 
                     <!-- Logo -->
                     <div class="logo_container mb-3">
-                        <div class="logo" style="background-color: white; padding: 10px;">
+                        <div class="logo" >
                             <!-- Use asset function for the image URL -->
                             <img src="{{ asset('templates/images/logo.png') }}" alt="Logo" class="img-fluid" style="max-width: 120px;">
                         </div>
