@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Pages\TeamController;
 use App\Http\Controllers\Pages\AboutUsController;
 use App\Http\Controllers\Pages\ContactUsController;
@@ -11,10 +12,13 @@ use App\Http\Controllers\OneYear\OneYearSupportController;
 use App\Http\Controllers\Pages\SignatureProgramController;
 use App\Http\Controllers\Endownment\EndowmentHomeController;
 use App\Http\Controllers\Fund_Project\FundProjectController;
+use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Endownment\Four\FourYearSupportController;
 use App\Http\Controllers\Endownment\Student\StudentStoriesController;
 use App\Http\Controllers\Pages\ResourceMobilizationOfficerController;
+use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentDashboardController;
 use App\Http\Controllers\Endownment\PerpetualSeat\PerpetualSeatSupportController;
+use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentOneyearDashboardController;
 
 Route::get('/', function () {
     return view('index');
@@ -62,3 +66,21 @@ Route::get('select_project', [FundProjectController::class, 'index']);
 Route::get('fund_project/{id}', [FundProjectController::class, 'FundProject']);
 Route::get('payments_project/{id}', [FundProjectController::class, 'payment_fund_a_project']);
 Route::post('fund_a_project', [FundProjectController::class, 'payment_fund_a_project_store']);
+
+// auth routes for dashboard
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+});
+
+// Students Dashboard Controller Routes 
+Route::get('student_list', [StudentDashboardController::class, 'index']);
+Route::get('students_edit/{id}', [StudentDashboardController::class, 'edit']);
+Route::post('students_update/{id}', [StudentDashboardController::class, 'update']);
+
+
+// Defult Endownemt Dashboard Controller Routes 
+Route::get('oneyear_endowment_list', [DefultEndowmentOneyearDashboardController::class, 'index']);
