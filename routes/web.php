@@ -13,11 +13,15 @@ use App\Http\Controllers\Pages\SignatureProgramController;
 use App\Http\Controllers\Endownment\EndowmentHomeController;
 use App\Http\Controllers\Fund_Project\FundProjectController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
+use App\Http\Controllers\Dashboard\Teams\TeamsDashboardController;
 use App\Http\Controllers\Endownment\Four\FourYearSupportController;
+use App\Http\Controllers\Dashboard\Events\EventsDashboardController;
 use App\Http\Controllers\Endownment\Student\StudentStoriesController;
 use App\Http\Controllers\Pages\ResourceMobilizationOfficerController;
+use App\Http\Controllers\Dashboard\Endewment\EndoementZakatDashboardController;
 use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentDashboardController;
 use App\Http\Controllers\Endownment\PerpetualSeat\PerpetualSeatSupportController;
+use App\Http\Controllers\Dashboard\Endewment\CustomEndowmentOneyearDashboardController;
 use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentOneyearDashboardController;
 
 Route::get('/', function () {
@@ -59,7 +63,9 @@ Route::get('student_stories', [StudentStoriesController::class, 'student_stories
 Route::get('student_stories_indiviual/{id}', [StudentStoriesController::class, 'student_stories_ind']);
 Route::get('payment/{id}', [StudentStoriesController::class, 'payment_index']);
 Route::get('Make_a_Pledge/{id}', [StudentStoriesController::class, 'Make_a_Pledge']);
-Route::post('payments', [StudentStoriesController::class, 'paymentsstore']);
+// Route::post('payments/{id}', [StudentStoriesController::class, 'paymentsstore']);
+Route::post('/payments/{id}', [StudentStoriesController::class, 'store'])->name('payments.store');
+Route::post('/pledge_payment/{id}', [StudentStoriesController::class, 'pledgestore'])->name('pledge_payment.store');
 // Other Projects routes and controllers 
 
 Route::get('select_project', [FundProjectController::class, 'index']);
@@ -80,7 +86,33 @@ Route::middleware('auth')->group(function () {
 Route::get('student_list', [StudentDashboardController::class, 'index']);
 Route::get('students_edit/{id}', [StudentDashboardController::class, 'edit']);
 Route::post('students_update/{id}', [StudentDashboardController::class, 'update']);
+Route::get('students_delete/{id}', [StudentDashboardController::class, 'delete']);
 
+// Custom Endownemt Dashboard Controller Routes 
+Route::get('zakat_payments_list', [EndoementZakatDashboardController::class, 'index']);
 
 // Defult Endownemt Dashboard Controller Routes 
 Route::get('oneyear_endowment_list', [DefultEndowmentOneyearDashboardController::class, 'index']);
+Route::get('fouryear_endowment_list', [DefultEndowmentOneyearDashboardController::class, 'indexforyear']);
+Route::get('perpetualseat_endowment_list', [DefultEndowmentOneyearDashboardController::class, 'indexperpetualseat']);
+
+// Custom Endownemt Dashboard Controller Routes 
+Route::get('custom_oneyear_endowment_list', [CustomEndowmentOneyearDashboardController::class, 'index']);
+Route::get('custom_fouryear_endowment_list', [CustomEndowmentOneyearDashboardController::class, 'indexforyear']);
+Route::get('custom_perpetualseat_endowment_list', [CustomEndowmentOneyearDashboardController::class, 'indexperpetualseat']);
+// Teams Dashboard Controller Routes 
+
+Route::get('add_team', [TeamsDashboardController::class, 'index']);
+Route::post('add_team_member', [TeamsDashboardController::class, 'store']);
+Route::get('team_list', [TeamsDashboardController::class, 'show']);
+Route::get('team_edit/{id}', [TeamsDashboardController::class, 'edit']);
+Route::post('update_team/{id}', [TeamsDashboardController::class, 'update']);
+Route::get('team_delete/{id}', [TeamsDashboardController::class, 'destory']);
+
+
+Route::get('event_list', [EventsDashboardController::class, 'index']);
+Route::get('event_create', [EventsDashboardController::class, 'create']);
+Route::post('event_create', [EventsDashboardController::class, 'store']);
+Route::get('event_edit/{id}', [EventsDashboardController::class, 'edit']);
+Route::post('event_update/{id}', [EventsDashboardController::class, 'update']);
+Route::get('event_delete/{id}', [EventsDashboardController::class, 'delete']);

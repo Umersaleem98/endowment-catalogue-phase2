@@ -26,31 +26,50 @@ class StudentDashboardController extends Controller
         // Find the student by ID
         $student = OpenfundStudent::find($id);
     
-        // Update the student's information
-        $student->qalam_id = $request->input('qalam_id');
-        $student->student_name = $request->input('student_name');
-        $student->father_name = $request->input('father_name');
-        $student->institutions = $request->input('institutions');
-        $student->discipline = $request->input('discipline');
-        $student->contact_no = $request->input('contact_no');
-        $student->home_address = $request->input('home_address');
-        $student->scholarship_name = $request->input('scholarship_name');
-        $student->monthly_income = $request->input('monthly_income');
-        $student->remarks = $request->input('remarks');
-    
-        // Handle file upload if a new image is provided
-        if ($request->hasFile('images')) {
-            // Delete the old image from storage if it exists
-            if ($student->images && Storage::exists('students_images/' . $student->images)) {
-                Storage::delete('students_images/' . $student->images);
-            }
-    
-            // Upload the new image and store the filename
-            $image = $request->file('images');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('students_images', $imageName);
-            $student->images = $imageName;
+        if (!$student) {
+            return redirect()->back()->with('error', 'Student not found.');
         }
+    
+        // Update student data
+        $student->qalam_id = $request->qalam_id;
+        $student->student_name = $request->student_name;
+        $student->father_name = $request->father_name;
+        $student->institutions = $request->institutions;
+        $student->discipline = $request->discipline;
+        $student->contact_no = $request->contact_no;
+        $student->home_address = $request->home_address;
+        $student->scholarship_name = $request->scholarship_name;
+        $student->monthly_income = $request->monthly_income;
+        $student->remarks = $request->remarks;
+    
+        // Handle image upload and replacement
+        if ($request->hasFile('images')) {
+            // Check if there is an existing image
+            if ($student->images) {
+                // Define the image path
+                $existingImagePath = public_path('templates/students_images') . '/' . $student->images;
+
+                // Delete the existing image if it exists
+                if (file_exists($existingImagePath)) {
+                    unlink($existingImagePath);
+                }
+            }
+
+            // Process and move the new uploaded image
+            $file = $request->file('images');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            if ($file->move(public_path('templates/students_images'), $fileName)) {
+                // Update the images attribute on the student model
+                $student->images = $fileName;
+            } else {
+                // Handle file upload error
+                return redirect()->back()->with('error', 'Failed to upload image');
+            }
+        }
+    
+        // Update other fields
+        $student->make_pledge = $request->make_pledge;
+        $student->payment_approved = $request->payment_approved;
     
         // Save the updated student data
         $student->save();
@@ -59,4 +78,12 @@ class StudentDashboardController extends Controller
         return redirect()->back()->with('success', 'Student information updated successfully!');
     }
     
+    public function delete($id)
+    {
+        $students = OpenfundStudent::find($id);
+        $students->delete();
+        return redirect()->back()->with('success', 'Student information delete successfully!');
+
+    }
+   
 }

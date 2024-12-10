@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Pages;
 
-use App\Http\Controllers\Controller;
+use App\Models\Team;
+
+use App\Models\Event;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class TeamController extends Controller
 {

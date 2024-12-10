@@ -110,34 +110,37 @@
 
 
                     <div class="col-md-6">
-                        <form method="POST" action="{{ url('payments') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('payments', $students->id) }}" enctype="multipart/form-data">
                             @csrf
-                            <input type="text" name="student_name" class="form-control" value="{{$students->student_name}}" >
+                           
+                            
+                            <input type="text" name="student_name" class="form-control" value="{{ $students->student_name }}">
+                            
                             <div class="row mb-3">
                                 <div class="col-10">
                                     <label for="donor_name" class="form-label">Your Name</label>
                                     <input type="text" class="form-control" placeholder="Enter Your Name" id="donor_name" name="donor_name">
                                 </div>
                             </div>
+                            
                             <div class="row mb-3">
                                 <div class="col-10">
                                     <label for="donor_email" class="form-label">Your Email</label>
                                     <input type="email" class="form-control" placeholder="Enter Your Valid Email" id="donor_email" name="donor_email">
                                 </div>
-
                             </div>
-
+                    
                             <div class="row mb-3">
                                 <div class="col-10">
                                     <label for="phone_number" class="form-label">Phone Number</label>
                                     <input type="text" class="form-control" placeholder="Enter Your Phone Number" id="phone_number" name="phone_number">
                                 </div>
                             </div>
-
+                    
                             <div class="row mb-3">
                                 <div class="col">
                                     <label for="duration" class="form-label">Duration</label>
-                                    <select class="form-control" aria-label="Default select example"  id="duration" name="duration">
+                                    <select class="form-control" aria-label="Default select example" id="duration" name="duration">
                                         <option value="6">6 Months</option>
                                         <option value="1">1 Year</option>
                                         <option value="2">2 Years</option>
@@ -148,23 +151,22 @@
                                     <label for="amount" class="form-label">Amount (PKR)</label>
                                     <input type="text" class="form-control" placeholder="Enter Amount" id="amount" name="amount">
                                 </div>
-
                             </div>
-
+                    
                             <div class="row mb-3">
                                 <div class="col">
-                                    <label for="" class="form-label">Prove </label>
-                                    <input type="file" class="form-control"  name="prove">
-
-                                    <span class="text-success">"If you have already made the payment, kindly attach payment proof/ screenshot of the payment"</span>
+                                    <label for="prove" class="form-label">Prove </label>
+                                    <input type="file" class="form-control" name="prove">
+                                    <span class="text-success">"If you have already made the payment, kindly attach payment proof/screenshot of the payment"</span>
                                 </div>
-
-                                <input type="hidden" name="payment_approved" id="" value="0">
                             </div>
+                    
+                            <input type="hidden" name="payment_approved" value="0">
+                            
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
-
                     </div>
+                    
 
                     <div class="col-md-6 d-flex justify-content-center">
                         <img src="{{ asset('templates/images/charity2.gif') }}" alt="Image 1" class="img-fluid rounded" style="max-width: 100%; height:400px">
