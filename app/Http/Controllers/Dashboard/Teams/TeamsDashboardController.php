@@ -28,8 +28,6 @@ class TeamsDashboardController extends Controller
         $teamMember->designation = $request->input('designation');
         $teamMember->gender = $request->input('gender');
         $teamMember->phone = $request->input('phone');
-        $teamMember->department = $request->input('department');
-        $teamMember->status = $request->input('status');
         $teamMember->social_media = $request->input('social_media');
         $teamMember->introduction = $request->input('introduction');
     

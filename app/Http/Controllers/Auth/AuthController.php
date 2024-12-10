@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\OpenfundStudent;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -43,6 +44,14 @@ class AuthController extends Controller
     // Show dashboard
     public function dashboard()
     {
-        return view('dashboard'); // Create this view
+        // Fetch all students
+        $openfundstudents = OpenfundStudent::all();
+        
+        // Count the total number of students
+        $totalStudents = $openfundstudents->count();
+    
+        // Pass data to the view
+        return view('dashboard', compact('openfundstudents', 'totalStudents'));
     }
+    
 }

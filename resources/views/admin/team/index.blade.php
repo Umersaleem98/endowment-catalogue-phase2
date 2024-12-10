@@ -93,6 +93,11 @@
                                                 <input type="text" class="form-control" id="social_media"
                                                     name="social_media">
                                             </div>
+                                            <div class="form-group mb-3">
+                                                <label for="introduction">Linkdin</label>
+                                                <textarea type="text" class="form-control" id="introduction"
+                                                    name="introduction">
+                                            </textarea>
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
                                     </div>

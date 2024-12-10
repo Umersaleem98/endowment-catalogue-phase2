@@ -13,7 +13,6 @@ class Team extends Model
         'gender',
         'image',
         'phone',
-        'department',
         'status',
         'social_media',
         'introduction',
