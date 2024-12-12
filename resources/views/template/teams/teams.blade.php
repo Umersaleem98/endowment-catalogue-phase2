@@ -247,6 +247,7 @@
                                 <h3 id="modalName"></h3>
                                 <p id="modalDesignation" class="text-primary"></p>
                                 <p id="modalIntroduction"></p>
+                                <p id="modalemail" class="text-secondary"></p>
                                 <p id="modalContact"></p>
                                 <a id="modalSocialMedia" href="#" target="_blank">
                                     <i class="fa-brands fa-linkedin" style="font-size: 30px; color:#0A66C2;"></i>
@@ -270,17 +271,19 @@
 
 </html>
 <script>
-    function showMemberModal(member) {
-        // Populate modal with member data
-        document.getElementById('modalImage').src = "{{ asset('team') }}/" + member.image;
-        document.getElementById('modalName').textContent = member.name;
-        document.getElementById('modalDesignation').textContent = member.designation;
-        document.getElementById('modalIntroduction').textContent = member.introduction || "No introduction available.";
-        document.getElementById('modalContact').textContent = `Phone: ${member.phone || 'N/A'}`;
-        document.getElementById('modalSocialMedia').href = member.social_media || "#";
+  function showMemberModal(member) {
+    // Populate modal with member data
+    document.getElementById('modalImage').src = "{{ asset('team') }}/" + member.image;
+    document.getElementById('modalName').textContent = member.name;
+    document.getElementById('modalDesignation').textContent = member.designation;
+    document.getElementById('modalIntroduction').textContent = member.introduction || "No introduction available.";
+    document.getElementById('modalemail').textContent = `Email: ${member.email || 'N/A'}`; // Include email
+    document.getElementById('modalContact').textContent = `Phone: ${member.phone || 'N/A'}`;
+    document.getElementById('modalSocialMedia').href = member.social_media || "#";
 
-        // Show the modal
-        const modal = new bootstrap.Modal(document.getElementById('teamMemberModal'));
-        modal.show();
-    }
+    // Show the modal
+    const modal = new bootstrap.Modal(document.getElementById('teamMemberModal'));
+    modal.show();
+}
+
 </script>

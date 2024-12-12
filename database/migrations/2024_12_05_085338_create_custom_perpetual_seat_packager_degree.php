@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('phone');
             $table->text('about_partner')->nullable();
             $table->text('philanthropist_text')->nullable();
+            $table->string('school')->nullable();
             $table->string('country')->nullable();
             $table->year('year')->nullable();
             $table->string('payments_status');

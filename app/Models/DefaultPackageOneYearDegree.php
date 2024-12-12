@@ -18,6 +18,7 @@ class DefaultPackageOneYearDegree extends Model
         'phone',
         'about_partner',
         'philanthropist_text',
+        'school',
         'country',
         'year',
         'payments_status',

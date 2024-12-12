@@ -106,7 +106,7 @@
                             <input type="text" class="form-control" id="totalCost" name="amount" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="totalCost">Prove </label>
+                            <label for="prove">Prove </label>
                             <input type="file" class="form-control" id="prove" name="prove" >
                         </div>
                         <button type="submit" name="submit" class="btn btn-success btn-block">Proceed to Payment</button>

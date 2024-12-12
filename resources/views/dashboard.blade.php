@@ -26,7 +26,7 @@
                     <!-- Top Statistics -->
                     <div class="row">
                         <!-- Total Students Card -->
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="card text-white bg-primary mb-3">
                                 <div class="card-body">
                                     <h5 class="card-title">Total Students</h5>
@@ -36,24 +36,10 @@
                         </div>
 
                         <!-- Admitted Students Card -->
-                        <div class="col-md-4">
-                            <div class="card text-white bg-success mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">Admitted Students</h5>
-                                    <p class="card-text">{{ $admittedStudents }}</p>
-                                </div>
-                            </div>
-                        </div>
+                       
 
                         <!-- Other Metric Card (Example) -->
-                        <div class="col-md-4">
-                            <div class="card text-white bg-info mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">Pending Applications</h5>
-                                    <p class="card-text">{{ $pendingApplications }}</p>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

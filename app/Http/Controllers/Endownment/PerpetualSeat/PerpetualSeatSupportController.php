@@ -38,6 +38,7 @@ class PerpetualSeatSupportController extends Controller
         $defaultfourYearDegree->phone = $request->phone;
         $defaultfourYearDegree->about_partner = $request->about_partner;
         $defaultfourYearDegree->philanthropist_text = $request->philanthropist_text;
+        $defaultfourYearDegree->school = $request->school;
         $defaultfourYearDegree->country = $request->country;
         $defaultfourYearDegree->year = $request->year;
         $defaultfourYearDegree->payments_status = $request->payments_status;
@@ -76,6 +77,7 @@ class PerpetualSeatSupportController extends Controller
         $customFourYearDegree->phone = $request->phone;
         $customFourYearDegree->about_partner = $request->about_partner;
         $customFourYearDegree->philanthropist_text = $request->philanthropist_text;
+        $customFourYearDegree->school = $request->school;
         $customFourYearDegree->country = $request->country;
         $customFourYearDegree->year = $request->year;
         $customFourYearDegree->payments_status = $request->payments_status;

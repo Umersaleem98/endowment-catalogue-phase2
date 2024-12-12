@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Fund a project payments</title>
     @include('template.head')
     <style>
          h2,p{

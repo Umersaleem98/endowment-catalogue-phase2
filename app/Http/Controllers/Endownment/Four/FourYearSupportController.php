@@ -74,6 +74,7 @@ class FourYearSupportController extends Controller
         $customFourYearDegree->phone = $request->phone;
         $customFourYearDegree->about_partner = $request->about_partner;
         $customFourYearDegree->philanthropist_text = $request->philanthropist_text;
+        $customFourYearDegree->school = $request->school;
         $customFourYearDegree->country = $request->country;
         $customFourYearDegree->year = $request->year;
         $customFourYearDegree->payments_status = $request->payments_status;

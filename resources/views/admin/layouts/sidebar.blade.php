@@ -84,6 +84,7 @@
                     </ul>
                 </li>
 
+               
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#custom-package"
                         aria-expanded="false" aria-controls="custom-package">
@@ -110,7 +111,37 @@
                         </div>
                     </ul>
                 </li>
-
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#fund-project"
+                        aria-expanded="false" aria-controls="fund-project">
+                        <i class="mdi mdi-lightbulb-outline"></i>
+                        <span class="nav-text">Fund a Project</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="fund-project" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('mosque_project_list') }}">
+                                    <span class="nav-text">Mosque</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('boys_hostel_project_list') }}">
+                                    <span class="nav-text">Boys Hostel</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('girls_hostel_project_list') }}">
+                                    <span class="nav-text">Girls Hostel</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('business_center_project_list') }}">
+                                    <span class="nav-text">Business Center</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
                 <!-- New Zakat Dropdown Tab -->
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#zakat"

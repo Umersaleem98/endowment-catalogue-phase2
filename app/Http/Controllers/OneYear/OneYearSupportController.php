@@ -38,6 +38,7 @@ class OneYearSupportController extends Controller
         $defaultOneYearDegree->phone = $request->phone;
         $defaultOneYearDegree->about_partner = $request->about_partner;
         $defaultOneYearDegree->philanthropist_text = $request->philanthropist_text;
+        $defaultOneYearDegree->school = $request->school;
         $defaultOneYearDegree->country = $request->country;
         $defaultOneYearDegree->year = $request->year;
         $defaultOneYearDegree->payments_status = $request->payments_status;
@@ -76,6 +77,7 @@ class OneYearSupportController extends Controller
         $customOneYearDegree->phone = $request->phone;
         $customOneYearDegree->about_partner = $request->about_partner;
         $customOneYearDegree->philanthropist_text = $request->philanthropist_text;
+        $customOneYearDegree->school = $request->school;
         $customOneYearDegree->country = $request->country;
         $customOneYearDegree->year = $request->year;
         $customOneYearDegree->payments_status = $request->payments_status;
