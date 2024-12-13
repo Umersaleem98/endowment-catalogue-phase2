@@ -32,25 +32,14 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-md-6" style="background-color: #004476 ">
-                <h2 class="text-center text-warning p-4" style="height:70px">
-                    Why Invest in Girl’s Hostel?
-                </h2>
-                <hr>
-                <p class="text-light">
-                    The construction of a girls' hostel at our university is a pivotal step toward fostering an inclusive, safe, and supportive educational environment. By providing secure and affordable accommodation, we ensure that female students from diverse backgrounds can pursue their academic goals without the added stress of finding suitable housing. This initiative not only promotes gender equity but also enhances the overall academic performance and well-being of our students. Investing in this project means investing in the future leaders, innovators, and professionals who will drive our society forward. We invite you to join us in this transformative endeavor, creating lasting impact and empowering the next generation of women scholars.
-                </p>
+            <div class="col-md-6 mb-2">
+                <img src="{{ asset('templates/images/girls hostel 01-01.jpg') }}" alt="" class="img-fluid">
             </div>
-            <div class="col-md-6 border" style="background-color: #004476 ">
-                <h2 class="text-center p-4 text-warning" style="height:70px">
-                    Why Invest in a Mosque?
-                </h2>
-                <hr>
-                <p class="text-light">
-                    Investing in the construction of a mosque at NUST offers a unique opportunity to foster spiritual growth and community cohesion among our diverse student body. Supporting this project means contributing to the holistic development of our students, promoting values of peace, understanding, and unity. By building a mosque, you are investing in the moral and ethical foundation of future leaders, ensuring they have the spiritual support needed to thrive in their academic and personal lives. Your generosity will leave a legacy, enriching the lives of countless students by keeping them connected to their core values as Muslims and ensure a harmonious campus environment.
-                </p>
+            <div class="col-md-6">
+                <img src="{{ asset('templates/images/mosque 02-01.jpg') }}" alt="" class="img-fluid">
             </div>
         </div>
+        
     </div>
 
     <div class="events page_section">
@@ -63,7 +52,7 @@
                 </div>
             </div>
             <hr>
-            <div class="container mt-5">
+            <div class="container mt-3">
                 <div class="row">
                     @foreach ($project_categories as $item)
                     <div class="col-md-3 mb-5">

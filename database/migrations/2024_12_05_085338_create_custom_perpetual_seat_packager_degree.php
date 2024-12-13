@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('custom_perpetual_seat_packager_degree', function (Blueprint $table) {
             $table->id();
-            $table->string('program_type');
+            $table->string('program');
+            $table->string('endoement_type');
             $table->string('degree');
             $table->integer('seats');
             $table->decimal('totalAmount', 15, 2); // Adjust precision as needed

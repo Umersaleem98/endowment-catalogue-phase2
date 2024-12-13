@@ -9,7 +9,8 @@ class CustomPackagePerpetualSeatDegree extends Model
     protected $table = 'custom_perpetual_seat_packager_degree';
 
     protected $fillable = [
-        'program_type',
+        'program',
+        'endoement_type',
         'degree',
         'seats',
         'totalAmount',

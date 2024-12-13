@@ -70,7 +70,7 @@
                                                 <div class="form-group" hidden>
                                                     <label for="pgDegree">Degree:</label>
                                                     <input type="text" name="program_type"
-                                                        value="Single_endowment_UG" class="form-control">
+                                                        value="Default-Endowment-UG" class="form-control">
                                                     <input type="text" name="degree" value="Engineering"
                                                         class="form-control">
                                                 </div>

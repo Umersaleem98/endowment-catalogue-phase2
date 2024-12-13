@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Pages\TeamController;
 use App\Http\Controllers\Pages\AboutUsController;
@@ -116,3 +117,5 @@ Route::post('event_create', [EventsDashboardController::class, 'store']);
 Route::get('event_edit/{id}', [EventsDashboardController::class, 'edit']);
 Route::post('event_update/{id}', [EventsDashboardController::class, 'update']);
 Route::get('event_delete/{id}', [EventsDashboardController::class, 'delete']);
+
+Route::post('import', [StudentController::class, 'import'])->name('students.import');

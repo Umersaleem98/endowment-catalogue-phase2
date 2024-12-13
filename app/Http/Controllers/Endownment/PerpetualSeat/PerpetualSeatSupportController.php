@@ -64,7 +64,8 @@ class PerpetualSeatSupportController extends Controller
     {
         $customFourYearDegree = new CustomPackagePerpetualSeatDegree();
     
-        $customFourYearDegree->program_type = $request->program_type;
+        $customFourYearDegree->program = $request->program;
+        $customFourYearDegree->endoement_type = $request->endoement_type;
         $customFourYearDegree->degree = $request->degree;
         $customFourYearDegree->seats = $request->seats ?? 1;
         $customFourYearDegree->degree = $request->degree;

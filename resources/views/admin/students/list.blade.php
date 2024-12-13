@@ -50,6 +50,11 @@ a<!DOCTYPE html>
                                     </div>
                                 @endif
                                 <div class="card-body">
+                                    <form action="{{ route('students.import') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="file" name="file" accept=".xlsx, .csv">
+                                        <button type="submit">Import</button>
+                                    </form>
                                     <div class="table-responsive">
                                         <table id="productsTable" class="table table-hover table-product"
                                             style="width:100%">
