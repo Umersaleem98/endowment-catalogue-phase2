@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\OpenfundStudent;
 use App\Http\Controllers\Controller;
@@ -11,20 +12,20 @@ class StudentDashboardController extends Controller
 {
     public function index()
     {
-        $students = OpenfundStudent::all();
+        $students = Student::all();
         return view('admin.students.list', compact('students'));
     }
 
     public function edit($id)
     {
-        $students = OpenfundStudent::find($id);
+        $students = Student::find($id);
         return view('admin.students.edits', compact('students'));
     }
 
     public function update(Request $request, $id)
     {
         // Find the student by ID
-        $student = OpenfundStudent::find($id);
+        $student = Student::find($id);
     
         if (!$student) {
             return redirect()->back()->with('error', 'Student not found.');
@@ -80,7 +81,7 @@ class StudentDashboardController extends Controller
     
     public function delete($id)
     {
-        $students = OpenfundStudent::find($id);
+        $students = Student::find($id);
         $students->delete();
         return redirect()->back()->with('success', 'Student information delete successfully!');
 

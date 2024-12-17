@@ -15,29 +15,29 @@ class StudentsImport implements ToModel
     public function model(array $row)
     {
         return new Student([
-            'qalam_id' => $row[0], // First column in Excel file for qalam_id
-            'student_name' => $row[1], // Second column for student_name
-            'father_name' => $row[2], // Third column for father_name
-            'institutions' => $row[3], // Fourth column for institutions
-            'discipline' => $row[4], // Fifth column for discipline
-            'contact_no' => $row[5], // Sixth column for contact_no
-            'home_address' => $row[6], // Seventh column for home_address
-            'scholarship_name' => $row[7], // Eighth column for scholarship_name
-            'nust_trust_fund_donor_name' => $row[8], // Ninth column for donor_name
-            'province' => $row[9], // Tenth column for province
-            'domicile' => $row[10], // Eleventh column for domicile
-            'gender' => $row[11], // Twelfth column for gender
-            'program' => $row[12], // Thirteenth column for program
-            'degree' => $row[13], // Fourteenth column for degree
-            'year_of_admission' => $row[14], // Fifteenth column for year_of_admission
-            'father_status' => $row[15], // Sixteenth column for father_status
-            'father_profession' => $row[16], // Seventeenth column for father_profession
-            'father_profession_category' => $row[17], // Eighteenth column for father_profession_category
-            'organization' => $row[18], // Nineteenth column for organization
-            'category' => $row[19], // Twentieth column for category
-            'monthly_income' => $row[20], // Twenty-first column for monthly_income
-            'statement_of_purpose' => $row[21], // Twenty-second column for statement_of_purpose
-            'remarks' => $row[22], // Twenty-third column for remarks
+            'qalam_id' => $row[0],
+            'student_name' => $row[1],
+            'father_name' => $row[2],
+            'institutions' => $row[3],
+            'discipline' => $row[4],
+            'contact_no' => $row[5],
+            'home_address' => $row[6],
+            'scholarship_name' => $row[7],
+            'nust_trust_fund_donor_name' => $row[8],
+            'province' => $row[9],
+            'domicile' => $row[10],
+            'gender' => $row[11],
+            'program' => $row[12],
+            'degree' => $row[13],
+            'year_of_admission' => (int)$row[14], // Ensure this is an integer
+            'father_status' => $row[15],
+            'father_profession' => $row[16],
+            'monthly_income' => $row[17],
+            'statement_of_purpose' => $row[18],
+            'remarks' => $row[19],
+            'make_pledge' => $row[20] === 'Yes' ? 1 : 0, // Convert Yes/No to boolean
+            'payment_approved' => $row[21] === 'Yes' ? 1 : 0, // Convert Yes/No to boolean
+            'images' => $row[22], // Handle image paths correctly
         ]);
     }
 }

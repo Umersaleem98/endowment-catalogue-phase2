@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Endownment\Student;
 
+use App\Models\Student;
 use App\Models\Domicile;
 use App\Models\Province;
 use App\Models\Discipline;
@@ -27,7 +28,7 @@ class StudentStoriesController extends Controller
     $degree = $request->input('degree');
     $domicile = $request->input('domicile'); // Add city filter
 
-    $query = OpenfundStudent::query();
+    $query = Student::query();
 
     if ($gender && $gender !== 'all') {
         $query->where('gender', $gender);
@@ -73,7 +74,7 @@ class StudentStoriesController extends Controller
 public function student_stories_ind($id)
     {
         // $events = Event::all();
-        $students = OpenfundStudent::find($id); // Use findOrFail to handle non-existent IDs gracefully
+        $students = Student::find($id); // Use findOrFail to handle non-existent IDs gracefully
 
         // Access the make_pledge and payment_approved attributes with default value 0
         $isPledgeApproved = $students->make_pledge ?? 0;
@@ -86,14 +87,14 @@ public function student_stories_ind($id)
 
     public function payment_index($id)
     {
-        $students= OpenfundStudent::find($id);
+        $students= Student::find($id);
         return view('template.support_scholar.payments.payments', compact('students'));
     }
 
 
     public function Make_a_Pledge($id)
     {
-        $students= OpenfundStudent::find($id);
+        $students= Student::find($id);
         return view('template.support_scholar.payments.pledge', compact('students'));
     }
 
@@ -101,7 +102,7 @@ public function student_stories_ind($id)
     public function store(Request $request, $id)
     {
         // Find the student using the ID from the URL
-        $student = OpenfundStudent::find($id);
+        $student = Student::find($id);
 
         // Check if the student exists and the payment is not approved
         if ($student && $student->payment_approved == 1) {
@@ -142,7 +143,7 @@ public function student_stories_ind($id)
     public function pledgestore(Request $request, $id)
     {
         // Find the student by ID
-        $student = OpenfundStudent::find($id);
+        $student = Student::find($id);
     
         if ($student) {
             // Validate the incoming request

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\OpenfundStudent;
 use App\Http\Controllers\Controller;
@@ -45,7 +46,7 @@ class AuthController extends Controller
     public function dashboard()
     {
         // Fetch all students
-        $openfundstudents = OpenfundStudent::all();
+        $openfundstudents = Student::all();
         
         // Count the total number of students
         $totalStudents = $openfundstudents->count();
