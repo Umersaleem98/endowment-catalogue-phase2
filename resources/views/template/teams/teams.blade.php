@@ -210,17 +210,19 @@
             <div class="row">
                 @foreach ($teams as $item)
                     <div class="col-md-3 col-lg-3 mb-3">
-                        <div class="card text-center member" onclick="showMemberModal({{ $item }})">
-                            <img class="card-img-top " src="{{ asset('team/' . $item->image) }}" 
+                        <div class="card text-center member" onclick="showMemberModal({{ json_encode($item) }})">
+                            <img class="card-img-top" src="{{ asset('team/' . $item->image) }}" 
                                  alt="Card image cap" style="max-height: 350px; border-radius: 20px;">
                             <div class="card-body">
                                 <h3 class="card-title text-dark">{{ $item->name }}</h3>
                                 <p class="card-text text-primary">{{ $item->designation }}</p>
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <a href="{{ $item->social_media }}" target="_blank">
-                                            <i class="fa-brands fa-linkedin" style="font-size: 30px; color:#0A66C2;"></i>
-                                        </a>
+                                        @if ($item->social_media)
+                                            <a href="{{ $item->social_media }}" target="_blank">
+                                                {{-- <i class="fa-brands fa-linkedin" style="font-size: 30px; color:#0A66C2;"></i> --}}
+                                            </a>
+                                        @endif
                                     </li>
                                 </ul>
                             </div>
@@ -249,7 +251,8 @@
                                 <p id="modalIntroduction"></p>
                                 <p id="modalemail" class="text-secondary"></p>
                                 <p id="modalContact"></p>
-                                <a id="modalSocialMedia" href="#" target="_blank">
+                                <!-- Social Media LinkedIn Icon -->
+                                <a id="modalSocialMedia" href="#" target="_blank" style="display: none;">
                                     <i class="fa-brands fa-linkedin" style="font-size: 30px; color:#0A66C2;"></i>
                                 </a>
                             </div>
@@ -258,6 +261,7 @@
                 </div>
             </div>
         </div>
+        
         
 
 
@@ -271,19 +275,29 @@
 
 </html>
 <script>
-  function showMemberModal(member) {
-    // Populate modal with member data
-    document.getElementById('modalImage').src = "{{ asset('team') }}/" + member.image;
-    document.getElementById('modalName').textContent = member.name;
-    document.getElementById('modalDesignation').textContent = member.designation;
-    document.getElementById('modalIntroduction').textContent = member.introduction || "No introduction available.";
-    document.getElementById('modalemail').textContent = `Email: ${member.email || 'N/A'}`; // Include email
-    document.getElementById('modalContact').textContent = `Phone: ${member.phone || 'N/A'}`;
-    document.getElementById('modalSocialMedia').href = member.social_media || "#";
+ function showMemberModal(item) {
+    // Set image, name, and other details
+    document.getElementById('modalImage').src = '/team/' + item.image;  // Adjust path if needed
+    document.getElementById('modalName').innerText = item.name;
+    document.getElementById('modalDesignation').innerText = item.designation;
+    document.getElementById('modalIntroduction').innerText = item.introduction;
+    document.getElementById('modalemail').innerText = item.email;
+    document.getElementById('modalContact').innerText = item.contact;
 
-    // Show the modal
-    const modal = new bootstrap.Modal(document.getElementById('teamMemberModal'));
-    modal.show();
+    // Check if social media exists and set the link, otherwise hide it
+    const socialMediaLink = document.getElementById('modalSocialMedia');
+    
+    if (item.social_media) {
+        socialMediaLink.style.display = 'inline-block'; // Show the icon
+        socialMediaLink.href = item.social_media; // Set the link
+    } else {
+        socialMediaLink.style.display = 'none'; // Hide the icon if no social media link
+    }
+
+    // Show the modal (Bootstrap 5)
+    var myModal = new bootstrap.Modal(document.getElementById('teamMemberModal'));
+    myModal.show();
 }
+
 
 </script>

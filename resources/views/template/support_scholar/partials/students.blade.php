@@ -35,9 +35,14 @@
              onclick="handleCardClick({{ $item->make_pledge }}, {{ $item->payment_approved }})">
             @php
                 // Determine the image path
+                $studentImage = public_path('templates/students_images/' . $item->images);
+
+                // Use dummy.png if the file does not exist or if the images attribute is empty
                 $imagePath = ($item->make_pledge == 0 && $item->payment_approved == 0)
                              ? asset('templates/logo/Adopted Stamp.png')
-                             : asset('templates/students_images/' . $item->images);
+                             : (file_exists($studentImage) && !empty($item->images) 
+                                ? asset('templates/students_images/' . $item->images) 
+                                : asset('templates/students_images/dummy.png'));
             @endphp
             <img 
                 class="card-img-top trans_200" 

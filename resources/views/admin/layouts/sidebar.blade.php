@@ -207,6 +207,31 @@
                     </ul>
                 </li>
                 
+
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#users"
+                        aria-expanded="false" aria-controls="users">
+                        <i class="mdi mdi-account-multiple"></i> <!-- Icon for Users -->
+                        <span class="nav-text">Users</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="users" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+                            
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('user_create') }}">
+                                    <span class="nav-text">Add User</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('user_list') }}">
+                                    <span class="nav-text">User List</span>
+                                </a>
+                            </li>
+                           
+                        </div>
+                    </ul>
+                </li>
+                
                 <li class="section-title">
                     UI Elements
                 </li>

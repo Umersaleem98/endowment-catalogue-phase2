@@ -14,6 +14,7 @@ use App\Http\Controllers\Pages\SignatureProgramController;
 use App\Http\Controllers\Endownment\EndowmentHomeController;
 use App\Http\Controllers\Fund_Project\FundProjectController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
+use App\Http\Controllers\Dashboard\User\UserDashboardController;
 use App\Http\Controllers\Dashboard\Teams\TeamsDashboardController;
 use App\Http\Controllers\Endownment\Four\FourYearSupportController;
 use App\Http\Controllers\Dashboard\Events\EventsDashboardController;
@@ -119,3 +120,10 @@ Route::post('event_update/{id}', [EventsDashboardController::class, 'update']);
 Route::get('event_delete/{id}', [EventsDashboardController::class, 'delete']);
 
 Route::post('import', [StudentController::class, 'import'])->name('students.import');
+
+Route::get('user_create', [UserDashboardController::class, 'index']);
+Route::post('add_users', [UserDashboardController::class, 'store']);
+Route::get('user_list', [UserDashboardController::class, 'userlist']);
+Route::get('user_edit/{id}', [UserDashboardController::class, 'edit']);
+Route::post('update_user/{id}', [UserDashboardController::class, 'update']);
+Route::get('user_delete/{id}', [UserDashboardController::class, 'delete']);
