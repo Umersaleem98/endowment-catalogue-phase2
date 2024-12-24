@@ -89,29 +89,24 @@ Route::get('student_list', [StudentDashboardController::class, 'index']);
 Route::get('students_edit/{id}', [StudentDashboardController::class, 'edit']);
 Route::post('students_update/{id}', [StudentDashboardController::class, 'update']);
 Route::get('students_delete/{id}', [StudentDashboardController::class, 'delete']);
-
 // Custom Endownemt Dashboard Controller Routes 
 Route::get('zakat_payments_list', [EndoementZakatDashboardController::class, 'index']);
-
 // Defult Endownemt Dashboard Controller Routes 
 Route::get('oneyear_endowment_list', [DefultEndowmentOneyearDashboardController::class, 'index']);
 Route::get('fouryear_endowment_list', [DefultEndowmentOneyearDashboardController::class, 'indexforyear']);
 Route::get('perpetualseat_endowment_list', [DefultEndowmentOneyearDashboardController::class, 'indexperpetualseat']);
-
 // Custom Endownemt Dashboard Controller Routes 
 Route::get('custom_oneyear_endowment_list', [CustomEndowmentOneyearDashboardController::class, 'index']);
 Route::get('custom_fouryear_endowment_list', [CustomEndowmentOneyearDashboardController::class, 'indexforyear']);
 Route::get('custom_perpetualseat_endowment_list', [CustomEndowmentOneyearDashboardController::class, 'indexperpetualseat']);
 // Teams Dashboard Controller Routes 
-
 Route::get('add_team', [TeamsDashboardController::class, 'index']);
 Route::post('add_team_member', [TeamsDashboardController::class, 'store']);
 Route::get('team_list', [TeamsDashboardController::class, 'show']);
 Route::get('team_edit/{id}', [TeamsDashboardController::class, 'edit']);
 Route::post('update_team/{id}', [TeamsDashboardController::class, 'update']);
 Route::get('team_delete/{id}', [TeamsDashboardController::class, 'destory']);
-
-
+// Events Dashboard Controller Routes 
 Route::get('event_list', [EventsDashboardController::class, 'index']);
 Route::get('event_create', [EventsDashboardController::class, 'create']);
 Route::post('event_create', [EventsDashboardController::class, 'store']);
@@ -120,7 +115,7 @@ Route::post('event_update/{id}', [EventsDashboardController::class, 'update']);
 Route::get('event_delete/{id}', [EventsDashboardController::class, 'delete']);
 
 Route::post('import', [StudentController::class, 'import'])->name('students.import');
-
+// Users Dashboard Controller Routes 
 Route::get('user_create', [UserDashboardController::class, 'index']);
 Route::post('add_users', [UserDashboardController::class, 'store']);
 Route::get('user_list', [UserDashboardController::class, 'userlist']);
