@@ -65,7 +65,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title text-light">
-                                        <i class="fas fa-chart-bar"></i> UG & PG Students by Year of Admission (2018 Onward)
+                                        {{-- <i class="fas fa-chart-bar"></i> UG & PG Students by Year of Admission (2018 Onward) --}}
                                     </h5>
                                     <canvas id="studentsByYearChart"></canvas>
                                 </div>

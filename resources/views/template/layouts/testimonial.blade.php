@@ -17,7 +17,7 @@
             <!-- Right Side: Text -->
             <div class="col-lg-6 d-flex flex-column justify-content-between" style="height: 100%;">
                 <div>
-                    <h2 class="text-dark font-weight-bold">Image Title or Heading</h2>
+                    {{-- <h2 class="text-dark font-weight-bold">Image Title or Heading</h2> --}}
                     <p class="fs-5" style="line-height: 1.8; color: #555;">
                         Our father, a taxi driver, faced numerous hardships and managed to support our family of five on a modest salary of PKR 25,000. To ease the financial strain, our elder brother stepped up, working daily wages to provide essential water services to the community. It was in 2019, that we both got enrolled in our dream university, in engineering disciplines – and that was the happiest day of our lives.
                     </p>
@@ -28,8 +28,8 @@
 
                 <!-- Author's Name and Designation -->
                 <div class="text-center bg-light py-2 rounded shadow mt-3">
-                    <p class="mb-0 text-primary fw-bold" style="font-size: 20px;">John Doe</p>
-                    <p class="mb-0 text-muted" style="font-size: 18px;">Software Engineer</p>
+                    <p class="mb-0 text-primary fw-bold" style="font-size: 20px;">Zain & Abdullah</p>
+                    <p class="mb-0 text-muted" style="font-size: 18px;">Batch 2019</p>
                 </div>
             </div>
         </div>

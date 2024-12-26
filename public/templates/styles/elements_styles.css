@@ -102,7 +102,7 @@ a, a:hover, a:visited, a:active, a:link
 p a:active
 {
 	position: relative;
-	color: #FF6347;
+	color: #070505;
 }
 p a:hover
 {
@@ -176,7 +176,7 @@ h6::selection
 }
 .form-control
 {
-	color: #db5246;
+	color: #000000;
 }
 section
 {

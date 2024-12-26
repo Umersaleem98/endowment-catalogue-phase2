@@ -113,7 +113,7 @@ a, a:hover, a:visited, a:active, a:link
 p a:active
 {
 	position: relative;
-	color: #FF6347;
+	color: #000000;
 }
 p a:hover
 {
@@ -126,13 +126,13 @@ p a:hover::after
 }
 ::selection
 {
-	background: #FFD266;
-	color: #C88E00;
+	background: #5a5957;
+	color: white;
 }
 p::selection
 {
-	background: #FFD266;
-	color: #C88E00;
+	background: #5a5957;
+	color: white;
 }
 h1{font-size: 36px;}
 h2{font-size: 22px;}
@@ -187,7 +187,7 @@ h6::selection
 }
 .form-control
 {
-	color: #db5246;
+	color: #000000;
 }
 section
 {

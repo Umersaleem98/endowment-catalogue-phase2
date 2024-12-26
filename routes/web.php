@@ -8,13 +8,17 @@ use App\Http\Controllers\Pages\TeamController;
 use App\Http\Controllers\Pages\AboutUsController;
 use App\Http\Controllers\Pages\ContactUsController;
 use App\Http\Controllers\Pages\NustTrustFundController;
+use App\Http\Controllers\Fund_Project\FundaProjectMosque;
 use App\Http\Controllers\Endownment\Zakat\ZakatController;
 use App\Http\Controllers\OneYear\OneYearSupportController;
 use App\Http\Controllers\Pages\SignatureProgramController;
 use App\Http\Controllers\Endownment\EndowmentHomeController;
 use App\Http\Controllers\Fund_Project\FundProjectController;
+use App\Http\Controllers\Fund_Project\FundaProjectBoysHostel;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
+use App\Http\Controllers\Fund_Project\FundaProjectgirlsHostel;
 use App\Http\Controllers\Dashboard\User\UserDashboardController;
+use App\Http\Controllers\Fund_Project\FundaProjectBusinessCenter;
 use App\Http\Controllers\Dashboard\Teams\TeamsDashboardController;
 use App\Http\Controllers\Endownment\Four\FourYearSupportController;
 use App\Http\Controllers\Dashboard\Events\EventsDashboardController;
@@ -74,6 +78,21 @@ Route::get('select_project', [FundProjectController::class, 'index']);
 Route::get('fund_project/{id}', [FundProjectController::class, 'FundProject']);
 Route::get('payments_project/{id}', [FundProjectController::class, 'payment_fund_a_project']);
 Route::post('fund_a_project', [FundProjectController::class, 'payment_fund_a_project_store']);
+
+Route::get('boyshostel/{id}', [FundaProjectBoysHostel::class, 'index']);
+Route::post('boys_hostel_store', [FundaProjectBoysHostel::class, 'store']);
+
+Route::get('girlshostel/{id}', [FundaProjectgirlsHostel::class, 'index']);
+Route::post('girls_hostel_store', [FundaProjectgirlsHostel::class, 'store']);
+
+Route::get('mosque/{id}', [FundaProjectMosque::class, 'index']);
+Route::post('mosque_store', [FundaProjectMosque::class, 'store']);
+
+Route::get('business_center/{id}', [FundaProjectBusinessCenter::class, 'index']);
+Route::post('business_center_store', [FundaProjectBusinessCenter::class, 'store']);
+
+
+
 
 // auth routes for dashboard
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');

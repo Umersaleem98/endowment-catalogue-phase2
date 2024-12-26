@@ -13,5 +13,6 @@ class ProjectCategory extends Model
         'project_name',
         'description',
         'project_image',
+        'links',
     ];
 }

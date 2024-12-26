@@ -61,7 +61,7 @@
                             <div class="card-body text-center">
                                 <h2 class="card-title text-dark text-center">{{ $item->project_name }}</h2>
                                 {{-- <p class="card-text text-dark">{{ $item->description }}</p> --}}
-                                <a href="{{ url('fund_project', ['id' => $item->id]) }}" class="btn btn-primary text-center">Visit</a>
+                                <a href="{{ url($item->links, ['id' => $item->id]) }}" class="btn btn-primary text-center">Visit</a>
                             </div>
 
                         </div>
