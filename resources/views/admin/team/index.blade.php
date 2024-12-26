@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-
+<title>Team Index</title>
 
     @include('admin.layouts.head')
 

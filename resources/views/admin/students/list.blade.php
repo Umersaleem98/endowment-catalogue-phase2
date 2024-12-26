@@ -4,8 +4,7 @@ a<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
-    <title></title>
-    <title>Defult One Year Package</title>
+    <title>Students List</title>
     @include('admin.layouts.head')
 </head>
 

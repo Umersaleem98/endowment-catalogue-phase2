@@ -24,9 +24,13 @@ use App\Http\Controllers\Endownment\Four\FourYearSupportController;
 use App\Http\Controllers\Dashboard\Events\EventsDashboardController;
 use App\Http\Controllers\Endownment\Student\StudentStoriesController;
 use App\Http\Controllers\Pages\ResourceMobilizationOfficerController;
+use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectMosque;
 use App\Http\Controllers\Dashboard\Endewment\EndoementZakatDashboardController;
 use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentDashboardController;
+use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBoysHostel;
+use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectGirlsHostel;
 use App\Http\Controllers\Endownment\PerpetualSeat\PerpetualSeatSupportController;
+use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBusinessCenter;
 use App\Http\Controllers\Dashboard\Endewment\CustomEndowmentOneyearDashboardController;
 use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentOneyearDashboardController;
 
@@ -92,8 +96,6 @@ Route::get('business_center/{id}', [FundaProjectBusinessCenter::class, 'index'])
 Route::post('business_center_store', [FundaProjectBusinessCenter::class, 'store']);
 
 
-
-
 // auth routes for dashboard
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -141,3 +143,8 @@ Route::get('user_list', [UserDashboardController::class, 'userlist']);
 Route::get('user_edit/{id}', [UserDashboardController::class, 'edit']);
 Route::post('update_user/{id}', [UserDashboardController::class, 'update']);
 Route::get('user_delete/{id}', [UserDashboardController::class, 'delete']);
+
+Route::get('boys_hostel_project_list', [DashboardFundaProjectBoysHostel::class, 'list']);
+Route::get('girls_hostel_project_list', [DashboardFundaProjectGirlsHostel::class, 'list']);
+Route::get('mosque_project_list', [DashboardFundaProjectMosque::class, 'list']);
+Route::get('business_center_project_list', [DashboardFundaProjectBusinessCenter::class, 'list']);

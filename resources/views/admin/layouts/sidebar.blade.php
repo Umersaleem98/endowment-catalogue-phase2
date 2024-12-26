@@ -119,11 +119,7 @@
                     </a>
                     <ul class="collapse" id="fund-project" data-parent="#sidebar-menu">
                         <div class="sub-menu">
-                            <li>
-                                <a class="sidenav-item-link" href="{{ url('mosque_project_list') }}">
-                                    <span class="nav-text">Mosque</span>
-                                </a>
-                            </li>
+                           
                             <li>
                                 <a class="sidenav-item-link" href="{{ url('boys_hostel_project_list') }}">
                                     <span class="nav-text">Boys Hostel</span>
@@ -132,6 +128,11 @@
                             <li>
                                 <a class="sidenav-item-link" href="{{ url('girls_hostel_project_list') }}">
                                     <span class="nav-text">Girls Hostel</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('mosque_project_list') }}">
+                                    <span class="nav-text">Mosque</span>
                                 </a>
                             </li>
                             <li>

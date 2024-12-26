@@ -5,7 +5,7 @@
 
 <head>
     <title></title>
-    <title>Defult One Year Package</title>
+    <title>Zakat List</title>
     @include('admin.layouts.head')
 </head>
 

@@ -4,7 +4,7 @@
     <title>Fund a Project Payments</title>
     @include('template.layouts.head')
     <style>
-        h1,h2,h3,h4,h5,h6, p, tr,td {
+        h1, h2, h3, h4, h5, h6, p, tr, td {
             color: black;
         }
         ::placeholder {
@@ -83,13 +83,13 @@
                                         <input type="text" class="form-control" name="description" value="Business Center" required readonly>
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control" id="area_sft" name="area_sft" value="150435.00" step="0.01" required readonly>
+                                        <input type="number" class="form-control" id="area_sft" name="area_sft" value="45550.00" step="0.01" required readonly>
                                     </td>
                                     <td>
                                         <input type="number" class="form-control" id="quantity" name="quantity" value="1" required>
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control" id="total_area_sft" name="total_area_sft" value="150435.00" readonly>
+                                        <input type="number" class="form-control" id="total_area_sft" name="total_area_sft" value="45550.00" readonly>
                                     </td>
                                 </tr>
                                 <tr>

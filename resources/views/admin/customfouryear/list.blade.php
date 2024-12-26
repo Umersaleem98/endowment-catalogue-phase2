@@ -4,8 +4,8 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <title></title>
-  <title>Defult One Year Package</title>
+
+  <title>Custom  Four Year Package</title>
     @include('admin.layouts.head')
 </head>
 

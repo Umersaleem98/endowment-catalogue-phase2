@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <title>Create Event</title>
+    <title>Create Users</title>
 
 
     @include('admin.layouts.head')

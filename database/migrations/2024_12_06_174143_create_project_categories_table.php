@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('project_name'); // Project name
             $table->text('description'); // Description (use `text` for longer content)
             $table->string('project_image'); // Image file path
+            $table->string('links')->nullable(); // Image file path
             $table->timestamps(); // Created at and updated at timestamps
         });
     }

@@ -4,8 +4,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <title></title>
-  <title>Defult One Year Package</title>
+  <title>Defult Perpetual Seat Package</title>
     @include('admin.layouts.head')
 </head>
 

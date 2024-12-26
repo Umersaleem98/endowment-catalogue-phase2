@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    
     @include('template.layouts.head')
     <style>
         body {
