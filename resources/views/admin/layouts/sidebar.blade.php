@@ -38,18 +38,13 @@
                     <ul class="collapse" id="student-stories" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('student_story_one_time_payment') }}">
-                                    <span class="nav-text">One Time Payment</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="sidenav-item-link" href="{{ url('student_story_recurring_payment') }}">
-                                    <span class="nav-text">Recurring Payment</span>
+                                <a class="sidenav-item-link" href="{{ url('student_story_payment') }}">
+                                    <span class="nav-text">Student Profile Payment</span>
                                 </a>
                             </li>
                             <li>
                                 <a class="sidenav-item-link" href="{{ url('student_story_pledge_payment') }}">
-                                    <span class="nav-text">Pledge Payment</span>
+                                    <span class="nav-text">Student Profile Pledge Payment</span>
                                 </a>
                             </li>
                         </div>

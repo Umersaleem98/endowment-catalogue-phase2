@@ -101,6 +101,7 @@ public function student_stories_ind($id)
 
     public function store(Request $request, $id)
     {
+
         // Find the student using the ID from the URL
         $student = Student::find($id);
 
@@ -112,11 +113,10 @@ public function student_stories_ind($id)
             $payment->donor_name = $request->donor_name;
             $payment->donor_email = $request->donor_email;
             $payment->phone = $request->phone_number;
-            $payment->amount = $request->amount;
-            $payment->donation_percent = $request->donation_percent ?? null; // Add if applicable
-            $payment->donation_for = $request->donation_for ?? null; // Add if applicable
             $payment->duration = $request->duration;
-
+            $payment->duration_sum = $request->duration_sum;
+            $payment->messing = $request->messing;
+            $payment->amount = $request->amount;
             // Handle file upload for 'prove'
             if ($request->hasFile('prove')) {
                 $file = $request->file('prove');
@@ -126,7 +126,11 @@ public function student_stories_ind($id)
             }
 
             $payment->payment_approved = $request->payment_approved;
+            // dd($payment->save());
             $payment->save();
+
+
+          
 
             // Update student's payment_approved status
             $student->payment_approved = 0;

@@ -24,6 +24,7 @@ use App\Http\Controllers\Endownment\Four\FourYearSupportController;
 use App\Http\Controllers\Dashboard\Events\EventsDashboardController;
 use App\Http\Controllers\Endownment\Student\StudentStoriesController;
 use App\Http\Controllers\Pages\ResourceMobilizationOfficerController;
+use App\Http\Controllers\Dashboard\StudentStory\DashboardStudentsStory;
 use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectMosque;
 use App\Http\Controllers\Dashboard\Endewment\EndoementZakatDashboardController;
 use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentDashboardController;
@@ -74,7 +75,7 @@ Route::get('student_stories_indiviual/{id}', [StudentStoriesController::class, '
 Route::get('payment/{id}', [StudentStoriesController::class, 'payment_index']);
 Route::get('Make_a_Pledge/{id}', [StudentStoriesController::class, 'Make_a_Pledge']);
 // Route::post('payments/{id}', [StudentStoriesController::class, 'paymentsstore']);
-Route::post('/payments/{id}', [StudentStoriesController::class, 'store'])->name('payments.store');
+Route::post('/payments/{id}', [StudentStoriesController::class, 'store']);
 Route::post('/pledge_payment/{id}', [StudentStoriesController::class, 'pledgestore'])->name('pledge_payment.store');
 // Other Projects routes and controllers 
 
@@ -143,8 +144,15 @@ Route::get('user_list', [UserDashboardController::class, 'userlist']);
 Route::get('user_edit/{id}', [UserDashboardController::class, 'edit']);
 Route::post('update_user/{id}', [UserDashboardController::class, 'update']);
 Route::get('user_delete/{id}', [UserDashboardController::class, 'delete']);
-
+// Fund a projects dashboard 
 Route::get('boys_hostel_project_list', [DashboardFundaProjectBoysHostel::class, 'list']);
 Route::get('girls_hostel_project_list', [DashboardFundaProjectGirlsHostel::class, 'list']);
 Route::get('mosque_project_list', [DashboardFundaProjectMosque::class, 'list']);
 Route::get('business_center_project_list', [DashboardFundaProjectBusinessCenter::class, 'list']);
+
+// Student stories dashboard 
+Route::get('student_story_payment', [DashboardStudentsStory::class, 'Payment_index']);
+Route::get('student_story_pledge_payment', [DashboardStudentsStory::class, 'Pledge_index']);
+
+
+

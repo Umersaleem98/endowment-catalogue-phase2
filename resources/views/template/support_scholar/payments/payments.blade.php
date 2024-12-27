@@ -14,41 +14,33 @@
             color: black;
         }
 
-        /* Style for input text color */
         input.form-control {
             color: black;
         }
 
-        /* Style for placeholder text color */
         input.form-control::placeholder {
             color: black;
-            opacity: 1; /* Override default opacity */
+            opacity: 1;
         }
 
         select.form-control {
-        color: black;
-    }
+            color: black;
+        }
 
-    /* Style for select option text color */
-    select.form-control option {
-        color: black;
-    }
-        </style>
+        select.form-control option {
+            color: black;
+        }
+    </style>
 </head>
 <body>
-
 <div class="super_container">
 
     <!-- Header -->
-
     @include('template.layouts.navbar')
-
     @include('template.layouts.home')
-
 
     <div class="events page_section">
         <div class="container">
-
             <div class="row mb-5">
                 <div class="col">
                     <div class="section_title text-center">
@@ -76,129 +68,109 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-12 mb-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h2 class="text-dark">Bank Details</h2>
-                            </div>
-                            <div class="card-body">
-                                <div class="row mt-4">
-                                    <div class="col-md-4">
-                                        <h2>Non-Zakat Donation</h2>
-                                        {{-- <p>Bank Name: XYZ Bank</p> --}}
-                                        <p>Account Number: 2292-79173812-01</p>
-                                        <p>IBAN Number: PK80HABB0022927917381201</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h2>Zakat Donation</h2>
-                                        <p>Account Number: 2292-79173861-03</p>
-                                        <p>IBAN Number: PK34habb0022927917386103</p>                                    </div>
-                                    <div class="col-md-4">
-                                        <h2>Endowment Fund Donations</h2>
-                                        {{-- <p>Bank Name: ABC Bank</p> --}}
-                                        <p>Account Number: 2292-79173811-01</p>
-                                        <p>IBAN Number: PK64habb0022927917381101</p>                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="alert alert-info text-center" role="alert">
-                                    Further correspondence will be carried out on your provided valid email address..
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <form method="POST" action="{{ url('payments', $students->id) }}" enctype="multipart/form-data">
                             @csrf
-                           
-                            
-                            <input type="text" name="student_name" class="form-control" value="{{ $students->student_name }}">
-                            
-                            <div class="row mb-3">
-                                <div class="col-10">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="student_name" class="form-label">Student Name</label>
+                                    <input type="text" class="form-control" id="student_name" name="student_name" value="{{ $students->student_name }}" readonly>
+                                </div>
+
+                                <div class="col-md-6">
                                     <label for="donor_name" class="form-label">Your Name</label>
                                     <input type="text" class="form-control" placeholder="Enter Your Name" id="donor_name" name="donor_name">
                                 </div>
-                            </div>
-                            
-                            <div class="row mb-3">
-                                <div class="col-10">
+
+                                <div class="col-md-6">
                                     <label for="donor_email" class="form-label">Your Email</label>
                                     <input type="email" class="form-control" placeholder="Enter Your Valid Email" id="donor_email" name="donor_email">
                                 </div>
-                            </div>
-                    
-                            <div class="row mb-3">
-                                <div class="col-10">
+
+                                <div class="col-md-6">
                                     <label for="phone_number" class="form-label">Phone Number</label>
                                     <input type="text" class="form-control" placeholder="Enter Your Phone Number" id="phone_number" name="phone_number">
                                 </div>
-                            </div>
-                    
-                            <div class="row mb-3">
-                                <div class="col">
+
+                                <div class="col-md-6">
                                     <label for="duration" class="form-label">Duration</label>
-                                    <select class="form-control" aria-label="Default select example" id="duration" name="duration">
-                                        <option value="6">6 Months</option>
-                                        <option value="1">1 Year</option>
-                                        <option value="2">2 Years</option>
-                                        <option value="4">4 Years</option>
+                                    <select class="form-control" id="duration" name="duration">
+                                        <option value="175000">6 Months</option>
+                                        <option value="350000">1 Year</option>
+                                        <option value="700000">2 Years</option>
+                                        <option value="1400000">4 Years</option>
                                     </select>
                                 </div>
-                                <div class="col">
-                                    <label for="amount" class="form-label">Amount (PKR)</label>
-                                    <input type="text" class="form-control" placeholder="Enter Amount" id="amount" name="amount">
+
+                                <div class="col-md-6">
+                                    <label for="duration_sum" class="form-label">Total Duration (Years)</label>
+                                    <input type="text" class="form-control" id="duration_sum" name="duration_sum" readonly>
                                 </div>
-                            </div>
-                    
-                            <div class="row mb-3">
-                                <div class="col">
-                                    <label for="prove" class="form-label">Prove </label>
+
+                                <div class="col-md-6">
+                                    <label for="messing" class="form-label">Messing (PKR)</label>
+                                    <input type="checkbox" class="form-control" value="90000" id="messing" name="messing">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="amount" class="form-label">Amount (PKR)</label>
+                                    <input type="text" class="form-control" id="amount" name="amount" readonly>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="prove" class="form-label">Prove</label>
                                     <input type="file" class="form-control" name="prove">
                                     <span class="text-success">"If you have already made the payment, kindly attach payment proof/screenshot of the payment"</span>
                                 </div>
                             </div>
-                    
+
                             <input type="hidden" name="payment_approved" value="0">
-                            
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
                         </form>
                     </div>
-                    
 
-                    <div class="col-md-6 d-flex justify-content-center">
+                    <div class="col-md-4 d-flex justify-content-center">
                         <img src="{{ asset('templates/images/charity2.gif') }}" alt="Image 1" class="img-fluid rounded" style="max-width: 100%; height:400px">
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-
     @include('template.layouts.footer')
-</body>
-</html>
-<script>
-    $(document).ready(function() {
-        $('#duration').change(function() {
-            var duration = $(this).val();
-            var amount = 0;
 
-            if (duration == '6') {
-                amount = 200000;
-            } else if (duration == '1') {
-                amount = 400000;
-            } else if (duration == '2') {
-                amount = 1000000;
-            } else if (duration == '4') {
-                amount = 2000000;
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const messingCheckbox = document.getElementById('messing');
+            const durationSelect = document.getElementById('duration');
+            const amountInput = document.getElementById('amount');
+            const durationSumInput = document.getElementById('duration_sum');
+
+            function calculateAmount() {
+                let totalAmount = parseFloat(durationSelect.value) || 0;
+                if (messingCheckbox.checked) {
+                    totalAmount += parseFloat(messingCheckbox.value);
+                }
+                amountInput.value = totalAmount;
+
+                // Calculate duration in years
+                const durationYears = {
+                    '175000': 0.5, // 6 months
+                    '350000': 1,   // 1 year
+                    '700000': 2,   // 2 years
+                    '1400000': 4   // 4 years
+                };
+                durationSumInput.value = durationYears[durationSelect.value] || 0;
             }
 
-            $('#amount').val(amount);
+            messingCheckbox.addEventListener('change', calculateAmount);
+            durationSelect.addEventListener('change', calculateAmount);
+
+            // Initial calculation
+            calculateAmount();
         });
-    });
-</script>
+    </script>
+</div>
+</body>
+</html>

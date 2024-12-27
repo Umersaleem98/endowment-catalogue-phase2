@@ -6,18 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class StudentsStoryPayments extends Model
 {
-    protected $table = 'studetns_stories_payments';
+    protected $table = 'payments';
 
     protected $fillable = [
         'student_name',
-        'donor_name',
+        'donor_name',   
         'donor_email',
         'phone',
-        'amount',
-        'donation_percent',
-        'donation_amount',
-        'donation_for',
         'duration',
+        'duration_sum',
+        'messing',
+        'amount',
         'prove',
         'payment_approved',
     ];
