@@ -104,39 +104,39 @@
           <div class="row g-4">
             <!-- Card Header -->
             <div class="col-12 mb-3">
-              <div class="card-header" style="background-color: #6dc1f1;">
-                <h2 class="text-dark text-center">Bank Details</h2>
-                <h3 class="text-center text-dark">Account Title: NUST Trust Foundation, UK</h3>
+              <div class="card-header" style="background-color: #095590;">
+                <h2 class="text-light text-center">Bank Details</h2>
+                <h3 class="text-center text-light">Account Title: NUST Trust Foundation, UK</h3>
               </div>
             </div>
       
             <!-- Card 1 -->
             <div class="col-md-4">
-              <div class="card h-100" style="background-color: #3fb9ff;">
+              <div class="card h-100" style="background-color: #095590;">
                 <div class="card-body d-flex flex-column">
-                  <h3 class="card-title mb-3 text-dark">Account Number GBP: 70027591</h3>
-                  <p class="card-text text-dark">IBAN GBP: GB07 HABB 6095 1170 0275 91</p>
+                  <h3 class="card-title mb-3 text-light">Account Number GBP: 70027591</h3>
+                  <p class="card-text text-light">IBAN GBP: GB07 HABB 6095 1170 0275 91</p>
                 </div>
               </div>
             </div>
       
             <!-- Card 2 -->
             <div class="col-md-4">
-              <div class="card h-100" style="background-color: #3fb9ff;">
+              <div class="card h-100" style="background-color: #095590;">
                 <div class="card-body d-flex flex-column">
-                  <h3 class="card-title mb-3 text-dark">Account Number USD: 70027594</h3>
-                  <p class="card-text text-dark">IBAN Number USD: GB 23 HABB 6095 1170 0275 94</p>
+                  <h3 class="card-title mb-3 text-light">Account Number USD: 70027594</h3>
+                  <p class="card-text text-light">IBAN Number USD: GB 23 HABB 6095 1170 0275 94</p>
                 </div>
               </div>
             </div>
       
             <!-- Card 3 -->
             <div class="col-md-4">
-              <div class="card h-100" style="background-color: #3fb9ff;">
+              <div class="card h-100" style="background-color: #095590;">
                 <div class="card-body d-flex flex-column">
-                  <h3 class="card-title mb-3 text-dark">Account Type: Savings Account</h3>
-                  <p class="card-text text-dark">Branch: HBL Bank UK, 2 Swan Street, Manchester M4 5JN</p>
-                  <p class="card-text text-dark">SWIFT/BIC: HABBGB2L</p>
+                  <h3 class="card-title mb-3 text-light">Account Type: Savings Account</h3>
+                  <p class="card-text text-light">Branch: HBL Bank UK, 2 Swan Street, Manchester M4 5JN</p>
+                  <p class="card-text text-light">SWIFT/BIC: HABBGB2L</p>
                 </div>
               </div>
             </div>

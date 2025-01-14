@@ -63,7 +63,15 @@
                                                         <td>{{ $item->phone }}</td>
                                                         <td>{{ $item->duration }}</td>
                                                         <td>{{ $item->amount }}</td>
-                                                        <td>{{ $item->prove }}</td>
+                                                        <td>
+                                                            @if ($item->prove && file_exists(public_path('uploads\zakatpayments-proof/' . $item->prove)))
+                                                                <img src="{{ asset('uploads\zakatpayments-proof/' . $item->prove) }}" 
+                                                                     alt="Proof" 
+                                                                     style="width: 50px; height: 50px; object-fit: cover;">
+                                                            @else
+                                                                No Proof
+                                                            @endif
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>

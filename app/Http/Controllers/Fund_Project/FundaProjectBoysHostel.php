@@ -29,12 +29,22 @@ class FundaProjectBoysHostel extends Controller
         $BoysHostelCostEstimate->donor_name = $request->donor_name;
         $BoysHostelCostEstimate->donor_email = $request->donor_email;
         $BoysHostelCostEstimate->donor_phone = $request->donor_phone;
+       
+        // if ($request->hasFile('prove')) {
+        //     $file = $request->file('prove');
+        //     $filename = time() . '_' . $file->getClientOriginalName();
+        //     $file->move(public_path('uploads/fundaprojects_payments_boys-proof'), $filename);
+        //     $BoysHostelCostEstimate->prove = 'uploads/fundaprojects_payments_boys-proof/' . $filename;
+        // }
+       
         if ($request->hasFile('prove')) {
             $file = $request->file('prove');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/fundaprojects_payments_boys-proof'), $filename);
-            $BoysHostelCostEstimate->prove = 'uploads/fundaprojects_payments_boys-proof/' . $filename;
+            $filename = time() . '_' . $file->getClientOriginalName(); // Add timestamp for uniqueness
+            $file->move(public_path('uploads/fundaprojects_payments_boys-proof'), $filename); // Save file in the directory
+            $BoysHostelCostEstimate->prove = $filename; // Save the file name in the database
         }
+
+
         $BoysHostelCostEstimate->save();
 
         return redirect()->back()->with('success', 'Hostel boys data stored successfully!');

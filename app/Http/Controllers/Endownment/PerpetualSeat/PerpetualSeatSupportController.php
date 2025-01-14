@@ -23,76 +23,79 @@ class PerpetualSeatSupportController extends Controller
         $undergraduate= SupportADegreeForOneYearUg::all();
         return view('template.EndowmentModels.PerpetualSeat.perpetual_seat_package', compact('countries','schools','postgraduate','undergraduate'));
     }
-
     public function DefultPerpetualSeatundergraduate(Request $request)
     {
-        $defaultfourYearDegree = new DefultPackagePerpetualSeatDegree();
-
+        $defaultPerpetualSeat = new DefultPackagePerpetualSeatDegree();
+    
         // Assign values from the request to the model properties
-        $defaultfourYearDegree->program_type = $request->program_type;
-        $defaultfourYearDegree->degree = $request->degree;
-        $defaultfourYearDegree->seats = $request->seats ?? 1; // Default to 1 if not provided
-        $defaultfourYearDegree->totalAmount = $request->totalAmount;
-        $defaultfourYearDegree->donor_name = $request->donor_name;
-        $defaultfourYearDegree->donor_email = $request->donor_email;
-        $defaultfourYearDegree->phone = $request->phone;
-        $defaultfourYearDegree->about_partner = $request->about_partner;
-        $defaultfourYearDegree->philanthropist_text = $request->philanthropist_text;
-        $defaultfourYearDegree->school = $request->school;
-        $defaultfourYearDegree->country = $request->country;
-        $defaultfourYearDegree->year = $request->year;
-        $defaultfourYearDegree->payments_status = $request->payments_status;
-
+        $defaultPerpetualSeat->program_type = $request->program_type;
+        $defaultPerpetualSeat->degree = $request->degree;
+        $defaultPerpetualSeat->seats = $request->seats ?? 1; // Default to 1 if not provided
+    
+        // Ensure totalAmount is numeric
+        $defaultPerpetualSeat->totalAmount = preg_replace('/[^0-9.]/', '', $request->totalAmount);
+    
+        $defaultPerpetualSeat->donor_name = $request->donor_name;
+        $defaultPerpetualSeat->donor_email = $request->donor_email;
+        $defaultPerpetualSeat->phone = $request->phone;
+        $defaultPerpetualSeat->about_partner = $request->about_partner;
+        $defaultPerpetualSeat->philanthropist_text = $request->philanthropist_text;
+        $defaultPerpetualSeat->school = $request->school;
+        $defaultPerpetualSeat->country = $request->country;
+        $defaultPerpetualSeat->year = $request->year;
+        $defaultPerpetualSeat->payments_status = $request->payments_status;
+    
         // Handle file upload for 'prove'
         if ($request->hasFile('prove')) {
             $file = $request->file('prove');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/Fouryear-proof'), $filename);
-            $defaultfourYearDegree->prove = 'uploads/proofs/' . $filename;
+            $filename = time() . '_' . $file->getClientOriginalName(); // Add timestamp for uniqueness
+            $file->move(public_path('uploads/perpetualseat-proof'), $filename); // Save file in the directory
+            $defaultPerpetualSeat->prove = $filename; // Save the file name in the database
         }
-
         // Save the model to the database
-        $defaultfourYearDegree->save();
-
+        $defaultPerpetualSeat->save();
+    
         // Redirect to a success page or back with a success message
         return redirect()->back()->with('success', 'Form submitted successfully!');
-    
     }
-
+    
 
     public function CustomPerpetualSeatundergraduate(Request $request)
     {
-        $customFourYearDegree = new CustomPackagePerpetualSeatDegree();
+        $customPerpetualSeat = new CustomPackagePerpetualSeatDegree();
     
-        $customFourYearDegree->program = $request->program;
-        $customFourYearDegree->endoement_type = $request->endoement_type;
-        $customFourYearDegree->degree = $request->degree;
-        $customFourYearDegree->seats = $request->seats ?? 1;
-        $customFourYearDegree->degree = $request->degree;
+        // Assign values from the request to the model properties
+        $customPerpetualSeat->program = $request->program;
+        $customPerpetualSeat->endowment_type = $request->endowment_type; // Fixed typo
+        $customPerpetualSeat->degree = $request->degree;
+        $customPerpetualSeat->seats = $request->seats ?? 1; // Default to 1 if not provided
     
         // Ensure totalAmount is numeric
-        $customFourYearDegree->totalAmount = preg_replace('/[^0-9.]/', '', $request->totalAmount);
+        $customPerpetualSeat->totalAmount = preg_replace('/[^0-9.]/', '', $request->totalAmount);
     
-        $customFourYearDegree->donor_name = $request->donor_name;
-        $customFourYearDegree->donor_email = $request->donor_email;
-        $customFourYearDegree->phone = $request->phone;
-        $customFourYearDegree->about_partner = $request->about_partner;
-        $customFourYearDegree->philanthropist_text = $request->philanthropist_text;
-        $customFourYearDegree->school = $request->school;
-        $customFourYearDegree->country = $request->country;
-        $customFourYearDegree->year = $request->year;
-        $customFourYearDegree->payments_status = $request->payments_status;
+        $customPerpetualSeat->donor_name = $request->donor_name;
+        $customPerpetualSeat->donor_email = $request->donor_email;
+        $customPerpetualSeat->phone = $request->phone;
+        $customPerpetualSeat->about_partner = $request->about_partner;
+        $customPerpetualSeat->philanthropist_text = $request->philanthropist_text;
+        $customPerpetualSeat->school = $request->school;
+        $customPerpetualSeat->country = $request->country;
+        $customPerpetualSeat->year = $request->year;
+        $customPerpetualSeat->payments_status = $request->payments_status;
     
+        // Handle file upload for 'prove'
         if ($request->hasFile('prove')) {
             $file = $request->file('prove');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/perpetualseat-proof'), $filename);
-            $customFourYearDegree->prove = 'uploads/perpetualseat-proof/' . $filename;
+            $filename = time() . '_' . $file->getClientOriginalName(); // Add timestamp for uniqueness
+            $file->move(public_path('uploads/perpetualseat-proof'), $filename); // Save file in the directory
+            $customPerpetualSeat->prove = $filename; // Save the file name in the database
         }
     
-        $customFourYearDegree->save();
+        // Save the model to the database
+        $customPerpetualSeat->save();
     
-        // dd( $customFourYearDegree->save());
+        // Redirect to a success page or back with a success message
         return redirect()->back()->with('success', 'Form submitted successfully!');
     }
+    
 }

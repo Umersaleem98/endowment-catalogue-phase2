@@ -83,6 +83,7 @@ public function update(Request $request, $id)
         $teamMember->image = $imageName;
     }
     $teamMember->social_media = $request->social_media;
+    $teamMember->introduction = $request->introduction;
     // dd( $teamMember);
     $teamMember->save();
 

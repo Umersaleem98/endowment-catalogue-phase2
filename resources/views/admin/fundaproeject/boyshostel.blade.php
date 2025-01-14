@@ -64,7 +64,7 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->description }}</td>
                                         <td>{{ $item->area_sft }}</td>
-                                        <td>{{ $item->seats }}</td>
+                                        <td>{{ $item->quantity }}</td>
                                         <td>{{ $item->total_area_sft }}</td>
                                         <td>{{ $item->construction_cost }}</td>
                                         <td>{{ $item->total_project_cost }}</td>
@@ -74,8 +74,13 @@
                                         <td>{{ $item->donor_email }}</td>
                                         <td>{{ $item->donor_phone }}</td>
                                         <td>
-                                            <img src="{{ asset('uploads/fundaprojects_payments_boys-proof/' . $item->prove) }}"
-                                            alt="Proof Image" style="width: 50px; height:50px;">
+                                            @if ($item->prove && file_exists(public_path('uploads\fundaprojects_payments_boys-proof/' . $item->prove)))
+                                                <img src="{{ asset('uploads\fundaprojects_payments_boys-proof/' . $item->prove) }}" 
+                                                     alt="Proof" 
+                                                     style="width: 50px; height: 50px; object-fit: cover;">
+                                            @else
+                                                No Proof
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach

@@ -35,9 +35,9 @@ class ZakatController extends Controller
     
         if ($request->hasFile('prove')) {
             $file = $request->file('prove');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/zakatpayments-proof'), $filename);
-            $zakatpayments->prove = 'uploads/zakatpayments-proof/' . $filename;
+            $filename = time() . '_' . $file->getClientOriginalName(); // Add timestamp for uniqueness
+            $file->move(public_path('uploads/zakatpayments-proof'), $filename); // Save file in the directory
+            $zakatpayments->prove = $filename; // Save the file name in the database
         }
     
         $zakatpayments->save();

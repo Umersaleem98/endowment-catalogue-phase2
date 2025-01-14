@@ -85,14 +85,20 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="imagePreviewLabel">Image Preview</h5>
+                    <!-- Default Bootstrap close button -->
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
                     <img id="previewImage" src="" class="img-fluid" alt="Preview Image">
                 </div>
+                <div class="modal-footer">
+                    <!-- Additional close button -->
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
+    
 
     <!-- Footer -->
     @include('template.layouts..footer')

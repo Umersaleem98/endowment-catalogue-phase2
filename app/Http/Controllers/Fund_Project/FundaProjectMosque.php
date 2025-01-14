@@ -38,9 +38,9 @@ class FundaProjectMosque extends Controller
         // File upload for payment proof
         if ($request->hasFile('prove')) {
             $file = $request->file('prove');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/fundaprojects_payments_mosque-proof'), $filename);
-            $mosque->prove = 'uploads/fundaprojects_payments_mosque-proof/' . $filename;
+            $filename = time() . '_' . $file->getClientOriginalName(); // Add timestamp for uniqueness
+            $file->move(public_path('uploads/fundaprojects_payments_mosque-proof'), $filename); // Save file in the directory
+            $mosque->prove = $filename; // Save the file name in the database
         }
     
         // Save the mosque data to the database

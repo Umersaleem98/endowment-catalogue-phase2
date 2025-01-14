@@ -258,6 +258,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <!-- Additional close button -->
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -269,7 +273,21 @@
         @include('template.layouts.footer')
     </div>
 
-   
+   <!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+    // Add event listeners to all images with the class "preview-image"
+    document.querySelectorAll('.preview-image').forEach(image => {
+        image.addEventListener('click', function () {
+            const modalImage = document.getElementById('previewImage');
+            modalImage.src = this.src; // Set the source of the modal image
+            const modal = new bootstrap.Modal(document.getElementById('imagePreviewModal'));
+            modal.show(); // Show the modal
+        });
+    });
+</script>
 
 </body>
 

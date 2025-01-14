@@ -64,7 +64,7 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->description }}</td>
                                         <td>{{ $item->area_sft }}</td>
-                                        <td>{{ $item->seats }}</td>
+                                        <td>{{ $item->quantity }}</td>
                                         <td>{{ $item->total_area_sft }}</td>
                                         <td>{{ $item->construction_cost }}</td>
                                         <td>{{ $item->total_project_cost }}</td>

@@ -29,11 +29,12 @@ class FundaProjectBusinessCenter extends Controller
         $business_center->donor_name = $request->donor_name;
         $business_center->donor_email = $request->donor_email;
         $business_center->donor_phone = $request->donor_phone;
+     
         if ($request->hasFile('prove')) {
             $file = $request->file('prove');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/fundaprojects_paymentsbusiness_center_store-proof'), $filename);
-            $business_center->prove = 'uploads/fundaprojects_paymentsbusiness_center_store-proof/' . $filename;
+            $filename = time() . '_' . $file->getClientOriginalName(); // Add timestamp for uniqueness
+            $file->move(public_path('uploads/fundaprojects_paymentsbusiness_center_store-proof'), $filename); // Save file in the directory
+            $business_center->prove = $filename; // Save the file name in the database
         }
         $business_center->save();
 

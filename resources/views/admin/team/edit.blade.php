@@ -108,6 +108,11 @@
                                                     name="social_media" value="{{ $teams->social_media }}"
                                                     placeholder="Enter social media">
                                             </div>
+                                            <div class="form-group">
+                                                <label for="introduction">Introduction</label>
+                                                <textarea class="form-control" id="introduction" name="introduction" cols="30" rows="10" placeholder="Enter introduction">{{ $teams->introduction }}</textarea>
+                                            </div>
+                                            
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
                                     </div>

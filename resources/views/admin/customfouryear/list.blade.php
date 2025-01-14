@@ -74,7 +74,15 @@
                                                       <td>{{ $item->country }}</td>
                                                       <td>{{ $item->year }}</td>
                                                       <td>{{ $item->payments_status }}</td>
-                                                      <td>{{ $item->prove }}</td>
+                                                      <td>
+                                                        @if ($item->prove && file_exists(public_path('uploads\Fouryear-proof/' . $item->prove)))
+                                                            <img src="{{ asset('uploads\Fouryear-proof/' . $item->prove) }}" 
+                                                                 alt="Proof" 
+                                                                 style="width: 50px; height: 50px; object-fit: cover;">
+                                                        @else
+                                                            No Proof
+                                                        @endif
+                                                    </td>
                                           </tr>
                                       @endforeach
 

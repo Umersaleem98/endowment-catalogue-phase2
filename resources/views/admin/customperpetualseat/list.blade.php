@@ -34,7 +34,7 @@
                       <div class="col-12">
                           <div class="card card-default">
                               <div class="card-header">
-                                  <h2>One Year Education list</h2>
+                                  <h2> Defult Perpetual Seat Education list</h2>
 
                               </div>
                               <div class="card-body">
@@ -45,6 +45,7 @@
                                       <tr>
                                           <th>Id</th>
                                           <th>Program</th>
+                                          <th>Endowment type</th>
                                           <th>Degree</th>
                                           <th>Seats</th>
                                           <th>Total Amount</th>
@@ -52,6 +53,7 @@
                                           <th>Donor Email</th>
                                           <th>Phone</th>
                                           <th>About Partner</th>
+                                          <th>School</th>
                                           <th>Country</th>
                                           <th>Year</th>
                                           <th>Status</th>
@@ -62,7 +64,8 @@
                                       @foreach ($perpetualseat as $item)
                                           <tr>
                                               <td>{{ $item->id }}</td>
-                                                      <td>{{ $item->program_type }}</td>
+                                                      <td>{{ $item->program }}</td>
+                                                      <td>{{ $item->endowment_type }}</td>
                                                       <td>{{ $item->degree }}</td>
                                                       <td>{{ $item->seats }}</td>
                                                       <td>{{ $item->totalAmount }}</td>
@@ -70,10 +73,19 @@
                                                       <td>{{ $item->donor_email }}</td>
                                                       <td>{{ $item->phone }}</td>
                                                       <td>{{ $item->about_partner }}</td>
+                                                      <td>{{ $item->school }}</td>
                                                       <td>{{ $item->country }}</td>
                                                       <td>{{ $item->year }}</td>
                                                       <td>{{ $item->payments_status }}</td>
-                                                      <td>{{ $item->prove }}</td>
+                                                      <td>
+                                                        @if ($item->prove && file_exists(public_path('uploads\perpetualseat-proof/' . $item->prove)))
+                                                            <img src="{{ asset('uploads\perpetualseat-proof/' . $item->prove) }}" 
+                                                                 alt="Proof" 
+                                                                 style="width: 50px; height: 50px; object-fit: cover;">
+                                                        @else
+                                                            No Proof
+                                                        @endif
+                                                    </td>
                                           </tr>
                                       @endforeach
 
