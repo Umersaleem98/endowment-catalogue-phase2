@@ -300,7 +300,7 @@
     document.getElementById('modalDesignation').innerText = item.designation;
     document.getElementById('modalIntroduction').innerText = item.introduction;
     document.getElementById('modalemail').innerText = item.email;
-    document.getElementById('modalContact').innerText = item.contact;
+    document.getElementById('modalContact').innerText = item.phone;
 
     // Check if social media exists and set the link, otherwise hide it
     const socialMediaLink = document.getElementById('modalSocialMedia');

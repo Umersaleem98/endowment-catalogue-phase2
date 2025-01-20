@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
     @include('template.layouts.head')
     <style>
         body {
@@ -108,10 +108,7 @@
         <!-- Header -->
         @include('template.layouts.navbar')
         @include('template.layouts.slider')
-        {{-- <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202."
-            class="float" target="_blank">
-            <i class="fa fa-whatsapp my-float"></i>
-        </a> --}}
+       
         {{-- @include('template.statistics') --}}
         <!-- Home -->
 
@@ -140,6 +137,25 @@
             }, 1500); // 2000 milliseconds = 2 seconds
         });
     </script>
+  <a href="#" onclick="redirectToWhatsAppWeb()" class="float">
+    <i class="fa fa-whatsapp my-float"></i>
+</a>
+
+<script>
+    function redirectToWhatsAppWeb() {
+       
+
+        const phoneNumber = "923365317822";
+        const message = encodeURIComponent("Thank you! We will contact you shortly.");
+
+        // Directly open WhatsApp Web
+        const url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+
+        // Redirect to WhatsApp Web
+        window.location.href = url;
+    }
+</script>
+
 </body>
 
 </html>
