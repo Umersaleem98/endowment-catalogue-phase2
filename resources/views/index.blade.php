@@ -137,24 +137,25 @@
             }, 1500); // 2000 milliseconds = 2 seconds
         });
     </script>
-  <a href="#" onclick="redirectToWhatsAppWeb()" class="float">
+<a href="#" onclick="redirectToWhatsApp()" class="float">
     <i class="fa fa-whatsapp my-float"></i>
 </a>
 
 <script>
-    function redirectToWhatsAppWeb() {
-       
-
+    function redirectToWhatsApp() {
         const phoneNumber = "923365317822";
-        const message = encodeURIComponent("Thank you! We will contact you shortly.");
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-        // Directly open WhatsApp Web
-        const url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+        // Construct the appropriate URL based on the device
+        const url = isMobile
+            ? `https://wa.me/${phoneNumber}` // Redirect to WhatsApp app without message
+            : `https://web.whatsapp.com/send?phone=${phoneNumber}`; // Redirect to WhatsApp Web without message
 
-        // Redirect to WhatsApp Web
-        window.location.href = url;
+        // Open the URL in a new tab
+        window.open(url, '_blank');
     }
 </script>
+
 
 </body>
 
