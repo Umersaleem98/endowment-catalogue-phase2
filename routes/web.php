@@ -31,6 +31,7 @@ use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentDashboardController;
 use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBoysHostel;
 use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectGirlsHostel;
 use App\Http\Controllers\Endownment\PerpetualSeat\PerpetualSeatSupportController;
+use App\Http\Controllers\Dashboard\AdopedStudent\DashboardAdopedStudentController;
 use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBusinessCenter;
 use App\Http\Controllers\Dashboard\Endewment\CustomEndowmentOneyearDashboardController;
 use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentOneyearDashboardController;
@@ -153,6 +154,9 @@ Route::get('business_center_project_list', [DashboardFundaProjectBusinessCenter:
 // Student stories dashboard 
 Route::get('student_story_payment', [DashboardStudentsStory::class, 'Payment_index']);
 Route::get('student_story_pledge_payment', [DashboardStudentsStory::class, 'Pledge_index']);
+
+// Adoped Student dashboard 
+Route::get('adopted_students_list', [DashboardAdopedStudentController::class, 'index']);
 
 
 

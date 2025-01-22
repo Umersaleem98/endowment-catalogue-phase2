@@ -29,6 +29,24 @@
                         </div>
                     </ul>
                 </li>
+
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#adoptedStudents"
+                        aria-expanded="false" aria-controls="adoptedStudents">
+                        <i class="mdi mdi-account-group"></i>
+                        <span class="nav-text">Adopted Students</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="adoptedStudents" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('adopted_students_list') }}">
+                                    <span class="nav-text">Adopted Students List</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+                
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#student-stories"
                         aria-expanded="false" aria-controls="student-stories">
