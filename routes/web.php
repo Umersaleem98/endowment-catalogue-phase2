@@ -25,6 +25,10 @@ use App\Http\Controllers\Dashboard\Events\EventsDashboardController;
 use App\Http\Controllers\Endownment\Student\StudentStoriesController;
 use App\Http\Controllers\Pages\ResourceMobilizationOfficerController;
 use App\Http\Controllers\Dashboard\StudentStory\DashboardStudentsStory;
+use App\Http\Controllers\Dashboard\Country\CountryDataManagmentController;
+use App\Http\Controllers\Dashboard\Courses\CoursePGdataManagmentController;
+use App\Http\Controllers\Dashboard\Courses\CourseUGdataManagmentController;
+use App\Http\Controllers\Dashboard\Customdata\CustomDataManagmentController;
 use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectMosque;
 use App\Http\Controllers\Dashboard\Endewment\EndoementZakatDashboardController;
 use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentDashboardController;
@@ -159,4 +163,23 @@ Route::get('student_story_pledge_payment', [DashboardStudentsStory::class, 'Pled
 Route::get('adopted_students_list', [DashboardAdopedStudentController::class, 'index']);
 
 
+// Country data managment dashboard 
+Route::get('country_data_list', [CountryDataManagmentController::class, 'index']);
+Route::get('country_data_index', [CountryDataManagmentController::class, 'create']);
+Route::post('country_data_create', [CountryDataManagmentController::class, 'store']);
+Route::get('countrydelete/{id}', [CountryDataManagmentController::class, 'delete']);
+
+//PG Courses data managment dashboard
+
+Route::get('ug_course_list', [CourseUGdataManagmentController::class, 'index']);
+Route::get('ug_course_index', [CourseUGdataManagmentController::class, 'create']);
+Route::post('ug_course_create', [CourseUGdataManagmentController::class, 'store']);
+Route::get('coursedelete/{id}', [CourseUGdataManagmentController::class, 'delete']);
+
+//UG Courses data managment dashboard
+
+Route::get('pg_course_list', [CoursePGdataManagmentController::class, 'index']);
+Route::get('pg_course_index', [CoursePGdataManagmentController::class, 'create']);
+Route::post('pg_course_create', [CoursePGdataManagmentController::class, 'store']);
+Route::get('coursedelete/{id}', [CoursePGdataManagmentController::class, 'delete']);
 

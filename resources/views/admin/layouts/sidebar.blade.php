@@ -31,8 +31,8 @@
                 </li>
 
                 <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#adoptedStudents"
-                        aria-expanded="false" aria-controls="adoptedStudents">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#adoptedStudents" aria-expanded="false" aria-controls="adoptedStudents">
                         <i class="mdi mdi-account-group"></i>
                         <span class="nav-text">Adopted Students</span> <b class="caret"></b>
                     </a>
@@ -46,10 +46,10 @@
                         </div>
                     </ul>
                 </li>
-                
+
                 <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#student-stories"
-                        aria-expanded="false" aria-controls="student-stories">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#student-stories" aria-expanded="false" aria-controls="student-stories">
                         <i class="mdi mdi-book"></i>
                         <span class="nav-text">Student Stories Payments</span> <b class="caret"></b>
                     </a>
@@ -68,11 +68,11 @@
                         </div>
                     </ul>
                 </li>
-                
+
 
                 <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#endowment"
-                        aria-expanded="false" aria-controls="endowment">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#endowment" aria-expanded="false" aria-controls="endowment">
                         <i class="mdi mdi-cash"></i>
                         <span class="nav-text">Default Endowment Fund</span> <b class="caret"></b>
                     </a>
@@ -97,10 +97,10 @@
                     </ul>
                 </li>
 
-               
+
                 <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#custom-package"
-                        aria-expanded="false" aria-controls="custom-package">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#custom-package" aria-expanded="false" aria-controls="custom-package">
                         <i class="mdi mdi-package-variant-closed"></i>
                         <span class="nav-text">Custom Package</span> <b class="caret"></b>
                     </a>
@@ -125,14 +125,14 @@
                     </ul>
                 </li>
                 <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#fund-project"
-                        aria-expanded="false" aria-controls="fund-project">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#fund-project" aria-expanded="false" aria-controls="fund-project">
                         <i class="mdi mdi-lightbulb-outline"></i>
                         <span class="nav-text">Fund a Project</span> <b class="caret"></b>
                     </a>
                     <ul class="collapse" id="fund-project" data-parent="#sidebar-menu">
                         <div class="sub-menu">
-                           
+
                             <li>
                                 <a class="sidenav-item-link" href="{{ url('boys_hostel_project_list') }}">
                                     <span class="nav-text">Boys Hostel</span>
@@ -158,8 +158,8 @@
                 </li>
                 <!-- New Zakat Dropdown Tab -->
                 <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#zakat"
-                        aria-expanded="false" aria-controls="zakat">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#zakat" aria-expanded="false" aria-controls="zakat">
                         <i class="mdi mdi-charity"></i>
                         <span class="nav-text">Zakat</span> <b class="caret"></b>
                     </a>
@@ -170,15 +170,15 @@
                                     <span class="nav-text">Zakat Payments</span>
                                 </a>
                             </li>
-                           
+
                         </div>
                     </ul>
                 </li>
                 <!-- End Zakat Dropdown Tab -->
 
                 <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#teams"
-                        aria-expanded="false" aria-controls="teams">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#teams" aria-expanded="false" aria-controls="teams">
                         <i class="mdi mdi-account-group"></i>
                         <span class="nav-text">Teams</span> <b class="caret"></b>
                     </a>
@@ -194,14 +194,14 @@
                                     <span class="nav-text">Add Team Member</span>
                                 </a>
                             </li>
-                            
+
                         </div>
                     </ul>
                 </li>
-                
+
                 <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#events"
-                        aria-expanded="false" aria-controls="events">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#events" aria-expanded="false" aria-controls="events">
                         <i class="mdi mdi-calendar-check"></i> <!-- You can use a relevant icon for Events -->
                         <span class="nav-text">Events</span> <b class="caret"></b>
                     </a>
@@ -220,17 +220,17 @@
                         </div>
                     </ul>
                 </li>
-                
+
 
                 <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#users"
-                        aria-expanded="false" aria-controls="users">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#users" aria-expanded="false" aria-controls="users">
                         <i class="mdi mdi-account-multiple"></i> <!-- Icon for Users -->
                         <span class="nav-text">Users</span> <b class="caret"></b>
                     </a>
                     <ul class="collapse" id="users" data-parent="#sidebar-menu">
                         <div class="sub-menu">
-                            
+
                             <li>
                                 <a class="sidenav-item-link" href="{{ url('user_create') }}">
                                     <span class="nav-text">Add User</span>
@@ -241,14 +241,82 @@
                                     <span class="nav-text">User List</span>
                                 </a>
                             </li>
-                           
+
                         </div>
                     </ul>
                 </li>
-                
-                <li class="section-title">
-                    UI Elements
+
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#customData" aria-expanded="false" aria-controls="customData">
+                        <i class="mdi mdi-database"></i> <!-- Icon for Custom Data -->
+                        <span class="nav-text">Country Data Management</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="customData" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('country_data_list') }}">
+                                    <span class="nav-text">Country</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('country_data_index') }}">
+                                    <span class="nav-text">Create Country</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
                 </li>
+
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#ugCourse" aria-expanded="false" aria-controls="ugCourse">
+                        <i class="mdi mdi-school"></i> <!-- Icon for UG Course -->
+                        <span class="nav-text">UG Course Management</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="ugCourse" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('ug_course_list') }}">
+                                    <span class="nav-text">UG Course List</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('ug_course_create') }}">
+                                    <span class="nav-text">Create UG Course</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+
+
+                <!-- PG Course Management -->
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#pgCourse" aria-expanded="false" aria-controls="pgCourse">
+                        <i class="mdi mdi-school"></i> <!-- Icon for PG Course -->
+                        <span class="nav-text">PG Course Management</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="pgCourse" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('pg_course_list') }}">
+                                    <span class="nav-text">PG Course List</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('pg_course_create') }}">
+                                    <span class="nav-text">Create PG Course</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </div>
