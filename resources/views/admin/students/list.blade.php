@@ -35,7 +35,7 @@ a<!DOCTYPE html>
                             <div class="card card-default">
                                 <div class="card-header">
                                     <h2>Students list</h2>
-
+                                    <a href="{{ url('export') }}" class="btn btn-success">Export to Excel</a>
                                 </div>
                                 @if (session('success'))
                                     <div class="alert alert-success">
@@ -51,8 +51,8 @@ a<!DOCTYPE html>
                                 <div class="card-body">
                                     <form action="{{ route('students.import') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        <input type="file" name="file" accept=".xlsx, .csv">
-                                        <button type="submit">Import</button>
+                                        <input type="file" name="file" class="form-control mb-2" accept=".xlsx, .csv">
+                                        <button type="submit" class="btn btn-dark ml-4 btn-sm">Import</button>
                                     </form>
                                     <div class="table-responsive">
                                         <table id="productsTable" class="table table-hover table-product"
@@ -74,7 +74,7 @@ a<!DOCTYPE html>
                                                     <th>Delete</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody class="text-dark">
                                                 @foreach ($students as $student)
                                                     <tr>
                                                         <td>{{ $student->qalam_id }}</td>
