@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <style>
     .widget-title {
         font-weight: 300;
@@ -82,7 +81,6 @@
     }
 </style>
 
->>>>>>> parent of f1a3993 (phase 3)
 <div class="events page_section" style="margin-top: -100px">
     <div class="container">
 
@@ -94,12 +92,8 @@
         <!-- Marquee -->
         <div class="marquee-container mb-4">
             <marquee behavior="scroll" direction="left">
-<<<<<<< HEAD
-                {{-- Don't miss our special event on June 15th! | Register now for the annual fundraiser on July 20th! | Join our Zakat Campaign to support students in need! --}}
-=======
                 Don't miss our special event on June 15th! | Register now for the annual fundraiser on July 20th! | Join
                 our Zakat Campaign to support students in need!
->>>>>>> parent of f1a3993 (phase 3)
             </marquee>
         </div>
 
@@ -112,7 +106,6 @@
         </div>
 
         <div class="event_items">
-<<<<<<< HEAD
 
             <!-- Event Item -->
             @foreach ($events as $item)
@@ -145,7 +138,6 @@
             </div>
             @endforeach
 
-=======
             @foreach ($events as $item)
                 <div class="container py-3">
                     <div class="row">
@@ -225,13 +217,11 @@
             </div>
 
 
->>>>>>> parent of f1a3993 (phase 3)
         </div>
 
     </div>
 </div>
-<<<<<<< HEAD
-=======
+\=======
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         document.querySelectorAll('.event').forEach(event => {

@@ -120,25 +120,6 @@
         @include('template.pages.note_of_gratitude')
 
         <!-- Events -->
-<<<<<<< HEAD
-        {{-- @include('template.event') --}}
-
-        <!-- Footer -->
-        @include('template.layouts.footer')
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(function() {
-                var preloader = document.getElementById('preloader');
-                preloader.style.display = 'none';
-
-                var content = document.getElementById('content');
-                content.style.display = 'block';
-            }, 1500); // 2000 milliseconds = 2 seconds
-        });
-    </script>
-=======
         @include('template.layouts.event')
 
         <!-- Footer -->
@@ -148,34 +129,14 @@
     </div>
 
   
->>>>>>> parent of f1a3993 (phase 3)
 <a href="#" onclick="redirectToWhatsApp()" class="float">
     <i class="fa fa-whatsapp my-float"></i>
 </a>
 
-<<<<<<< HEAD
-<script>
-    function redirectToWhatsApp() {
-        const phoneNumber = "923365317822";
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-        // Construct the appropriate URL based on the device
-        const url = isMobile
-            ? `https://wa.me/${phoneNumber}` // Redirect to WhatsApp app without message
-            : `https://web.whatsapp.com/send?phone=${phoneNumber}`; // Redirect to WhatsApp Web without message
-
-        // Open the URL in a new tab
-        window.open(url, '_blank');
-    }
-</script>
-
-
-=======
 
 <script src="{{ asset('templates\js\script.js') }}">
 
 </script>
->>>>>>> parent of f1a3993 (phase 3)
 </body>
 
 </html>
