@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Event;
+use Illuminate\Support\Carbon;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Auth\AuthController;
@@ -40,35 +42,33 @@ use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBusinessCen
 use App\Http\Controllers\Dashboard\Endewment\CustomEndowmentOneyearDashboardController;
 use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentOneyearDashboardController;
 
-Route::get('/', function () {
-    return view('index');
-});
 
-// Route::get('/',[HomeController::class, 'index']);
 
-Route::get('/our_team',[TeamController::class, 'index']);
-Route::get('/meet_out_team/{id}',[TeamController::class, 'About_team']);
-Route::get('/r_m_o',[ResourceMobilizationOfficerController::class, 'index']);
-Route::get('/signrature_program',[SignatureProgramController::class, 'index']);
-Route::get('/nust_trust_foundation',[NustTrustFundController::class, 'index']);
-Route::get('/about_us',[AboutUsController::class, 'index']);
-Route::get('/contact_us',[ContactUsController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/our_team', [TeamController::class, 'index']);
+Route::get('/meet_out_team/{id}', [TeamController::class, 'About_team']);
+Route::get('/r_m_o', [ResourceMobilizationOfficerController::class, 'index']);
+Route::get('/signrature_program', [SignatureProgramController::class, 'index']);
+Route::get('/nust_trust_foundation', [NustTrustFundController::class, 'index']);
+Route::get('/about_us', [AboutUsController::class, 'index']);
+Route::get('/contact_us', [ContactUsController::class, 'index']);
 
 // Endoenment Model routes and controllers 
 
-Route::get('/select_endowment_model',[EndowmentHomeController::class, 'index']);
+Route::get('/select_endowment_model', [EndowmentHomeController::class, 'index']);
 // One Year support endoement fund routes and controllers 
-Route::get('/support_for_one_year',[OneYearSupportController::class, 'index']);
-Route::post('/default_one_year_degree',[OneYearSupportController::class, 'DefultOneYearundergraduate']);
-Route::post('/endowmentsupportoneyear',[OneYearSupportController::class, 'CustomOneYearundergraduate']);
+Route::get('/support_for_one_year', [OneYearSupportController::class, 'index']);
+Route::post('/default_one_year_degree', [OneYearSupportController::class, 'DefultOneYearundergraduate']);
+Route::post('/endowmentsupportoneyear', [OneYearSupportController::class, 'CustomOneYearundergraduate']);
 // One Year support endoement fund routes and controllers 
 Route::get('support_for_entire_year', [FourYearSupportController::class, 'index']);
-Route::post('/default_package_full_degree',[FourYearSupportController::class, 'DefultFourYearundergraduate']);
-Route::post('/endowmentsupportentireyear',[FourYearSupportController::class, 'CustomFourYearundergraduate']);
+Route::post('/default_package_full_degree', [FourYearSupportController::class, 'DefultFourYearundergraduate']);
+Route::post('/endowmentsupportentireyear', [FourYearSupportController::class, 'CustomFourYearundergraduate']);
 // perpetual_seat support endoement fund routes and controllers 
 Route::get('perpetualseatyourname', [PerpetualSeatSupportController::class, 'index']);
-Route::post('/default_perpetual_seat',[PerpetualSeatSupportController::class, 'DefultPerpetualSeatundergraduate']);
-Route::post('/perpetualseatyourname',[PerpetualSeatSupportController::class, 'CustomPerpetualSeatundergraduate']);
+Route::post('/default_perpetual_seat', [PerpetualSeatSupportController::class, 'DefultPerpetualSeatundergraduate']);
+Route::post('/perpetualseatyourname', [PerpetualSeatSupportController::class, 'CustomPerpetualSeatundergraduate']);
 // Zakat fund routes and controllers 
 Route::get('endowment_zakat_funds', [ZakatController::class, 'index']);
 Route::get('endowment_zakat_payment', [ZakatController::class, 'zakatPayment']);
@@ -142,6 +142,7 @@ Route::post('event_update/{id}', [EventsDashboardController::class, 'update']);
 Route::get('event_delete/{id}', [EventsDashboardController::class, 'delete']);
 
 Route::post('import', [StudentController::class, 'import'])->name('students.import');
+Route::get('export', [StudentController::class, 'export']);
 // Users Dashboard Controller Routes 
 Route::get('user_create', [UserDashboardController::class, 'index']);
 Route::post('add_users', [UserDashboardController::class, 'store']);
@@ -182,4 +183,3 @@ Route::get('pg_course_list', [CoursePGdataManagmentController::class, 'index']);
 Route::get('pg_course_index', [CoursePGdataManagmentController::class, 'create']);
 Route::post('pg_course_create', [CoursePGdataManagmentController::class, 'store']);
 Route::get('coursedelete/{id}', [CoursePGdataManagmentController::class, 'delete']);
-

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Imports\StudentsImport;
+
+use App\Exports\StudentsExport;
+
 use Maatwebsite\Excel\Facades\Excel;
 
 class StudentController extends Controller
@@ -19,4 +22,11 @@ class StudentController extends Controller
 
         return redirect()->back()->with('success', 'Students imported successfully.');
     }
+
+    public function export()
+    {
+        return Excel::download(new StudentsExport, 'students.xlsx');
+    }
+
+    
 }

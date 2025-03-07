@@ -120,6 +120,7 @@
         @include('template.pages.note_of_gratitude')
 
         <!-- Events -->
+<<<<<<< HEAD
         {{-- @include('template.event') --}}
 
         <!-- Footer -->
@@ -137,10 +138,22 @@
             }, 1500); // 2000 milliseconds = 2 seconds
         });
     </script>
+=======
+        @include('template.layouts.event')
+
+        <!-- Footer -->
+        @include('template.layouts.footer')
+
+        {{-- @include('template.layouts.popup') --}}
+    </div>
+
+  
+>>>>>>> parent of f1a3993 (phase 3)
 <a href="#" onclick="redirectToWhatsApp()" class="float">
     <i class="fa fa-whatsapp my-float"></i>
 </a>
 
+<<<<<<< HEAD
 <script>
     function redirectToWhatsApp() {
         const phoneNumber = "923365317822";
@@ -157,6 +170,12 @@
 </script>
 
 
+=======
+
+<script src="{{ asset('templates\js\script.js') }}">
+
+</script>
+>>>>>>> parent of f1a3993 (phase 3)
 </body>
 
 </html>

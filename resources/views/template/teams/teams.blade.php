@@ -148,6 +148,13 @@
     border-radius: 20px; /* Keep the border radius for rounded corners */
 }
 
+<<<<<<< HEAD
+=======
+/* animations  */
+
+
+
+>>>>>>> parent of f1a3993 (phase 3)
     </style>
 </head>
 
@@ -246,6 +253,7 @@
                                 <img id="modalImage" src="" class="img-fluid rounded" alt="Member Image">
                             </div>
                             <div class="col-md-8">
+<<<<<<< HEAD
                                 <h3 id="modalName"></h3>
                                 <p id="modalDesignation" class="text-primary"></p>
                                 <p id="modalIntroduction"></p>
@@ -253,6 +261,15 @@
                                 <p id="modalContact"></p>
                                 <!-- Social Media LinkedIn Icon -->
                                 <a id="modalSocialMedia" href="#" target="_blank" style="display: none;">
+=======
+                                <h3 id="modalName" class="text-dark"></h3>
+                                <p id="modalDesignation" class="text-primary"></p>
+                                <p id="modalIntroduction" class="text-dark"></p>
+                                <p id="modalemail"  class="text-dark"></p>
+                                <p id="modalContact" class="text-dark"></p>
+                                <!-- Social Media LinkedIn Icon -->
+                                <a id="modalSocialMedia" href="#" target="_blank" style="display: none;" class="text-center">
+>>>>>>> parent of f1a3993 (phase 3)
                                     <i class="fa-brands fa-linkedin" style="font-size: 30px; color:#0A66C2;"></i>
                                 </a>
                             </div>
