@@ -59,6 +59,9 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 ## Security Vulnerabilities
 
+![image alt](https://github.com/Umersaleem98/endowment-catalogue-phase2/blob/9becfce039186252393ee0392b7447ad6f60034e/Screenshot%202025-03-08%20015810.png)
+![image alt](https://github.com/Umersaleem98/endowment-catalogue-phase2/edit/main/README.md)
+
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
