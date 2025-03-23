@@ -1,46 +1,48 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Models\Event;
-use Illuminate\Support\Carbon;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Pages\TeamController;
-use App\Http\Controllers\Pages\AboutUsController;
-use App\Http\Controllers\Pages\ContactUsController;
-use App\Http\Controllers\Pages\NustTrustFundController;
-use App\Http\Controllers\Fund_Project\FundaProjectMosque;
-use App\Http\Controllers\Endownment\Zakat\ZakatController;
-use App\Http\Controllers\OneYear\OneYearSupportController;
-use App\Http\Controllers\Pages\SignatureProgramController;
-use App\Http\Controllers\Endownment\EndowmentHomeController;
-use App\Http\Controllers\Fund_Project\FundProjectController;
-use App\Http\Controllers\Fund_Project\FundaProjectBoysHostel;
-use App\Http\Controllers\Dashboard\StudentDashboardController;
-use App\Http\Controllers\Fund_Project\FundaProjectgirlsHostel;
-use App\Http\Controllers\Dashboard\User\UserDashboardController;
-use App\Http\Controllers\Fund_Project\FundaProjectBusinessCenter;
-use App\Http\Controllers\Dashboard\Teams\TeamsDashboardController;
-use App\Http\Controllers\Endownment\Four\FourYearSupportController;
-use App\Http\Controllers\Dashboard\Events\EventsDashboardController;
-use App\Http\Controllers\Endownment\Student\StudentStoriesController;
-use App\Http\Controllers\Pages\ResourceMobilizationOfficerController;
-use App\Http\Controllers\Dashboard\StudentStory\DashboardStudentsStory;
+use App\Http\Controllers\Dashboard\AdopedStudent\DashboardAdopedStudentController;
 use App\Http\Controllers\Dashboard\Country\CountryDataManagmentController;
 use App\Http\Controllers\Dashboard\Courses\CoursePGdataManagmentController;
 use App\Http\Controllers\Dashboard\Courses\CourseUGdataManagmentController;
 use App\Http\Controllers\Dashboard\Customdata\CustomDataManagmentController;
-use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectMosque;
-use App\Http\Controllers\Dashboard\Endewment\EndoementZakatDashboardController;
-use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentDashboardController;
-use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBoysHostel;
-use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectGirlsHostel;
-use App\Http\Controllers\Endownment\PerpetualSeat\PerpetualSeatSupportController;
-use App\Http\Controllers\Dashboard\AdopedStudent\DashboardAdopedStudentController;
-use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBusinessCenter;
 use App\Http\Controllers\Dashboard\Endewment\CustomEndowmentOneyearDashboardController;
+use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentDashboardController;
 use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentOneyearDashboardController;
+use App\Http\Controllers\Dashboard\Endewment\EndoementZakatDashboardController;
+use App\Http\Controllers\Dashboard\Events\EventsDashboardController;
+use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBoysHostel;
+use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBusinessCenter;
+use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectGirlsHostel;
+use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectMosque;
+use App\Http\Controllers\Dashboard\StudentDashboardController;
+use App\Http\Controllers\Dashboard\StudentStory\DashboardStudentsStory;
+use App\Http\Controllers\Dashboard\Teams\TeamsDashboardController;
+use App\Http\Controllers\Dashboard\User\UserDashboardController;
+use App\Http\Controllers\Endownment\EndowmentHomeController;
+use App\Http\Controllers\Endownment\Four\FourYearSupportController;
+use App\Http\Controllers\Endownment\Hostel\HostelController;
+use App\Http\Controllers\Endownment\PerpetualSeat\PerpetualSeatSupportController;
+use App\Http\Controllers\Endownment\Student\StudentStoriesController;
+use App\Http\Controllers\Endownment\Zakat\ZakatController;
+use App\Http\Controllers\Fund_Project\FundaProjectBoysHostel;
+use App\Http\Controllers\Fund_Project\FundaProjectBusinessCenter;
+use App\Http\Controllers\Fund_Project\FundaProjectgirlsHostel;
+use App\Http\Controllers\Fund_Project\FundaProjectMosque;
+use App\Http\Controllers\Fund_Project\FundProjectController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OneYear\OneYearSupportController;
+use App\Http\Controllers\Pages\AboutUsController;
+use App\Http\Controllers\Pages\ContactUsController;
+use App\Http\Controllers\Pages\NustTrustFundController;
+use App\Http\Controllers\Pages\ResourceMobilizationOfficerController;
+use App\Http\Controllers\Pages\SignatureProgramController;
+use App\Http\Controllers\Pages\TeamController;
+use App\Http\Controllers\StudentController;
+use App\Models\Event;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -82,6 +84,10 @@ Route::get('Make_a_Pledge/{id}', [StudentStoriesController::class, 'Make_a_Pledg
 // Route::post('payments/{id}', [StudentStoriesController::class, 'paymentsstore']);
 Route::post('/payments/{id}', [StudentStoriesController::class, 'store']);
 Route::post('/pledge_payment/{id}', [StudentStoriesController::class, 'pledgestore'])->name('pledge_payment.store');
+
+// hostel Controller templates 
+Route::get('student_stories_hostel_ndiviual/{id}', [HostelController::class, 'index']);
+
 // Other Projects routes and controllers 
 
 Route::get('select_project', [FundProjectController::class, 'index']);
@@ -183,3 +189,4 @@ Route::get('pg_course_list', [CoursePGdataManagmentController::class, 'index']);
 Route::get('pg_course_index', [CoursePGdataManagmentController::class, 'create']);
 Route::post('pg_course_create', [CoursePGdataManagmentController::class, 'store']);
 Route::get('coursedelete/{id}', [CoursePGdataManagmentController::class, 'delete']);
+

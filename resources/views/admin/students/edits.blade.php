@@ -139,8 +139,8 @@
                                         </div>
 
                                         <!-- Other Fields -->
-                                        <div class="row">
-                                            @foreach (['nust_trust_fund_donor_name', 'province', 'domicile', 'gender', 'program', 'degree', 'year_of_admission', 'father_status', 'father_profession', 'statement_of_purpose', 'make_pledge', 'payment_approved'] as $field)
+                                        {{-- <div class="row">
+                                            @foreach (['nust_trust_fund_donor_name', 'province', 'domicile', 'gender', 'program', 'degree', 'year_of_admission', 'father_status', 'father_profession', 'statement_of_purpose', 'make_pledge', 'payment_approved' , 'hostel_status'] as $field)
                                                 <div class="col-md-6 mb-3">
                                                     <label for="{{ $field }}"
                                                         class="form-label">{{ ucwords(str_replace('_', ' ', $field)) }}</label>
@@ -149,8 +149,91 @@
                                                         value="{{ $students->$field }}">
                                                 </div>
                                             @endforeach
-                                        </div>
+                                        </div> --}}
 
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="nust_trust_fund_donor_name" class="form-label">Nust Trust Fund Donor Name</label>
+                                                <input type="text" name="nust_trust_fund_donor_name" id="nust_trust_fund_donor_name" class="form-control" value="{{ $students->nust_trust_fund_donor_name }}">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="province" class="form-label">Province</label>
+                                                <input type="text" name="province" id="province" class="form-control" value="{{ $students->province }}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="domicile" class="form-label">Domicile</label>
+                                                <input type="text" name="domicile" id="domicile" class="form-control" value="{{ $students->domicile }}">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="gender" class="form-label">Gender</label>
+                                                <input type="text" name="gender" id="gender" class="form-control" value="{{ $students->gender }}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="program" class="form-label">Program</label>
+                                                <input type="text" name="program" id="program" class="form-control" value="{{ $students->program }}">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="degree" class="form-label">Degree</label>
+                                                <input type="text" name="degree" id="degree" class="form-control" value="{{ $students->degree }}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="year_of_admission" class="form-label">Year of Admission</label>
+                                                <input type="number" name="year_of_admission" id="year_of_admission" class="form-control" value="{{ $students->year_of_admission }}">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="father_status" class="form-label">Father Status</label>
+                                                <input type="text" name="father_status" id="father_status" class="form-control" value="{{ $students->father_status }}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="father_profession" class="form-label">Father Profession</label>
+                                                <input type="text" name="father_profession" id="father_profession" class="form-control" value="{{ $students->father_profession }}">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="statement_of_purpose" class="form-label">Statement of Purpose</label>
+                                                <textarea name="statement_of_purpose" id="statement_of_purpose" class="form-control" rows="3">{{ $students->statement_of_purpose }}</textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="make_pledge" class="form-label">Make Pledge</label>
+                                                <input type="number" name="make_pledge" id="make_pledge" class="form-control" value="{{ $students->make_pledge }}">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="payment_approved" class="form-label">Payment Approved</label>
+                                                <input type="number" name="payment_approved" id="payment_approved" class="form-control" value="{{ $students->payment_approved }}">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="hostel_status" class="form-label">Hostel Status</label>
+                                                <input type="number" name="hostel_status" id="hostel_status" class="form-control" value="{{ $students->hostel_status }}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                           
+                                            <div class="col-md-6 mb-3">
+                                                <label for="monthly_income" class="form-label">Monthly Income</label>
+                                                <input type="number" name="monthly_income" id="monthly_income" class="form-control" value="{{ $students->monthly_income }}" required>
+                                            </div>
+
+                                            <div class="col-md-6 mb-3">
+                                                <label for="remarks" class="form-label">Remarks</label>
+                                                <textarea name="remarks" id="remarks" class="form-control" rows="3">{{ $students->remarks }}</textarea>
+                                            </div>
+                                        </div>
+                                    
                                         <!-- Submit Button -->
                                         <div class="d-grid">
                                             <button type="submit" class="btn btn-primary">Update Student</button>

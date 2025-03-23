@@ -72,6 +72,7 @@
             </div>
             <div class="card-text text-dark mb-2">{{ $item->discipline }}</div>
             <div class="card-text text-dark mb-2">{{ $item->gender }}</div>
+            <a href="{{ url('student_stories_hostel_ndiviual', ['id' => $item->id]) }}" class="btn btn-success mt-2">View Hostel</a>
         </div>
     </div>
 </div>

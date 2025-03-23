@@ -31,6 +31,7 @@ class Student extends Model
         'remarks',
         'make_pledge',
         'payment_approved',
+        'hostel_status',
         'images',
     ];
 }

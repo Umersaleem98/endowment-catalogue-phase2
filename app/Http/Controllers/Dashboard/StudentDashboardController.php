@@ -10,11 +10,22 @@ use Illuminate\Support\Facades\Storage;
 
 class StudentDashboardController extends Controller
 {
+    // public function index()
+    // {
+    //     $students = Student::all();
+    //     return view('admin.students.list', compact('students'));
+    // }
+
+
     public function index()
-    {
-        $students = Student::all();
-        return view('admin.students.list', compact('students'));
-    }
+{
+    $students = Student::where('make_pledge', 1)
+        ->where('payment_approved', 1)
+        ->where('hostel_status', 1)
+        ->get();
+
+    return view('admin.students.list', compact('students'));
+}
 
     public function edit($id)
     {
@@ -71,6 +82,7 @@ class StudentDashboardController extends Controller
         // Update other fields
         $student->make_pledge = $request->make_pledge;
         $student->payment_approved = $request->payment_approved;
+        $student->hostel_status = $request->hostel_status;
     
         // Save the updated student data
         $student->save();
