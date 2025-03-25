@@ -21,7 +21,7 @@ class StudentDashboardController extends Controller
 {
     $students = Student::where('make_pledge', 1)
         ->where('payment_approved', 1)
-        ->where('hostel_status', 1)
+        
         ->get();
 
     return view('admin.students.list', compact('students'));

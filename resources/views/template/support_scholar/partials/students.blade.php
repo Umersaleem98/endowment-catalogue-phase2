@@ -22,44 +22,34 @@
     }
 
     .disabled-link {
-        pointer-events: none;
-        cursor: default;
-        color: grey; /* or any other style you prefer */
+        pointer-events: none; /* Disable clicks */
+        cursor: not-allowed; /* Show disabled cursor */
+        opacity: 0.5; /* Make it look disabled */
     }
 </style>
 
-@foreach ($students as $item)
+@php
+    // Filter students to only show those with make_pledge = 1 or payment_approved = 1
+    $filteredStudents = $students->filter(function($item) {
+        return $item->make_pledge == 1 || $item->payment_approved == 1;
+    });
+@endphp
+
+@foreach ($filteredStudents as $item)
 <div class="col-lg-3 teacher" data-gender="{{ $item->gender }}">
     <div class="card">
-        <div class="card_img" 
-             onclick="handleCardClick({{ $item->make_pledge }}, {{ $item->payment_approved }})">
+        <div class="card_img" onclick="handleCardClick({{ $item->make_pledge }}, {{ $item->payment_approved }})">
             @php
-                // Determine the image path
                 $studentImage = public_path('templates/students_images/' . $item->images);
-
-                // Use dummy.png if the file does not exist or if the images attribute is empty
-                $imagePath = ($item->make_pledge == 0 && $item->payment_approved == 0)
-                             ? asset('templates/logo/Adopted Stamp.png')
-                             : (file_exists($studentImage) && !empty($item->images) 
-                                ? asset('templates/students_images/' . $item->images) 
-                                : asset('templates/students_images/dummy.png'));
+                $imagePath = (file_exists($studentImage) && !empty($item->images)) 
+                             ? asset('templates/students_images/' . $item->images) 
+                             : asset('templates/students_images/dummy.png');
             @endphp
-            <img 
-                class="card-img-top trans_200" 
-                src="{{ $imagePath }}" 
-                alt="Student Image"
-            >
+            <img class="card-img-top trans_200" src="{{ $imagePath }}" alt="Student Image">
 
-            @if($item->make_pledge == 0 && $item->payment_approved == 0)
-                <img class="stamp" src="{{ asset('templates/logo/Adopted Stamp.png') }}" alt="Stamp">
-                <div class="card_plus trans_200 text-center">
-                    <a href="#" class="disabled-link">+</a>
-                </div>
-            @else
-                <div class="card_plus trans_200 text-center">
-                    <a href="{{ url('student_stories_indiviual', ['id' => $item->id]) }}">+</a>
-                </div>
-            @endif
+            <div class="card_plus trans_200 text-center">
+                <a href="{{ url('student_stories_indiviual', ['id' => $item->id]) }}">+</a>
+            </div>
         </div>
 
         <div class="card-body text-center mt-4">
@@ -72,7 +62,16 @@
             </div>
             <div class="card-text text-dark mb-2">{{ $item->discipline }}</div>
             <div class="card-text text-dark mb-2">{{ $item->gender }}</div>
-            <a href="{{ url('student_stories_hostel_ndiviual', ['id' => $item->id]) }}" class="btn btn-success mt-2">View Hostel</a>
+
+            {{-- Show Hostel Button Only If hostel_status != 0 --}}
+            @if($item->hostel_status != 0)
+                <a href="{{ url('student_stories_hostel_ndiviual', ['id' => $item->id]) }}" class="btn btn-success mt-2">
+                    View Hostel
+                </a>
+            @else
+                {{-- Disabled button --}}
+                <a href="#" class="btn btn-secondary mt-2 disabled-link">View Hostel</a>
+            @endif
         </div>
     </div>
 </div>

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
+use App\Models\OpenfundStudent;
 use App\Models\Student;
 use Illuminate\Http\Request;
-use App\Models\OpenfundStudent;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -42,7 +43,6 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Logged out successfully!');
     }
 
-    // Show dashboard
     public function dashboard()
     {
         // Fetch all students
@@ -70,8 +70,16 @@ class AuthController extends Controller
         $allYears = array_unique(array_merge($ugStudentsByYear->keys()->toArray(), $pgStudentsByYear->keys()->toArray()));
         sort($allYears); // Ensure chronological order
     
-        return view('dashboard', compact('totalStudents', 'ugStudents', 'pgStudents', 'Adopedstudents', 'ugStudentsByYear', 'pgStudentsByYear', 'allYears'));
+        // Fetch all scholarship names and count students for each scholarship
+        $scholarshipCounts = Student::select('scholarship_name', \DB::raw('COUNT(*) as count'))
+            ->groupBy('scholarship_name')
+            ->orderBy('count', 'desc')
+            ->get();
+    
+        return view('dashboard', compact('totalStudents', 'ugStudents', 'pgStudents', 'Adopedstudents', 'ugStudentsByYear', 'pgStudentsByYear', 'allYears', 'scholarshipCounts'));
     }
+    
+    
     
     
 }
