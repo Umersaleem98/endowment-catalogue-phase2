@@ -48,6 +48,24 @@
                 </li>
 
                 <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#hostel"
+                        aria-expanded="false" aria-controls="hostel">
+                        <i class="mdi mdi-home"></i>
+                        <span class="nav-text">Hostel</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="hostel" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+                            <li>
+                                <a class="sidenav-item-link" href="{{ url('hostel_list') }}">
+                                    <span class="nav-text">Hostel List</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+                
+
+                <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                         data-target="#student-stories" aria-expanded="false" aria-controls="student-stories">
                         <i class="mdi mdi-book"></i>

@@ -15,6 +15,7 @@ use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBoysHostel;
 use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBusinessCenter;
 use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectGirlsHostel;
 use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectMosque;
+use App\Http\Controllers\Dashboard\Hostel\DashboardHostelController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\StudentStory\DashboardStudentsStory;
 use App\Http\Controllers\Dashboard\Teams\TeamsDashboardController;
@@ -86,7 +87,11 @@ Route::post('/payments/{id}', [StudentStoriesController::class, 'store']);
 Route::post('/pledge_payment/{id}', [StudentStoriesController::class, 'pledgestore'])->name('pledge_payment.store');
 
 // hostel Controller templates 
-Route::get('student_stories_hostel_ndiviual/{id}', [HostelController::class, 'index']);
+Route::get('/students/hostel/{id}', [HostelController::class, 'index'])->name('students.hostel');
+// Route::get('/students/hostel/{id}', [StudentController::class, 'viewHostel'])->name('students.hostel');
+Route::post('/hostel-payments/{id}', [HostelController::class, 'store']);
+
+// Route::post('/hostel-payments', [HostelController::class, 'store']);
 
 // Other Projects routes and controllers 
 
@@ -190,3 +195,5 @@ Route::get('pg_course_index', [CoursePGdataManagmentController::class, 'create']
 Route::post('pg_course_create', [CoursePGdataManagmentController::class, 'store']);
 Route::get('coursedelete/{id}', [CoursePGdataManagmentController::class, 'delete']);
 
+Route::get('hostel_list', [DashboardHostelController::class, 'index']);
+Route::get('payments_edit/{id}', [DashboardHostelController::class, 'delete']);

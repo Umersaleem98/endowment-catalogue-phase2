@@ -62,7 +62,14 @@
                             </div>
                         </div>
                     </div>
-                   
+                    <div class="col-md-3">
+                        <div class="card text-white bg-dark mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-light"><i class="fas fa-building"></i>Total Hostel Payments</h5>
+                                <p class="card-text"> {{ number_format($totalHostelPayments, 2) }}</p>
+                            </div>
+                        </div>
+                    </div>
                     
                     <!-- Students by Year of Admission Chart -->
                     <div class="row mt-4 bor">

@@ -65,7 +65,7 @@
 
             {{-- Show Hostel Button Only If hostel_status != 0 --}}
             @if($item->hostel_status != 0)
-                <a href="{{ url('student_stories_hostel_ndiviual', ['id' => $item->id]) }}" class="btn btn-success mt-2">
+                <a href="{{ route('students.hostel', ['id' => $item->id]) }}" class="btn btn-success mt-2">
                     View Hostel
                 </a>
             @else
