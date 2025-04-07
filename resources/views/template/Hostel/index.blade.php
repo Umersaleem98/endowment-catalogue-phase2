@@ -5,59 +5,95 @@
     <title>Fund a project payments</title>
     @include('template.layouts.head')
     <style>
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p,
-        tr,
-        td {
-            color: black;
-        }
-
-        ::placeholder {
-            color: black !important;
-        }
-
-
-        <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f8f9fa;
-        }
-
+       
         .card-container {
-            width: 50%;
-            max-width: 600px;
+            width: 100%;
+            max-width: 750px;
             margin: auto;
+            padding: 20px;
         }
-
-        .pagination li.active a {
-            background-color: #007bff;
+    
+        .card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 30px;
+        }
+    
+        .form-label {
+            font-weight: 600;
+            color: #343a40;
+        }
+    
+        .form-control {
+            height: 50px;
+            font-size: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            border: 1px solid #ced4da;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+    
+        .form-control:focus {
             border-color: #007bff;
-            color: white;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
         }
-
-        .pagination li a:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-            color: white;
+    
+        .btn {
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 12px;
+            min-width: 120px;
         }
-
+    
+        .btn + .btn {
+            margin-left: 10px;
+        }
+    
         .step {
             display: none;
+            animation: fadeIn 0.3s ease-in-out;
         }
-
+    
         .step.active {
             display: block;
         }
+    
+        .step h4 {
+            margin-bottom: 25px;
+            color: #343a40;
+            font-weight: 600;
+        }
+    
+        .alert {
+            border-radius: 12px;
+            padding: 10px 15px;
+        }
+    
+        .section_title h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: #343a40;
+        }
+    
+        #paymentProof {
+            margin-top: 15px;
+        }
+    
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+    
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
-    </style>
+    
 </head>
 
 <body>
@@ -92,7 +128,6 @@
                 <!-- Payment Form -->
                 <div class="row">
                     <div class="card-container">
-                        <h2 class="text-center mb-4">Hostel Payment</h2>
                         <div class="card">
                             <div class="card-body">
                                 @if (session('success'))

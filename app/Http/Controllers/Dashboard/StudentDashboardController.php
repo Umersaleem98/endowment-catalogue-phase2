@@ -42,7 +42,7 @@ class StudentDashboardController extends Controller
             return redirect()->back()->with('error', 'Student not found.');
         }
     
-        // Update student data
+        // Update student data from request
         $student->qalam_id = $request->qalam_id;
         $student->student_name = $request->student_name;
         $student->father_name = $request->father_name;
@@ -51,45 +51,48 @@ class StudentDashboardController extends Controller
         $student->contact_no = $request->contact_no;
         $student->home_address = $request->home_address;
         $student->scholarship_name = $request->scholarship_name;
+        $student->nust_trust_fund_donor_name = $request->nust_trust_fund_donor_name;
+        $student->province = $request->province;
+        $student->domicile = $request->domicile;
+        $student->gender = $request->gender;
+        $student->program = $request->program;
+        $student->degree = $request->degree;
+        $student->year_of_admission = $request->year_of_admission;
+        $student->father_status = $request->father_status;
+        $student->father_profession = $request->father_profession;
         $student->monthly_income = $request->monthly_income;
+        $student->statement_of_purpose = $request->statement_of_purpose;
         $student->remarks = $request->remarks;
-    
-        // Handle image upload and replacement
-        if ($request->hasFile('images')) {
-            // Check if there is an existing image
-            if ($student->images) {
-                // Define the image path
-                $existingImagePath = public_path('templates/students_images') . '/' . $student->images;
-
-                // Delete the existing image if it exists
-                if (file_exists($existingImagePath)) {
-                    unlink($existingImagePath);
-                }
-            }
-
-            // Process and move the new uploaded image
-            $file = $request->file('images');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            if ($file->move(public_path('templates/students_images'), $fileName)) {
-                // Update the images attribute on the student model
-                $student->images = $fileName;
-            } else {
-                // Handle file upload error
-                return redirect()->back()->with('error', 'Failed to upload image');
-            }
-        }
-    
-        // Update other fields
         $student->make_pledge = $request->make_pledge;
         $student->payment_approved = $request->payment_approved;
         $student->hostel_status = $request->hostel_status;
     
-        // Save the updated student data
+        // Handle image upload and replacement
+        if ($request->hasFile('images')) {
+            // Delete the existing image if it exists
+            if ($student->images) {
+                $existingImagePath = public_path('templates/students_images') . '/' . $student->images;
+                if (file_exists($existingImagePath)) {
+                    unlink($existingImagePath);
+                }
+            }
+    
+            // Save the new image
+            $file = $request->file('images');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            if ($file->move(public_path('templates/students_images'), $fileName)) {
+                $student->images = $fileName;
+            } else {
+                return redirect()->back()->with('error', 'Failed to upload image');
+            }
+        }
+    
+        // Save updated student record
         $student->save();
     
-        // Redirect back with a success message
         return redirect()->back()->with('success', 'Student information updated successfully!');
     }
+    
     
     public function delete($id)
     {

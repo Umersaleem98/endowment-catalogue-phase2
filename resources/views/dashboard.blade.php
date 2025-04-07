@@ -25,52 +25,66 @@
                 <div class="content">
                     <!-- Top Statistics -->
                     <div class="row">
+                        <!-- Students Overview -->
                         <div class="col-md-3">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title text-light"><i class="fas fa-users"></i> Remaining Students</h5>
-                                    <p class="card-text">{{ $totalStudents - $Adopedstudents }}</p>
+                            <div class="card mb-3 text-center" style="background-color:rgb(137, 174, 184)" >
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <h5 class="card-title text-dark"><i class="fas fa-users"></i> Students Overview</h5>
+                                    <h4 class="card-text text-dark">{{ $totalStudents }}</h4>
+                                    <p class="card-text text-dark">Remaining: {{ $totalStudents - $Adopedstudents }}</p>
                                 </div>
                             </div>
                         </div>
+                    
+                        <!-- Adopted Students -->
                         <div class="col-md-3">
-                            <div class="card text-white bg-success mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title text-light"><i class="fas fa-user-check"></i> Adopted Students</h5>
-                                    <p class="card-text">
-                                        {{ $Adopedstudents }} 
-                                        <small>({{ round(($Adopedstudents / $totalStudents) * 100, 2) }}%)</small>
-                                    </p>
+                            <div class="card mb-3 text-center" style="background-color:rgb(169, 238, 174)">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <h5 class="card-title text-dark"><i class="fas fa-user-check"></i> Adopted Students</h5>
+                                    <h4 class="card-text text-dark">{{ $Adopedstudents }}</h4>
+                                    <p class="card-text text-dark">({{ round(($Adopedstudents / $totalStudents) * 100, 2) }}%) Adopted</p>
                                 </div>
                             </div>
                         </div>
-                        
+                    
+                        <!-- UG Students -->
                         <div class="col-md-3">
-                            <div class="card text-white bg-info mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title text-light"><i class="fas fa-graduation-cap"></i> UG Students</h5>
-                                    <p class="card-text">{{ $ugStudents }}</p>
+                            <div class="card mb-3 text-center" style="background-color:rgb(221, 233, 112)">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <h5 class="card-title text-dark"><i class="fas fa-graduation-cap"></i> UG Students</h5>
+                                    <h4 class="card-text text-dark">{{ $ugStudents }}</h4>
+                                    <p class="card-text text-dark">Undergraduates</p>
                                 </div>
                             </div>
                         </div>
+                    
+                        <!-- PG Students -->
                         <div class="col-md-3">
-                            <div class="card text-white bg-danger mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title text-light"><i class="fas fa-chalkboard-teacher"></i> PG Students</h5>
-                                    <p class="card-text">{{ $pgStudents }}</p>
+                            <div class="card mb-3 text-center" style="background-color:rgb(214, 161, 228)">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <h5 class="card-title text-dark"><i class="fas fa-chalkboard-teacher"></i> PG Students</h5>
+                                    <h4 class="card-text text-dark">{{ $pgStudents }}</h4>
+                                    <p class="card-text text-dark">Postgraduates</p>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-white bg-dark mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title text-light"><i class="fas fa-building"></i>Total Hostel Payments</h5>
-                                <p class="card-text"> {{ number_format($totalHostelPayments, 2) }}</p>
                             </div>
                         </div>
                     </div>
                     
+                    <!-- Hostel Payments -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card mb-3 text-center" style="background-color:rgb(158, 220, 228)">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <h5 class="card-title text-dark"><i class="fas fa-building"></i> Hostel Payments</h5>
+                                    <h4 class="card-text text-dark">Rs. {{ number_format($totalHostelPayments, 2) }}</h4>
+                                    <p class="card-text text-dark">Total Hostel Fees Paid</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
                     <!-- Students by Year of Admission Chart -->
                     <div class="row mt-4 bor">
                         <div class="col-md-6">
@@ -84,21 +98,27 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card border-dark"> <!-- Added border-dark class -->
+                            <div class="card border-dark">
                                 <div class="card-body">
-                                    <h5 class="card-title text-dark"><i class="fas fa-award"></i> Scholarship Distribution</h5>
-                                    <ul class="list-group border">
-                                        @foreach($scholarshipCounts as $scholarship)
-                                            <li class="list-group-item d-flex justify-content-between align-items-center border"> <!-- Added border class -->
-                                                {{ $scholarship->scholarship_name ?? 'No Scholarship' }}
-                                                <span class="badge bg-primary rounded-pill">{{ $scholarship->count }}</span>
-                                            </li>
-                                        @endforeach
-                                    </ul>
+                                    <h5 class="card-title text-dark"><i class="fas fa-award"></i> Scholarship
+                                        Distribution</h5>
+                                    <div style="max-height: 300px; overflow-y: auto;"> <!-- Added scrollable div -->
+                                        <ul class="list-group border">
+                                            @foreach ($scholarshipCounts as $scholarship)
+                                                <li
+                                                    class="list-group-item d-flex justify-content-between align-items-center border">
+                                                    {{ $scholarship->scholarship_name ?? 'No Scholarship' }}
+                                                    <span
+                                                        class="badge bg-primary rounded-pill">{{ $scholarship->count }}</span>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        
+
+
                     </div>
                 </div>
             </div>
@@ -109,7 +129,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const allYears = @json($allYears);
             const ugStudentsByYear = @json($ugStudentsByYear->toArray());
             const pgStudentsByYear = @json($pgStudentsByYear->toArray());
@@ -123,8 +143,7 @@
 
             const data = {
                 labels: filteredYears,
-                datasets: [
-                    {
+                datasets: [{
                         label: 'UG Students',
                         data: ugData,
                         backgroundColor: 'rgba(54, 162, 235, 0.6)',
