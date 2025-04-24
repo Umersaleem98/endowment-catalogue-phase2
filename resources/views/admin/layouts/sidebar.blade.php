@@ -22,6 +22,11 @@
                     <ul class="collapse" id="email" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
+                                <a class="sidenav-item-link" href="{{ url('add_new_student') }}">
+                                    <span class="nav-text">Add New Student</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a class="sidenav-item-link" href="{{ url('student_list') }}">
                                     <span class="nav-text">Student List</span>
                                 </a>
@@ -63,7 +68,7 @@
                         </div>
                     </ul>
                 </li>
-                
+
 
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"

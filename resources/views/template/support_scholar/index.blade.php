@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
     <title>Students Stories</title>
     @include('template.layouts.head')
     <style>
@@ -60,8 +58,6 @@
     }
 }
     </style>
-</head>
-<body>
 
 <div class="super_container">
 

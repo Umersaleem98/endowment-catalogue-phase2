@@ -61,8 +61,8 @@ a<!DOCTYPE html>
                                                     <th>Institution</th>
                                                     <th>Discipline</th>
                                                     <th>Contact No</th>
-                                                    <th>Home Address</th>
                                                     <th>Scholarship Name</th>
+                                                    <th>Year</th>
                                                     <th>Monthly Income</th>
                                                     <th>Remarks</th>
                                                     <th>Images</th>
@@ -79,8 +79,8 @@ a<!DOCTYPE html>
                                                         <td>{{ $student->institutions }}</td>
                                                         <td>{{ $student->discipline }}</td>
                                                         <td>{{ $student->contact_no }}</td>
-                                                        <td>{{ $student->home_address }}</td>
                                                         <td>{{ $student->scholarship_name }}</td>
+                                                        <td>{{ $student->year_of_admission }}</td>
                                                         <td>{{ $student->monthly_income }}</td>
                                                         <td>{{ $student->remarks }}</td>
                                                         <td>

@@ -124,6 +124,8 @@ Route::middleware('auth')->group(function () {
 
 // Students Dashboard Controller Routes 
 Route::get('student_list', [StudentDashboardController::class, 'index']);
+Route::get('add_new_student', [StudentDashboardController::class, 'Create']);
+Route::post('students_add', [StudentDashboardController::class, 'Store']);
 Route::get('students_edit/{id}', [StudentDashboardController::class, 'edit']);
 Route::post('students_update/{id}', [StudentDashboardController::class, 'update']);
 Route::get('students_delete/{id}', [StudentDashboardController::class, 'delete']);

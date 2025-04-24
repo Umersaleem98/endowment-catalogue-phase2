@@ -109,7 +109,7 @@
                                                     class="list-group-item d-flex justify-content-between align-items-center border">
                                                     {{ $scholarship->scholarship_name ?? 'No Scholarship' }}
                                                     <span
-                                                        class="badge bg-primary rounded-pill">{{ $scholarship->count }}</span>
+                                                        class="badge bg-danger text-light rounded-pill">{{ $scholarship->count }}</span>
                                                 </li>
                                             @endforeach
                                         </ul>

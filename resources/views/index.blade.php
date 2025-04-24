@@ -105,6 +105,7 @@
         @include('template.layouts.navbar')
         @include('template.layouts.slider')
 
+        @include('template.layouts.video')
         @include('template.layouts.stories')
         @include('template.layouts.testimonial')
         @include('template.pages.note_of_gratitude')
