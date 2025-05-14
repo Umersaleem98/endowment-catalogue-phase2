@@ -84,6 +84,7 @@ class OneYearSupportController extends Controller
 
         // Save form data
         $defaultOneYearDegree = new DefaultPackageOneYearDegree();
+        $defaultOneYearDegree->hostelandmessing = $request->hostelandmessing;
         $defaultOneYearDegree->program_type = $request->program_type;
         $defaultOneYearDegree->degree = $request->degree;
         $defaultOneYearDegree->seats = $request->seats ?? 1;

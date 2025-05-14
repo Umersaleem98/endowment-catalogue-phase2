@@ -104,6 +104,10 @@ a{
 <script src="{{ asset('templates/plugins/scrollTo/jquery.scrollTo.min.js') }}"></script>
 <script src="{{ asset('templates/plugins/easing/easing.js') }}"></script>
 <script src="{{ asset('templates/js/custom.js') }}"></script>
+
+ <!-- Bootstrap 5 JS Bundle -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 {{--
 <script src="{{ asset('templates/js/temp/oneyear.js') }}"></script> --}}
 {{-- <script src="{{ asset('templates/js/temp/foutyear.js') }}"></script> --}}

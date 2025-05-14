@@ -29,15 +29,16 @@ class StudentsImport implements ToModel
             'gender' => $row[11],
             'program' => $row[12],
             'degree' => $row[13],
-            'year_of_admission' => (int)$row[14], // Ensure this is an integer
+            'year_of_admission' => (int)$row[14],
             'father_status' => $row[15],
             'father_profession' => $row[16],
             'monthly_income' => $row[17],
             'statement_of_purpose' => $row[18],
             'remarks' => $row[19],
-            'make_pledge' => $row[20] === 'Yes' ? 1 : 0, // Convert Yes/No to boolean
-            'payment_approved' => $row[21] === 'Yes' ? 1 : 0, // Convert Yes/No to boolean
-            'images' => $row[22], // Handle image paths correctly
+            'make_pledge' => strtolower(trim($row[20])) === 'yes' ? 1 : 0,
+            'payment_approved' => strtolower(trim($row[21])) === 'yes' ? 1 : 0,
+            'hostel_status' => strtolower(trim($row[22])) === 'yes' ? 1 : 0,
+            'images' => $row[23],
         ]);
     }
 }

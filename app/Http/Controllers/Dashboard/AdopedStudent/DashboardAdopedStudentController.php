@@ -10,8 +10,8 @@ class DashboardAdopedStudentController extends Controller
 {
     public function index()
 {
-    $adopedstudents = Student::where('payment_approved', 0)
-                              ->orWhere('make_pledge', 0)
+    $adopedstudents = Student::where('payment_approved', 1)
+                              ->orWhere('make_pledge', 1)
                               ->get();
 
     return view('admin.AdopedStudent.list', compact('adopedstudents'));

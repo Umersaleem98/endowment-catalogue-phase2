@@ -76,9 +76,9 @@
         <div class="row justify-content-center">
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="hero_box d-flex flex-row align-items-center justify-content-start" style="height:100px">
-                    <a href="{{ $isPledgeApproved == 1 ? url('Make_a_Pledge', ['id' => $students->id]) : '#' }}"
-                       class="d-flex align-items-center {{ $isPledgeApproved == 0 ? 'disabled-link' : '' }}"
-                       {{ $isPledgeApproved == 0 ? 'aria-disabled="true"' : '' }}>
+                    <a href="{{ $isPledgeApproved == 0 ? url('Make_a_Pledge', ['id' => $students->id]) : '#' }}"
+                       class="d-flex align-items-center {{ $isPledgeApproved == 1 ? 'disabled-link' : '' }}"
+                       {{ $isPledgeApproved == 1 ? 'aria-disabled="true"' : '' }}>
                         <img src="{{ asset('templates/images/forward-svgrepo-com.svg') }}" class="svg" alt="">
                         <div class="hero_box_content">
                             <h2 class="hero_box_title">Make a Pledge</h2>
@@ -90,9 +90,9 @@
 
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="hero_box d-flex flex-row align-items-center justify-content-start" style="height:100px">
-                    <a href="{{ $isPaymentApproved == 1 ? url('payment', ['id' => $students->id]) : '#' }}"
-                       class="d-flex align-items-center {{ $isPaymentApproved == 0 ? 'disabled-link' : '' }}"
-                       {{ $isPaymentApproved == 0 ? 'aria-disabled="true"' : '' }}>
+                    <a href="{{ $isPaymentApproved == 0 ? url('payment', ['id' => $students->id]) : '#' }}"
+                       class="d-flex align-items-center {{ $isPaymentApproved == 1 ? 'disabled-link' : '' }}"
+                       {{ $isPaymentApproved == 1 ? 'aria-disabled="true"' : '' }}>
                         <img src="{{ asset('templates/images/bank-svgrepo-com.svg') }}" class="svg" alt="">
                         <div class="hero_box_content">
                             <h2 class="hero_box_title">Pay Now</h2>

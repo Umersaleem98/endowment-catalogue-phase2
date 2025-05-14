@@ -19,8 +19,8 @@ class StudentDashboardController extends Controller
 
     public function index()
     {
-        $students = Student::where('make_pledge', 1)
-            ->where('payment_approved', 1)
+        $students = Student::where('make_pledge', 0)
+            ->where('payment_approved', 0)
 
             ->get();
 
@@ -162,4 +162,16 @@ class StudentDashboardController extends Controller
         $students->delete();
         return redirect()->back()->with('success', 'Student information delete successfully!');
     }
+
+
+    public function bulkDelete(Request $request)
+    {
+        if ($request->has('ids')) {
+            Student::whereIn('id', $request->ids)->delete();
+            return redirect()->back()->with('success', 'Selected students deleted successfully.');
+        } else {
+            return redirect()->back()->with('error', 'No students selected.');
+        }
+    }
+
 }

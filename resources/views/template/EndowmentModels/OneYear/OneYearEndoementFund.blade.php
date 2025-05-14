@@ -63,7 +63,7 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group" hidden>
-                                    <input type="text" name="program_type" value="one_year_UG" class="form-control">
+                                    <input type="text" name="program_type" value="One Year Undergraduate" class="form-control">
                                     <label for="degree">Degree:</label>
                                     <input type="text" name="degree" value="Engineering" class="form-control">
                                     {{-- <input type="text" name="seats" value="1" class="form-control"> --}}
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="row p-2 mt-4">
                                     <div class="form-group ml-3">
-                                        <input type="checkbox" class="mess_checkbox" value="275000">
+                                        <input type="checkbox" value="275000" name="hostelandmessing" class="" value="275000">
                                         <label for="pgAdditionalExpenses">Include mess and hostel expenses (275,000
                                             PKR)</label>
                                     </div>
@@ -158,8 +158,9 @@
                                                         <select name="school" id="school_select"
                                                             class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)                                                                
-                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
+                                                            @foreach ($schools as $item)
+                                                                <option value="{{ $item->schoolname }}">
+                                                                    {{ $item->schoolname }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -167,8 +168,9 @@
                                                         <label for="country_select">Select Country</label>
                                                         <select name="country" id="country_select"
                                                             class="form-control">
-                                                            @foreach ($countries as $item)                                                                
-                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
+                                                            @foreach ($countries as $item)
+                                                                <option value="{{ $item->countryname }}">
+                                                                    {{ $item->countryname }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -189,9 +191,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
                                     <div class="row">
                                         <div class="form-check mb-3 mt-2 ml-3">
                                             <input class="form-check-input ml-3 paynow-radio" name="payments_status"
@@ -306,7 +305,7 @@
                                                 <script>
                                                     document.getElementById('select-single-noneng-ug').addEventListener('change', function() {
                                                         const philanthropistOneYearNonEngUgDiv = document.getElementById(
-                                                        'philanthropist_oneyear_noneng_ug_div');
+                                                            'philanthropist_oneyear_noneng_ug_div');
 
                                                         // Check if the selected option is either "Philanthropist" or "Industrial Partner"
                                                         if (this.value === 'Philanthropist' || this.value === 'Industrial-Partner') {
@@ -325,8 +324,9 @@
                                                         <select name="school" id="school_select"
                                                             class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)                                                                
-                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
+                                                            @foreach ($schools as $item)
+                                                                <option value="{{ $item->schoolname }}">
+                                                                    {{ $item->schoolname }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -334,8 +334,9 @@
                                                         <label for="country_select">Select Country</label>
                                                         <select name="country" id="country_select"
                                                             class="form-control">
-                                                            @foreach ($countries as $item)                                                                
-                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
+                                                            @foreach ($countries as $item)
+                                                                <option value="{{ $item->countryname }}">
+                                                                    {{ $item->countryname }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -398,7 +399,8 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="text" name="program_type" id="program" value="UG One Year" hidden>
+                                        <input type="text" name="program_type" id="program" value="UG One Year"
+                                            hidden>
                                         <div class="form-group">
                                             <label for="degree">Select Degree:</label>
                                             <select id="degree" name="degree" class="form-control">
@@ -515,7 +517,7 @@
                                                 <script>
                                                     document.getElementById('select-one-year-custom-ug').addEventListener('change', function() {
                                                         const philanthropistOneYearCustomUgDiv = document.getElementById(
-                                                        'philanthropist_oneyear_custom_ug_div');
+                                                            'philanthropist_oneyear_custom_ug_div');
 
                                                         // Check if the selected option is either "Philanthropist" or "Industrial Partner"
                                                         if (this.value === 'Philanthropist' || this.value === 'Industrial-Partner') {
@@ -534,8 +536,9 @@
                                                         <select name="school" id="school_select"
                                                             class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)                                                                
-                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
+                                                            @foreach ($schools as $item)
+                                                                <option value="{{ $item->schoolname }}">
+                                                                    {{ $item->schoolname }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -543,8 +546,9 @@
                                                         <label for="country_select">Select Country</label>
                                                         <select name="country" id="country_select"
                                                             class="form-control">
-                                                            @foreach ($countries as $item)                                                                
-                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
+                                                            @foreach ($countries as $item)
+                                                                <option value="{{ $item->countryname }}">
+                                                                    {{ $item->countryname }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -705,8 +709,9 @@
                                                         <select name="school" id="school_select"
                                                             class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)                                                                
-                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
+                                                            @foreach ($schools as $item)
+                                                                <option value="{{ $item->schoolname }}">
+                                                                    {{ $item->schoolname }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -714,8 +719,9 @@
                                                         <label for="country_select">Select Country</label>
                                                         <select name="country" id="country_select"
                                                             class="form-control">
-                                                            @foreach ($countries as $item)                                                                
-                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
+                                                            @foreach ($countries as $item)
+                                                                <option value="{{ $item->countryname }}">
+                                                                    {{ $item->countryname }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -871,8 +877,9 @@
                                                         <select name="school" id="school_select"
                                                             class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)                                                                
-                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
+                                                            @foreach ($schools as $item)
+                                                                <option value="{{ $item->schoolname }}">
+                                                                    {{ $item->schoolname }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -880,8 +887,9 @@
                                                         <label for="country_select">Select Country</label>
                                                         <select name="country" id="country_select"
                                                             class="form-control">
-                                                            @foreach ($countries as $item)                                                                
-                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
+                                                            @foreach ($countries as $item)
+                                                                <option value="{{ $item->countryname }}">
+                                                                    {{ $item->countryname }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -941,7 +949,8 @@
 
                                 <br>
                                 <div class="row">
-                                    <input type="text" name="program_type" value="PG One Year" hidden id="">
+                                    <input type="text" name="program_type" value="PG One Year" hidden
+                                        id="">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="pgDegree">Select Degree:</label>
@@ -1075,8 +1084,9 @@
                                                         <select name="school" id="school_select"
                                                             class="form-control">
                                                             <option value="" selected>Select School</option>
-                                                            @foreach ($schools as $item)                                                                
-                                                            <option value="{{ $item->schoolname }}">{{ $item->schoolname }}</option>
+                                                            @foreach ($schools as $item)
+                                                                <option value="{{ $item->schoolname }}">
+                                                                    {{ $item->schoolname }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -1084,8 +1094,9 @@
                                                         <label for="country_select">Select Country</label>
                                                         <select name="country" id="country_select"
                                                             class="form-control">
-                                                            @foreach ($countries as $item)                                                                
-                                                            <option value="{{ $item->countryname }}">{{ $item->countryname }}</option>
+                                                            @foreach ($countries as $item)
+                                                                <option value="{{ $item->countryname }}">
+                                                                    {{ $item->countryname }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>

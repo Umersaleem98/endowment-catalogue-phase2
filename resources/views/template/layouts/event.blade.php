@@ -78,42 +78,48 @@
         </div>
 
         <div id="event-list">
-            @foreach ($events as $item)
-                <div class="container py-2">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="event">
-        
-                                <!-- Date -->
-                                <div class="date">
-                                    <span class="day">{{ $item->formatted_day }}</span>
-                                    <span class="month">{{ $item->formatted_month }}</span>
-                                    <span class="year">{{ $item->formatted_year }}</span>
-                                </div>
-        
-                                <!-- Info -->
-                                <div class="info">
-                                    <h2 class="title text-dark">{{ $item->event_title }}</h2>
-                                    <h3 class="text-dark">{{ $item->subtitle }}</h3>
-                                    <p class="desc text-dark short-desc">
-                                        {{ Str::words($item->description, 40, '...') }}
-                                    </p>
-                                    <p class="desc text-dark full-desc d-none">
-                                        {{ $item->description }}
-                                    </p>
-                                    <button class="btn btn-link read-more-btn">Read More</button>
-                                </div>
-        
-                                <!-- Image -->
-                                <div class="event-image">
-                                    <img src="{{ asset('events/' . $item->images) }}" alt="Event Image" class="img-fluid">
-                                </div>
-        
-                            </div>
+          @foreach ($events as $item)
+    @if (\Carbon\Carbon::parse($item->event_date)->isToday() || \Carbon\Carbon::parse($item->event_date)->isFuture())
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="event">
+
+                        <!-- Date (Left Side) -->
+                        <div class="date">
+                            <span class="day">{{ $item->formatted_day }}</span>
+                            <span class="month">{{ $item->formatted_month }}</span>
+                            <span class="year">{{ $item->formatted_year }}</span>
+                        </div>
+
+                        <!-- Event Info (Center) -->
+                        <div class="info">
+                            <h2 class="title text-dark">{{ $item->event_title }}</h2>
+                            <h3 class="text-dark">{{ $item->subtitle }}</h3>
+
+                            <p class="desc text-dark short-desc">
+                                {{ Str::words($item->description, 40, '...') }}
+                            </p>
+
+                            <p class="desc text-dark full-desc d-none">
+                                {{ $item->description }}
+                            </p>
+
+                            <button class="btn btn-link read-more-btn">Read More</button>
+                        </div>
+
+                        <!-- Event Image (Right Side) -->
+                        <div class="event-image">
+                            <img src="{{ asset('events/' . $item->images) }}" alt="Event Image"
+                                class="img-fluid">
                         </div>
                     </div>
                 </div>
-            @endforeach
+            </div>
+        </div>
+    @endif
+@endforeach
+
         
             <!-- Pagination -->
             <div class="d-flex justify-content-center mt-3">

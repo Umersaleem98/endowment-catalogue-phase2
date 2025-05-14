@@ -129,6 +129,8 @@ Route::post('students_add', [StudentDashboardController::class, 'Store']);
 Route::get('students_edit/{id}', [StudentDashboardController::class, 'edit']);
 Route::post('students_update/{id}', [StudentDashboardController::class, 'update']);
 Route::get('students_delete/{id}', [StudentDashboardController::class, 'delete']);
+Route::post('/students.bulkDelete', [StudentDashboardController::class, 'bulkDelete']);
+
 // Custom Endownemt Dashboard Controller Routes 
 Route::get('zakat_payments_list', [EndoementZakatDashboardController::class, 'index']);
 // Defult Endownemt Dashboard Controller Routes 

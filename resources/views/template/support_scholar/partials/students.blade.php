@@ -31,7 +31,7 @@
 @php
     // Filter students to only show those with make_pledge = 1 or payment_approved = 1
     $filteredStudents = $students->filter(function($item) {
-        return $item->make_pledge == 1 || $item->payment_approved == 1;
+        return $item->make_pledge == 0  || $item->payment_approved == 0;
     });
 @endphp
 
@@ -64,7 +64,7 @@
             <div class="card-text text-dark mb-2">{{ $item->gender }}</div>
 
             {{-- Show Hostel Button Only If hostel_status != 0 --}}
-            @if($item->hostel_status != 0)
+            @if($item->hostel_status != 1)
                 <a href="{{ route('students.hostel', ['id' => $item->id]) }}" class="btn btn-success mt-2">
                     Support for Hostel
                 </a>
@@ -80,7 +80,7 @@
 <script>
     function handleCardClick(makePledge, paymentApproved) {
         // Only show an alert if both make_pledge and payment_approved are 0
-        if (makePledge === 0 && paymentApproved === 0) {
+        if (makePledge === 1 && paymentApproved === 1) {
             alert('This student is already adopted.');
         }
     }
