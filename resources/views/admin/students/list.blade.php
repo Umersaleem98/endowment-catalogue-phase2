@@ -11,7 +11,9 @@
 
 <body class="navbar-fixed sidebar-fixed" id="body">
     <script>
-        NProgress.configure({ showSpinner: false });
+        NProgress.configure({
+            showSpinner: false
+        });
         NProgress.start();
     </script>
 
@@ -39,12 +41,15 @@
                                 @endif
 
                                 <div class="card-body">
-                                    <form action="{{ route('students.import') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('students.import') }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
-                                        <input type="file" name="file" class="form-control mb-2" accept=".xlsx, .csv" style="width: 50%;">
+                                        <input type="file" name="file" class="form-control mb-2"
+                                            accept=".xlsx, .csv" style="width: 50%;">
                                         <button type="submit" class="btn btn-dark btn-sm ml-2">Import</button>
                                         <a href="{{ url('export') }}" class="btn btn-success btn-sm ml-2">Export</a>
-                                        <a href="{{ url('add_new_student') }}" class="btn btn-info btn-sm ml-2">Add New Student</a>
+                                        <a href="{{ url('add_new_student') }}" class="btn btn-info btn-sm ml-2">Add New
+                                            Student</a>
                                     </form>
 
                                     <!-- Year Filter -->
@@ -52,7 +57,7 @@
                                         <label for="filterYear">Filter by Year:</label>
                                         <select id="filterYear" class="form-control" style="width: 200px;">
                                             <option value="">All Years</option>
-                                            @foreach($students->pluck('year_of_admission')->unique() as $year)
+                                            @foreach ($students->pluck('year_of_admission')->unique() as $year)
                                                 <option value="{{ $year }}">{{ $year }}</option>
                                             @endforeach
                                         </select>
@@ -62,7 +67,8 @@
                                     <form id="bulkDeleteForm" action="{{ url('students.bulkDelete') }}" method="POST">
                                         @csrf
                                         <div class="table-responsive">
-                                            <table id="productsTable" class="table table-hover table-product" style="width:100%">
+                                            <table id="productsTable" class="table table-hover table-product"
+                                                style="width:100%">
                                                 <thead>
                                                     <tr>
                                                         <th><input type="checkbox" id="select-all"></th>
@@ -77,15 +83,16 @@
                                                         <th>Monthly Income</th>
                                                         <th>Remarks</th>
                                                         <th>Images</th>
-                                                        <th>Edit</th>
-                                                        <th>Delete</th>
+                                                        <th>Edit/Delete</th>
+                                                        <th>Adopted</th>
                                                     </tr>
                                                 </thead>
 
                                                 <tbody class="text-dark">
                                                     @foreach ($students as $student)
                                                         <tr>
-                                                            <td><input type="checkbox" name="ids[]" value="{{ $student->id }}"></td>
+                                                            <td><input type="checkbox" name="ids[]"
+                                                                    value="{{ $student->id }}"></td>
                                                             <td>{{ $student->qalam_id }}</td>
                                                             <td>{{ $student->student_name }}</td>
                                                             <td>{{ $student->father_name }}</td>
@@ -99,15 +106,20 @@
                                                             <td>
                                                                 <img src="{{ asset('templates/students_images/' . $student->images) }}"
                                                                     alt="Student Photo" class="img-thumbnail"
-                                                                    style="width:50px; height:50px; object-fit:cover; border-radius:50%;">
+                                                                    style="width:40px; height:40px; object-fit:cover; border-radius:50%;"
+                                                                    onerror="this.onerror=null;this.src='{{ asset('templates/students_images/dummy.png') }}';">
                                                             </td>
+
                                                             <td>
                                                                 <a href="{{ url('students_edit', $student->id) }}"
                                                                     class="btn btn-sm btn-primary">Edit</a>
+                                                                    <a href="{{ url('students_delete', $student->id) }}"
+                                                                    class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                             <td>
-                                                                <a href="{{ url('students_delete', $student->id) }}"
-                                                                    class="btn btn-sm btn-danger">Delete</a>
+                                                                
+                                                                <a href="{{ url('students_adopted', $student->id) }}"
+                                                                    class="btn btn-sm btn-info">Delete</a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -139,19 +151,19 @@
     <!-- JavaScript -->
     <script>
         // Select all checkboxes
-        document.getElementById('select-all').addEventListener('change', function () {
+        document.getElementById('select-all').addEventListener('change', function() {
             let checkboxes = document.querySelectorAll('input[name="ids[]"]');
             checkboxes.forEach(cb => cb.checked = this.checked);
         });
 
         // Initialize DataTable
-        $(document).ready(function () {
+        $(document).ready(function() {
             let table = $('#productsTable').DataTable({
                 lengthMenu: [5, 10, 20, 50, 100]
             });
 
             // Filter by year using DataTables API
-            $('#filterYear').on('change', function () {
+            $('#filterYear').on('change', function() {
                 let selectedYear = $(this).val();
                 table.column(8).search(selectedYear).draw(); // 8 = "Year" column index
             });
@@ -159,4 +171,5 @@
     </script>
 
 </body>
+
 </html>

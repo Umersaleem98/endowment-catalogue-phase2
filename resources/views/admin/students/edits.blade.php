@@ -205,7 +205,7 @@
                                                 <textarea name="statement_of_purpose" id="statement_of_purpose" class="form-control" rows="3">{{ $students->statement_of_purpose }}</textarea>
                                             </div>
                                         </div>
-                                        
+{{--                                         
                                         <div class="row">
                                             <div class="col-md-4 mb-3">
                                                 <label for="make_pledge" class="form-label">Make Pledge</label>
@@ -220,7 +220,33 @@
                                                 <input type="number" name="hostel_status" id="hostel_status" class="form-control" value="{{ $students->hostel_status }}">
                                             </div>
                                         </div>
-                                        
+                                         --}}
+                                         <div class="row">
+    <div class="col-md-4 mb-3">
+        <label for="make_pledge" class="form-label">Make Pledge</label>
+        <select name="make_pledge" id="make_pledge" class="form-select">
+            <option value="1" {{ $students->make_pledge == 1 ? 'selected' : '' }}>Yes</option>
+            <option value="0" {{ $students->make_pledge == 0 ? 'selected' : '' }}>No</option>
+        </select>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label for="payment_approved" class="form-label">Payment Approved</label>
+        <select name="payment_approved" id="payment_approved" class="form-select">
+            <option value="1" {{ $students->payment_approved == 1 ? 'selected' : '' }}>Yes</option>
+            <option value="0" {{ $students->payment_approved == 0 ? 'selected' : '' }}>No</option>
+        </select>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label for="hostel_status" class="form-label">Hostel Status</label>
+        <select name="hostel_status" id="hostel_status" class="form-select">
+            <option value="1" {{ $students->hostel_status == 1 ? 'selected' : '' }}>Yes</option>
+            <option value="0" {{ $students->hostel_status == 0 ? 'selected' : '' }}>No</option>
+        </select>
+    </div>
+</div>
+
                                         <div class="row">
                                            
                                             <div class="col-md-6 mb-3">

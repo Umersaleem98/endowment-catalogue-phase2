@@ -27,7 +27,7 @@
                     <div class="row">
                         <!-- Students Overview -->
                         <div class="col-md-3">
-                            <div class="card mb-3 text-center" style="background-color:rgb(137, 174, 184)" >
+                            <div class="card mb-3 text-center" style="background-color:rgb(137, 174, 184)">
                                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
                                     <h5 class="card-title text-dark"><i class="fas fa-users"></i> Students Overview</h5>
                                     <h4 class="card-text text-dark">{{ $totalStudents }}</h4>
@@ -35,55 +35,66 @@
                                 </div>
                             </div>
                         </div>
-                    
+
                         <!-- Adopted Students -->
                         <div class="col-md-3">
                             <div class="card mb-3 text-center" style="background-color:rgb(169, 238, 174)">
                                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                                    <h5 class="card-title text-dark"><i class="fas fa-user-check"></i> Adopted Students</h5>
+                                    <h5 class="card-title text-dark"><i class="fas fa-user-check"></i> Adopted Students
+                                    </h5>
                                     <h4 class="card-text text-dark">{{ $Adopedstudents }}</h4>
-                                    <p class="card-text text-dark">({{ round(($Adopedstudents / $totalStudents) * 100, 2) }}%) Adopted</p>
+                                    <p class="card-text text-dark">
+                                        @if ($totalStudents > 0)
+                                            ({{ round(($Adopedstudents / $totalStudents) * 100, 2) }}%) Adopted
+                                        @else
+                                            0% Adopted
+                                        @endif
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    
+
                         <!-- UG Students -->
                         <div class="col-md-3">
                             <div class="card mb-3 text-center" style="background-color:rgb(221, 233, 112)">
                                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                                    <h5 class="card-title text-dark"><i class="fas fa-graduation-cap"></i> UG Students</h5>
+                                    <h5 class="card-title text-dark"><i class="fas fa-graduation-cap"></i> UG Students
+                                    </h5>
                                     <h4 class="card-text text-dark">{{ $ugStudents }}</h4>
                                     <p class="card-text text-dark">Undergraduates</p>
                                 </div>
                             </div>
                         </div>
-                    
+
                         <!-- PG Students -->
                         <div class="col-md-3">
                             <div class="card mb-3 text-center" style="background-color:rgb(214, 161, 228)">
                                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                                    <h5 class="card-title text-dark"><i class="fas fa-chalkboard-teacher"></i> PG Students</h5>
+                                    <h5 class="card-title text-dark"><i class="fas fa-chalkboard-teacher"></i> PG
+                                        Students</h5>
                                     <h4 class="card-text text-dark">{{ $pgStudents }}</h4>
                                     <p class="card-text text-dark">Postgraduates</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Hostel Payments -->
                     <div class="row">
                         <div class="col-md-3">
                             <div class="card mb-3 text-center" style="background-color:rgb(158, 220, 228)">
                                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                                    <h5 class="card-title text-dark"><i class="fas fa-building"></i> Hostel Payments</h5>
-                                    <h4 class="card-text text-dark">Rs. {{ number_format($totalHostelPayments, 2) }}</h4>
+                                    <h5 class="card-title text-dark"><i class="fas fa-building"></i> Hostel Payments
+                                    </h5>
+                                    <h4 class="card-text text-dark">Rs. {{ number_format($totalHostelPayments, 2) }}
+                                    </h4>
                                     <p class="card-text text-dark">Total Hostel Fees Paid</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    
+
+
 
                     <!-- Students by Year of Admission Chart -->
                     <div class="row mt-4 bor">

@@ -85,7 +85,6 @@ class StudentDashboardController extends Controller
         $student->save();
 
         return redirect()->back()->with('success', 'Student information Enter successfully!');
-
     }
 
 
@@ -174,4 +173,18 @@ class StudentDashboardController extends Controller
         }
     }
 
+    public function Adopted($id)
+    {
+        $student = Student::find($id);
+
+        if ($student) {
+            $student->make_pledge = 1;
+            $student->payment_approved = 1;
+            $student->save();
+
+            return back()->with('success', 'Student has been marked as adopted successfully.');
+        } else {
+            return back()->with('error', 'Student not found.');
+        }
+    }
 }
