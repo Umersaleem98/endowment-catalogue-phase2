@@ -118,7 +118,7 @@
                                                                 <a href="{{ url('students_delete', $student->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                             <td>
-                                                                <a href="{{ url('students_adopted', $student->id) }}" class="btn btn-sm btn-info">Delete</a>
+                                                                <a href="{{ url('students_adopted', $student->id) }}" class="btn btn-sm btn-info">Adopted</a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
