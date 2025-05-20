@@ -43,7 +43,7 @@
                             : asset('templates/students_images/dummy.png');
                     @endphp
                     <div class="image_container">
-                        <img src="{{ $imageUrl }}" class="img-fluid" alt="Student Image" style="height: 400px; width:100%; filter: blur(12px)">
+                        <img src="{{ $imageUrl }}" class="img-fluid" alt="Student Image" style="height: 400px; width:100%; filter: blur(18px)">
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <div class="info_container mt-5">
                         <h3>Hometown: <span>{{$students->province}}</span></h3>
-                        <h3>Name: <span>{{$students->student_name}}</span></h3>
+                        {{-- <h3>Name: <span>{{$students->student_name}}</span></h3> --}}
                         <h3>Discipline: <span>{{$students->discipline}}</span></h3>
                         <h3>Province: <span>{{$students->province}}</span></h3>
                         <h3>Gender: <span>{{$students->gender}}</span></h3>

@@ -16,7 +16,7 @@
                             <a href="{{ url('student_stories') }}">
                                 <img src="{{ asset('templates/students_images/' . $item->images) }}"
                                     class="card-img-top" alt="Student Story Image"
-                                    style="filter: blur(5px); height: 250px; object-fit: cover;">
+                                    style="filter: blur(18px); height: 250px; object-fit: cover;">
                             </a>
                         </div>
                     </div>

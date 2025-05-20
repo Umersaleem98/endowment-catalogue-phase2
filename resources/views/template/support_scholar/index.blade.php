@@ -104,7 +104,7 @@
                                 <select name="degree" id="degreeFilter" class="form-control filter-select" aria-label="Select degree">
                                     <option value="all" selected>All Degrees</option>
                                     <option value="UG">Undergraduate (UG)</option>
-                                    <option value="MS">Postgraduate (PG)</option>
+                                    <option value="PG">Postgraduate (PG)</option>
                                     <!-- Add more options for degrees -->
                                 </select>
                             </div>

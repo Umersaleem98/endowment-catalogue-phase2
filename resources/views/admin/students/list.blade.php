@@ -11,9 +11,7 @@
 
 <body class="navbar-fixed sidebar-fixed" id="body">
     <script>
-        NProgress.configure({
-            showSpinner: false
-        });
+        NProgress.configure({ showSpinner: false });
         NProgress.start();
     </script>
 
@@ -41,34 +39,42 @@
                                 @endif
 
                                 <div class="card-body">
-                                    <form action="{{ route('students.import') }}" method="POST"
-                                        enctype="multipart/form-data">
-                                        @csrf
-                                        <input type="file" name="file" class="form-control mb-2"
-                                            accept=".xlsx, .csv" style="width: 50%;">
-                                        <button type="submit" class="btn btn-dark btn-sm ml-2">Import</button>
-                                        <a href="{{ url('export') }}" class="btn btn-success btn-sm ml-2">Export</a>
-                                        <a href="{{ url('add_new_student') }}" class="btn btn-info btn-sm ml-2">Add New
-                                            Student</a>
-                                    </form>
 
-                                    <!-- Year Filter -->
-                                    <div class="mt-3 mb-3">
-                                        <label for="filterYear">Filter by Year:</label>
-                                        <select id="filterYear" class="form-control" style="width: 200px;">
-                                            <option value="">All Years</option>
-                                            @foreach ($students->pluck('year_of_admission')->unique() as $year)
-                                                <option value="{{ $year }}">{{ $year }}</option>
-                                            @endforeach
-                                        </select>
+                                    <!-- Combined Filter and Import Row -->
+                                    <div class="d-flex flex-wrap align-items-end mb-3">
+                                        <form action="{{ route('students.import') }}" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap align-items-end">
+                                            @csrf
+                                            <div class="mr-2 mb-2">
+                                                <label class="form-label">Choose File</label>
+                                                <input type="file" name="file" class="form-control" accept=".xlsx, .csv">
+                                            </div>
+                                            <div class="mr-2 mb-2">
+                                                <button type="submit" class="btn btn-dark btn-sm">Import</button>
+                                            </div>
+                                            <div class="mr-2 mb-2">
+                                                <a href="{{ url('export') }}" class="btn btn-success btn-sm">Export</a>
+                                            </div>
+                                            <div class="mr-2 mb-2">
+                                                <a href="{{ url('add_new_student') }}" class="btn btn-info btn-sm">Add New Student</a>
+                                            </div>
+                                        </form>
+
+                                        <div class="ml-auto mb-2">
+                                            <label for="filterYear" class="form-label">Filter by Year</label>
+                                            <select id="filterYear" class="form-control" style="width: 200px;">
+                                                <option value="">All Years</option>
+                                                @foreach ($students->pluck('year_of_admission')->unique() as $year)
+                                                    <option value="{{ $year }}">{{ $year }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
 
                                     <!-- Bulk Delete Form -->
                                     <form id="bulkDeleteForm" action="{{ url('students.bulkDelete') }}" method="POST">
                                         @csrf
                                         <div class="table-responsive">
-                                            <table id="productsTable" class="table table-hover table-product"
-                                                style="width:100%">
+                                            <table id="productsTable" class="table table-hover table-product" style="width:100%">
                                                 <thead>
                                                     <tr>
                                                         <th><input type="checkbox" id="select-all"></th>
@@ -87,12 +93,10 @@
                                                         <th>Adopted</th>
                                                     </tr>
                                                 </thead>
-
                                                 <tbody class="text-dark">
                                                     @foreach ($students as $student)
                                                         <tr>
-                                                            <td><input type="checkbox" name="ids[]"
-                                                                    value="{{ $student->id }}"></td>
+                                                            <td><input type="checkbox" name="ids[]" value="{{ $student->id }}"></td>
                                                             <td>{{ $student->qalam_id }}</td>
                                                             <td>{{ $student->student_name }}</td>
                                                             <td>{{ $student->father_name }}</td>
@@ -109,17 +113,12 @@
                                                                     style="width:40px; height:40px; object-fit:cover; border-radius:50%;"
                                                                     onerror="this.onerror=null;this.src='{{ asset('templates/students_images/dummy.png') }}';">
                                                             </td>
-
                                                             <td>
-                                                                <a href="{{ url('students_edit', $student->id) }}"
-                                                                    class="btn btn-sm btn-primary">Edit</a>
-                                                                    <a href="{{ url('students_delete', $student->id) }}"
-                                                                    class="btn btn-sm btn-danger">Delete</a>
+                                                                <a href="{{ url('students_edit', $student->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                                                <a href="{{ url('students_delete', $student->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                                             </td>
                                                             <td>
-                                                                
-                                                                <a href="{{ url('students_adopted', $student->id) }}"
-                                                                    class="btn btn-sm btn-info">Delete</a>
+                                                                <a href="{{ url('students_adopted', $student->id) }}" class="btn btn-sm btn-info">Delete</a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
