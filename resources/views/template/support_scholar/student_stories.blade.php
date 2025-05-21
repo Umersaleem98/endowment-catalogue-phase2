@@ -15,12 +15,11 @@
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false">
 
 <div class="super_container">
 
     @include('template.layouts.navbar')
-
     @include('template.layouts.home')
 
     <div class="services page_section">
@@ -34,7 +33,7 @@
             </div>
 
             <div class="row services_row">
-                <!-- Left Section for Images -->
+                <!-- Left Section for Image -->
                 <div class="col-lg-5 col-md-6 col-sm-12">
                     @php
                         $imagePath = public_path('templates/students_images/' . $students->images);
@@ -43,7 +42,12 @@
                             : asset('templates/students_images/dummy.png');
                     @endphp
                     <div class="image_container">
-                        <img src="{{ $imageUrl }}" class="img-fluid" alt="Student Image" style="height: 400px; width:100%; filter: blur(18px)">
+                        <img src="{{ $imageUrl }}"
+                             class="img-fluid"
+                             alt="Student Image"
+                             style="height: 400px; width:100%; filter: blur(18px); pointer-events: none; user-select: none;"
+                             oncontextmenu="return false;"
+                             draggable="false">
                     </div>
                 </div>
 
@@ -105,10 +109,22 @@
     </div>
 
     <hr class="mt-5">
-
     @include('template.layouts.footer')
 
 </div>
+
+<!-- Optional: Extra JavaScript to block right-click and inspect -->
+<script>
+    // Block right-click anywhere
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+
+    // Block drag on all images
+    document.querySelectorAll("img").forEach(img => {
+        img.setAttribute("draggable", "false");
+    });
+</script>
 
 </body>
 </html>

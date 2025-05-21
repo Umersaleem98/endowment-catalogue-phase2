@@ -15,8 +15,11 @@
                         <div class="card h-100 shadow-sm">
                             <a href="{{ url('student_stories') }}">
                                 <img src="{{ asset('templates/students_images/' . $item->images) }}"
-                                    class="card-img-top" alt="Student Story Image"
-                                    style="filter: blur(18px); height: 250px; object-fit: cover;">
+                                     class="card-img-top"
+                                     alt="Student Story Image"
+                                     style="filter: blur(18px); height: 250px; object-fit: cover; pointer-events: none; user-select: none;"
+                                     oncontextmenu="return false;"
+                                     draggable="false">
                             </a>
                         </div>
                     </div>
@@ -32,3 +35,8 @@
         </div>
     </div>
 </div>
+
+<!-- Optional: Disable right-click for entire page -->
+<script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
