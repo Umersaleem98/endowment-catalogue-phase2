@@ -27,7 +27,7 @@
                 <div class="row">
                     <!-- Left Side - Image -->
                     <div class="col-lg-4 col-md-4 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="1000">
-                        <img src="{{ asset('templates/images/slider_background3.jpg') }}" alt="About Image"
+                        <img src="{{ asset('templates/images/tahaqureshi.jpg') }}" alt="About Image"
                             class="img-fluid rounded shadow">
                     </div>
 
