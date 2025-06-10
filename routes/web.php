@@ -136,6 +136,8 @@ Route::get('students_adopted/{id}', [StudentDashboardController::class, 'Adopted
 Route::get('zakat_payments_list', [EndoementZakatDashboardController::class, 'index']);
 // Defult Endownemt Dashboard Controller Routes 
 Route::get('oneyear_endowment_list', [DefultEndowmentOneyearDashboardController::class, 'index']);
+Route::get('defult.oneyear.destroy/{id}', [DefultEndowmentOneyearDashboardController::class, 'Delete']);
+
 Route::get('fouryear_endowment_list', [DefultEndowmentOneyearDashboardController::class, 'indexforyear']);
 Route::get('perpetualseat_endowment_list', [DefultEndowmentOneyearDashboardController::class, 'indexperpetualseat']);
 // Custom Endownemt Dashboard Controller Routes 

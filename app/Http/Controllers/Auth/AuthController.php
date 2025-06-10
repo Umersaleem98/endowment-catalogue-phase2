@@ -50,8 +50,8 @@ class AuthController extends Controller
         $totalStudents = Student::count();
         $ugStudents = Student::where('degree', 'UG')->count();
         $pgStudents = Student::where('degree', 'PG')->count();
-        $Adopedstudents = Student::where('make_pledge', 0)
-            ->where('payment_approved', 0)
+        $Adopedstudents = Student::where('make_pledge', 1)
+            ->where('payment_approved', 1)
             ->count();
 
         // Group UG and PG students by year_of_admission

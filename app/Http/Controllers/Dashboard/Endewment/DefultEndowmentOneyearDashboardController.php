@@ -14,6 +14,7 @@ class DefultEndowmentOneyearDashboardController extends Controller
     {
         $oneyears = DefaultPackageOneYearDegree::all();
         return view('admin.defultoneyear.list', compact('oneyears'));
+
     }
     public function indexforyear()
     {
@@ -25,5 +26,20 @@ class DefultEndowmentOneyearDashboardController extends Controller
     {
         $perpetualseat = DefultPackagePerpetualSeatDegree::all();
         return view('admin.defultperpetualseat.list', compact('perpetualseat'));
+    }
+
+    public function Delete($id)
+    {
+        $oneyears = DefaultPackageOneYearDegree::find($id);
+
+         if ($oneyears->prove && file_exists(public_path('uploads/Oneyear-proof/' . $oneyears->prove))) {
+        unlink(public_path('uploads/Oneyear-proof/' . $oneyears->prove));
+    }
+
+    $oneyears->delete();
+
+    return redirect()->back()->with('success', 'Record deleted successfully.');
+
+        
     }
 }
