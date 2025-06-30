@@ -240,7 +240,7 @@
         </div>
     </div>
 
-    @include('template.layouts.event')
+    {{-- @include('template.layouts.event') --}}
     @include('template.layouts.footer')
 </div>
 

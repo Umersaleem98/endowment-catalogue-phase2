@@ -109,7 +109,7 @@
         {{-- @include('template.layouts.stories') --}}
         @include('template.layouts.testimonial')
         @include('template.pages.note_of_gratitude')
-        @include('template.layouts.event')
+        {{-- @include('template.layouts.event') --}}
         @include('template.layouts.footer')
     </div>
 
