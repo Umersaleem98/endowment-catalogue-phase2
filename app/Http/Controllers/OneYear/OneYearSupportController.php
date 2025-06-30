@@ -28,61 +28,27 @@ class OneYearSupportController extends Controller
 
     public function DefultOneYearundergraduate(Request $request)
     {
-        // // Define recipients
-        // // $to = ["umer.saleem.abbasi109@gmail.com", "advancement@nust.edu.pk"];
-        // $to = ["umer.saleem.abbasi109@gmail.com"];
-
-        // // Add donor email if provided
-        // if (!empty($request->donor_email)) {
-        //     $to[] = $request->donor_email;
-        // }
-
-        // // Updated message
-        // $msg = "Subject: Pending "
-        //     . "Dear Valued Donor,\n\n"
-        //     . "We sincerely appreciate your generous support for our scholarship program. Your commitment to empowering students through education is truly commendable.\n\n"
-        //     . "We are pleased to inform you that your request for a One-Year Degree Sponsorship has been accepted. Our team will verify the details, and we will provide you with a confirmation soon.\n\n"
-        //     . "Once again, we extend our heartfelt gratitude for your generosity and belief in our mission.\n\n"
-        //     . "Best regards,\n"
-        //     . "University Advancement Office"
-        //     . "NUST Islamabad";
 
 
-        // $subject = "abc";
+        $attachmentPath = null;
+        if ($request->hasFile('prove')) {
+            $file = $request->file('prove');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $destination = public_path('uploads/Oneyear-proof');
+            if (!file_exists($destination)) {
+                mkdir($destination, 0755, true);
+            }
+            $file->move($destination, $filename);
+            $attachmentPath = $destination . '/' . $filename;
+        }
 
-        // Fetch data
-        $students = SupportADegreeForOneYearPg::all();
-        $schools = School::all();
-        $countries = Country::all();
-        $postgraduate = SupportADegreeForOneYearPg::all();
-        $undergraduate = SupportADegreeForOneYearUg::all();
 
-        // Handle file upload (do this BEFORE sending the email)
-        // $attachmentPath = null;
-        // if ($request->hasFile('prove')) {
-        //     $file = $request->file('prove');
-        //     $filename = time() . '_' . $file->getClientOriginalName();
-        //     $destination = public_path('uploads/Oneyear-proof');
-        //     $file->move($destination, $filename);
-        //     // Store full path for attachment
-        //     $attachmentPath = $destination . '/' . $filename;
-        // }
 
-        // // Send email to multiple recipients including donor email
-        // Mail::to($to)->send(new NotificationEmail(
-        //     $msg,
-        //     $subject,
-        //     $students,
-        //     $schools,
-        //     $countries,
-        //     $undergraduate,
-        //     $postgraduate,
-        //     $attachmentPath // pass the attachment path to the mailable
-        // ));
-
-        // Save form data
+        // Save to database
         $defaultOneYearDegree = new DefaultPackageOneYearDegree();
         $defaultOneYearDegree->hostelandmessing = $request->hostelandmessing ?? 0;
+
+        // dd( $defaultOneYearDegree->hostelandmessing = $request->hostelandmessing ?? 0);
         $defaultOneYearDegree->program_type = $request->program_type;
         $defaultOneYearDegree->degree = $request->degree;
         $defaultOneYearDegree->seats = $request->seats ?? 1;
@@ -91,22 +57,22 @@ class OneYearSupportController extends Controller
         $defaultOneYearDegree->donor_email = $request->donor_email;
         $defaultOneYearDegree->phone = $request->phone;
         $defaultOneYearDegree->about_partner = $request->about_partner;
-        $defaultOneYearDegree->philanthropist_text = $request->philanthropist_text?? 0;
+        $defaultOneYearDegree->philanthropist_text = $request->philanthropist_text ?? 0;
         $defaultOneYearDegree->school = $request->school ?? 0;
         $defaultOneYearDegree->country = $request->country ?? 0;
         $defaultOneYearDegree->year = $request->year ?? 0;
         $defaultOneYearDegree->payments_status = $request->payments_status;
 
-        // Save prove file name if uploaded
-        // if ($attachmentPath) {
-        //     $defaultOneYearDegree->prove = basename($attachmentPath);
-        // }
+        if ($attachmentPath) {
+            $defaultOneYearDegree->prove = basename($attachmentPath);
+        }
 
         $defaultOneYearDegree->save();
 
-        // dd($defaultOneYearDegree);
-        return redirect()->back()->with('success', 'Form submitted successfully and email sent to donor!');
+        // dd();
+        return redirect()->back()->with('success', 'Form submitted successfully!');
     }
+
 
 
     public function CustomOneYearundergraduate(Request $request)
@@ -193,7 +159,7 @@ class OneYearSupportController extends Controller
         $customOneYearDegree->payments_status = $request->payments_status;
 
         // Handle file upload for 'prove'
-       
+
 
 
         // if ($attachmentPath) {

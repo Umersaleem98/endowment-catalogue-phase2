@@ -59,7 +59,7 @@
                     <div class="col-md-6 mb-2" data-aos="fade-up" data-aos-delay="100">
                         <div class="card" style="background-color: #004476; max-height: 180px;">
                             <div class="card-body">
-                                <a href="{{ 'support_for_entire_year' }}" class="card-link">
+                                <a href="{{ route('index.support.for.entire.year') }}" class="card-link">
                                     <div class="icon-container mr-3"><br>
                                         <i class="fas fa-book text-light"></i>
                                     </div>
@@ -77,7 +77,7 @@
                     <div class="col-md-6 mb-2" data-aos="fade-up" data-aos-delay="200">
                         <div class="card" style="background-color: #004476; min-height: 175px;">
                             <div class="card-body">
-                                <a href="{{ url('perpetualseatyourname') }}" class="card-link">
+                                <a href="{{ route('index.perpetual.seat') }}" class="card-link">
                                     <div class="icon-container mr-3"><br>
                                         <i class="fas fa-chair text-light"></i>
                                     </div>
@@ -95,7 +95,7 @@
                     <div class="col-md-6 mb-2" data-aos="fade-up" data-aos-delay="300">
                         <div class="card" style="background-color: #004476; min-height: 175px;">
                             <div class="card-body">
-                                <a href="{{ 'support_for_one_year' }}" class="card-link">
+                                <a href="{{ route('index.support.for.one.year') }}" class="card-link">
                                     <div class="icon-container mr-3"><br>
                                         <i class="fas fa-graduation-cap text-light"></i>
                                     </div>

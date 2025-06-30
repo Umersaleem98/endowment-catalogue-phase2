@@ -9,6 +9,7 @@ class DefaultPackageFourYearDegree extends Model
     protected $table = 'default_package_fouryear_degree';
 
     protected $fillable = [
+        'hostelandmessing',
         'program_type',
         'degree',
         'seats',

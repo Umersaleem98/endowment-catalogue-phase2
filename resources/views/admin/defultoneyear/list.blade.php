@@ -52,6 +52,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Id</th>
+                                                    <th>Hostel/exp</th>
                                                     <th>Program</th>
                                                     <th>Degree</th>
                                                     <th>Seats</th>
@@ -72,6 +73,7 @@
                                                 @foreach ($oneyears as $item)
                                                     <tr>
                                                         <td>{{ $item->id }}</td>
+                                                        <td>{{ $item->hostelandmessing }}</td>
                                                         <td>{{ $item->program_type }}</td>
                                                         <td>{{ $item->degree }}</td>
                                                         <td>{{ $item->seats }}</td>

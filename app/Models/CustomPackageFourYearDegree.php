@@ -10,6 +10,7 @@ class CustomPackageFourYearDegree extends Model
 
     // Define fillable fields for mass assignment
     protected $fillable = [
+        'hostelandmessing',
         'program_type',
         'degree',
         'seats',

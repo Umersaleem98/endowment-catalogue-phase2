@@ -67,8 +67,8 @@
                         aria-labelledby="single-endowment-ug-tab">
                         <h3 class="text-center text-dark mt-4">Singular Endowment: Establish one Seat in perpetuity (UG)
                         </h3>
-                       <div class="row mt-5 justify-content-center">
-                            <div class="col-md-5 mb-2">
+                        <div class="row mt-5">
+                            <div class="col-md-4 mb-2">
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">Engineering
                                     Students</h3>
                                 <form action="{{ url('default_one_year_degree') }}" method="post"
@@ -310,7 +310,9 @@
                                 </script>
                             </div>
 
-                            <div class="col-md-5 mb-2">
+
+
+                            <div class="col-md-4 mb-2">
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">Non
                                     Engineering
                                     Students</h3>
@@ -516,16 +518,225 @@
                                     });
                                 </script>
                             </div>
+
+
+                            <div class="col-md-4 mb-2">
+                                <form id="single-endowment-ug-custom-form"
+                                    action="{{ url('endowmentsupportoneyear') }}" method="post"
+                                    enctype="multipart/form-data">
+                                    @csrf
+
+                                    <h3 class="text-light text-center p-3" style="background-color: #004476;">
+                                        Customize
+                                        Your Package</h3>
+
+                                    <input type="text" name="program_type" value="UG One Year" hidden>
+
+                                    {{-- Degree & Seat --}}
+                                    <div class="form-group">
+                                        <label for="single-endowment-ug-custom-degree">Select Degree:</label>
+                                        <select id="single-endowment-ug-custom-degree" class="form-control">
+                                            <option value="">Select Degree</option>
+                                            @foreach ($undergraduate as $degree)
+                                                <option value="{{ $degree->fee }}"
+                                                    data-degree-name="{{ $degree->degree }}">{{ $degree->degree }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="single-endowment-ug-custom-no_of_seat">No of Seats:</label>
+                                        <input type="number" id="single-endowment-ug-custom-no_of_seat"
+                                            name="seats" value="1" class="form-control" min="1">
+                                    </div>
+
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input"
+                                            id="single-endowment-ug-custom-hostel" value="275000">
+                                        <label class="form-check-label" for="single-endowment-ug-custom-hostel">
+                                            Include mess and hostel expenses (275,000 PKR)
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group d-none">
+                                        <label for="single-endowment-ug-custom-selectedDegree">Selected Degree:</label>
+                                        <input type="text" id="single-endowment-ug-custom-selectedDegree"
+                                            name="degree" class="form-control" readonly>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="single-endowment-ug-custom-totalAmount">Total Amount:</label>
+                                        <input type="text" id="single-endowment-ug-custom-totalAmount"
+                                            name="totalAmount" class="form-control" readonly>
+                                    </div>
+
+                                    {{-- Donor Information --}}
+                                    <h4 class="text-dark mt-4">Donor Information:</h4>
+                                    <div class="form-group">
+                                        <label for="donor_name">Name:</label>
+                                        <input type="text" id="donor_name" name="donor_name"
+                                            placeholder="Enter Your Full Name" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="donor_email">Email:</label>
+                                        <input type="email" id="donor_email" name="donor_email"
+                                            placeholder="Enter your Valid Email" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="phone">Phone:</label>
+                                        <input type="number" id="phone" name="phone"
+                                            placeholder="Enter Your Phone# (+92)" class="form-control" required>
+                                    </div>
+
+                                    {{-- Alumni/Philanthropist --}}
+                                    <div class="form-group">
+                                        <label for="single-endowment-ug-custom-alumniSelect">Are You Alumni or
+                                            Industrial Partner</label>
+                                        <select class="form-control" name="about_partner"
+                                            id="single-endowment-ug-custom-alumniSelect">
+                                            <option value="" disabled selected>Select an option</option>
+                                            <option value="Alumni">Alumni</option>
+                                            <option value="Industrial-Partner">Industrial Partner</option>
+                                            <option value="Philanthropist">Philanthropist</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group d-none" id="single-endowment-ug-custom-philanthropist-div">
+                                        <label>How do you know us?</label>
+                                        <textarea name="philanthropist_text" rows="4" class="form-control"></textarea>
+                                    </div>
+
+                                    <div class="row d-none" id="single-endowment-ug-custom-alumniFields">
+                                        <div class="col-md-12">
+                                            <label>Select School</label>
+                                            <select name="school" class="form-control">
+                                                <option value="">Select School</option>
+                                                @foreach ($schools as $item)
+                                                    <option value="{{ $item->schoolname }}">{{ $item->schoolname }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label>Select Country</label>
+                                            <select name="country" class="form-control">
+                                                @foreach ($countries as $item)
+                                                    <option value="{{ $item->countryname }}">{{ $item->countryname }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label>Select Year of Graduation</label>
+                                            <select name="year" class="form-control">
+                                                <option value="">Select Year</option>
+                                                @for ($i = 1990; $i <= date('Y'); $i++)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    {{-- Payment Options --}}
+                                    <div class="form-check mt-3">
+                                        <input class="form-check-input ml-2" name="payments_status" type="radio"
+                                            id="single-endowment-ug-custom-paynow" value="Paynow">
+                                        <label class="form-check-label ml-2"
+                                            for="single-endowment-ug-custom-paynow">Paynow</label>
+
+                                        <input class="form-check-input ml-2" name="payments_status" type="radio"
+                                            id="single-endowment-ug-custom-pledge" value="make_a_pledge">
+                                        <label class="form-check-label ml-2"
+                                            for="single-endowment-ug-custom-pledge">Make a Pledge</label>
+                                    </div>
+
+                                    <div class="form-group d-none mt-2" id="single-endowment-ug-custom-proofDiv">
+                                        <label for="prove">Attach Screenshot / Receipt:</label>
+                                        <input type="file" id="prove" name="prove" class="form-control">
+                                    </div>
+
+                                    {{-- Link --}}
+                                    <div class="mt-3 mb-2">
+                                        <a href="{{ url('student_stories') }}" class="btn btn-info btn-sm"
+                                            style="background-color: #FFA500;">
+                                            Nurture a Dream<br>Read student stories and select a story of your choice.
+                                        </a>
+                                    </div>
+
+                                    <input type="submit" class="btn btn-primary" value="Submit">
+                                </form>
+
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        const degreeSelect = document.getElementById("single-endowment-ug-custom-degree");
+                                        const seatInput = document.getElementById("single-endowment-ug-custom-no_of_seat");
+                                        const hostelCheckbox = document.getElementById("single-endowment-ug-custom-hostel");
+                                        const selectedDegreeInput = document.getElementById("single-endowment-ug-custom-selectedDegree");
+                                        const totalAmountInput = document.getElementById("single-endowment-ug-custom-totalAmount");
+
+                                        const alumniSelect = document.getElementById("single-endowment-ug-custom-alumniSelect");
+                                        const philanthropistDiv = document.getElementById("single-endowment-ug-custom-philanthropist-div");
+                                        const alumniFields = document.getElementById("single-endowment-ug-custom-alumniFields");
+
+                                        const paynowRadio = document.getElementById("single-endowment-ug-custom-paynow");
+                                        const pledgeRadio = document.getElementById("single-endowment-ug-custom-pledge");
+                                        const proofDiv = document.getElementById("single-endowment-ug-custom-proofDiv");
+
+                                        let degreeFee = 0;
+
+                                        function calculateTotal() {
+                                            const seatCount = parseInt(seatInput.value) || 1;
+                                            const hostelFee = hostelCheckbox.checked ? 275000 * seatCount : 0;
+                                            const total = (degreeFee * 4 * seatCount) + hostelFee;
+                                            totalAmountInput.value = total;
+                                        }
+
+                                        degreeSelect.addEventListener("change", function() {
+                                            const selectedOption = this.options[this.selectedIndex];
+                                            degreeFee = parseInt(this.value) || 0;
+                                            selectedDegreeInput.value = selectedOption.dataset.degreeName || '';
+                                            calculateTotal();
+                                        });
+
+                                        seatInput.addEventListener("input", calculateTotal);
+                                        hostelCheckbox.addEventListener("change", calculateTotal);
+
+                                        alumniSelect.addEventListener("change", function() {
+                                            const value = this.value;
+                                            philanthropistDiv.classList.toggle("d-none", value !== "Philanthropist" && value !==
+                                                "Industrial-Partner");
+                                            alumniFields.classList.toggle("d-none", value !== "Alumni");
+                                        });
+
+                                        paynowRadio.addEventListener("change", function() {
+                                            proofDiv.classList.remove("d-none");
+                                        });
+
+                                        pledgeRadio.addEventListener("change", function() {
+                                            proofDiv.classList.add("d-none");
+                                        });
+                                    });
+                                </script>
+                            </div>
                         </div>
                     </div>
+
+
+
+
 
                     <!-- Circular Endowment UG Tab Content -->
                     <div class="tab-pane fade" id="circular-endowment-ug" role="tabpanel"
                         aria-labelledby="circular-endowment-ug-tab">
                         <h3 class="text-center text-dark mt-4">Circular Endowment: 4 seats in perpetuity - student
                             after student (UG)</h3>
-                       <div class="row mt-5 justify-content-center">
-                            <div class="col-md-5 mb-2">
+                        <div class="row mt-5">
+                            <div class="col-md-4 mb-2">
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">Engineering
                                     Students</h3>
                                 <form id="circular-endowment-eng-form" action="{{ url('default_one_year_degree') }}"
@@ -784,7 +995,7 @@
 
                             </div>
 
-                            <div class="col-md-5 mb-2">
+                            <div class="col-md-4 mb-2">
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">
                                     Non Engineering Students
                                 </h3>
@@ -992,6 +1203,213 @@
                                 </script>
                             </div>
 
+
+                            <div class="col-md-4 mb-2">
+                                <form id="circular-endowment-ug-custom-form"
+                                    action="{{ url('endowmentsupportoneyear') }}" method="post"
+                                    enctype="multipart/form-data">
+                                    @csrf
+
+                                    <h3 class="text-light text-center p-3" style="background-color: #004476;">
+                                        Customize
+                                        Your Package</h3>
+
+                                    <input type="text" name="program_type" value="UG One Year" hidden>
+
+                                    {{-- Degree & Seat --}}
+                                    <div class="form-group">
+                                        <label for="circular-endowment-ug-custom-degree">Select Degree:</label>
+                                        <select id="circular-endowment-ug-custom-degree" class="form-control">
+                                            <option value="">Select Degree</option>
+                                            @foreach ($undergraduate as $degree)
+                                                <option value="{{ $degree->fee }}"
+                                                    data-degree-name="{{ $degree->degree }}">{{ $degree->degree }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="circular-endowment-ug-custom-no_of_seat">No of Seats:</label>
+                                        <input type="number" id="circular-endowment-ug-custom-no_of_seat"
+                                            name="seats" value="1" class="form-control" min="1">
+                                    </div>
+
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input"
+                                            id="circular-endowment-ug-custom-hostel" value="275000">
+                                        <label class="form-check-label" for="circular-endowment-ug-custom-hostel">
+                                            Include mess and hostel expenses (275,000 PKR)
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group d-none">
+                                        <label for="circular-endowment-ug-custom-selectedDegree">Selected
+                                            Degree:</label>
+                                        <input type="text" id="circular-endowment-ug-custom-selectedDegree"
+                                            name="degree" class="form-control" readonly>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="circular-endowment-ug-custom-totalAmount">Total Amount:</label>
+                                        <input type="text" id="circular-endowment-ug-custom-totalAmount"
+                                            name="totalAmount" class="form-control" readonly>
+                                    </div>
+
+                                    {{-- Donor Information --}}
+                                    <h4 class="text-dark mt-4">Donor Information:</h4>
+                                    <div class="form-group">
+                                        <label for="donor_name">Name:</label>
+                                        <input type="text" id="donor_name" name="donor_name"
+                                            placeholder="Enter Your Full Name" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="donor_email">Email:</label>
+                                        <input type="email" id="donor_email" name="donor_email"
+                                            placeholder="Enter your Valid Email" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="phone">Phone:</label>
+                                        <input type="number" id="phone" name="phone"
+                                            placeholder="Enter Your Phone# (+92)" class="form-control" required>
+                                    </div>
+
+                                    {{-- Alumni/Philanthropist --}}
+                                    <div class="form-group">
+                                        <label for="circular-endowment-ug-custom-alumniSelect">Are You Alumni or
+                                            Industrial Partner</label>
+                                        <select class="form-control" name="about_partner"
+                                            id="circular-endowment-ug-custom-alumniSelect">
+                                            <option value="" disabled selected>Select an option</option>
+                                            <option value="Alumni">Alumni</option>
+                                            <option value="Industrial-Partner">Industrial Partner</option>
+                                            <option value="Philanthropist">Philanthropist</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group d-none"
+                                        id="circular-endowment-ug-custom-philanthropist-div">
+                                        <label>How do you know us?</label>
+                                        <textarea name="philanthropist_text" rows="4" class="form-control"></textarea>
+                                    </div>
+
+                                    <div class="row d-none" id="circular-endowment-ug-custom-alumniFields">
+                                        <div class="col-md-12">
+                                            <label>Select School</label>
+                                            <select name="school" class="form-control">
+                                                <option value="">Select School</option>
+                                                @foreach ($schools as $item)
+                                                    <option value="{{ $item->schoolname }}">{{ $item->schoolname }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label>Select Country</label>
+                                            <select name="country" class="form-control">
+                                                @foreach ($countries as $item)
+                                                    <option value="{{ $item->countryname }}">{{ $item->countryname }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label>Select Year of Graduation</label>
+                                            <select name="year" class="form-control">
+                                                <option value="">Select Year</option>
+                                                @for ($i = 1990; $i <= date('Y'); $i++)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    {{-- Payment Options --}}
+                                    <div class="form-check mt-3">
+                                        <input class="form-check-input ml-2" name="payments_status" type="radio"
+                                            id="circular-endowment-ug-custom-paynow" value="Paynow">
+                                        <label class="form-check-label ml-2"
+                                            for="circular-endowment-ug-custom-paynow">Paynow</label>
+
+                                        <input class="form-check-input ml-2" name="payments_status" type="radio"
+                                            id="circular-endowment-ug-custom-pledge" value="make_a_pledge">
+                                        <label class="form-check-label ml-2"
+                                            for="circular-endowment-ug-custom-pledge">Make a Pledge</label>
+                                    </div>
+
+                                    <div class="form-group d-none mt-2" id="circular-endowment-ug-custom-proofDiv">
+                                        <label for="prove">Attach Screenshot / Receipt:</label>
+                                        <input type="file" id="prove" name="prove" class="form-control">
+                                    </div>
+
+                                    {{-- Link --}}
+                                    <div class="mt-3 mb-2">
+                                        <a href="{{ url('student_stories') }}" class="btn btn-info btn-sm"
+                                            style="background-color: #FFA500;">
+                                            Nurture a Dream<br>Read student stories and select a story of your choice.
+                                        </a>
+                                    </div>
+
+                                    <input type="submit" class="btn btn-primary" value="Submit">
+                                </form>
+
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        const degreeSelect = document.getElementById("circular-endowment-ug-custom-degree");
+                                        const seatInput = document.getElementById("circular-endowment-ug-custom-no_of_seat");
+                                        const hostelCheckbox = document.getElementById("circular-endowment-ug-custom-hostel");
+                                        const selectedDegreeInput = document.getElementById("circular-endowment-ug-custom-selectedDegree");
+                                        const totalAmountInput = document.getElementById("circular-endowment-ug-custom-totalAmount");
+
+                                        const alumniSelect = document.getElementById("circular-endowment-ug-custom-alumniSelect");
+                                        const philanthropistDiv = document.getElementById("circular-endowment-ug-custom-philanthropist-div");
+                                        const alumniFields = document.getElementById("circular-endowment-ug-custom-alumniFields");
+
+                                        const paynowRadio = document.getElementById("circular-endowment-ug-custom-paynow");
+                                        const pledgeRadio = document.getElementById("circular-endowment-ug-custom-pledge");
+                                        const proofDiv = document.getElementById("circular-endowment-ug-custom-proofDiv");
+
+                                        let degreeFee = 0;
+
+                                        function calculateTotal() {
+                                            const seatCount = parseInt(seatInput.value) || 1;
+                                            const hostelFee = hostelCheckbox.checked ? 275000 * seatCount : 0;
+                                            const total = (degreeFee * 4 * seatCount) + hostelFee;
+                                            totalAmountInput.value = total;
+                                        }
+
+                                        degreeSelect.addEventListener("change", function() {
+                                            const selectedOption = this.options[this.selectedIndex];
+                                            degreeFee = parseInt(this.value) || 0;
+                                            selectedDegreeInput.value = selectedOption.dataset.degreeName || '';
+                                            calculateTotal();
+                                        });
+
+                                        seatInput.addEventListener("input", calculateTotal);
+                                        hostelCheckbox.addEventListener("change", calculateTotal);
+
+                                        alumniSelect.addEventListener("change", function() {
+                                            const value = this.value;
+                                            philanthropistDiv.classList.toggle("d-none", value !== "Philanthropist" && value !==
+                                                "Industrial-Partner");
+                                            alumniFields.classList.toggle("d-none", value !== "Alumni");
+                                        });
+
+                                        paynowRadio.addEventListener("change", function() {
+                                            proofDiv.classList.remove("d-none");
+                                        });
+
+                                        pledgeRadio.addEventListener("change", function() {
+                                            proofDiv.classList.add("d-none");
+                                        });
+                                    });
+                                </script>
+                            </div>
+
                         </div>
                         <!-- Add more content as needed -->
                     </div>
@@ -1001,9 +1419,9 @@
                         aria-labelledby="single-endowment-pg-tab">
                         <h3 class="text-center text-dark mt-4">Singular Endowment: Establish one Seat in perpetuity
                             (PG)</h3>
-                       <div class="row mt-5 justify-content-center">
+                        <div class="row mt-5">
 
-                            <div class="col-md-5 mb-2">
+                            <div class="col-md-4 mb-2">
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">Engineering
                                     Students</h3>
                                 <form id="singular-endowment-pg-eng-form"
@@ -1264,7 +1682,7 @@
 
                             </div>
 
-                            <div class="col-md-5 mb-2">
+                            <div class="col-md-4 mb-2">
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">Non
                                     Engineering
                                     Students</h3>
@@ -1475,6 +1893,215 @@
                                     });
                                 </script>
                             </div>
+
+
+                            <div class="col-md-4 mb-2">
+                                <form id="singluar-endowment-pg-custom-form"
+                                    action="{{ url('endowmentsupportoneyear') }}" method="post"
+                                    enctype="multipart/form-data">
+                                    @csrf
+
+                                    <h3 class="text-light text-center p-3" style="background-color: #004476;">
+                                        Customize
+                                        Your Package</h3>
+
+                                    <input type="text" name="program_type" value="UG One Year" hidden>
+
+                                    {{-- Degree & Seat --}}
+                                    <div class="form-group">
+                                        <label for="singluar-endowment-pg-custom-degree">Select Degree:</label>
+                                        <select id="singluar-endowment-pg-custom-degree" class="form-control">
+                                            <option value="">Select Degree</option>
+                                            @foreach ($undergraduate as $degree)
+                                                <option value="{{ $degree->fee }}"
+                                                    data-degree-name="{{ $degree->degree }}">{{ $degree->degree }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="singluar-endowment-pg-custom-no_of_seat">No of Seats:</label>
+                                        <input type="number" id="singluar-endowment-pg-custom-no_of_seat"
+                                            name="seats" value="1" class="form-control" min="1">
+                                    </div>
+
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input"
+                                            id="singluar-endowment-pg-custom-hostel" value="275000">
+                                        <label class="form-check-label" for="singluar-endowment-pg-custom-hostel">
+                                            Include mess and hostel expenses (275,000 PKR)
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group d-none">
+                                        <label for="singluar-endowment-pg-custom-selectedDegree">Selected
+                                            Degree:</label>
+                                        <input type="text" id="singluar-endowment-pg-custom-selectedDegree"
+                                            name="degree" class="form-control" readonly>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="singluar-endowment-pg-custom-totalAmount">Total Amount:</label>
+                                        <input type="text" id="singluar-endowment-pg-custom-totalAmount"
+                                            name="totalAmount" class="form-control" readonly>
+                                    </div>
+
+                                    {{-- Donor Information --}}
+                                    <h4 class="text-dark mt-4">Donor Information:</h4>
+                                    <div class="form-group">
+                                        <label for="donor_name">Name:</label>
+                                        <input type="text" id="donor_name" name="donor_name"
+                                            placeholder="Enter Your Full Name" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="donor_email">Email:</label>
+                                        <input type="email" id="donor_email" name="donor_email"
+                                            placeholder="Enter your Valid Email" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="phone">Phone:</label>
+                                        <input type="number" id="phone" name="phone"
+                                            placeholder="Enter Your Phone# (+92)" class="form-control" required>
+                                    </div>
+
+                                    {{-- Alumni/Philanthropist --}}
+                                    <div class="form-group">
+                                        <label for="singluar-endowment-pg-custom-alumniSelect">Are You Alumni or
+                                            Industrial Partner</label>
+                                        <select class="form-control" name="about_partner"
+                                            id="singluar-endowment-pg-custom-alumniSelect">
+                                            <option value="" disabled selected>Select an option</option>
+                                            <option value="Alumni">Alumni</option>
+                                            <option value="Industrial-Partner">Industrial Partner</option>
+                                            <option value="Philanthropist">Philanthropist</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group d-none"
+                                        id="singluar-endowment-pg-custom-philanthropist-div">
+                                        <label>How do you know us?</label>
+                                        <textarea name="philanthropist_text" rows="4" class="form-control"></textarea>
+                                    </div>
+
+                                    <div class="row d-none" id="singluar-endowment-pg-custom-alumniFields">
+                                        <div class="col-md-12">
+                                            <label>Select School</label>
+                                            <select name="school" class="form-control">
+                                                <option value="">Select School</option>
+                                                @foreach ($schools as $item)
+                                                    <option value="{{ $item->schoolname }}">{{ $item->schoolname }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label>Select Country</label>
+                                            <select name="country" class="form-control">
+                                                @foreach ($countries as $item)
+                                                    <option value="{{ $item->countryname }}">
+                                                        {{ $item->countryname }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label>Select Year of Graduation</label>
+                                            <select name="year" class="form-control">
+                                                <option value="">Select Year</option>
+                                                @for ($i = 1990; $i <= date('Y'); $i++)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    {{-- Payment Options --}}
+                                    <div class="form-check mt-3">
+                                        <input class="form-check-input ml-2" name="payments_status" type="radio"
+                                            id="singluar-endowment-pg-custom-paynow" value="Paynow">
+                                        <label class="form-check-label ml-2"
+                                            for="singluar-endowment-pg-custom-paynow">Paynow</label>
+
+                                        <input class="form-check-input ml-2" name="payments_status" type="radio"
+                                            id="singluar-endowment-pg-custom-pledge" value="make_a_pledge">
+                                        <label class="form-check-label ml-2"
+                                            for="singluar-endowment-pg-custom-pledge">Make a Pledge</label>
+                                    </div>
+
+                                    <div class="form-group d-none mt-2" id="singluar-endowment-pg-custom-proofDiv">
+                                        <label for="prove">Attach Screenshot / Receipt:</label>
+                                        <input type="file" id="prove" name="prove"
+                                            class="form-control">
+                                    </div>
+
+                                    {{-- Link --}}
+                                    <div class="mt-3 mb-2">
+                                        <a href="{{ url('student_stories') }}" class="btn btn-info btn-sm"
+                                            style="background-color: #FFA500;">
+                                            Nurture a Dream<br>Read student stories and select a story of your choice.
+                                        </a>
+                                    </div>
+
+                                    <input type="submit" class="btn btn-primary" value="Submit">
+                                </form>
+
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        const degreeSelect = document.getElementById("singluar-endowment-pg-custom-degree");
+                                        const seatInput = document.getElementById("singluar-endowment-pg-custom-no_of_seat");
+                                        const hostelCheckbox = document.getElementById("singluar-endowment-pg-custom-hostel");
+                                        const selectedDegreeInput = document.getElementById("singluar-endowment-pg-custom-selectedDegree");
+                                        const totalAmountInput = document.getElementById("singluar-endowment-pg-custom-totalAmount");
+
+                                        const alumniSelect = document.getElementById("singluar-endowment-pg-custom-alumniSelect");
+                                        const philanthropistDiv = document.getElementById("singluar-endowment-pg-custom-philanthropist-div");
+                                        const alumniFields = document.getElementById("singluar-endowment-pg-custom-alumniFields");
+
+                                        const paynowRadio = document.getElementById("singluar-endowment-pg-custom-paynow");
+                                        const pledgeRadio = document.getElementById("singluar-endowment-pg-custom-pledge");
+                                        const proofDiv = document.getElementById("singluar-endowment-pg-custom-proofDiv");
+
+                                        let degreeFee = 0;
+
+                                        function calculateTotal() {
+                                            const seatCount = parseInt(seatInput.value) || 1;
+                                            const hostelFee = hostelCheckbox.checked ? 275000 * seatCount : 0;
+                                            const total = (degreeFee * 4 * seatCount) + hostelFee;
+                                            totalAmountInput.value = total;
+                                        }
+
+                                        degreeSelect.addEventListener("change", function() {
+                                            const selectedOption = this.options[this.selectedIndex];
+                                            degreeFee = parseInt(this.value) || 0;
+                                            selectedDegreeInput.value = selectedOption.dataset.degreeName || '';
+                                            calculateTotal();
+                                        });
+
+                                        seatInput.addEventListener("input", calculateTotal);
+                                        hostelCheckbox.addEventListener("change", calculateTotal);
+
+                                        alumniSelect.addEventListener("change", function() {
+                                            const value = this.value;
+                                            philanthropistDiv.classList.toggle("d-none", value !== "Philanthropist" && value !==
+                                                "Industrial-Partner");
+                                            alumniFields.classList.toggle("d-none", value !== "Alumni");
+                                        });
+
+                                        paynowRadio.addEventListener("change", function() {
+                                            proofDiv.classList.remove("d-none");
+                                        });
+
+                                        pledgeRadio.addEventListener("change", function() {
+                                            proofDiv.classList.add("d-none");
+                                        });
+                                    });
+                                </script>
+                            </div>
                         </div>
                         <!-- Add more content as needed -->
                     </div>
@@ -1484,7 +2111,7 @@
                         aria-labelledby="circular-endowment-pg-tab">
                         <h3 class="text-center text-dark mt-4">Circular Endowment: 4 seats in perpetuity - student
                             after student (PG)</h3>
-                       <div class="row mt-5 justify-content-center">
+                        <div class="row mt-5">
 
                             <div class="col-md-4 mb-2">
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">
@@ -1748,6 +2375,7 @@
 
                             </div>
 
+
                             <div class="col-md-4 mb-2">
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">Non
                                     Engineering
@@ -1958,7 +2586,217 @@
                                         }
                                     });
                                 </script>
-                            </div>                          
+                            </div>
+
+
+                            <div class="col-md-4 mb-2">
+                                <form id="circular-endowment-pg-custom-form"
+                                    action="{{ url('endowmentsupportoneyear') }}" method="post"
+                                    enctype="multipart/form-data">
+                                    @csrf
+
+                                    <h3 class="text-light text-center p-3" style="background-color: #004476;">
+                                        Customize
+                                        Your Package</h3>
+
+                                    <input type="text" name="program_type" value="UG One Year" hidden>
+
+                                    <div class="form-group">
+                                        <label for="circular-endowment-pg-custom-degree">Select Degree:</label>
+                                        <select id="circular-endowment-pg-custom-degree" class="form-control">
+                                            <option value="">Select Degree</option>
+                                            @foreach ($undergraduate as $degree)
+                                                <option value="{{ $degree->fee }}"
+                                                    data-degree-name="{{ $degree->degree }}">{{ $degree->degree }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="circular-endowment-pg-custom-no_of_seat">No of Seats:</label>
+                                        <input type="number" id="circular-endowment-pg-custom-no_of_seat"
+                                            name="seats" value="1" class="form-control" min="1">
+                                    </div>
+
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input"
+                                            id="circular-endowment-pg-custom-hostel" value="275000">
+                                        <label class="form-check-label" for="circular-endowment-pg-custom-hostel">
+                                            Include mess and hostel expenses (275,000 PKR)
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group d-none">
+                                        <label for="circular-endowment-pg-custom-selectedDegree">Selected
+                                            Degree:</label>
+                                        <input type="text" id="circular-endowment-pg-custom-selectedDegree"
+                                            name="degree" class="form-control" readonly>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="circular-endowment-pg-custom-totalAmount">Total Amount:</label>
+                                        <input type="text" id="circular-endowment-pg-custom-totalAmount"
+                                            name="totalAmount" class="form-control" readonly>
+                                    </div>
+
+                                    {{-- Donor Information --}}
+                                    <h4 class="text-dark mt-4">Donor Information:</h4>
+                                    <div class="form-group">
+                                        <label for="donor_name">Name:</label>
+                                        <input type="text" id="donor_name" name="donor_name"
+                                            placeholder="Enter Your Full Name" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="donor_email">Email:</label>
+                                        <input type="email" id="donor_email" name="donor_email"
+                                            placeholder="Enter your Valid Email" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="phone">Phone:</label>
+                                        <input type="number" id="phone" name="phone"
+                                            placeholder="Enter Your Phone# (+92)" class="form-control" required>
+                                    </div>
+
+                                    {{-- Alumni/Philanthropist --}}
+                                    <div class="form-group">
+                                        <label for="circular-endowment-pg-custom-alumniSelect">Are You Alumni or
+                                            Industrial Partner</label>
+                                        <select class="form-control" name="about_partner"
+                                            id="circular-endowment-pg-custom-alumniSelect">
+                                            <option value="" disabled selected>Select an option</option>
+                                            <option value="Alumni">Alumni</option>
+                                            <option value="Industrial-Partner">Industrial Partner</option>
+                                            <option value="Philanthropist">Philanthropist</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group d-none"
+                                        id="circular-endowment-pg-custom-philanthropist-div">
+                                        <label>How do you know us?</label>
+                                        <textarea name="philanthropist_text" rows="4" class="form-control"></textarea>
+                                    </div>
+
+                                    <div class="row d-none" id="circular-endowment-pg-custom-alumniFields">
+                                        <div class="col-md-12">
+                                            <label>Select School</label>
+                                            <select name="school" class="form-control">
+                                                <option value="">Select School</option>
+                                                @foreach ($schools as $item)
+                                                    <option value="{{ $item->schoolname }}">{{ $item->schoolname }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label>Select Country</label>
+                                            <select name="country" class="form-control">
+                                                @foreach ($countries as $item)
+                                                    <option value="{{ $item->countryname }}">
+                                                        {{ $item->countryname }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label>Select Year of Graduation</label>
+                                            <select name="year" class="form-control">
+                                                <option value="">Select Year</option>
+                                                @for ($i = 1990; $i <= date('Y'); $i++)
+                                                    <option value="{{ $i }}">{{ $i }}
+                                                    </option>
+                                                @endfor
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    {{-- Payment Options --}}
+                                    <div class="form-check mt-3">
+                                        <input class="form-check-input ml-2" name="payments_status" type="radio"
+                                            id="circular-endowment-pg-custom-paynow" value="Paynow">
+                                        <label class="form-check-label ml-2"
+                                            for="circular-endowment-pg-custom-paynow">Paynow</label>
+
+                                        <input class="form-check-input ml-2" name="payments_status" type="radio"
+                                            id="circular-endowment-pg-custom-pledge" value="make_a_pledge">
+                                        <label class="form-check-label ml-2"
+                                            for="circular-endowment-pg-custom-pledge">Make a Pledge</label>
+                                    </div>
+
+                                    <div class="form-group d-none mt-2" id="circular-endowment-pg-custom-proofDiv">
+                                        <label for="prove">Attach Screenshot / Receipt:</label>
+                                        <input type="file" id="prove" name="prove"
+                                            class="form-control">
+                                    </div>
+
+                                    {{-- Link --}}
+                                    <div class="mt-3 mb-2">
+                                        <a href="{{ url('student_stories') }}" class="btn btn-info btn-sm"
+                                            style="background-color: #FFA500;">
+                                            Nurture a Dream<br>Read student stories and select a story of your choice.
+                                        </a>
+                                    </div>
+
+                                    <input type="submit" class="btn btn-primary" value="Submit">
+                                </form>
+
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        const degreeSelect = document.getElementById("circular-endowment-pg-custom-degree");
+                                        const seatInput = document.getElementById("circular-endowment-pg-custom-no_of_seat");
+                                        const hostelCheckbox = document.getElementById("circular-endowment-pg-custom-hostel");
+                                        const selectedDegreeInput = document.getElementById("circular-endowment-pg-custom-selectedDegree");
+                                        const totalAmountInput = document.getElementById("circular-endowment-pg-custom-totalAmount");
+
+                                        const alumniSelect = document.getElementById("circular-endowment-pg-custom-alumniSelect");
+                                        const philanthropistDiv = document.getElementById("circular-endowment-pg-custom-philanthropist-div");
+                                        const alumniFields = document.getElementById("circular-endowment-pg-custom-alumniFields");
+
+                                        const paynowRadio = document.getElementById("circular-endowment-pg-custom-paynow");
+                                        const pledgeRadio = document.getElementById("circular-endowment-pg-custom-pledge");
+                                        const proofDiv = document.getElementById("circular-endowment-pg-custom-proofDiv");
+
+                                        let degreeFee = 0;
+
+                                        function calculateTotal() {
+                                            const seatCount = parseInt(seatInput.value) || 1;
+                                            const hostelFee = hostelCheckbox.checked ? 275000 * seatCount : 0;
+                                            const total = (degreeFee * 4 * seatCount) + hostelFee;
+                                            totalAmountInput.value = total;
+                                        }
+
+                                        degreeSelect.addEventListener("change", function() {
+                                            const selectedOption = this.options[this.selectedIndex];
+                                            degreeFee = parseInt(this.value) || 0;
+                                            selectedDegreeInput.value = selectedOption.dataset.degreeName || '';
+                                            calculateTotal();
+                                        });
+
+                                        seatInput.addEventListener("input", calculateTotal);
+                                        hostelCheckbox.addEventListener("change", calculateTotal);
+
+                                        alumniSelect.addEventListener("change", function() {
+                                            const value = this.value;
+                                            philanthropistDiv.classList.toggle("d-none", value !== "Philanthropist" && value !==
+                                                "Industrial-Partner");
+                                            alumniFields.classList.toggle("d-none", value !== "Alumni");
+                                        });
+
+                                        paynowRadio.addEventListener("change", function() {
+                                            proofDiv.classList.remove("d-none");
+                                        });
+
+                                        pledgeRadio.addEventListener("change", function() {
+                                            proofDiv.classList.add("d-none");
+                                        });
+                                    });
+                                </script>
+                            </div>
+
                         </div>
                         <!-- Add more content as needed -->
                     </div>

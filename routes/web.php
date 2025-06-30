@@ -45,8 +45,6 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 
 
-
-
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/our_team', [TeamController::class, 'index']);
@@ -61,17 +59,18 @@ Route::get('/contact_us', [ContactUsController::class, 'index']);
 
 Route::get('/select_endowment_model', [EndowmentHomeController::class, 'index']);
 // One Year support endoement fund routes and controllers 
-Route::get('/support_for_one_year', [OneYearSupportController::class, 'index']);
-Route::post('/default_one_year_degree', [OneYearSupportController::class, 'DefultOneYearundergraduate']);
-Route::post('/endowmentsupportoneyear', [OneYearSupportController::class, 'CustomOneYearundergraduate']);
+Route::get('support/for/one/year', [OneYearSupportController::class, 'index'])->name('index.support.for.one.year');
+Route::post('default/one/year/degree', [OneYearSupportController::class, 'DefultOneYearundergraduate'])->name('support.for.one.year');
+Route::post('endowment/support/oneyear', [OneYearSupportController::class, 'CustomOneYearundergraduate'])->name('custom.endowment.supportone.year');
 // One Year support endoement fund routes and controllers 
-Route::get('support_for_entire_year', [FourYearSupportController::class, 'index']);
-Route::post('/default_package_full_degree', [FourYearSupportController::class, 'DefultFourYearundergraduate']);
-Route::post('/endowmentsupportentireyear', [FourYearSupportController::class, 'CustomFourYearundergraduate']);
+Route::get('support/for/entire/year', [FourYearSupportController::class, 'index'])->name('index.support.for.entire.year');
+
+Route::post('default/package/full/degree', [FourYearSupportController::class, 'DefultFourYearundergraduate'])->name('support.for.entire.year');
+Route::post('endowment/support/entire/year', [FourYearSupportController::class, 'CustomFourYearundergraduate'])->name('custom.endowment.support.entire.year');
 // perpetual_seat support endoement fund routes and controllers 
-Route::get('perpetualseatyourname', [PerpetualSeatSupportController::class, 'index']);
-Route::post('/default_perpetual_seat', [PerpetualSeatSupportController::class, 'DefultPerpetualSeatundergraduate']);
-Route::post('/perpetualseatyourname', [PerpetualSeatSupportController::class, 'CustomPerpetualSeatundergraduate']);
+Route::get('perpetual/seat/yourname', [PerpetualSeatSupportController::class, 'index'])->name('index.perpetual.seat');
+Route::post('default/perpetual/seat', [PerpetualSeatSupportController::class, 'DefultPerpetualSeatundergraduate'])->name('default.perpetual.seat');
+Route::post('perpetual/seat/yourname', [PerpetualSeatSupportController::class, 'CustomPerpetualSeatundergraduate'])->name('custom.perpetual.seat.yourname');
 // Zakat fund routes and controllers 
 Route::get('endowment_zakat_funds', [ZakatController::class, 'index']);
 Route::get('endowment_zakat_payment', [ZakatController::class, 'zakatPayment']);
