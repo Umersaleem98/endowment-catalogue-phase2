@@ -27,7 +27,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('student_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('students.index') }}">
                                     <span class="nav-text">Student List</span>
                                 </a>
                             </li>
