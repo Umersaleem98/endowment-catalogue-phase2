@@ -131,15 +131,17 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Responsive image -->
-                    <img src="{{ asset('templates/stats/abc.jpg') }}" class="img-fluid mt-2" alt="Responsive image"
+                    <img src="{{ asset('templates/stats/stats.jpg') }}" class="img-fluid mt-2" alt="Responsive image"
                         style="max-height: 400px; width: 100%">
                 </div>
 
             </div>
             <div class="row d-flex align-items-center justify-content-center p-3">
                 <h1 class="ml-3">
-                    <span style="font-size: 45px;">353<sup>rd</sup></span>
-                    <span style="font-size: 35px; margin-left: 5px;">According to QS World Rankings 2023-24</span>
+                    <span style="font-size: 45px;">371
+                        {{-- <sup>rd</sup> --}}
+                    </span>
+                    <span style="font-size: 35px; margin-left: 5px;">According to QS World Rankings 2025-26</span>
                 </h1>
             </div>
 

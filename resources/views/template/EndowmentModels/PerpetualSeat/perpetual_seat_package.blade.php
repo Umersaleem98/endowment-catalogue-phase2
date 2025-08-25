@@ -71,7 +71,7 @@
                             <div class="col-md-5 mb-2">
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">Engineering
                                     Students</h3>
-                                <form action="{{ url('default_one_year_degree') }}" method="post"
+                                <form action="{{ route('default.perpetual.seat') }}" method="post"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group" hidden>
@@ -316,7 +316,7 @@
                                     Students</h3>
 
                                 <form id="single-endowment-ug-non-eng-form"
-                                    action="{{ url('default_one_year_degree') }}" method="post"
+                                    action="{{ route('default.perpetual.seat') }}" method="post"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group" hidden>
@@ -528,7 +528,7 @@
                             <div class="col-md-5 mb-2">
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">Engineering
                                     Students</h3>
-                                <form id="circular-endowment-eng-form" action="{{ url('default_one_year_degree') }}"
+                                <form id="circular-endowment-eng-form" action="{{ route('default.perpetual.seat') }}"
                                     method="post" enctype="multipart/form-data">
 
                                     @csrf
@@ -790,7 +790,7 @@
                                 </h3>
 
                                 <form id="circular-endowment-ug-non-eng-form"
-                                    action="{{ url('default_one_year_degree') }}" method="post"
+                                    action="{{ route('default.perpetual.seat') }}" method="post"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group" hidden>
@@ -1007,7 +1007,7 @@
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">Engineering
                                     Students</h3>
                                 <form id="singular-endowment-pg-eng-form"
-                                    action="{{ url('default_one_year_degree') }}" method="post"
+                                    action="{{ route('default.perpetual.seat') }}" method="post"
                                     enctype="multipart/form-data">
 
                                     @csrf
@@ -1270,7 +1270,7 @@
                                     Students</h3>
 
                                 <form id="sircular-endowment-pg-non-eng-form"
-                                    action="{{ url('default_one_year_degree') }}" method="post"
+                                    action="{{ route('default.perpetual.seat') }}" method="post"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group" hidden>
@@ -1491,7 +1491,7 @@
                                     Engineering
                                     Students</h3>
                                 <form id="circular-endowment-pg-eng-form"
-                                    action="{{ url('default_one_year_degree') }}" method="post"
+                                    action="{{ route('default.perpetual.seat') }}" method="post"
                                     enctype="multipart/form-data">
 
                                     @csrf
@@ -1754,7 +1754,7 @@
                                     Students</h3>
 
                                 <form id="circular-endowment-pg-non-eng-form"
-                                    action="{{ url('default_one_year_degree') }}" method="post"
+                                    action="{{ route('default.perpetual.seat') }}" method="post"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group" hidden>

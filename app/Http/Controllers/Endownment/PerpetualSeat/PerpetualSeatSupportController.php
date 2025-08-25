@@ -28,26 +28,6 @@ class PerpetualSeatSupportController extends Controller
     public function DefultPerpetualSeatundergraduate(Request $request)
     {
 
-        $to = ["umer.saleem.abbasi109@gmail.com"];
-
-        // Add donor email if provided
-        if (!empty($request->donor_email)) {
-            $to[] = $request->donor_email;
-        }
-
-        // Updated message
-        $msg = "Subject: Pending "
-            . "Dear Valued Donor,\n\n"
-            . "We sincerely appreciate your generous support for our scholarship program. Your commitment to empowering students through education is truly commendable.\n\n"
-            . "We are pleased to inform you that your request for a One-Year Degree Sponsorship has been accepted. Our team will verify the details, and we will provide you with a confirmation soon.\n\n"
-            . "Once again, we extend our heartfelt gratitude for your generosity and belief in our mission.\n\n"
-            . "Best regards,\n"
-            . "University Advancement Office"
-            . "NUST Islamabad";
-
-
-        $subject = "abc";
-
         // Fetch data
         $students = SupportADegreeForOneYearPg::all();
         $schools = School::all();
@@ -66,22 +46,11 @@ class PerpetualSeatSupportController extends Controller
             $attachmentPath = $destination . '/' . $filename;
         }
 
-        // Send email to multiple recipients including donor email
-        Mail::to($to)->send(new NotificationEmail(
-            $msg,
-            $subject,
-            $students,
-            $schools,
-            $countries,
-            $undergraduate,
-            $postgraduate,
-            $attachmentPath // pass the attachment path to the mailable
-        ));
-
-
+     
         $defaultPerpetualSeat = new DefultPackagePerpetualSeatDegree();
     
         // Assign values from the request to the model properties
+        $defaultPerpetualSeat->hostelandmessing = $request->hostelandmessing ?? 0;
         $defaultPerpetualSeat->program_type = $request->program_type;
         $defaultPerpetualSeat->degree = $request->degree;
         $defaultPerpetualSeat->seats = $request->seats ?? 1; // Default to 1 if not provided
@@ -99,13 +68,7 @@ class PerpetualSeatSupportController extends Controller
         $defaultPerpetualSeat->year = $request->year;
         $defaultPerpetualSeat->payments_status = $request->payments_status;
     
-        // Handle file upload for 'prove'
-        // if ($request->hasFile('prove')) {
-        //     $file = $request->file('prove');
-        //     $filename = time() . '_' . $file->getClientOriginalName(); // Add timestamp for uniqueness
-        //     $file->move(public_path('uploads/perpetualseat-proof'), $filename); // Save file in the directory
-        //     $defaultPerpetualSeat->prove = $filename; // Save the file name in the database
-        // }
+        
 
         if ($attachmentPath) {
             $defaultPerpetualSeat->prove = basename($attachmentPath);
@@ -115,32 +78,14 @@ class PerpetualSeatSupportController extends Controller
         $defaultPerpetualSeat->save();
     
         // Redirect to a success page or back with a success message
-        return redirect()->back()->with('success', 'Form submitted successfully!');
+    return redirect()->route('select.endowmentmode')->with('success', 'Custom Package is submitted successfully!');
     }
     
 
     public function CustomPerpetualSeatundergraduate(Request $request)
     {
 
-        $to = ["umer.saleem.abbasi109@gmail.com"];
-
-        // Add donor email if provided
-        if (!empty($request->donor_email)) {
-            $to[] = $request->donor_email;
-        }
-
-        // Updated message
-        $msg = "Subject: Pending "
-            . "Dear Valued Donor,\n\n"
-            . "We sincerely appreciate your generous support for our scholarship program. Your commitment to empowering students through education is truly commendable.\n\n"
-            . "We are pleased to inform you that your request for a One-Year Degree Sponsorship has been accepted. Our team will verify the details, and we will provide you with a confirmation soon.\n\n"
-            . "Once again, we extend our heartfelt gratitude for your generosity and belief in our mission.\n\n"
-            . "Best regards,\n"
-            . "University Advancement Office"
-            . "NUST Islamabad";
-
-
-        $subject = "abc";
+       
 
         // Fetch data
         $students = SupportADegreeForOneYearPg::all();
@@ -160,19 +105,7 @@ class PerpetualSeatSupportController extends Controller
             $attachmentPath = $destination . '/' . $filename;
         }
 
-        // Send email to multiple recipients including donor email
-        Mail::to($to)->send(new NotificationEmail(
-            $msg,
-            $subject,
-            $students,
-            $schools,
-            $countries,
-            $undergraduate,
-            $postgraduate,
-            $attachmentPath // pass the attachment path to the mailable
-        ));
-
-
+    
         $customPerpetualSeat = new CustomPackagePerpetualSeatDegree();
     
         // Assign values from the request to the model properties
@@ -194,14 +127,6 @@ class PerpetualSeatSupportController extends Controller
         $customPerpetualSeat->year = $request->year;
         $customPerpetualSeat->payments_status = $request->payments_status;
     
-        // Handle file upload for 'prove'
-        // if ($request->hasFile('prove')) {
-        //     $file = $request->file('prove');
-        //     $filename = time() . '_' . $file->getClientOriginalName(); // Add timestamp for uniqueness
-        //     $file->move(public_path('uploads/perpetualseat-proof'), $filename); // Save file in the directory
-        //     $customPerpetualSeat->prove = $filename; // Save the file name in the database
-        // }
-    
         if ($attachmentPath) {
             $customPerpetualSeat->prove = basename($attachmentPath);
         }
@@ -209,7 +134,7 @@ class PerpetualSeatSupportController extends Controller
         $customPerpetualSeat->save();
     
         // Redirect to a success page or back with a success message
-        return redirect()->back()->with('success', 'Form submitted successfully!');
+    return redirect()->route('select.endowmentmode')->with('success', 'Custom Package is submitted successfully!');
     }
     
 }
