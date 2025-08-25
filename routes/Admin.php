@@ -21,15 +21,6 @@ use App\Http\Controllers\Dashboard\Endewment\CustomEndowmentOneyearDashboardCont
 use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentOneyearDashboardController;
 
 
-// Students Dashboard Controller Routes 
-// Route::get('student_list', [StudentDashboardController::class, 'index']);
-// Route::get('add_new_student', [StudentDashboardController::class, 'Create']);
-// Route::post('students_add', [StudentDashboardController::class, 'Store']);
-// Route::get('students_edit/{id}', [StudentDashboardController::class, 'edit']);
-// Route::post('students_update/{id}', [StudentDashboardController::class, 'update']);
-// Route::get('students_delete/{id}', [StudentDashboardController::class, 'delete']);
-// Route::post('/students.bulkDelete', [StudentDashboardController::class, 'bulkDelete']);
-// Route::get('students_adopted/{id}', [StudentDashboardController::class, 'Adopted']);
 Route::get('/students', [StudentDashboardController::class, 'index'])->name('students.index');
 Route::get('/students/adopted', [DashboardAdopedStudentController::class, 'Adopted_Students'])->name('students.adopted');
 Route::get('/students/edit/{id}', [StudentDashboardController::class, 'edit'])->name('students.edit');
@@ -38,7 +29,7 @@ Route::get('/students/delete/{id}', [StudentDashboardController::class, 'Delete'
 Route::post('/students/import', [StudentDashboardController::class, 'importExcel'])->name('students.import');
 Route::post('/students/export', [StudentDashboardController::class, 'exportSelected'])->name('students.export');
 Route::post('/students/bulkDelete', [StudentDashboardController::class, 'deleteSelected'])->name('students.bulkDelete');
-Route::get('/students/adopted/{id}', [StudentDashboardController::class, 'Adopted'])->name('students.adopted');
+// Route::get('/students/adopted/{id}', [StudentDashboardController::class, 'Adopted'])->name('students.adopted');
 
 
 

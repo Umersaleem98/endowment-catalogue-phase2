@@ -94,7 +94,21 @@
                                 </select>
                             </div>
                             <div class="col-md-2 mb-3 filter-col">
-                                <button type="submit" class="btn btn-primary">Filter</button>
+                                <button type="submit" class="btn btn-primary w-100">Filter</button>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-3">
+                                <select name="per_page" id="perPageFilter" class="form-control filter-select">
+                                    <option value="8" selected>Show 8</option>
+                                    <option value="50">Show 50</option>
+                                    <option value="100">Show 100</option>
+                                    <option value="150">Show 150</option>
+                                    <option value="200">Show 200</option>
+                                    <option value="250">Show 250</option>
+                                    <option value="300">Show 300</option>
+                                </select>
                             </div>
                         </div>
                     </form>
@@ -131,7 +145,7 @@
         function fetchStudents(page = 1) {
             const formData = $('#filterForm').serialize();
             $.ajax({
-                url: "{{ url('student_stories') }}?page=" + page,
+                url: "{{ route('student.stories') }}?page=" + page,
                 type: 'GET',
                 data: formData,
                 dataType: 'json',
@@ -146,7 +160,7 @@
         function highlightActiveFilters() {
             $('.filter-select').each(function() {
                 const value = $(this).val();
-                $(this).toggleClass('filter-active', value && value !== 'all');
+                $(this).toggleClass('filter-active', value && value !== 'all' && value !== '8');
             });
         }
 
@@ -160,6 +174,10 @@
             event.preventDefault();
             const page = $(this).attr('href').split('page=')[1];
             fetchStudents(page);
+        });
+
+        $('#perPageFilter').on('change', function() {
+            fetchStudents(1); // reset to page 1
         });
 
         highlightActiveFilters();

@@ -22,8 +22,8 @@ class StudentDashboardController extends Controller
     public function index(Request $request)
     {
         $query = Student::query();
-        $query->where('make_pledge', 1)
-          ->where('payment_approved', 1);
+        $query->where('make_pledge', 0)
+          ->where('payment_approved', 0);
         // Filtering logic
         if ($request->qalam_id) $query->where('qalam_id', 'like', "%{$request->qalam_id}%");
         if ($request->student_name) $query->where('student_name', 'like', "%{$request->student_name}%");
@@ -249,8 +249,8 @@ class StudentDashboardController extends Controller
     {
         $student = Student::find($id);
        
-            $student->make_pledge = 0;
-            $student->payment_approved = 0;
+            $student->make_pledge = 1;
+            $student->payment_approved = 1;
 
             
             $student->save();

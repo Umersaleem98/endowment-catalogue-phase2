@@ -69,7 +69,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <form method="POST" action="{{ url('payments', $students->id) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('stories.payments.store', $students->id) }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">

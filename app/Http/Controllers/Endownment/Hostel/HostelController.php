@@ -21,11 +21,13 @@ class HostelController extends Controller
 
     public function store(Request $request, $id)
     {
+
+        // dd();
         // Find the student using the ID from the URL
         $student = Student::find($id);
 
         // Check if the student exists and hostel status is valid
-        if (!$student || $student->hostel_status != 1) {
+        if (!$student || $student->hostel_status != 0) {
             return redirect()->back()->with('error', 'Student not found or not eligible for hostel payment.');
         }
 
@@ -50,9 +52,9 @@ class HostelController extends Controller
         $hostelPayment->save(); // Save hostel payment record
 
         // Update student's hostel status (if needed)
-        $student->hostel_status = 0;
+        $student->hostel_status = 1;
         $student->save();
        
-        return redirect()->back()->with('success', 'Hostel Payment Recorded Successfully.');
+         return redirect()->route('student.stories')->with('success', 'Pledge payment submitted successfully.');
     }
 }

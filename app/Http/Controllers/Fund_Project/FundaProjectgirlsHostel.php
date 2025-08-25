@@ -39,7 +39,7 @@ class FundaProjectgirlsHostel extends Controller
         }
         $BoysHostelCostEstimate->save();
 
-        return redirect()->back()->with('success', 'Hostel boys data stored successfully!');
+      return redirect()->route('select.project')->with('success', 'Hostel boys data stored successfully!');
 
     }
 }

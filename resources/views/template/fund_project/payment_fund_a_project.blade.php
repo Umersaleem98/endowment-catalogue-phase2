@@ -73,7 +73,7 @@
             <!-- Payment Form -->
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <form method="post" action="{{ url('fund_a_project') }}" enctype="multipart/form-data" onsubmit="calculateTotal()">
+                    <form method="post" action="{{ route('fund.a.project') }}" enctype="multipart/form-data" onsubmit="calculateTotal()">
                         @csrf
                         <div class="form-group">
                             <label for="project_name">Project Name</label>

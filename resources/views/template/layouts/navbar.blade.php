@@ -25,7 +25,7 @@
 
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
-    <a class="navbar-brand ml-3" href="{{ url('/') }}">
+    <a class="navbar-brand ml-3" href="{{ route('home') }}">
         <img src="{{ asset('templates/logo/logo.png') }}" alt="Left Logo" class="navbar-logo ml-4">
     </a>
 
@@ -35,35 +35,35 @@
 
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/') }}">Home</a>
+            <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('home') }}">Home</a>
             </li>
-            <li class="nav-item {{ Request::is('about_us') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('about_us') }}">About Us</a>
+            <li class="nav-item {{ Request::is('aboutus') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('aboutus') }}">About Us</a>
             </li>
-            <li class="nav-item {{ Request::is('signrature_program') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('signrature_program') }}">Signature Programs</a>
+            <li class="nav-item {{ Request::is('signrature.program') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('signrature.program') }}">Signature Programs</a>
             </li>
-            <li class="nav-item {{ Request::is('nust_trust_foundation') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('nust_trust_foundation') }}">Nust Trust Fund</a>
+            <li class="nav-item {{ Request::is('nust.trust.foundation') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('nust.trust.foundation') }}">Nust Trust Fund</a>
             </li>
-            <li class="nav-item {{ Request::is('r_m_o') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('r_m_o') }}">Resource Mobilization Officers</a>
+            <li class="nav-item {{ Request::is('r.m.o') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('r.m.o') }}">Resource Mobilization Officers</a>
             </li>
-            <li class="nav-item {{ Request::is('our_team') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/our_team') }}">Our Team</a>
+            <li class="nav-item {{ Request::is('our.team') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('our.team') }}">Our Team</a>
             </li>
-            <li class="nav-item {{ Request::is('contact_us') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/contact_us') }}">Contact Us</a>
+            <li class="nav-item {{ Request::is('contactus') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('contactus') }}">Contact Us</a>
             </li>
         </ul>
 
-        <a class="navbar-brand d-lg-none mr-3" href="{{ url('/') }}">
+        <a class="navbar-brand d-lg-none mr-3" href="{{ route('home') }}">
             <img src="{{ asset('templates/images/logo3.png') }}" alt="Right Logo" id="right_logo" class="navbar-logo img-fluid blinking-animation">
         </a>
     </div>
 
-    <a class="navbar-brand d-none d-lg-block mr-4" href="{{ url('/') }}">
+    <a class="navbar-brand d-none d-lg-block mr-4" href="{{ route('home') }}">
         <img src="{{ asset('templates/logo/logo3.png') }}" alt="Right Logo" class="navbar-logo img-fluid blinking-animation">
     </a>
 </nav>

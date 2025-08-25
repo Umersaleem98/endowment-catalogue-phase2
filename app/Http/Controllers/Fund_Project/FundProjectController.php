@@ -49,6 +49,7 @@ class FundProjectController extends Controller
            
 
         $payments->save();
-        return redirect()->back()->with('success', 'Payment successfully made.');
+        // return redirect()->back()->with('success', 'Payment successfully made.');
+        return rediect()->route('')->with('success', 'Payment successfully made.');
     }
 }

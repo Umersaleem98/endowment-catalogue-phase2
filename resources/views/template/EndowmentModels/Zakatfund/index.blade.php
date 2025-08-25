@@ -90,7 +90,7 @@
 
                                 <li class="btn-container d-flex justify-content-center gap-2 mt-5">
                                     {{-- <a href="{{url('zakat_Make_a_Pledge')}}" class="btn btn-success">Make a Pledge</a> --}}
-                                    <a href="{{url('endowment_zakat_payment')}}" class="btn btn-primary btn-large">Pay Now</a>
+                                    <a href="{{route('endowment.zakat.payment.index')}}" class="btn btn-primary btn-large">Pay Now</a>
                                 </li>
 
                             </ul>

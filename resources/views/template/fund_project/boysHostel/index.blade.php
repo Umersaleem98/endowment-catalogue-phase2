@@ -70,7 +70,7 @@
     <div class="row">
         <div class="container">
             <h2 class="text-center text-dark">ROUGH COST ESTIMATE (CIVIL WORKS)</h2>
-            <form action="{{ url('boys_hostel_store') }}" method="POST" id="costEstimateForm" method="post"
+            <form action="{{ route('boys.hostel.store') }}" method="POST" id="costEstimateForm" method="post"
             enctype="multipart/form-data">
                 @csrf
                 <table class="table table-bordered">
@@ -128,24 +128,25 @@
                 </table>
 
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                         <label for="project_name" class="form-label">Project Name</label>
                         <input type="text" class="form-control" value="{{ $projectcategory->project_name }}" id="project_name" name="project_name" placeholder="Enter project name" required readonly>
                     </div>
         
                     <!-- Donor Name -->
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                         <label for="donor_name" class="form-label">Donor Name</label>
                         <input type="text" class="form-control" id="donor_name" name="donor_name" placeholder="Enter donor name" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="donor_email" class="form-label">Donor Email</label>
+                        <input type="email" class="form-control" id="donor_email" name="donor_email" placeholder="Enter donor email" required>
                     </div>
                 </div>
 
     
                 <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="donor_email" class="form-label">Donor Email</label>
-                        <input type="email" class="form-control" id="donor_email" name="donor_email" placeholder="Enter donor email" required>
-                    </div>
+                    
         
                     <!-- Donor Phone -->
                     <div class="col-md-6 mb-3">

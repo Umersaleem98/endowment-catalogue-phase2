@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="container">
                     <h2 class="text-center text-dark">ROUGH COST ESTIMATE (CIVIL WORKS)</h2>
-                    <form action="{{ url('business_center_store') }}" method="POST" id="costEstimateForm" enctype="multipart/form-data">
+                    <form action="{{ route('business.center.store') }}" method="POST" id="costEstimateForm" enctype="multipart/form-data">
                         @csrf
                         <table class="table table-bordered">
                             <thead>
@@ -114,22 +114,24 @@
                         </table>
 
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="project_name" class="form-label">Project Name</label>
                                 <input type="text" class="form-control" value="{{ $projectcategory->project_name }}" id="project_name" name="project_name" required readonly>
                             </div>
 
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="donor_name" class="form-label">Donor Name</label>
                                 <input type="text" class="form-control" id="donor_name" name="donor_name" required>
+                            </div>
+
+                             <div class="col-md-4 mb-3">
+                                <label for="donor_email" class="form-label">Donor Email</label>
+                                <input type="email" class="form-control" id="donor_email" name="donor_email" required>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="donor_email" class="form-label">Donor Email</label>
-                                <input type="email" class="form-control" id="donor_email" name="donor_email" required>
-                            </div>
+                           
 
                             <div class="col-md-6 mb-3">
                                 <label for="donor_phone" class="form-label">Donor Phone</label>

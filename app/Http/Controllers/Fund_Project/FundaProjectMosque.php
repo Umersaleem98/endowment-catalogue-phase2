@@ -47,7 +47,7 @@ class FundaProjectMosque extends Controller
         $mosque->save();
     
         // Redirect back with a success message
-        return redirect()->back()->with('success', 'Hostel boys data stored successfully!');
+      return redirect()->route('select.project')->with('success', 'Hostel boys data stored successfully!');
     }
     
 }

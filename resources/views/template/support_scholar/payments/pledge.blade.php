@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <form method="POST" action="{{ url('pledge_payment', $students->id) }}">
+                        <form method="POST" action="{{ route('pledge.payment.store', $students->id) }}">
                             @csrf
                             <input type="text" name="student_name" class="form-control" value="{{ $students->student_name }}">
                             <div class="row mb-3">

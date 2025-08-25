@@ -38,7 +38,7 @@ class FundaProjectBusinessCenter extends Controller
         }
         $business_center->save();
 
-        return redirect()->back()->with('success', 'Hostel boys data stored successfully!');
+      return redirect()->route('select.project')->with('success', 'Hostel boys data stored successfully!');
 
     }
 }

@@ -43,6 +43,6 @@ class ZakatController extends Controller
         $zakatpayments->save();
     
         // dd( $zakatpayments->save());
-        return redirect()->back()->with('success', 'Form submitted successfully!');
+        return redirect()->route('endowment.zakat.funds')->with('success', 'Form submitted successfully!');
     }
 }

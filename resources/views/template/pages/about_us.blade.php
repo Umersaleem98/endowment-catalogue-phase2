@@ -40,9 +40,7 @@
                             meet the greater challenges of our age by translating world-leading academic research into
                             commercial, scalable innovations that can respond to complex societal problems.
                         </p>
-
-                        <div id="moreText" style="display: none;">
-                            <p class="text-dark">
+                        <p class="text-dark">
                                 To do that, NUST skims the cream of the brilliance Pakistan produces and trains those
                                 brilliant minds to produce top-class innovation and research. Unfortunately, the
                                 economic landscape of Pakistan does not allow for many of those bright minds to afford
@@ -50,6 +48,16 @@
                                 knowledge economy but at the heart of our objective lies the very dream of turning NUST
                                 into a need-blind university.
                             </p>
+
+                        <div id="moreText" style="display: none;">
+                            {{-- <p class="text-dark">
+                                To do that, NUST skims the cream of the brilliance Pakistan produces and trains those
+                                brilliant minds to produce top-class innovation and research. Unfortunately, the
+                                economic landscape of Pakistan does not allow for many of those bright minds to afford
+                                higher education. Our aim is to not only become the driving force of Pakistan’s
+                                knowledge economy but at the heart of our objective lies the very dream of turning NUST
+                                into a need-blind university.
+                            </p> --}}
                             <p class="text-dark">
                                 To rise to the challenge, NUST strategically initiated the NUST Trust Fund (NTF) in
                                 2012. Since its inception, NTF has dedicated itself to providing essential financial

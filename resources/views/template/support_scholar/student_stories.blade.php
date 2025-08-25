@@ -80,13 +80,13 @@
         <div class="row justify-content-center">
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="hero_box d-flex flex-row align-items-center justify-content-start" style="height:100px">
-                    <a href="{{ $isPledgeApproved == 0 ? url('Make_a_Pledge', ['id' => $students->id]) : '#' }}"
+                    <a href="{{ $isPledgeApproved == 0 ? route('Make.a.Pledge', ['id' => $students->id]) : '#' }}"
                        class="d-flex align-items-center {{ $isPledgeApproved == 1 ? 'disabled-link' : '' }}"
                        {{ $isPledgeApproved == 1 ? 'aria-disabled="true"' : '' }}>
                         <img src="{{ asset('templates/images/forward-svgrepo-com.svg') }}" class="svg" alt="">
                         <div class="hero_box_content">
                             <h2 class="hero_box_title">Make a Pledge</h2>
-                            <a href="{{ url('student_stories') }}" class="hero_box_link" hidden>View More</a>
+                            <a href="{{ route('student.stories') }}" class="hero_box_link" hidden>View More</a>
                         </div>
                     </a>
                 </div>
@@ -94,13 +94,13 @@
 
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="hero_box d-flex flex-row align-items-center justify-content-start" style="height:100px">
-                    <a href="{{ $isPaymentApproved == 0 ? url('payment', ['id' => $students->id]) : '#' }}"
+                    <a href="{{ $isPaymentApproved == 0 ? route('payment.stories.index', ['id' => $students->id]) : '#' }}"
                        class="d-flex align-items-center {{ $isPaymentApproved == 1 ? 'disabled-link' : '' }}"
                        {{ $isPaymentApproved == 1 ? 'aria-disabled="true"' : '' }}>
                         <img src="{{ asset('templates/images/bank-svgrepo-com.svg') }}" class="svg" alt="">
                         <div class="hero_box_content">
                             <h2 class="hero_box_title">Pay Now</h2>
-                            <a href="{{ url('select_project') }}" class="hero_box_link" hidden>View More</a>
+                            <a href="{{ route('select.project') }}" class="hero_box_link" hidden>View More</a>
                         </div>
                     </a>
                 </div>

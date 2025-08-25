@@ -608,7 +608,7 @@
 
                                 {{-- Link --}}
                                 <div class="mt-3 mb-2">
-                                    <a href="{{ url('student_stories') }}" class="btn btn-info btn-sm"
+                                    <a href="{{ route('student.stories') }}" class="btn btn-info btn-sm"
                                         style="background-color: #FFA500;">
                                         Nurture a Dream<br>Read student stories and select a story of your choice.
                                     </a>
@@ -1274,7 +1274,7 @@
 
                                 {{-- Link --}}
                                 <div class="mt-3 mb-2">
-                                    <a href="{{ url('student_stories') }}" class="btn btn-info btn-sm"
+                                    <a href="{{ route('student.stories') }}" class="btn btn-info btn-sm"
                                         style="background-color: #FFA500;">
                                         Nurture a Dream<br>Read student stories and select a story of your choice.
                                     </a>

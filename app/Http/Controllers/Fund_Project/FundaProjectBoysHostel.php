@@ -30,13 +30,6 @@ class FundaProjectBoysHostel extends Controller
         $BoysHostelCostEstimate->donor_email = $request->donor_email;
         $BoysHostelCostEstimate->donor_phone = $request->donor_phone;
        
-        // if ($request->hasFile('prove')) {
-        //     $file = $request->file('prove');
-        //     $filename = time() . '_' . $file->getClientOriginalName();
-        //     $file->move(public_path('uploads/fundaprojects_payments_boys-proof'), $filename);
-        //     $BoysHostelCostEstimate->prove = 'uploads/fundaprojects_payments_boys-proof/' . $filename;
-        // }
-       
         if ($request->hasFile('prove')) {
             $file = $request->file('prove');
             $filename = time() . '_' . $file->getClientOriginalName(); // Add timestamp for uniqueness
@@ -47,7 +40,7 @@ class FundaProjectBoysHostel extends Controller
 
         $BoysHostelCostEstimate->save();
 
-        return redirect()->back()->with('success', 'Hostel boys data stored successfully!');
+      return redirect()->route('select.project')->with('success', 'Hostel boys data stored successfully!');
 
     }
 }

@@ -75,7 +75,7 @@
             <div class="container mt-5">
                 <div class="row">
                     <div class="col-12 animate__animated animate__fadeInUp animate__delay-3s">
-                        <h2 class="text-center mb-4">Find Us on the Map</h2>
+                        <h1 class="text-center mb-4 text-dark">Find Us on the Map</h1>
                         <div class="map-container" style="overflow:hidden; position:relative; height:450px;">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.880064274524!2d72.9822090152093!3d33.64257794667851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfedbd8a7b36df%3A0x13e6c3e6a3f1a6e3!2sRIC%20Secretariat%20NUST!5e0!3m2!1sen!2s!4v1690000000000!5m2!1sen!2s"

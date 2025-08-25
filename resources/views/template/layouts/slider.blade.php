@@ -1,19 +1,23 @@
 <style>
     .carousel-item {
-        height: 80vh; /* Adjust the height as needed */
+        height: 80vh;
+        /* Adjust the height as needed */
         min-height: 300px;
         background: no-repeat center center scroll;
         background-size: cover;
     }
+
     .carousel-caption {
         bottom: 50%;
         transform: translateY(50%);
     }
+
     .carousel-caption h1 {
         font-size: 2rem;
         font-weight: bold;
         color: #FFB606;
     }
+
     .carousel-caption .btn {
         margin-top: 1rem;
         font-size: 1rem;
@@ -21,21 +25,26 @@
         color: #000;
         background-color: #FFB606;
         border-color: #FFB606;
-        height: 60px; /* Set height */
+        height: 60px;
+        /* Set height */
         display: inline-flex;
         align-items: center;
         justify-content: center;
         text-align: center;
     }
+
     @media (min-width: 768px) {
         .carousel-caption h1 {
             font-size: 3rem;
         }
+
         .carousel-caption .btn {
             font-size: 1.5rem;
-            height: 80px; /* Set height */
+            height: 80px;
+            /* Set height */
         }
     }
+
     .carousel-item img {
         height: 100%;
         width: 100%;
@@ -47,16 +56,19 @@
             font-size: 1rem;
         }
     }
+
     @media (min-width: 577px) and (max-width: 768px) {
         .responsive-text {
             font-size: 1.1rem;
         }
     }
+
     @media (min-width: 769px) and (max-width: 992px) {
         .responsive-text {
             font-size: 1rem;
         }
     }
+
     @media (min-width: 993px) {
         .responsive-text {
             font-size: 18px;
@@ -72,8 +84,10 @@
             <img src="{{ asset('templates/images/mno.jpg') }}" alt="Slide 1">
             <div class="carousel-caption text-center">
                 <h1>The support you lend today will remodel their tomorrow</h1>
-                <a href="{{ url('select_endowment_model') }}" class="btn btn-outline-light btn-lg">Invest in Scholarship</a>
-                <a href="{{ url('select_project') }}" class="btn btn-outline-light btn-lg">Fund a Project</a>
+                <a href="{{ route('select.endowmentmode') }}" class="btn btn-outline-light btn-lg">Invest in
+                    Scholarship</a>
+                <a href="{{ route('select.project') }}" class="btn btn-outline-light btn-lg">Fund a Project</a>
+                <a href="{{ route('student.stories') }}" class="btn btn-outline-light btn-lg">Support Students</a>
             </div>
         </div>
         <!-- Second Slide -->
@@ -81,8 +95,11 @@
             <img src="{{ asset('templates/images/def.jpg') }}" alt="Slide 2">
             <div class="carousel-caption text-center">
                 <h1>Your gift will be passed down to generations</h1>
-                <a href="{{ url('select_endowment_model') }}" class="btn btn-outline-light btn-lg">Invest in Scholarship</a>
-                <a href="{{ url('select_project') }}" class="btn btn-outline-light btn-lg">Fund a Project</a>
+                <a href="{{ route('select.endowmentmode') }}" class="btn btn-outline-light btn-lg">Invest in
+                    Scholarship</a>
+                <a href="{{ route('select.project') }}" class="btn btn-outline-light btn-lg">Fund a Project</a>
+                <a href="{{ route('student.stories') }}" class="btn btn-outline-light btn-lg">Support Students</a>
+
             </div>
         </div>
         <!-- Third Slide -->
@@ -90,8 +107,11 @@
             <img src="{{ asset('templates/images/pqr.jpg') }}" alt="Slide 3">
             <div class="carousel-caption text-center">
                 <h1>Build a legacy of lasting change</h1>
-                <a href="{{ url('select_endowment_model') }}" class="btn btn-outline-light btn-lg">Invest in Scholarship</a>
-                <a href="{{ url('select_project') }}" class="btn btn-outline-light btn-lg">Fund a Project</a>
+                <a href="{{ route('select.endowmentmode') }}" class="btn btn-outline-light btn-lg">Invest in
+                    Scholarship</a>
+                <a href="{{ route('select.project') }}" class="btn btn-outline-light btn-lg">Fund a Project</a>
+                <a href="{{ route('student.stories') }}" class="btn btn-outline-light btn-lg">Support Students</a>
+
             </div>
         </div>
     </div>
@@ -111,7 +131,8 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Responsive image -->
-                    <img src="{{ asset('templates/stats/abc.jpg') }}" class="img-fluid mt-2" alt="Responsive image" style="max-height: 400px; width: 100%">
+                    <img src="{{ asset('templates/stats/abc.jpg') }}" class="img-fluid mt-2" alt="Responsive image"
+                        style="max-height: 400px; width: 100%">
                 </div>
 
             </div>
@@ -128,16 +149,25 @@
             <div class="p-3 p-md-5 mt-5">
 
                 <p class="text-dark responsive-text" style="text-align: justify;">
-                    As <b>National University of Sciences and Technology (NUST)</b> enters its fourth decade of excellence, our commitment to quality education is reflected in our impressive ascent in the QS World University Rankings 2023-2024. We have consistently upheld our reputation as a beacon of excellence in higher education in Pakistan while being at par with contemporaries in the elite league of the top universities of the world for the past decade. Our steadfast commitment to fostering knowledge has benefited not only our students but also paved the way for sustainable solutions that can shape tomorrow.
+                    As <b>National University of Sciences and Technology (NUST)</b> enters its fourth decade of
+                    excellence, our commitment to quality education is reflected in our impressive ascent in the QS
+                    World University Rankings 2023-2024. We have consistently upheld our reputation as a beacon of
+                    excellence in higher education in Pakistan while being at par with contemporaries in the elite
+                    league of the top universities of the world for the past decade. Our steadfast commitment to
+                    fostering knowledge has benefited not only our students but also paved the way for sustainable
+                    solutions that can shape tomorrow.
 
-               </p>
-                    <p class="text-dark responsive-text" style="text-align: justify ">
+                </p>
+                <p class="text-dark responsive-text" style="text-align: justify ">
 
-                        <b>
-                        In these transformative times, one of the measures of a world-class university by virtue of its strategic importance is building student support  scholarships. The establishment of such initiatives at NUST will help us ensure that no student quits education owing to financial constraints.
+                    <b>
+                        In these transformative times, one of the measures of a world-class university by virtue of its
+                        strategic importance is building student support scholarships. The establishment of such
+                        initiatives at NUST will help us ensure that no student quits education owing to financial
+                        constraints.
                     </b>
 
-                    </p>
+                </p>
             </div>
         </div>
 

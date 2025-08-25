@@ -110,7 +110,7 @@
 
 
                     <div class="col-md-6">
-                        <form method="POST" action="{{ url('endowment_zakat_payment') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('endowment.zakat.payment') }}" enctype="multipart/form-data">
                             @csrf
                             <input type="text" name="payment_type" class="form-control" value="paynow" hidden>
                             <div class="row mb-3">

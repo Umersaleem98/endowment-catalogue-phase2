@@ -24,7 +24,7 @@
             <section class="py-2 bg-light mb-5" data-aos="fade-up" data-aos-duration="1000">
                 <div class="container">
                     <div class="row p-3">
-                        <h2 class="text-dark text-center mb-4 fw-bold">Our Mission</h2>
+                        <h2 class="text-primary text-center mb-4 fw-bold">Our Mission</h2>
 
                         <p class="text-dark fs-5 mb-4 text-justify" data-aos="fade-right" data-aos-delay="100">
                             <strong>The NUST Advisory Council of Resource Mobilization includes dedicated</strong>

@@ -10,17 +10,13 @@ class DashboardAdopedStudentController extends Controller
 {
     public function index(Request $request)
 {
-    // $adopedstudents = Student::where('payment_approved', 0)
-    //                           ->orWhere('make_pledge', 0)
-    //                           ->get();
-
-    // return view('admin.AdopedStudent.list', compact('adopedstudents'));
+    
     
         $query = Student::query();
 
         // ✅ Only students where make_pledge = 0 AND payment_approved = 0
-        $query->where('payment_approved', 0)
-                              ->orWhere('make_pledge', 0)
+        $query->where('payment_approved', 1)
+                              ->orWhere('make_pledge', 1)
                               ->get();
 
         // Filtering logic

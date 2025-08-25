@@ -113,7 +113,7 @@
                     <div class="col-md-6 mb-2" data-aos="fade-up" data-aos-delay="400">
                         <div class="card" style="background-color: #004476; min-height: 165px;">
                             <div class="card-body">
-                                <a href="{{ url('endowment_zakat_funds') }}" class="card-link">
+                                <a href="{{ route('endowment.zakat.funds') }}" class="card-link">
                                     <div class="icon-container mr-3"><br>
                                         <i class="fas fa-hands-helping text-light"></i>
                                     </div>

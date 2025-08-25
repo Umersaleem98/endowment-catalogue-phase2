@@ -14,10 +14,8 @@ use App\Models\StudentsStoryPayments;
 
 class StudentStoriesController extends Controller
 { 
-    
-    public function student_stories(Request $request)
+ public function student_stories(Request $request)
 {
-
     $disciplines = Discipline::all();
     $domiciles = Domicile::all();
     $provinces = Province::all();
@@ -26,37 +24,33 @@ class StudentStoriesController extends Controller
     $province = $request->input('province');
     $discipline = $request->input('discipline');
     $degree = $request->input('degree');
-    $domicile = $request->input('domicile'); // Add city filter
+    $domicile = $request->input('domicile');
+    $perPage = $request->input('per_page', 8); // 👈 Default 8
 
     $query = Student::query();
 
     if ($gender && $gender !== 'all') {
         $query->where('gender', $gender);
     }
-
     if ($province && $province !== 'all') {
         $query->where('province', $province);
     }
-
     if ($discipline && $discipline !== 'all') {
         $query->where('discipline', $discipline);
     }
-
     if ($degree && $degree !== 'all') {
         $query->where('degree', $degree);
     }
-
-    if ($domicile && $domicile !== 'all') { // Add city condition
+    if ($domicile && $domicile !== 'all') {
         $query->where('domicile', $domicile);
     }
 
-    // Sort the query by monthly_income in ascending order
+    // Sorting
     $query->orderBy('monthly_income', 'asc');
-
-    // Additional sorting logic if needed
     $query->orderByRaw("CASE WHEN images = 'dummy.png' THEN 1 ELSE 0 END, images");
 
-    $students = $query->paginate(8);
+    // Pagination with perPage
+    $students = $query->paginate($perPage)->appends($request->all());
 
     if ($request->ajax()) {
         $studentsHtml = view('template.support_scholar.partials.students', compact('students'))->render();
@@ -64,11 +58,12 @@ class StudentStoriesController extends Controller
         return response()->json(['studentsHtml' => $studentsHtml, 'paginationHtml' => $paginationHtml]);
     }
 
-    // Determine if pledge and payment are approved based on the first student in the collection
     $isPledgeApproved = $students->first()->make_pledge ?? 0;
     $isPaymentApproved = $students->first()->payment_approved ?? 0;
 
-    return view('template.support_scholar.index', compact('students','disciplines', 'domiciles','provinces','isPledgeApproved', 'isPaymentApproved'));
+    return view('template.support_scholar.index', compact(
+        'students','disciplines','domiciles','provinces','isPledgeApproved','isPaymentApproved'
+    ));
 }
 
 public function student_stories_ind($id)
@@ -77,8 +72,8 @@ public function student_stories_ind($id)
         $students = Student::find($id); // Use findOrFail to handle non-existent IDs gracefully
 
         // Access the make_pledge and payment_approved attributes with default value 0
-        $isPledgeApproved = $students->make_pledge ?? 0;
-        $isPaymentApproved = $students->payment_approved ?? 0;
+        $isPledgeApproved = $students->make_pledge ?? 1;
+        $isPaymentApproved = $students->payment_approved ?? 1;
 
         // dd($isPaymentApproved);
 
@@ -133,7 +128,7 @@ public function student_stories_ind($id)
           
 
             // Update student's payment_approved status
-            $student->payment_approved = 0;
+            $student->payment_approved = 1;
             $student->save();
 
             return redirect()->back()->with('success', 'Payment processed successfully.');
@@ -144,47 +139,47 @@ public function student_stories_ind($id)
     
   
 
-    public function pledgestore(Request $request, $id)
-    {
-        // Find the student by ID
-        $student = Student::find($id);
-    
-        if ($student) {
-            // Validate the incoming request
-            $request->validate([
-                'donor_name' => 'required|string|max:255',
-                'donor_email' => 'required|email|max:255',
-                'phone' => 'required|string|max:20',
-                'donation_percent' => 'required|integer',
-                'amount' => 'required|numeric',
-                'donation_for' => 'required|string',
-            ]);
-    
-            // Create a new pledge payment record
-            $pledgePayment = new StudentPledgePayment();
-            $pledgePayment->student_name = $student->student_name;
-            $pledgePayment->donor_name = $request->donor_name;
-            $pledgePayment->donor_email = $request->donor_email;
-            $pledgePayment->phone = $request->phone;
-            $pledgePayment->donation_percent = $request->donation_percent;
-            $pledgePayment->amount = $request->amount;
-            $pledgePayment->donation_for = $request->donation_for;
-    
-            // Set the student's make_pledge value to 0 (assuming you want to update the student's make_pledge status)
-            $student->make_pledge = 0;  // Setting the make_pledge attribute to 0
-    
-            // Save the changes to the student model
-            $student->save();
-    
-            // Default status as pending for pledge payment
-            $pledgePayment->pledge_approved = 0; // Default status as pending
-            $pledgePayment->save();
-    
-            return redirect()->back()->with('success', 'Pledge payment submitted successfully.');
-        }
-    
-        return redirect()->back()->with('error', 'Student not found.');
+   public function pledgestore(Request $request, $id)
+{
+    // Find the student by ID
+    $student = Student::find($id);
+
+    if ($student) {
+        // Validate the incoming request
+        $request->validate([
+            'donor_name' => 'required|string|max:255',
+            'donor_email' => 'required|email|max:255',
+            'phone' => 'required|string|max:20',
+            'donation_percent' => 'required|integer',
+            'amount' => 'required|numeric',
+            'donation_for' => 'required|string',
+        ]);
+
+        // Create a new pledge payment record
+        $pledgePayment = new StudentPledgePayment();
+        $pledgePayment->student_name = $student->student_name;
+        $pledgePayment->donor_name = $request->donor_name;
+        $pledgePayment->donor_email = $request->donor_email;
+        $pledgePayment->phone = $request->phone;
+        $pledgePayment->donation_percent = $request->donation_percent;
+        $pledgePayment->amount = $request->amount;
+        $pledgePayment->donation_for = $request->donation_for;
+
+        // Update student's pledge status
+        $student->make_pledge = 0;
+        $student->save();
+
+        // Default status as pending for pledge payment
+        $pledgePayment->pledge_approved = 1; 
+        $pledgePayment->save();
+
+        // Redirect to student.stories route after success
+        return redirect()->route('student.stories')->with('success', 'Pledge payment submitted successfully.');
     }
+
+    return redirect()->back()->with('error', 'Student not found.');
+}
+
     
 
 }
