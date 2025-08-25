@@ -67,7 +67,7 @@ class FourYearSupportController extends Controller
         $defaultfourYearDegree->save();
 
         // Redirect to a success page or back with a success message
-        return redirect()->back()->with('success', 'Form submitted successfully!');
+    return redirect()->route('select.endowmentmode')->with('success', 'Custom Package is submitted successfully!');
     }
 
 
@@ -113,6 +113,6 @@ class FourYearSupportController extends Controller
         $customFourYearDegree->save();
 
         // Redirect to a success page or back with a success message
-        return redirect()->back()->with('success', 'Form submitted successfully!');
+    return redirect()->route('select.endowmentmode')->with('success', 'Custom Package is submitted successfully!');
     }
 }

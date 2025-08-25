@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>One Year</title>
+    <title>One Year Endowment Model</title>
     @include('template.layouts.head')
     <link rel="stylesheet" type="text/css" href="{{ asset('templates/styles/oneyearcss.css') }}">
 </head>
