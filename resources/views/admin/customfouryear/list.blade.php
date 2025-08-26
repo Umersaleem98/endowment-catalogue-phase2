@@ -35,7 +35,7 @@
                       <div class="col-12">
                           <div class="card card-default">
                               <div class="card-header">
-                                  <h2>One Year Education list</h2>
+                                  <h2>Custom Four Year Endowment list</h2>
 
                               </div>
                               <div class="card-body">

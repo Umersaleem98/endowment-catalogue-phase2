@@ -48,73 +48,94 @@
                             @endif
                             <div class="card card-default">
                                 <div class="card-header">
-                                    <h2>Team Update</h2>
+                                    <h2>Team Edit </h2>
 
                                 </div>
                                 <div class="card-body">
                                     <div class="card-body col-lg-8">
-                                        <form action="{{ url('update_team', $teams->id) }}" method="POST"
+                                        <form action="{{ route('team.update', $teams->id) }}" method="POST"
                                             enctype="multipart/form-data">
                                             @csrf
 
-                                            <div class="form-group">
-                                                <label for="name">Name</label>
-                                                <input type="text" class="form-control" id="name" name="name"
-                                                    value="{{ $teams->name }}" placeholder="Enter name">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email">Email</label>
-                                                <input type="email" class="form-control" id="email" name="email"
-                                                    value="{{ $teams->email }}" placeholder="Enter email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="designation">Designation</label>
-                                                <input type="text" class="form-control" id="designation"
-                                                    name="designation" value="{{ $teams->designation }}"
-                                                    placeholder="Enter designation">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="gender">Gender</label>
-                                                <select class="form-control" id="gender" name="gender">
-                                                    <option value="male"
-                                                        {{ $teams->gender == 'male' ? 'selected' : '' }}>Male</option>
-                                                    <option value="female"
-                                                        {{ $teams->gender == 'female' ? 'selected' : '' }}>Female
-                                                    </option>
-                                                    <option value="other"
-                                                        {{ $teams->gender == 'other' ? 'selected' : '' }}>Other</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="phone">Phone</label>
-                                                <input type="text" class="form-control" id="phone" name="phone"
-                                                    value="{{ $teams->phone }}" placeholder="Enter phone number">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="image">Image</label>
-                                                <input type="file" class="form-control-file" id="image"
-                                                    name="image">
-                                                @if ($teams->image)
-                                                    <img src="{{ asset('team/' . $teams->image) }}" alt="Image"
-                                                        style="width: 50px; height:50px; margin-top: 10px;">
-                                                @else
-                                                    No Image
-                                                @endif
+                                            <!-- Name & Email -->
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="name">Name</label>
+                                                    <input type="text" class="form-control" id="name"
+                                                        name="name" value="{{ $teams->name }}"
+                                                        placeholder="Enter name">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="email">Email</label>
+                                                    <input type="email" class="form-control" id="email"
+                                                        name="email" value="{{ $teams->email }}"
+                                                        placeholder="Enter email">
+                                                </div>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label for="social_media">Linkedin</label>
-                                                <input type="text" class="form-control" id="social_media"
-                                                    name="social_media" value="{{ $teams->social_media }}"
-                                                    placeholder="Enter social media">
+                                            <!-- Designation & Gender -->
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="designation">Designation</label>
+                                                    <input type="text" class="form-control" id="designation"
+                                                        name="designation" value="{{ $teams->designation }}"
+                                                        placeholder="Enter designation">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="gender">Gender</label>
+                                                    <select class="form-control" id="gender" name="gender">
+                                                        <option value="male"
+                                                            {{ $teams->gender == 'male' ? 'selected' : '' }}>Male
+                                                        </option>
+                                                        <option value="female"
+                                                            {{ $teams->gender == 'female' ? 'selected' : '' }}>Female
+                                                        </option>
+                                                        <option value="other"
+                                                            {{ $teams->gender == 'other' ? 'selected' : '' }}>Other
+                                                        </option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="introduction">Introduction</label>
-                                                <textarea class="form-control" id="introduction" name="introduction" cols="30" rows="10" placeholder="Enter introduction">{{ $teams->introduction }}</textarea>
+
+                                            <!-- Phone & Image -->
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="phone">Phone</label>
+                                                    <input type="text" class="form-control" id="phone"
+                                                        name="phone" value="{{ $teams->phone }}"
+                                                        placeholder="Enter phone number">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="image">Image</label>
+                                                    <input type="file" class="form-control" id="image"
+                                                        name="image">
+                                                    @if ($teams->image)
+                                                        <img src="{{ asset('team/' . $teams->image) }}" alt="Image"
+                                                            style="width: 50px; height:50px; margin-top: 10px;">
+                                                    @else
+                                                        <p class="mt-2">No Image</p>
+                                                    @endif
+                                                </div>
                                             </div>
-                                            
+
+                                            <!-- Social Media & Introduction -->
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="social_media">LinkedIn</label>
+                                                    <input type="text" class="form-control" id="social_media"
+                                                        name="social_media" value="{{ $teams->social_media }}"
+                                                        placeholder="Enter social media">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="introduction">Introduction</label>
+                                                    <textarea class="form-control" id="introduction" name="introduction" rows="5" placeholder="Enter introduction">{{ $teams->introduction }}</textarea>
+                                                </div>
+                                            </div>
+
+                                            <!-- Submit -->
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>

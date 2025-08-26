@@ -69,10 +69,10 @@
                                                     <td>{{ $item->email }}</td> <!-- Email -->
                                                     <td>{{ $item->usertype }}</td> <!-- User Type -->
                                                     <td>
-                                                        <a href="{{ url('user_edit', $item->id) }}" class="btn btn-primary btn-sm">Edit</a> <!-- Edit Button -->
+                                                        <a href="{{ route('user.edit', $item->id) }}" class="btn btn-primary btn-sm">Edit</a> <!-- Edit Button -->
                                                     </td>
                                                     <td>
-                                                        <a href="{{ url('user_delete', $item->id) }}" class="btn btn-danger btn-sm">Delete</a> <!-- Delete Button -->
+                                                        <a href="{{ route('user.delete', $item->id) }}" class="btn btn-danger btn-sm">Delete</a> <!-- Delete Button -->
                                                     </td>
                                                 </tr>
                                             @endforeach

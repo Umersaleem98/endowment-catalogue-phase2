@@ -50,7 +50,7 @@
                                 @endif
 
                                 <div class="card-body">
-                                    <form action="{{ url('students_add') }}" method="POST"
+                                    <form action="{{ route('store.new.student') }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
 

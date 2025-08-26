@@ -2,7 +2,7 @@
     <div id="sidebar" class="sidebar sidebar-with-footer">
         <!-- Application Brand -->
         <div class="app-brand">
-            <a href="{{ url('dashboard') }}">
+            <a href="{{ route('dashboard') }}">
                 <img src="{{ asset('admin/images/logo.png') }}" alt="Mono" style="widows: 200px; height: 50px;">
                 <span class="brand-name">Catalogue</span>
             </a>
@@ -21,47 +21,25 @@
                     </a>
                     <ul class="collapse" id="email" data-parent="#sidebar-menu">
                         <div class="sub-menu">
-                            <li>
-                                <a class="sidenav-item-link" href="{{ url('add_new_student') }}">
+                            {{-- <li>
+                                <a class="sidenav-item-link" href="{{ route('add.new.student') }}">
                                     <span class="nav-text">Add New Student</span>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a class="sidenav-item-link" href="{{ route('students.index') }}">
                                     <span class="nav-text">Student List</span>
                                 </a>
                             </li>
-                        </div>
-                    </ul>
-                </li>
 
-                <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                        data-target="#adoptedStudents" aria-expanded="false" aria-controls="adoptedStudents">
-                        <i class="mdi mdi-account-group"></i>
-                        <span class="nav-text">Adopted Students</span> <b class="caret"></b>
-                    </a>
-                    <ul class="collapse" id="adoptedStudents" data-parent="#sidebar-menu">
-                        <div class="sub-menu">
-                            <li>
-                                <a class="sidenav-item-link" href="{{ url('adopted_students_list') }}">
+                             <li>
+                                <a class="sidenav-item-link" href="{{ route('adopted.students.list') }}">
                                     <span class="nav-text">Adopted Students List</span>
                                 </a>
                             </li>
-                        </div>
-                    </ul>
-                </li>
 
-                <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#hostel"
-                        aria-expanded="false" aria-controls="hostel">
-                        <i class="mdi mdi-home"></i>
-                        <span class="nav-text">Hostel</span> <b class="caret"></b>
-                    </a>
-                    <ul class="collapse" id="hostel" data-parent="#sidebar-menu">
-                        <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('hostel_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('hostel.list') }}">
                                     <span class="nav-text">Hostel List</span>
                                 </a>
                             </li>
@@ -79,12 +57,12 @@
                     <ul class="collapse" id="student-stories" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('student_story_payment') }}">
+                                <a class="sidenav-item-link" href="{{ route('student.story.payment') }}">
                                     <span class="nav-text">Student Profile Payment</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('student_story_pledge_payment') }}">
+                                <a class="sidenav-item-link" href="{{ route('student.story.pledge.payment') }}">
                                     <span class="nav-text">Student Profile Pledge Payment</span>
                                 </a>
                             </li>
@@ -102,17 +80,17 @@
                     <ul class="collapse" id="endowment" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('oneyear_endowment_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('oneyear.endowment.list') }}">
                                     <span class="nav-text">OneYear</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('fouryear_endowment_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('fouryear.endowment.list') }}">
                                     <span class="nav-text">FoutYear</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('perpetualseat_endowment_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('perpetualseat.endowment.list') }}">
                                     <span class="nav-text">Perpetual Seat</span>
                                 </a>
                             </li>
@@ -130,17 +108,17 @@
                     <ul class="collapse" id="custom-package" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('custom_oneyear_endowment_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('custom.oneyear.endowment.list') }}">
                                     <span class="nav-text">Custom One Year</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('custom_fouryear_endowment_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('custom.fouryear.endowment.list') }}">
                                     <span class="nav-text">Custom Four Year</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('custom_perpetualseat_endowment_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('custom.perpetualseat.endowment.list') }}">
                                     <span class="nav-text">Custom Perpetual</span>
                                 </a>
                             </li>
@@ -157,22 +135,22 @@
                         <div class="sub-menu">
 
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('boys_hostel_project_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('boys.hostel.project.list') }}">
                                     <span class="nav-text">Boys Hostel</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('girls_hostel_project_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('girls.hostel.project.list') }}">
                                     <span class="nav-text">Girls Hostel</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('mosque_project_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('mosque.project.list') }}">
                                     <span class="nav-text">Mosque</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('business_center_project_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('business.center.project.list') }}">
                                     <span class="nav-text">Business Center</span>
                                 </a>
                             </li>
@@ -189,7 +167,7 @@
                     <ul class="collapse" id="zakat" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('zakat_payments_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('zakat.payments.list') }}">
                                     <span class="nav-text">Zakat Payments</span>
                                 </a>
                             </li>
@@ -208,12 +186,12 @@
                     <ul class="collapse" id="teams" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('team_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('team.list') }}">
                                     <span class="nav-text">Team List</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('add_team') }}">
+                                <a class="sidenav-item-link" href="{{ route('add.team') }}">
                                     <span class="nav-text">Add Team Member</span>
                                 </a>
                             </li>
@@ -231,12 +209,12 @@
                     <ul class="collapse" id="events" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('event_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('event.list') }}">
                                     <span class="nav-text">Event List</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('event_create') }}">
+                                <a class="sidenav-item-link" href="{{ route('event.create') }}">
                                     <span class="nav-text">Add Event</span>
                                 </a>
                             </li>
@@ -255,12 +233,12 @@
                         <div class="sub-menu">
 
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('user_create') }}">
+                                <a class="sidenav-item-link" href="{{ route('user.create') }}">
                                     <span class="nav-text">Add User</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('user_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('user.list') }}">
                                     <span class="nav-text">User List</span>
                                 </a>
                             </li>
@@ -278,13 +256,13 @@
                     <ul class="collapse" id="customData" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('country_data_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('country.data.list') }}">
                                     <span class="nav-text">Country</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('country_data_index') }}">
+                                <a class="sidenav-item-link" href="{{ route('country.data.index') }}">
                                     <span class="nav-text">Create Country</span>
                                 </a>
                             </li>
@@ -301,13 +279,13 @@
                     <ul class="collapse" id="ugCourse" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('ug_course_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('ug.course.list') }}">
                                     <span class="nav-text">UG Course List</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('ug_course_create') }}">
+                                <a class="sidenav-item-link" href="{{ url('ug/course/create') }}">
                                     <span class="nav-text">Create UG Course</span>
                                 </a>
                             </li>
@@ -326,13 +304,13 @@
                     <ul class="collapse" id="pgCourse" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('pg_course_list') }}">
+                                <a class="sidenav-item-link" href="{{ route('pg.course.list') }}">
                                     <span class="nav-text">PG Course List</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a class="sidenav-item-link" href="{{ url('pg_course_create') }}">
+                                <a class="sidenav-item-link" href="{{ url('pg/course/create') }}">
                                     <span class="nav-text">Create PG Course</span>
                                 </a>
                             </li>

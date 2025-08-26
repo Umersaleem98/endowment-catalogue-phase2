@@ -59,8 +59,8 @@
                                                 <th>Amount</th>
                                                 <th>Donation For</th>
                                                 <th>Pledge Approved</th>
-                                                <th>Edit</th>
-                                                <th>Delete</th>
+                                                {{-- <th>Edit</th>
+                                                <th>Delete</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -75,12 +75,12 @@
                                                     <td>{{ $item->amount }}</td>
                                                     <td>{{ $item->donation_for }}</td>
                                                     <td>{{ $item->pledge_approved ? 'Yes' : 'No' }}</td>
-                                                    <td>
+                                                    {{-- <td>
                                                         <a href="{{ url('event_edit', $item->id) }}" class="btn btn-primary">Edit</a>
                                                     </td>
                                                     <td>
                                                         <a href="{{ url('event_delete', $item->id) }}" class="btn btn-danger">Delete</a>
-                                                    </td>
+                                                    </td> --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>

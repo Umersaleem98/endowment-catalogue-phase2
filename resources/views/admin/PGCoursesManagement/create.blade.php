@@ -46,14 +46,14 @@ hello
                                 <div class="card-header">
                                     <h2>Alumni Country List</h2>
                                     <span>
-                                        <a href="{{ url('pg_course_list') }}" class="btn btn-warning">PG Course List</a>
+                                        <a href="{{ route('pg.course.list') }}" class="btn btn-warning">PG Course List</a>
                                     </span>
                                 </div>
 
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <div class="col-md-6">
-                                            <form action="{{ url('pg_course_create') }}" method="POST">
+                                            <form action="{{ route('pg.course.store') }}" method="POST">
                                                 @csrf
                                                 <label for="" class="form-label">Program</label>
                                                 <input type="text" name="program" class="form-control"

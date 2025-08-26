@@ -181,6 +181,7 @@
                                                 Selected</button>
                                         </form>
 
+                                        <a href="{{ route('add.new.student')}}" class="btn btn-info btn-sm ml-3">Add Student</a>
                                         <!-- Delete -->
                                         <form method="POST" action="{{ route('students.bulkDelete') }}"
                                             id="deleteForm">

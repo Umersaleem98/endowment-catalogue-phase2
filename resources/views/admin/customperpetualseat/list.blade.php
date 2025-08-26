@@ -34,7 +34,7 @@
                       <div class="col-12">
                           <div class="card card-default">
                               <div class="card-header">
-                                  <h2> Defult Perpetual Seat Education list</h2>
+                                  <h2> Defult Perpetual Seat Endowment list</h2>
 
                               </div>
                               <div class="card-body">

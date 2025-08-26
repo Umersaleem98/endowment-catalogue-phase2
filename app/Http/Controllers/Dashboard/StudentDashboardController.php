@@ -13,11 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class StudentDashboardController extends Controller
 {
-    // public function index()
-    // {
-    //     $students = Student::all();
-    //     return view('admin.students.list', compact('students'));
-    // }
+    
 
     public function index(Request $request)
     {
@@ -63,10 +59,58 @@ class StudentDashboardController extends Controller
         ));
     }
 
+    public function create()
+    {
+        return view('admin.students.add');
+    }
+
+    public function store(Request $request)
+{
+    
+    $student = new Student();
+
+    $student->qalam_id = $request->input('qalam_id');
+    $student->student_name = $request->input('student_name');
+    $student->father_name = $request->input('father_name');
+    $student->institutions = $request->input('institutions');
+    $student->discipline = $request->input('discipline');
+    $student->contact_no = $request->input('contact_no');
+    $student->home_address = $request->input('home_address');
+    $student->scholarship_name = $request->input('scholarship_name');
+    $student->nust_trust_fund_donor_name = $request->input('nust_trust_fund_donor_name');
+    $student->province = $request->input('province');
+    $student->domicile = $request->input('domicile');
+    $student->gender = $request->input('gender');
+    $student->program = $request->input('program');
+    $student->degree = $request->input('degree');
+    $student->year_of_admission = $request->input('year_of_admission');
+    $student->father_status = $request->input('father_status');
+    $student->father_profession = $request->input('father_profession');
+    $student->monthly_income = $request->input('monthly_income');
+    $student->statement_of_purpose = $request->input('statement_of_purpose');
+    $student->remarks = $request->input('remarks');
+    $student->make_pledge = $request->input('make_pledge');
+    $student->payment_approved = $request->input('payment_approved');
+    $student->hostel_status = $request->input('hostel_status');
+
+    // image upload
+    if ($request->hasFile('images')) {
+        $imageName = time() . '.' . $request->file('images')->extension();
+        $request->file('images')->move(public_path('templates/students_images'), $imageName);
+        $student->images = $imageName;
+    }
+
+    $student->save();
+
+    return redirect()->back()->with('success', 'Student added successfully!');
+}
+
+
+
    public function edit($id)
     {
         $students = Student::find($id);
-        return view('pages.students.edit', compact('students'));
+        return view('admin.students.edits', compact('students'));
     }
 
 

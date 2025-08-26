@@ -69,7 +69,7 @@
                                                     <th>Amount</th>
                                                     <th>Prove</th>
                                                     <th>Payment Approved</th>
-                                                    <th>Actions</th>
+                                                    {{-- <th>Actions</th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody>

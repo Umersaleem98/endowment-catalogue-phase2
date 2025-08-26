@@ -46,14 +46,14 @@ hello
                                 <div class="card-header">
                                     <h2>Alumni Country List</h2>
                                     <span>
-                                        <a href="{{ url('ug_course_list') }}" class="btn btn-warning">UG Course List</a>
+                                        <a href="{{ route('ug.course.list') }}" class="btn btn-warning">UG Course List</a>
                                     </span>
                                 </div>
 
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <div class="col-md-6">
-                                            <form action="{{ url('ug_course_create') }}" method="POST">
+                                            <form action="{{ route('ug.course.store') }}" method="POST">
                                                 @csrf
                                                 <label for="" class="form-label">Program</label>
                                                 <input type="text" name="program" class="form-control"

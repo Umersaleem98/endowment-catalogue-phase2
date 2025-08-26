@@ -53,27 +53,26 @@ class UserDashboardController extends Controller
     }
     
 
-    public function update(Request $request, $id)
-    {
-       
-        $user = User::find($id);
+  public function update(Request $request, $id)
+{
+    $user = User::find($id);
 
-        // Update the user's information
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->password = $request->password;
-        $user->usertype = $request->usertype;
+    // Update basic info
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->phone = $request->phone;
+    $user->usertype = $request->usertype;
 
-        // If a new password is provided, hash it and update the user's password
-        
-
-        // Save the updated user
-        $user->save();
-
-        // Redirect with a success message
-        return redirect()->back()->with('success', 'User updated successfully');
+    // Only update password if provided
+    if (!empty($request->password)) {
+        $user->password = bcrypt($request->password);
     }
+
+    // Save the updated user
+    $user->save();
+
+    return redirect()->back()->with('success', 'User updated successfully');
+}
 
     public function delete($id)
     {

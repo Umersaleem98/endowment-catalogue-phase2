@@ -46,14 +46,14 @@ hello
                                 <div class="card-header">
                                     <h2>Alumni Country List</h2>
                                     <span>
-                                        <a href="{{ url('country_data_list') }}" class="btn btn-warning">Country List</a>
+                                        <a href="{{ route('country.data.list') }}" class="btn btn-warning">Country List</a>
                                     </span>
                                 </div>
 
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <div class="col-md-6">
-                                            <form action="{{ url('country_data_create') }}" method="POST">
+                                            <form action="{{ route('country.data.store') }}" method="POST">
                                                 @csrf
                                                 <label for="" class="form-label">Country</label>
                                                 <input type="text" name="countryname" class="form-control"
