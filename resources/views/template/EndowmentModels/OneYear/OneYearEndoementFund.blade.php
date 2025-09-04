@@ -610,12 +610,7 @@
                                 </div>
 
                                 {{-- Link --}}
-                                <div class="mt-3 mb-2">
-                                    <a href="{{ route('student.stories') }}" class="btn btn-info btn-sm"
-                                        style="background-color: #FFA500;">
-                                        Nurture a Dream<br>Read student stories and select a story of your choice.
-                                    </a>
-                                </div>
+                               
 
                                 <input type="submit" class="btn btn-primary" value="Submit">
                             </form>
@@ -1276,12 +1271,7 @@
                                 </div>
 
                                 {{-- Link --}}
-                                <div class="mt-3 mb-2">
-                                    <a href="{{ route('student.stories') }}" class="btn btn-info btn-sm"
-                                        style="background-color: #FFA500;">
-                                        Nurture a Dream<br>Read student stories and select a story of your choice.
-                                    </a>
-                                </div>
+                               
 
                                 <input type="submit" class="btn btn-primary" value="Submit">
                             </form>

@@ -1,4 +1,3 @@
-
 <style>
     .event {
         background-color: #fff;
@@ -13,33 +12,53 @@
     }
 
     .date {
-    background-color: #085590;
-    text-align: center;
-    color: #fff;
-    padding: 0.8rem;
-    border-radius: 10px;
-    width: 90px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.date span {
-    font-size: 1.2rem;
-    font-weight: 500;
-    line-height: 1.2;
-}
+        background-color: #085590;
+        text-align: center;
+        color: #fff;
+        padding: 0.8rem;
+        border-radius: 10px;
+        width: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
-    .date .day { font-size: 1.5rem; font-weight: bold; }
-    .date .month { font-size: 1rem; font-weight: 700; }
-    .date .year { font-size: 0.9rem; }
+    .date span {
+        font-size: 1.2rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .date .day {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .date .month {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .date .year {
+        font-size: 0.9rem;
+    }
 
     .info {
         flex: 1;
         padding-left: 1rem;
     }
 
-    .title { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.3rem; }
-    .desc { font-size: 0.9rem; font-weight: 300; color: #555; }
+    .title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+    }
+
+    .desc {
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: #555;
+    }
 
     .event-image img {
         width: 100px;
@@ -49,9 +68,20 @@
     }
 
     @media (max-width: 768px) {
-        .event { flex-direction: column; text-align: center; }
-        .info { padding-left: 0; margin-top: 1rem; }
-        .event-image img { max-width: 200px; width: 100%; }
+        .event {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .info {
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .event-image img {
+            max-width: 200px;
+            width: 100%;
+        }
     }
 </style>
 
@@ -78,55 +108,55 @@
         </div>
 
         <div id="event-list">
-          @foreach ($events as $item)
-    @if (\Carbon\Carbon::parse($item->event_date)->isToday() || \Carbon\Carbon::parse($item->event_date)->isFuture())
-        <div class="container py-3">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="event">
+            @foreach ($events as $item)
+                @if (\Carbon\Carbon::parse($item->event_date)->isToday() || \Carbon\Carbon::parse($item->event_date)->isFuture())
+                    <div class="container py-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="event">
 
-                        <!-- Date (Left Side) -->
-                        <div class="date">
-                            <span class="day">{{ $item->formatted_day }}</span>
-                            <span class="month">{{ $item->formatted_month }}</span>
-                            <span class="year">{{ $item->formatted_year }}</span>
-                        </div>
+                                    <!-- Date (Left Side) -->
+                                    <div class="date">
+                                        <span class="day">{{ $item->formatted_day }}</span>
+                                        <span class="month">{{ $item->formatted_month }}</span>
+                                        <span class="year">{{ $item->formatted_year }}</span>
+                                    </div>
 
-                        <!-- Event Info (Center) -->
-                        <div class="info">
-                            <h2 class="title text-dark">{{ $item->event_title }}</h2>
-                            <h3 class="text-dark">{{ $item->subtitle }}</h3>
+                                    <!-- Event Info (Center) -->
+                                    <div class="info">
+                                        <h2 class="title text-dark">{{ $item->event_title }}</h2>
+                                        <h3 class="text-dark">{{ $item->subtitle }}</h3>
 
-                            <p class="desc text-dark short-desc">
-                                {{ Str::words($item->description, 40, '...') }}
-                            </p>
+                                        <p class="desc text-dark short-desc">
+                                            {{ Str::words($item->description, 40, '...') }}
+                                        </p>
 
-                            <p class="desc text-dark full-desc d-none">
-                                {{ $item->description }}
-                            </p>
+                                        <p class="desc text-dark full-desc d-none">
+                                            {{ $item->description }}
+                                        </p>
 
-                            <button class="btn btn-link read-more-btn">Read More</button>
-                        </div>
+                                        <button class="btn btn-link read-more-btn">Read More</button>
+                                    </div>
 
-                        <!-- Event Image (Right Side) -->
-                        <div class="event-image">
-                            <img src="{{ asset('events/' . $item->images) }}" alt="Event Image"
-                                class="img-fluid">
+                                    <!-- Event Image (Right Side) -->
+                                    <div class="event-image">
+                                        <img src="{{ asset('events/' . $item->images) }}" alt="Event Image"
+                                            class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    @endif
-@endforeach
+                @endif
+            @endforeach
 
-        
+
             <!-- Pagination -->
             <div class="d-flex justify-content-center mt-3">
                 {!! $events->links('pagination::bootstrap-4') !!}
             </div>
         </div>
-        
+
     </div>
 </div>
 
@@ -164,7 +194,7 @@
             $(this).text($(this).text() === "Read More" ? "Read Less" : "Read More");
         });
     }
-
+ 
     $(document).ready(function() {
         bindReadMoreButtons();
     });

@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <title>Event List</title>
+    <title>Hostel Payment List</title>
+
 
     @include('admin.layouts.head')
 
@@ -46,7 +47,7 @@
                             @endif
                             <div class="card card-default">
                                 <div class="card-header">
-                                    <h2>Event list</h2>
+                                    <h2>Hostel Payment List</h2>
 
                                 </div>
                                 <div class="card-body">
@@ -54,44 +55,41 @@
                                         style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>Id</th>
-                                                <th>Event Title</th>
-                                                <th>Subtitle</th>
-                                                <th>Date</th>
-                                                <th>Image</th>
-                                                <th>Edit</th>
-                                                <th>Delete</th>
+                                                <th>#</th>
+                                                <th>Donor Name</th>
+                                                <th>Donor Email</th>
+                                                <th>Country Code</th>
+                                                <th>Phone</th>
+                                                <th>Amount</th>
+                                                <th>Created At</th> <!-- 👈 New column -->
+                                                <th>Payment Proof</th>
+                                                {{-- <th>Action</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($events as $item)
+                                            @foreach ($paymentslist as $item)
                                                 <tr>
                                                     <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->event_title }}</td>
-                                                    <td>{{ $item->subtitle }}</td>
-                                                    {{-- <td>{{ $item->description }}</td> --}}
-                                                    <td>{{ $item->date }}</td>
+                                                    <td>{{ $item->donor_name }}</td>
+                                                    <td>{{ $item->donor_email }}</td>
+                                                    <td>{{ $item->country_code }}</td>
+                                                    <td>{{ $item->phone }}</td>
+                                                    <td>{{ $item->total_cost }}</td>
+                                                    <td>{{ $item->created_at->format('d M Y h:i A') }}</td>
+                                                    <!-- 👈 Created Date -->
                                                     <td>
-                                                        @if ($item->images)
-                                                            {{-- <img src="{{ asset('images/'.$item->image) }}" alt="Image" style="width: 50px; height:50px;"> --}}
-                                                            <img src="{{ asset('events/' . $item->images) }}"
-                                                                alt="Image" style="width: 50px; height:50px;">
+                                                        @if ($item->prove)
+                                                            <a href="{{ asset('uploads\projecthostel/' . $item->prove) }}"
+                                                                target="_blank">View Proof</a>
                                                         @else
-                                                            No Image
+                                                            N/A
                                                         @endif
                                                     </td>
-                                                    <td>
-                                                        <a href="{{ route('event.edit', $item->id) }}"
-                                                            class="btn btn-primary">Edit</a>
-                                                    </td>
-                                                    <td>
-                                                        <a href="{{ route('event.delete', $item->id) }}"
-                                                            class="btn btn-danger">Delete</a>
-                                                    </td>
+                                                  
                                                 </tr>
                                             @endforeach
                                         </tbody>
-                                        </tbody>
+
                                     </table>
 
                                 </div>

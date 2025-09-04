@@ -47,23 +47,25 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="card-body col-lg-8">
-                                        <form action="{{ url('event_update', $event->id) }}" method="POST"
+                                        <form action="{{ route('event.update', $event->id) }}" method="POST"
                                             enctype="multipart/form-data">
                                             @csrf
-                                          
-                                            
+
+
                                             <!-- Event Title -->
                                             <div class="mb-3">
                                                 <label for="event_title" class="form-label">Event Title</label>
                                                 <input type="text" class="form-control" id="event_title"
-                                                    name="event_title" value="{{ old('event_title', $event->event_title) }}" required>
+                                                    name="event_title"
+                                                    value="{{ old('event_title', $event->event_title) }}" required>
                                             </div>
 
                                             <!-- Subtitle -->
                                             <div class="mb-3">
                                                 <label for="subtitle" class="form-label">Subtitle</label>
                                                 <input type="text" class="form-control" id="subtitle"
-                                                    name="subtitle" value="{{ old('subtitle', $event->subtitle) }}" required>
+                                                    name="subtitle" value="{{ old('subtitle', $event->subtitle) }}"
+                                                    required>
                                             </div>
 
                                             <!-- Description -->
@@ -82,13 +84,15 @@
                                             <!-- Images (You can display current images if any) -->
                                             <div class="mb-3">
                                                 <label for="images" class="form-label">Images</label>
-                                                <input type="file" class="form-control" id="images" name="images" multiple>
-                                                @if($event->images)
+                                                <input type="file" class="form-control" id="images" name="images"
+                                                    multiple>
+                                                @if ($event->images)
                                                     <div class="mt-2">
                                                         <h6>Current Images:</h6>
                                                         <!-- Display images if any exist -->
-                                                        @foreach(explode(',', $event->images) as $image)
-                                                            <img src="{{ asset('events/'.$image) }}" alt="Event Image" style="width: 100px; height: 100px; object-fit: cover; margin-right: 5px;">
+                                                        @foreach (explode(',', $event->images) as $image)
+                                                            <img src="{{ asset('events/' . $image) }}" alt="Event Image"
+                                                                style="width: 100px; height: 100px; object-fit: cover; margin-right: 5px;">
                                                         @endforeach
                                                     </div>
                                                 @endif

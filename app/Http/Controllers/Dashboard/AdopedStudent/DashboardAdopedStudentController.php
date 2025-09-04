@@ -8,17 +8,12 @@ use App\Http\Controllers\Controller;
 
 class DashboardAdopedStudentController extends Controller
 {
-    public function index(Request $request)
-{
-    
-    
+ 
+ public function index(Request $request)
+    {
         $query = Student::query();
-
-        // ✅ Only students where make_pledge = 0 AND payment_approved = 0
-        $query->where('payment_approved', 1)
-                              ->orWhere('make_pledge', 1)
-                              ->get();
-
+        $query->where('make_pledge', 1)
+          ->where('payment_approved', 1);
         // Filtering logic
         if ($request->qalam_id) $query->where('qalam_id', 'like', "%{$request->qalam_id}%");
         if ($request->student_name) $query->where('student_name', 'like', "%{$request->student_name}%");
@@ -56,6 +51,19 @@ class DashboardAdopedStudentController extends Controller
             'programs',
             'degrees'
         ));
+    }
+
+    public function Unadopted($id)
+{
+    $student = Student::findOrFail($id); // safer than find()
+
+    $student->make_pledge = 0;
+    $student->payment_approved = 0;
+    $student->save();
+
+    return redirect()
+        ->route('adopted.students.list')
+        ->with('success', 'Student has been change status  successfully.');
 }
 
 }

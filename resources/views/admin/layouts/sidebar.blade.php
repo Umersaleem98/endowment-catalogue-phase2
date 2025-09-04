@@ -32,7 +32,7 @@
                                 </a>
                             </li>
 
-                             <li>
+                            <li>
                                 <a class="sidenav-item-link" href="{{ route('adopted.students.list') }}">
                                     <span class="nav-text">Adopted Students List</span>
                                 </a>
@@ -118,7 +118,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ route('custom.perpetualseat.endowment.list') }}">
+                                <a class="sidenav-item-link"
+                                    href="{{ route('custom.perpetualseat.endowment.list') }}">
                                     <span class="nav-text">Custom Perpetual</span>
                                 </a>
                             </li>
@@ -157,6 +158,25 @@
                         </div>
                     </ul>
                 </li>
+
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#hostelProject" aria-expanded="false" aria-controls="hostelProject">
+                        <i class="mdi mdi-home-city"></i> <!-- Icon for Hostel Project -->
+                        <span class="nav-text">Hostel Project</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="hostelProject" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+                            <li>
+                                <a class="sidenav-item-link" href="{{ route('hostel.project.payment.list') }}">
+                                    <span class="nav-text">Hostel Payments</span>
+                                </a>
+                            </li>
+                            
+                        </div>
+                    </ul>
+                </li>
+
                 <!-- New Zakat Dropdown Tab -->
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"

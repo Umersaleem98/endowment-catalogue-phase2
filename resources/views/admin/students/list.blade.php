@@ -495,7 +495,7 @@
                 let student = JSON.parse(this.dataset.student.replace(/&quot;/g, '"')); // decode JSON
 
                 // Profile Photo
-                let photoroute = student.images ? "{{ asset('templates\students_images') }}/" + student
+                let photoroute = student.images ? "{{ asset('templates/students_images') }}/" + student
                     .images :
                     "{{ asset('default-avatar.png') }}";
                 document.getElementById('profilePhoto').src = photoroute;

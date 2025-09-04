@@ -57,7 +57,7 @@ class EventsDashboardController extends Controller
         $event->save();
 
         // Redirect or return response
-        return redirect()->back()->with('success', 'Event created successfully!');
+        return redirect()->route('event.list')->with('success', 'Event created successfully!');
     }
 
     public function edit($id)
@@ -107,14 +107,14 @@ class EventsDashboardController extends Controller
         $event->save();
     
         // Redirect with success message
-        return redirect()->back()->with('success', 'Event updated successfully!');
+        return redirect()->route('event.list')->with('success', 'Event updated successfully!');
     }
     
     public function delete($id)
     {
         $event= Event::find($id);
         $event->delete();
-        return redirect()->back()->with('success', 'event delete successfully');
+        return redirect()->route('event.list')->back()->with('success', 'event delete successfully');
 
     }
 }

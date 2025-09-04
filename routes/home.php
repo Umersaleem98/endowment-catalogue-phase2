@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Pages\TeamController;
+use App\Http\Controllers\HostelProjectController;
 use App\Http\Controllers\Pages\AboutUsController;
 use App\Http\Controllers\Pages\ContactUsController;
 use App\Http\Controllers\Pages\NustTrustFundController;
@@ -90,3 +91,8 @@ Route::post('mosque/store', [FundaProjectMosque::class, 'store'])->name('mosque.
 
 Route::get('business_center/{id}', [FundaProjectBusinessCenter::class, 'index']);
 Route::post('business/center/store', [FundaProjectBusinessCenter::class, 'store'])->name('business.center.store');
+
+Route::get('hostel/project/index', [HostelProjectController::class, 'index'])->name('hostel.project.index');
+Route::get('hostel/project/payments', [HostelProjectController::class, 'PaymentIndex'])->name('hostel.project.payments');
+Route::post('hostel/project/payments', [HostelProjectController::class, 'PaymentDone'])->name('hostel.project.done');
+

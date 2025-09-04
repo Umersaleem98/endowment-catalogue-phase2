@@ -123,9 +123,14 @@
 
 </div>
 
-<script src="{{ asset('templates/js/jquery-3.2.1.min.js') }}"></script>
+<!-- jQuery (latest stable) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap 4 JS + Popper -->
 <script src="{{ asset('templates/styles/bootstrap4/popper.js') }}"></script>
 <script src="{{ asset('templates/styles/bootstrap4/bootstrap.min.js') }}"></script>
+
+<!-- Plugins -->
 <script src="{{ asset('templates/plugins/greensock/TweenMax.min.js') }}"></script>
 <script src="{{ asset('templates/plugins/greensock/TimelineMax.min.js') }}"></script>
 <script src="{{ asset('templates/plugins/scrollmagic/ScrollMagic.min.js') }}"></script>
@@ -134,12 +139,8 @@
 <script src="{{ asset('templates/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
 <script src="{{ asset('templates/plugins/scrollTo/jquery.scrollTo.min.js') }}"></script>
 <script src="{{ asset('templates/plugins/easing/easing.js') }}"></script>
+
+<!-- Custom JS -->
 <script src="{{ asset('templates/js/custom.js') }}"></script>
 
-<!-- Bootstrap 5 JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-{{--
-<script src="{{ asset('templates/js/temp/oneyear.js') }}"></script> --}}
-{{-- <script src="{{ asset('templates/js/temp/foutyear.js') }}"></script> --}}
-{{-- <script src="{{ asset('templates/js/temp/perpetual_seat_your_name.js') }}"></script> --}}

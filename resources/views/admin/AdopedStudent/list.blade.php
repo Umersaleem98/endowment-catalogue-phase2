@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="collapse" id="filterSection">
-                                <form method="GET" action="{{ route('students.index') }}" class="row g-2">
+                                <form method="GET" action="{{ route('adopted.students.list') }}" class="row g-2">
                                     <div class="col-md-2">
                                         <input type="text" name="qalam_id" class="form-control form-control-sm mb-2"
                                             placeholder="Qalam ID" value="{{ request('qalam_id') }}">
@@ -142,7 +142,7 @@
                                         <button type="submit" class="btn btn-primary btn-sm">Search</button>
                                     </div>
                                     <div class="col-auto">
-                                        <a href="{{ route('students.index') }}"
+                                        <a href="{{ route('adopted.students.list') }}"
                                             class="btn btn-secondary btn-sm">Reset</a>
                                     </div>
                                 </form>
@@ -165,15 +165,6 @@
 
                                 <div class="card p-3 mb-3">
                                     <div class="d-flex flex-wrap gap-2">
-
-                                        {{-- <!-- Import -->
-                                        <form action="{{ route('students.import') }}" method="POST"
-                                            enctype="multipart/form-data" class="d-flex gap-2">
-                                            @csrf
-                                            <input type="file" name="file"
-                                                class="form-control form-control-sm mb-2" required>
-                                            <button type="submit" class="btn btn-primary btn-sm ml-3">Import</button>
-                                        </form> --}}
 
                                         <!-- Export -->
                                         <form method="POST" action="{{ route('students.export') }}"
@@ -200,7 +191,7 @@
                                         <h5>Adopted Students List</h5>
 
                                         <!-- Show entries -->
-                                        <form method="GET" action="{{ route('students.index') }}" id="perPageForm"
+                                        <form method="GET" action="{{ route('adopted.students.list') }}" id="perPageForm"
                                             class="form-inline">
                                             <label for="perPage" class="mr-2 mb-0">Show</label>
                                             <select name="per_page" id="perPage"
@@ -295,7 +286,7 @@
                                                                     class="btn btn-danger btn-sm py-0 px-2">Delete</a>
                                                             </td> --}}
                                                             <td>
-                                                                <a href="{{ route('students.adopted', ['id' => $student->id]) }}"
+                                                                <a href="{{ route('students.unadopted', ['id' => $student->id]) }}"
                                                                     class="btn btn-warning btn-sm py-0 px-2">Adopted</a>
                                                             </td>
 
@@ -344,9 +335,9 @@
                 </div>
                 <div class="modal-body">
                     <!-- Profile Photo -->
-                    <div class="text-center mb-3">
-                        <img id="profilePhoto" src="{{ asset('default-avatar.png') }}" alt="Profile Photo"
-                            class="rounded-circle" style="width:120px;height:120px;object-fit:cover;">
+                   <div class="text-center mb-3">
+                        <img id="profilePhoto" src="" alt="Profile Photo" class="rounded-circle"
+                            style="width:120px;height:120px;object-fit:cover;">
                     </div>
 
                     <!-- Personal Information -->
@@ -434,9 +425,10 @@
                 let student = JSON.parse(this.dataset.student.replace(/&quot;/g, '"')); // decode JSON
 
                 // ✅ Correct image path
-                let photoroute = student.images ?
-                    "{{ asset('templates.students_images') }}/" + student.images :
+               let photoroute = student.images ? "{{ asset('templates/students_images') }}/" + student
+                    .images :
                     "{{ asset('default-avatar.png') }}";
+                document.getElementById('profilePhoto').src = photoroute;
 
                 document.getElementById('profilePhoto').src = photoroute;
 

@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="card-body col-lg-8">
-                                        <form action="{{ url('event_create') }}" method="POST"
+                                        <form action="{{ route('event.store') }}" method="POST"
                                             enctype="multipart/form-data">
                                             @csrf
                                             <!-- Event Title -->

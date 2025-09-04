@@ -58,9 +58,9 @@
             </li>
         </ul>
 
-        <a class="navbar-brand d-lg-none mr-3" href="{{ route('home') }}">
+        {{-- <a class="navbar-brand d-lg-none mr-3" href="{{ route('home') }}">
             <img src="{{ asset('templates/images/logo3.png') }}" alt="Right Logo" id="right_logo" class="navbar-logo img-fluid blinking-animation">
-        </a>
+        </a> --}}
     </div>
 
     <a class="navbar-brand d-none d-lg-block mr-4" href="{{ route('home') }}">

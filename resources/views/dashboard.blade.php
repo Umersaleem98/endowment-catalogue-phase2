@@ -84,11 +84,11 @@
                         <div class="col-md-3">
                             <div class="card mb-3 text-center" style="background-color:rgb(158, 220, 228)">
                                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                                    <h5 class="card-title text-dark"><i class="fas fa-building"></i> Hostel Payments
+                                    <h5 class="card-title text-dark"><i class="fas fa-building"></i>Total Hostel Payments 
                                     </h5>
-                                    <h4 class="card-text text-dark">Rs. {{ number_format($totalHostelPayments, 2) }}
+                                    <h4 class="card-text text-dark">{{ number_format($totalHostelPayments) }}
                                     </h4>
-                                    <p class="card-text text-dark">Total Hostel Fees Paid</p>
+                                    {{-- <p class="card-text text-dark">Total Hostel Fees Paid</p> --}}
                                 </div>
                             </div>
                         </div>

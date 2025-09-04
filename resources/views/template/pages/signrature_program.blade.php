@@ -103,9 +103,12 @@
                 <div class="row align-items-center flex-column-reverse flex-md-row">
                     <!-- Left Side - Text -->
                     <div class="col-lg-8 col-md-7 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="1000">
-                        <h2 class="text-dark mb-4 text-center text-md-start">Al-Musaid: Supporting Bright Futures</h2>
+                        <h2 class="text-dark mb-4 text-center text-md-start">Dast-e-Karam 2025: Global Zakat Campaign</h2>
                         <p class="text-dark">
-                            In Ramadan 2024, the University Advancement Office (UAO) launched the zakat campaign "Al-Musaid," aimed at raising crucial funds for deserving students. This initiative has already achieved remarkable success, underscoring UAO's unwavering commitment to supporting the nation's brightest minds. Through efforts like Al-Musaid, we are dedicated to ensuring that the dream of higher education is within reach for all talented students, regardless of their financial circumstances. Join us in our mission to empower the leaders of tomorrow.
+                            In Ramadan 2025, the University Advancement Office (UAO) launched “Dast-e-Karam”, our Global Zakat Campaign dedicated to supporting financially challenged yet talented students at NUST. The campaign drew generous support from well-wishers across the globe and reaffirmed UAO’s commitment to making higher education accessible for the nation’s brightest minds.
+                        </p>
+                        <p class="text-dark">
+                           Through Dast-e-Karam 2025, vital funds were raised to ensure that financial barriers do not stand in the way of academic excellence, enabling deserving students to continue their journey of learning and growth.
                         </p>
                      
                     </div>
