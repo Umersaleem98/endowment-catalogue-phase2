@@ -134,7 +134,7 @@
 <script src="{{ asset('templates/plugins/greensock/TweenMax.min.js') }}"></script>
 <script src="{{ asset('templates/plugins/greensock/TimelineMax.min.js') }}"></script>
 <script src="{{ asset('templates/plugins/scrollmagic/ScrollMagic.min.js') }}"></script>
-<script src="{{ asset('templates/plugins/greensock/animation.gsap.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script src="{{ asset('templates/plugins/greensock/ScrollToPlugin.min.js') }}"></script>
 <script src="{{ asset('templates/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
 <script src="{{ asset('templates/plugins/scrollTo/jquery.scrollTo.min.js') }}"></script>
