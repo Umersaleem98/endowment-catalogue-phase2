@@ -26,13 +26,15 @@
             <div class="container">
                 <div class="row">
                     <!-- Left Side - Image -->
-                    <div class="col-lg-4 col-md-4 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="1000">
-                        <img src="{{ asset('templates/images/tahaqureshi.jpg') }}" alt="About Image"
-                            class="img-fluid rounded shadow">
+                    <div class="col-lg-4 col-md-4 mb-md-0 p-5" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="ratio ratio-4x3 rounded shadow overflow-hidden">
+                            <img src="{{ asset('templates/images/tahaqureshi.jpg') }}" alt="About Image"
+                                class="w-100 h-100 object-fit-cover">
+                        </div>
                     </div>
 
                     <!-- Right Side - Text -->
-                    <div class="col-lg-8 col-md-8" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="col-lg-8 col-md-8 p-5" data-aos="fade-left" data-aos-duration="1000">
                         <h2 class="text-center text-dark">NUST OPENS FIRST NTF ACCOUNT IN THE UK</h2>
 
                         <p class="text-dark">
@@ -79,41 +81,67 @@
 
 
         <div id="bankDetails" class="container mb-5">
-            <div class="row mb-3">
+            <div class="row mb-4">
                 <div class="col-12">
-                    <div class="alert alert-secondary" role="alert">
-                        <h2 class="text-dark text-center">Bank Details</h2>
-                        <h2 class="text-dark text-center">Account Title: NUST Trust Foundation, UK</h2>
-
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-4 mb-1 d-flex">
-                    <div class="alert alert-info w-100 h-100" role="alert">
-                        {{-- <h2>Non-Zakat Donation</h2> --}}
-                        <h4 class="text-dark mb-3 mt-3">Account Number GBP: 70027591</h4>
-                        <h4 class="text-dark mb-3">IBAN GBP: GB07 HABB 6095 1170 0275 91</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-1 d-flex">
-                    <div class="alert alert-info w-100 h-100" role="alert">
-                        {{-- <h2>Zakat Donation</h2> --}}
-                        <h4 class="text-dark mb-3 mt-3">Account Number USD: 70027594</h4>
-                        <h4 class="text-dark mb-3">IBAN Number USD: GB23 HABB 6095 1170 0275 94</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-1 d-flex">
-                    <div class="alert alert-info w-100 h-100" role="alert">
-                        {{-- <h2>Endowment Fund Donations</h2> --}}
-                        <h4 class="text-dark mb-3 mt-3">Account Type: Savings Account</h4>
-                        <h4 class="text-dark mb-3">Branch: HBL Bank UK, 2 Swan Street, Manchester M4 5JN</h4>
-                        <h4 class="text-dark mb-3">SWIFT/BIC: HABBGB2L</h4>
+                    <div class="text-center">
+                        <h2 class="fw-bold text-dark mb-3">Bank Details</h2>
+                        <p class="text-muted">Donate securely through our official accounts</p>
                     </div>
                 </div>
             </div>
 
+            <div class="row g-4">
+                <!-- GBP Account -->
+                <div class="col-md-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card shadow border-0 rounded-4 text-center p-4 w-100 h-100">
+                        <div class="mb-3">
+                            <i class="fas fa-pound-sign fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">GBP Account</h5>
+                        <div class="card-body">
+                            <p class="mb-2 text-dark"><strong>Account Number:</strong> 70027591</p>
+                            <p class="mb-0 text-dark"><strong>IBAN:</strong> GB07 HABB 6095 1170 0275 91</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- USD Account -->
+                <div class="col-md-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card shadow border-0 rounded-4 text-center p-4 w-100 h-100">
+                        <div class="mb-3">
+                            <i class="fas fa-dollar-sign fa-3x text-success"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">USD Account</h5>
+                        <div class="card-body">
+                            <p class="mb-2 text-dark"><strong>Account Number:</strong> 70027594</p>
+                            <p class="mb-0 text-dark"><strong>IBAN:</strong> GB23 HABB 6095 1170 0275 94</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bank Info -->
+                <div class="col-md-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card shadow border-0 rounded-4 text-center p-4 w-100 h-100">
+                        <div class="mb-3">
+                            <i class="fas fa-university fa-3x text-warning"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Bank Information</h5>
+                        <div class="card-body">
+                            <p class="mb-2 text-dark"><strong>Type:</strong> Savings Account</p>
+                            <p class="mb-2 text-dark"><strong>Branch:</strong> HBL Bank UK, 2 Swan Street, Manchester M4
+                                5JN</p>
+                            <p class="mb-0 text-dark"><strong>SWIFT/BIC:</strong> HABBGB2L</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
+        <!-- FontAwesome -->
+        <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+
+
 
 
 

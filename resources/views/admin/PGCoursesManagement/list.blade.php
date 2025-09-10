@@ -70,22 +70,13 @@ hello
                                                         <td>{{ $item->program }}</td>
                                                         <td>{{ $item->degree }}</td>
                                                         <td>{{ $item->fee }}</td>
-                                                        {{-- <td>
-                                                        <a href="{{ url('countryedit/' . $item->id) }}" class="btn btn-success btn-sm">
-                                                            Edit
-                                                        </a>
-                                                    </td> --}}
+                                                       
                                                         <td>
-                                                            <form action="{{ route('course.pg.destroy', $item->id) }}"
-                                                                method="POST"
-                                                                onsubmit="return confirm('Are you sure you want to delete this country?');">
-                                                                @csrf
-                                                            
-                                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                                    Delete
-                                                                </button>
-                                                            </form>
-                                                           
+                                                            <a href="{{ route('pg.course.edit' , $item->id)}}" class="btn btn-info btn-sm">Edit</a>
+                                                        </td>
+
+                                                        <td>
+                                                            <a href="{{ route('course.destroy.pg' , $item->id)}}" class="btn btn-danger btn-sm">Delete</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

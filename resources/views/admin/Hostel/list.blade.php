@@ -89,8 +89,8 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <a href="{{ url('payments_edit', $payment->id) }}"
-                                                            class="btn btn-sm btn-danger">Delete</a>
+                                                        <a href="{{ route('delete.payment.hostel', $payment->id) }}"
+                                                            class="btn btn-sm btn-warning">Delete</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

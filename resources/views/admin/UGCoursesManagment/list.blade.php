@@ -75,16 +75,13 @@ hello
                                                             Edit
                                                         </a>
                                                     </td> --}}
+
                                                         <td>
-                                                            <form action="{{ route('course.destroy', $item->id) }}"
-                                                                method="POST"
-                                                                onsubmit="return confirm('Are you sure you want to delete this country?');">
-                                                                @csrf
-                                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                                    Delete
-                                                                </button>
-                                                            </form>
-                                                           
+                                                            <a href="{{ route('course.edit' , $item->id)}}" class="btn btn-info btn-sm">Edit</a>
+                                                        </td>
+
+                                                        <td>
+                                                            <a href="{{ route('course.destroy' , $item->id)}}" class="btn btn-danger btn-sm">Delete</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

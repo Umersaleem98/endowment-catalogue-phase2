@@ -3,6 +3,7 @@
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\HostelProjectController;
 use App\Http\Controllers\Dashboard\StudentDashboardController;
 use App\Http\Controllers\Dashboard\User\UserDashboardController;
 use App\Http\Controllers\Dashboard\Teams\TeamsDashboardController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\Dashboard\Endewment\EndoementZakatDashboardController;
 use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBoysHostel;
 use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectGirlsHostel;
 use App\Http\Controllers\Dashboard\AdopedStudent\DashboardAdopedStudentController;
+use App\Http\Controllers\Dashboard\HostelProject\DashboardHostelProjectController;
 use App\Http\Controllers\Dashboard\Fund_Project\DashboardFundaProjectBusinessCenter;
 use App\Http\Controllers\Dashboard\Endewment\CustomEndowmentOneyearDashboardController;
 use App\Http\Controllers\Dashboard\Endewment\DefultEndowmentOneyearDashboardController;
@@ -28,20 +30,24 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
 
     
-Route::get('/students', [StudentDashboardController::class, 'index'])->name('students.index');
-Route::get('/students/add', [StudentDashboardController::class, 'create'])->name('add.new.student');
-Route::post('/students/store', [StudentDashboardController::class, 'Store'])->name('store.new.student');
-Route::get('/students/adopted/{id}', [StudentDashboardController::class, 'Adopted'])->name('students.adopted');
-Route::get('/students/edit/{id}', [StudentDashboardController::class, 'edit'])->name('students.edit');
-Route::post('/students/update/{id}', [StudentDashboardController::class, 'update'])->name('students.update');
-Route::get('/students/delete/{id}', [StudentDashboardController::class, 'Delete'])->name('students.delete');
-Route::post('/students/import', [StudentDashboardController::class, 'importExcel'])->name('students.import');
-Route::post('/students/export', [StudentDashboardController::class, 'exportSelected'])->name('students.export');
-Route::post('/students/bulkDelete', [StudentDashboardController::class, 'deleteSelected'])->name('students.bulkDelete');
+Route::get('students', [StudentDashboardController::class, 'index'])->name('students.index');
+Route::get('students/add', [StudentDashboardController::class, 'create'])->name('add.new.student');
+Route::post('students/store', [StudentDashboardController::class, 'Store'])->name('store.new.student');
+Route::get('students/adopted/{id}', [StudentDashboardController::class, 'Adopted'])->name('students.adopted');
+Route::get('students/edit/{id}', [StudentDashboardController::class, 'Edit'])->name('student.edit');
+Route::post('students/update/{id}', [StudentDashboardController::class, 'update'])->name('students.update');
+
+
+Route::get('students/delete/{id}', [StudentDashboardController::class, 'Delete'])->name('students.delete');
+Route::post('students/import', [StudentDashboardController::class, 'importExcel'])->name('students.import');
+Route::post('students/export', [StudentDashboardController::class, 'exportSelected'])->name('students.export');
+Route::post('students/bulkDelete', [StudentDashboardController::class, 'deleteSelected'])->name('students.bulkDelete');
 
 
 
@@ -93,6 +99,10 @@ Route::get('student/story/pledge/payment', [DashboardStudentsStory::class, 'Pled
 
 // Adoped Student dashboard 
 Route::get('adopted/students/list', [DashboardAdopedStudentController::class, 'index'])->name('adopted.students.list');
+Route::get('student/edit/{id}', [DashboardAdopedStudentController::class, 'Edit'])->name('students.edit.adopted');
+// // Update request
+Route::post('students/update/{id}', [DashboardAdopedStudentController::class, 'Update'])->name('students.update.adopted');
+
 Route::get('/students/unadopted/{id}', [DashboardAdopedStudentController::class, 'Unadopted'])->name('students.unadopted');
 
 // Country data managment dashboard 
@@ -106,20 +116,26 @@ Route::post('country/delete/{id}', [CountryDataManagmentController::class, 'dele
 Route::get('ug/course/list', [CourseUGdataManagmentController::class, 'index'])->name('ug.course.list');
 Route::get('ug/course/index', [CourseUGdataManagmentController::class, 'create'])->name('ug.course.index');
 Route::post('ug/course/create', [CourseUGdataManagmentController::class, 'store'])->name('ug.course.store');
-Route::post('course/delete/{id}', [CourseUGdataManagmentController::class, 'delete'])->name('course.destroy');
+Route::get('course/edit/{id}', [CourseUGdataManagmentController::class, 'Edit'])->name('course.edit');
+Route::post('course/update/{id}', [CourseUGdataManagmentController::class, 'Update'])->name('ug.course.update');
+Route::get('course/delete/{id}', [CourseUGdataManagmentController::class, 'delete'])->name('course.destroy');
 
 //UG Courses data managment dashboard
 
 Route::get('pg/course/list', [CoursePGdataManagmentController::class, 'index'])->name('pg.course.list');
 Route::get('pg/course/index', [CoursePGdataManagmentController::class, 'create'])->name('pg.course.index');
 Route::post('pg/course/create', [CoursePGdataManagmentController::class, 'store'])->name('pg.course.store');
-Route::post('course/delete/{id}', [CoursePGdataManagmentController::class, 'delete'])->name('course.pg.destroy');
+Route::get('course/edit/pg/{id}', [CoursePGdataManagmentController::class, 'EditPG'])->name('pg.course.edit');
+
+Route::post('course/update/{id}', [CoursePGdataManagmentController::class, 'UpdatePG'])->name('pg.course.update');
+Route::post('course/delete/{id}', [CoursePGdataManagmentController::class, 'delete'])->name('course.destroy.pg');
 
 Route::get('hostel/list', [DashboardHostelController::class, 'index'])->name('hostel.list');
-// Route::get('payments/edit/{id}', [DashboardHostelController::class, 'delete'])->name('');
+// Route::get('hostel/unmark/{id}', [DashboardHostelController::class, 'Unmark'])->name('unmark.payment.hostel');
+Route::get('payments/delete/{id}', [DashboardHostelController::class, 'delete'])->name('delete.payment.hostel');
 
-Route::get('hostel/project/payment/index', [HostelProjectController::class,'index'])->name('hostel.project.payment.list');
+Route::get('hostel/project/payment/index', [DashboardHostelProjectController::class,'index'])->name('hostel.project.payment.list');
 
-
+Route::get('hostel/project/payment/delete/{id}', [DashboardHostelProjectController::class,'delete'])->name('hostel.project.payment.delete');
 
 });

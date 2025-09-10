@@ -78,14 +78,24 @@
                                                     <td>{{ $item->created_at->format('d M Y h:i A') }}</td>
                                                     <!-- 👈 Created Date -->
                                                     <td>
-                                                        @if ($item->prove)
-                                                            <a href="{{ asset('uploads\projecthostel/' . $item->prove) }}"
+                                                        @if ($item->prove && file_exists(public_path('uploads/projecthostel/' . $item->prove)))
+                                                            <a href="{{ asset('uploads/projecthostel/' . $item->prove) }}"
                                                                 target="_blank">View Proof</a>
                                                         @else
-                                                            N/A
+                                                            <span onclick="alert('No proof exists')"
+                                                                style="cursor: pointer; color: red;">No Proof
+                                                                Exists</span>
                                                         @endif
                                                     </td>
-                                                  
+
+                                                    <td>
+                                                        <a class="btn btn-danger btn-sm"
+                                                            href="{{ route('hostel.project.payment.delete', $item->id) }}"
+                                                            onclick="return confirm('Are you sure you want to delete this payment?');">
+                                                            Delete
+                                                        </a>
+                                                    </td>
+
                                                 </tr>
                                             @endforeach
                                         </tbody>

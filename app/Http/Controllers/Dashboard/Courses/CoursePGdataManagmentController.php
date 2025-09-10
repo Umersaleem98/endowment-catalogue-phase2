@@ -33,12 +33,42 @@ class CoursePGdataManagmentController extends Controller
 
     }
 
-    public function delete($id)
-    {
-        $ugcourses = SupportADegreeForOneYearPg::find($id);
-        $ugcourses->delete();
-        return back()->with('success', 'data is delete successfully');
 
+    public function EditPG($id)
+    {
+
+
+        $pgcourses = SupportADegreeForOneYearPg::find($id);
+         return view('admin.PGCoursesManagement.edit', compact('pgcourses'));
+        
     }
+
+    public function UpdatePG(Request $request, $id)
+{
+    $pgcourses = SupportADegreeForOneYearPg::find($id);
+
+    $pgcourses->update([
+        'program' => $request->program,
+        'degree'  => $request->degree,
+        'fee'     => $request->fee,
+    ]);
+
+    return redirect()->route('pg.course.list')
+                     ->with('success', 'Course updated successfully');
+}
+
+
+
+    public function delete($id)
+{
+    $ugcourses = SupportADegreeForOneYearPg::find($id);
+
+    if ($ugcourses) {
+        $ugcourses->delete();
+    }
+
+    return redirect()->route('ug.course.list')
+                     ->with('success', 'Data deleted successfully');
+}
 
 }

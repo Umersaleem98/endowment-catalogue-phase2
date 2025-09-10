@@ -191,13 +191,13 @@
                                         <h5>Adopted Students List</h5>
 
                                         <!-- Show entries -->
-                                        <form method="GET" action="{{ route('adopted.students.list') }}" id="perPageForm"
-                                            class="form-inline">
+                                        <form method="GET" action="{{ route('adopted.students.list') }}"
+                                            id="perPageForm" class="form-inline">
                                             <label for="perPage" class="mr-2 mb-0">Show</label>
                                             <select name="per_page" id="perPage"
                                                 class="form-control form-control-sm"
                                                 onchange="document.getElementById('perPageForm').submit();">
-                                                @foreach ([50, 100, 150, 200, 300, 350, 400, 450, 500, 550, 600, 650] as $size)
+                                                @foreach ([50, 100, 150, 200, 300, 350, 400, 450, 500, 550, 600, 650, 1000, 1500, 2000] as $size)
                                                     <option value="{{ $size }}"
                                                         {{ request('per_page', 50) == $size ? 'selected' : '' }}>
                                                         {{ $size }}</option>
@@ -216,12 +216,11 @@
 
 
                                     <!-- Bulk Delete Form -->
-                                   <form id="bulkDeleteForm" action="{{ route('students.bulkDelete') }}"
+                                    <form id="bulkDeleteForm" action="{{ route('students.bulkDelete') }}"
                                         method="POST">
                                         @csrf
                                         <div class="table-responsive">
-                                            <table id="productsTable" class="table table-hover"
-                                                style="width:100%">
+                                            <table id="productsTable" class="table table-hover" style="width:100%">
                                                 <thead>
                                                     <tr>
                                                         <th><input type="checkbox" id="select-all">
@@ -277,11 +276,11 @@
                                                                         style="width:50px;height:50px;object-fit:cover;">
                                                                 @endif
                                                             </td>
-                                                            {{-- <td>
-                                                                <a href="{{ route('students.edit', ['id' => $student->id]) }}"
+                                                            <td>
+                                                                <a href="{{ route('students.edit.adopted', ['id' => $student->id]) }}"
                                                                     class="btn btn-info btn-sm py-0 px-2">Edit</a>
                                                             </td>
-                                                            <td>
+                                                            {{-- <td>
                                                                 <a href="{{ route('students.delete', ['id' => $student->id]) }}"
                                                                     class="btn btn-danger btn-sm py-0 px-2">Delete</a>
                                                             </td> --}}
@@ -335,7 +334,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- Profile Photo -->
-                   <div class="text-center mb-3">
+                    <div class="text-center mb-3">
                         <img id="profilePhoto" src="" alt="Profile Photo" class="rounded-circle"
                             style="width:120px;height:120px;object-fit:cover;">
                     </div>
@@ -425,7 +424,7 @@
                 let student = JSON.parse(this.dataset.student.replace(/&quot;/g, '"')); // decode JSON
 
                 // ✅ Correct image path
-               let photoroute = student.images ? "{{ asset('templates/students_images') }}/" + student
+                let photoroute = student.images ? "{{ asset('templates/students_images') }}/" + student
                     .images :
                     "{{ asset('default-avatar.png') }}";
                 document.getElementById('profilePhoto').src = photoroute;

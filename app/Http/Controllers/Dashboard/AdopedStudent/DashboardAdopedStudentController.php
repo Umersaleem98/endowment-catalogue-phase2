@@ -66,4 +66,82 @@ class DashboardAdopedStudentController extends Controller
         ->with('success', 'Student has been change status  successfully.');
 }
 
+
+public function UnmarksHostel($id)
+{
+    $student = Student::findOrFail($id); // safer than find()
+
+    $student->make_pledge = 0;
+    $student->payment_approved = 0;
+    $student->save();
+
+    return redirect()
+        ->route('adopted.students.list')
+        ->with('success', 'Student has been change status  successfully.');
+}
+
+
+
+ public function Edit($id)
+    {
+        $students = Student::find($id);
+        return view('admin.AdopedStudent.edits', compact('students'));
+    }
+
+
+  public function update(Request $request, $id)
+{
+    $student = Student::findOrFail($id);
+
+    // Validate request
+    $request->validate([
+        'qalam_id' => 'required|string|max:255',
+        'student_name' => 'required|string|max:255',
+        'father_name' => 'nullable|string|max:255',
+        'institutions' => 'nullable|string|max:255',
+        'discipline' => 'nullable|string|max:255',
+        'contact_no' => 'nullable|string|max:20',
+        'home_address' => 'nullable|string',
+        'scholarship_name' => 'nullable|string|max:255',
+        'nust_trust_fund_donor_name' => 'nullable|string|max:255',
+        'province' => 'nullable|string|max:255',
+        'domicile' => 'nullable|string|max:255',
+        'gender' => 'nullable|string|max:50',
+        'program' => 'nullable|string|max:50',
+        'degree' => 'nullable|string|max:255',
+        'year_of_admission' => 'nullable|integer',
+        'father_status' => 'nullable|string|max:50',
+        'father_profession' => 'nullable|string|max:255',
+        'monthly_income' => 'nullable|numeric',
+        'statement_of_purpose' => 'nullable|string',
+        'remarks' => 'nullable|string',
+        'make_pledge' => 'nullable|boolean',
+        'payment_approved' => 'nullable|boolean',
+        'hostel_status' => 'nullable|boolean',
+        'images' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+    ]);
+
+    // Handle image upload
+    if ($request->hasFile('images')) {
+        $file = $request->file('images');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('templates/students_images'), $filename);
+
+        // delete old image if exists
+        if ($student->images && file_exists(public_path('templates/students_images/' . $student->images))) {
+            unlink(public_path('templates/students_images/' . $student->images));
+        }
+
+        $student->images = $filename;
+    }
+
+    // Update other fields
+    $student->update($request->except('images'));
+
+    return redirect()->route('adopted.students.list', $student->id)
+                     ->with('success', 'Student updated successfully!');
+}
+
+
+
 }

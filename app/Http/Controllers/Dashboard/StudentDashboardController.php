@@ -106,91 +106,67 @@ class StudentDashboardController extends Controller
 }
 
 
-
-   public function edit($id)
+   public function Edit($id)
     {
         $students = Student::find($id);
         return view('admin.students.edits', compact('students'));
     }
 
 
+        public function update(Request $request, $id)
+{
+    $student = Student::findOrFail($id);
 
-    public function update(Request $request, $id)
-    {
-        $student = Student::findOrFail($id);
+    // Validate request
+    $request->validate([
+        'qalam_id' => 'required|string|max:255',
+        'student_name' => 'required|string|max:255',
+        'father_name' => 'nullable|string|max:255',
+        'institutions' => 'nullable|string|max:255',
+        'discipline' => 'nullable|string|max:255',
+        'contact_no' => 'nullable|string|max:20',
+        'home_address' => 'nullable|string',
+        'scholarship_name' => 'nullable|string|max:255',
+        'nust_trust_fund_donor_name' => 'nullable|string|max:255',
+        'province' => 'nullable|string|max:255',
+        'domicile' => 'nullable|string|max:255',
+        'gender' => 'nullable|string|max:50',
+        'program' => 'nullable|string|max:50',
+        'degree' => 'nullable|string|max:255',
+        'year_of_admission' => 'nullable|integer',
+        'father_status' => 'nullable|string|max:50',
+        'father_profession' => 'nullable|string|max:255',
+        'monthly_income' => 'nullable|numeric',
+        'statement_of_purpose' => 'nullable|string',
+        'remarks' => 'nullable|string',
+        'make_pledge' => 'nullable|boolean',
+        'payment_approved' => 'nullable|boolean',
+        'hostel_status' => 'nullable|boolean',
+        'images' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+    ]);
 
-        // Validation
-        $request->validate([
-            'qalam_id' => 'required|string|max:255',
-            'student_name' => 'required|string|max:255',
-            'father_name' => 'nullable|string|max:255',
-            'institutions' => 'nullable|string|max:255',
-            'discipline' => 'nullable|string|max:255',
-            'contact_no' => 'nullable|string|max:20',
-            'home_address' => 'nullable|string|max:255',
-            'scholarship_name' => 'nullable|string|max:255',
-            'nust_trust_fund_donor_name' => 'nullable|string|max:255',
-            'province' => 'nullable|string|max:255',
-            'domicile' => 'nullable|string|max:255',
-            'gender' => 'nullable|string|max:50',
-            'program' => 'nullable|string|max:255',
-            'degree' => 'nullable|string|max:255',
-            'year_of_admission' => 'nullable|string|max:4',
-            'father_status' => 'nullable|string|max:255',
-            'father_profession' => 'nullable|string|max:255',
-            'monthly_income' => 'nullable|string|max:50',
-            'statement_of_purpose' => 'nullable|string',
-            'remarks' => 'nullable|string',
-            'make_pledge' => 'nullable|string|max:255',
-            'payment_approved' => 'nullable|string|max:50',
-            'hostel_status' => 'nullable|string|max:50',
-            'images' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+    // Handle image upload
+    if ($request->hasFile('images')) {
+        $file = $request->file('images');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('templates/students_images'), $filename);
 
-        // Set each field manually
-        $student->qalam_id = $request->qalam_id;
-        $student->student_name = $request->student_name;
-        $student->father_name = $request->father_name;
-        $student->institutions = $request->institutions;
-        $student->discipline = $request->discipline;
-        $student->contact_no = $request->contact_no;
-        $student->home_address = $request->home_address;
-        $student->scholarship_name = $request->scholarship_name;
-        $student->nust_trust_fund_donor_name = $request->nust_trust_fund_donor_name;
-        $student->province = $request->province;
-        $student->domicile = $request->domicile;
-        $student->gender = $request->gender;
-        $student->program = $request->program;
-        $student->degree = $request->degree;
-        $student->year_of_admission = $request->year_of_admission;
-        $student->father_status = $request->father_status;
-        $student->father_profession = $request->father_profession;
-        $student->monthly_income = $request->monthly_income;
-        $student->statement_of_purpose = $request->statement_of_purpose;
-        $student->remarks = $request->remarks;
-        $student->make_pledge = $request->make_pledge;
-        $student->payment_approved = $request->payment_approved;
-        $student->hostel_status = $request->hostel_status;
-
-        // Handle image upload
-        if ($request->hasFile('images')) {
-            $image = $request->file('images');
-            $imageName = time() . '_' . $image->getClientOriginalName();
-
-            // Delete old image if exists
-            if ($student->images && file_exists(public_path('students_images/' . $student->images))) {
-                unlink(public_path('students_images/' . $student->images));
-            }
-
-            // Move new image
-            $image->move(public_path('students_images'), $imageName);
-            $student->images = $imageName;
+        // delete old image if exists
+        if ($student->images && file_exists(public_path('templates/students_images/' . $student->images))) {
+            unlink(public_path('templates/students_images/' . $student->images));
         }
-        // Save the student
-        $student->save();
 
-        return redirect()->route('students.index')->with('success', 'Student updated successfully.');
+        $student->images = $filename;
     }
+
+    // Update other fields
+    $student->update($request->except('images'));
+
+    return redirect()->route('students.index', $student->id)
+                     ->with('success', 'Student updated successfully!');
+}
+
+
 
     public function Delete($id)
     {

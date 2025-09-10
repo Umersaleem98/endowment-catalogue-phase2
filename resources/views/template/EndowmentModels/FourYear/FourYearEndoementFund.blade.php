@@ -70,16 +70,16 @@
 
                                 {{-- Total Amount & Hostel Option --}}
                                 <div class="row p-2 mt-4">
-                                    <div class="form-group ml-3">
-                                        <input type="checkbox" value="1100000" name="hostelandmessing"
+                                    {{-- <div class="form-group ml-3">
+                                        <input type="checkbox" value="0" name="hostelandmessing"
                                             id="hostelCheckbox">
                                         <label for="hostelCheckbox">Include mess and hostel expenses (11,000,00
                                             PKR)</label>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group ml-3">
                                         <label for="ug-eng-TotalAmount">Total Amount:</label>
                                         <input type="text" class="total_amount form-control" name="totalAmount"
-                                            value="1700000" readonly>
+                                            value="2000000" readonly>
                                     </div>
                                 </div>
 
@@ -295,16 +295,16 @@
                                 </div>
 
                                 <div class="row p-2 mt-4">
-                                    <div class="form-group ml-3">
-                                        <input type="checkbox" value="1100000" name="hostelandmessing"
+                                    {{-- <div class="form-group ml-3">
+                                        <input type="checkbox" value="0" name="hostelandmessing"
                                             id="ug-non-eng-hostel">
                                         <label for="ug-non-eng-hostel">Include mess and hostel expenses (11,000,00
                                             PKR)</label>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group ml-3">
                                         <label for="ug-non-eng-totalAmount">Total Amount:</label>
                                         <input type="text" class="form-control ug-non-eng-totalAmount"
-                                            name="totalAmount" value="2500000" readonly>
+                                            name="totalAmount" value="2700000" readonly>
                                     </div>
                                 </div>
 
@@ -429,7 +429,7 @@
                                     const bankDetails = document.getElementById('bankDetails'); // Optional if present elsewhere
 
                                     const baseAmount = 2500000; // ✅ matches HTML input value
-                                    const hostelAmount = 1100000;
+                                    const hostelAmount = 0;
 
                                     // Update Total Amount
                                     if (hostelCheckbox && totalAmountInput) {
@@ -607,7 +607,7 @@
                                 </div>
 
                                 {{-- Link --}}
-                                
+
 
                                 <input type="submit" class="btn btn-primary" value="Submit">
                             </form>
@@ -688,17 +688,17 @@
 
                                 </div>
                                 <div class="row p-2 mt-4">
-                                    <div class="form-group ml-3">
-                                        <input type="checkbox" value="1100000" name="hostelandmessing"
+                                    {{-- <div class="form-group ml-3">
+                                        <input type="checkbox" value="0" name="hostelandmessing"
                                             class="" value="1100000">
                                         <label for="pg-eng-AdditionalExpenses">Include mess and hostel expenses
                                             (11,000,00
                                             PKR)</label>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group ml-3">
                                         <label for="pg-eng-TotalAmount">Total Amount:</label>
                                         <input type="text" class="total_amount form-control" name="totalAmount"
-                                            value="950000" readonly>
+                                            value="600000" readonly>
                                     </div>
                                 </div>
 
@@ -862,8 +862,8 @@
 
                                     const bankDetails = document.getElementById('bankDetails'); // This may exist globally
 
-                                    const baseAmount = 950000;
-                                    const hostelAmount = 1100000;
+                                    const baseAmount = 600000;
+                                    const hostelAmount = 0;
 
                                     // ✅ Update Total Amount based on checkbox
                                     if (hostelCheckbox && totalAmountInput) {
@@ -928,20 +928,21 @@
                                     <input type="text" name="program_type" value="Defult PG Fouryear"
                                         class="form-control">
                                     <label for="degree">Degree:</label>
-                                    <input type="text" name="degree" value="Non Engineering" class="form-control">
+                                    <input type="text" name="degree" value="Non Engineering"
+                                        class="form-control">
                                 </div>
 
                                 <div class="row p-2 mt-4">
-                                    <div class="form-group ml-3">
-                                        <input type="checkbox" value="1100000" name="hostelandmessing"
+                                    {{-- <div class="form-group ml-3">
+                                        <input type="checkbox" value="0" name="hostelandmessing"
                                             class="">
                                         <label for="pg-non-eng-AdditionalExpenses">Include mess and hostel expenses
                                             (11,000,00 PKR)</label>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group ml-3">
                                         <label for="pg-non-eng-TotalAmount">Total Amount:</label>
                                         <input type="text" class="total_amount form-control" name="totalAmount"
-                                            value="1000000" readonly>
+                                            value="1200000" readonly>
                                     </div>
                                 </div>
 
@@ -1089,8 +1090,8 @@
                                     const payNowProof = form.querySelector('#pg-non-eng-paynowProof');
                                     const bankDetails = document.getElementById('bankDetails'); // optional, global use
 
-                                    const baseAmount = 1000000;
-                                    const hostelAmount = 1100000;
+                                    const baseAmount = 1200000;
+                                    const hostelAmount = 0;
 
                                     if (hostelCheckbox && totalAmountInput) {
                                         hostelCheckbox.addEventListener("change", function() {
@@ -1164,8 +1165,8 @@
                                 </div>
 
                                 <div class="form-check mb-2">
-                                    <input type="checkbox" name="hostelandmessing" class="form-check-input ml-2" id="pg-custom-hostel"
-                                        value="1100000">
+                                    <input type="checkbox" name="hostelandmessing" class="form-check-input ml-2"
+                                        id="pg-custom-hostel" value="1100000">
                                     <label class="form-check-label ml-2" for="pg-custom-hostel">
                                         Include mess and hostel expenses (275,000 PKR)
                                     </label>
@@ -1268,7 +1269,7 @@
                                 </div>
 
                                 {{-- Link --}}
-                                
+
 
                                 <input type="submit" class="btn btn-primary" value="Submit">
                             </form>

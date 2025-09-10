@@ -153,7 +153,7 @@
                 <p class="text-dark responsive-text" style="text-align: justify;">
                     As <b>National University of Sciences and Technology (NUST)</b> enters its fourth decade of
                     excellence, our commitment to quality education is reflected in our impressive ascent in the QS
-                    World University Rankings 2023-2024. We have consistently upheld our reputation as a beacon of
+                    World University Rankings 2025-2026. We have consistently upheld our reputation as a beacon of
                     excellence in higher education in Pakistan while being at par with contemporaries in the elite
                     league of the top universities of the world for the past decade. Our steadfast commitment to
                     fostering knowledge has benefited not only our students but also paved the way for sustainable

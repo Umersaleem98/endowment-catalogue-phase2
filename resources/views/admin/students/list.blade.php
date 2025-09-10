@@ -152,7 +152,7 @@
                             <!-- Actions: Import / Export / Delete -->
 
                             <div class="card card-default">
-                               
+
                                 @if (session('success'))
                                     <div class="alert alert-success">{{ session('success') }}</div>
                                 @endif
@@ -181,7 +181,8 @@
                                                 Selected</button>
                                         </form>
 
-                                        <a href="{{ route('add.new.student')}}" class="btn btn-info btn-sm ml-3">Add Student</a>
+                                        <a href="{{ route('add.new.student') }}" class="btn btn-info btn-sm ml-3">Add
+                                            Student</a>
                                         <!-- Delete -->
                                         <form method="POST" action="{{ route('students.bulkDelete') }}"
                                             id="deleteForm">
@@ -204,7 +205,7 @@
                                             <select name="per_page" id="perPage"
                                                 class="form-control form-control-sm"
                                                 onchange="document.getElementById('perPageForm').submit();">
-                                                @foreach ([50, 100, 150, 200, 300, 350, 400, 450, 500, 550, 600, 650] as $size)
+                                                @foreach ([50, 100, 150, 200, 300, 350, 400, 450, 500, 550, 600, 650, 1000, 1500, 2000] as $size)
                                                     <option value="{{ $size }}"
                                                         {{ request('per_page', 50) == $size ? 'selected' : '' }}>
                                                         {{ $size }}</option>
@@ -227,8 +228,7 @@
                                         method="POST">
                                         @csrf
                                         <div class="table-responsive">
-                                            <table id="productsTable" class="table table-hover"
-                                                style="width:100%">
+                                            <table id="productsTable" class="table table-hover" style="width:100%">
                                                 <thead>
                                                     <tr>
                                                         <th><input type="checkbox" id="select-all">
@@ -285,7 +285,7 @@
                                                                 @endif
                                                             </td>
                                                             <td>
-                                                                <a href="{{ route('students.edit', ['id' => $student->id]) }}"
+                                                                <a href="{{ route('student.edit', ['id' => $student->id]) }}"
                                                                     class="btn btn-info btn-sm py-0 px-2">Edit</a>
                                                             </td>
                                                             <td>

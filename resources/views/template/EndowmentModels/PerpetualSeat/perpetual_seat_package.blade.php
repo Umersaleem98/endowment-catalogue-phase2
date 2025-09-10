@@ -36,15 +36,15 @@
                             <button class="nav-link custom-tab active" id="single-endowment-ug-tab" data-bs-toggle="tab"
                                 data-bs-target="#single-endowment-ug" type="button" role="tab"
                                 aria-controls="single-endowment-ug" aria-selected="true"
-                                style="background-color: #004476; color:white">Single Endowment (UG)</button>
+                                style="background-color: #004476; color:white">Single Endowment</button>
                         </li>
                         <li class="nav-item mb-2" role="presentation">
                             <button class="nav-link custom-tab" id="circular-endowment-ug-tab" data-bs-toggle="tab"
                                 data-bs-target="#circular-endowment-ug" type="button" role="tab"
                                 aria-controls="circular-endowment-ug" aria-selected="false"
-                                style="background-color: #004476; color:white">Circular Endowment (UG)</button>
+                                style="background-color: #004476; color:white">Circular Endowment</button>
                         </li>
-                        <li class="nav-item mb-2" role="presentation">
+                        {{-- <li class="nav-item mb-2" role="presentation">
                             <button class="nav-link custom-tab" id="single-endowment-pg-tab" data-bs-toggle="tab"
                                 data-bs-target="#single-endowment-pg" type="button" role="tab"
                                 aria-controls="single-endowment-pg" aria-selected="false"
@@ -55,7 +55,7 @@
                                 data-bs-target="#circular-endowment-pg" type="button" role="tab"
                                 aria-controls="circular-endowment-pg" aria-selected="false"
                                 style="background-color: #004476; color:white">Circular Endowment (PG)</button>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </div>
@@ -65,9 +65,9 @@
                     <!-- Single Endowment UG Tab Content -->
                     <div class="tab-pane fade show active" id="single-endowment-ug" role="tabpanel"
                         aria-labelledby="single-endowment-ug-tab">
-                        <h3 class="text-center text-dark mt-4">Singular Endowment: Establish one Seat in perpetuity (UG)
+                        <h3 class="text-center text-dark mt-4">Singular Endowment: Establish one Seat in perpetuity
                         </h3>
-                       <div class="row mt-5 justify-content-center">
+                        <div class="row mt-5 justify-content-center">
                             <div class="col-md-5 mb-2">
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">Engineering
                                     Students</h3>
@@ -75,7 +75,7 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group" hidden>
-                                        <input type="text" name="program_type" value="One Year Undergraduate"
+                                        <input type="text" name="program_type" value="Single Endowment Engineering"
                                             class="form-control">
                                         <label for="degree">Degree:</label>
                                         <input type="text" name="degree" value="Engineering" class="form-control">
@@ -84,16 +84,16 @@
                                     </div>
                                     <div class="row p-2 mt-4">
                                         <div class="form-group ml-3">
-                                            <input type="checkbox" value="275000" name="hostelandmessing" class=""
+                                            {{-- <input type="checkbox" value="275000" name="hostelandmessing" class=""
                                                 value="4000000">
                                             <label for="single-endowment-ug-eng-AdditionalExpenses">Include mess and
                                                 hostel expenses (4,000,000
-                                                PKR)</label>
+                                                PKR)</label> --}}
                                         </div>
                                         <div class="form-group ml-3">
                                             <label for="single-endowment-ug-eng-TotalAmount">Total Amount:</label>
                                             <input type="text" class="total_amount form-control" name="totalAmount"
-                                                value="5000000 " readonly>
+                                                value="6500000 " readonly>
                                         </div>
                                     </div>
 
@@ -262,8 +262,8 @@
                                         const payNowProof = document.getElementById('single-endowment-ug-eng-paynowProof');
                                         const bankDetails = document.getElementById('bankDetails');
 
-                                        let baseAmount = 5000000;
-                                        let hostelAmount = 4000000;
+                                        let baseAmount = 6500000;
+                                        let hostelAmount = 0;
 
                                         // ✅ Update Total Amount
                                         hostelCheckbox.addEventListener("change", function() {
@@ -320,7 +320,7 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group" hidden>
-                                        <input type="text" name="program_type" value="One Year Undergraduate"
+                                        <input type="text" name="program_type" value="Single Endowment Non Engineering"
                                             class="form-control">
                                         <label for="degree">Degree:</label>
                                         <input type="text" name="degree" value="Non Engineering"
@@ -329,18 +329,20 @@
 
                                     <div class="row p-2 mt-4">
                                         <div class="form-group ml-3">
-                                            <input type="checkbox" value="4000000" name="hostelandmessing"
+                                            {{-- <input type="checkbox" value="4000000" name="hostelandmessing"
                                                 id="single-endowment-ug-non-eng-hostel">
                                             <label for="single-endowment-ug-non-eng-hostel">Include mess and hostel
-                                                expenses (4,000,000
-                                                PKR)</label>
+                                                expenses (480,000
+                                                PKR)</label> --}}
                                         </div>
                                         <div class="form-group ml-3">
                                             <label for="single-endowment-ug-non-eng-totalAmount">Total Amount:</label>
                                             <input type="text"
                                                 class="form-control single-endowment-ug-non-eng-totalAmount"
-                                                name="totalAmount" value="5000000" readonly>
+                                                name="totalAmount" value="6500000" readonly>
+
                                         </div>
+
                                     </div>
 
                                     {{-- Donor Info --}}
@@ -473,8 +475,8 @@
 
                                         const bankDetails = document.getElementById('bankDetails'); // Optional if present elsewhere
 
-                                        const baseAmount = 5000000; // ✅ matches HTML input value
-                                        const hostelAmount = 4000000;
+                                        const baseAmount = 6500000; // ✅ matches HTML input value
+                                        const hostelAmount = 0;
 
                                         // Update Total Amount
                                         if (hostelCheckbox && totalAmountInput) {
@@ -523,8 +525,8 @@
                     <div class="tab-pane fade" id="circular-endowment-ug" role="tabpanel"
                         aria-labelledby="circular-endowment-ug-tab">
                         <h3 class="text-center text-dark mt-4">Circular Endowment: 4 seats in perpetuity - student
-                            after student (UG)</h3>
-                       <div class="row mt-5 justify-content-center">
+                            after student</h3>
+                        <div class="row mt-5 justify-content-center">
                             <div class="col-md-5 mb-2">
                                 <h3 class="text-light text-center p-3" style="background-color: #004476;">Engineering
                                     Students</h3>
@@ -533,7 +535,7 @@
 
                                     @csrf
                                     <div class="form-group" hidden>
-                                        <input type="text" name="program_type" value="One Year Undergraduate"
+                                        <input type="text" name="program_type" value="Circular Endowment Engineering"
                                             class="form-control">
                                         <label for="degree">Degree:</label>
                                         <input type="text" name="degree" value="Engineering"
@@ -543,17 +545,17 @@
                                     </div>
                                     <div class="row p-2 mt-4">
                                         <div class="form-group ml-3">
-                                            <input type="checkbox" value="275000" name="hostelandmessing"
+                                            {{-- <input type="checkbox" value="275000" name="hostelandmessing"
                                                 class="" value="4000000">
                                             <label for="circular-endowment-eng-AdditionalExpenses">Include mess and
                                                 hostel expenses
                                                 (4,000,000
-                                                PKR)</label>
+                                                PKR)</label> --}}
                                         </div>
                                         <div class="form-group ml-3">
                                             <label for="circular-endowment-eng-TotalAmount">Total Amount:</label>
                                             <input type="text" class="total_amount form-control"
-                                                name="totalAmount" value="20000000" readonly>
+                                                name="totalAmount" value="26000000" readonly>
                                         </div>
                                     </div>
 
@@ -730,8 +732,8 @@
 
                                         const bankDetails = document.getElementById('bankDetails'); // This may exist globally
 
-                                        const baseAmount = 20000000;
-                                        const hostelAmount = 4000000;
+                                        const baseAmount = 26000000;
+                                        const hostelAmount = 0;
 
                                         // ✅ Update Total Amount based on checkbox
                                         if (hostelCheckbox && totalAmountInput) {
@@ -794,7 +796,7 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group" hidden>
-                                        <input type="text" name="program_type" value="One Year Undergraduate"
+                                        <input type="text" name="program_type" value="Circular Endowment Non Engineering"
                                             class="form-control">
                                         <label for="degree">Degree:</label>
                                         <input type="text" name="degree" value="Non Engineering"
@@ -802,19 +804,19 @@
                                     </div>
 
                                     <div class="row p-2 mt-4">
-                                        <div class="form-group ml-3">
-                                            <input type="checkbox" value="4000000" name="hostelandmessing"
+                                        {{-- <div class="form-group ml-3">
+                                            <input type="checkbox" value="480000" name="hostelandmessing"
                                                 id="circular-endowment-ug-non-eng-hostel">
                                             <label for="circular-endowment-ug-non-eng-hostel">
-                                                Include mess and hostel expenses (4,000,000 PKR)
+                                                Include mess and hostel expenses (480,000 PKR)
                                             </label>
-                                        </div>
+                                        </div> --}}
                                         <div class="form-group ml-3">
                                             <label for="circular-endowment-ug-non-eng-totalAmount">Total
                                                 Amount:</label>
                                             <input type="text"
                                                 class="form-control circular-endowment-ug-non-eng-totalAmount"
-                                                name="totalAmount" value="30000000" readonly>
+                                                name="totalAmount" value="26000000" readonly>
                                         </div>
                                     </div>
 
@@ -950,8 +952,8 @@
                                         const bankDetails = document.getElementById('bankDetails'); // Optional if exists
 
                                         // ✅ Corrected values
-                                        const baseAmount = 30000000;
-                                        const hostelAmount = 4000000;
+                                        const baseAmount = 26000000;
+                                        const hostelAmount = 0;
 
                                         if (hostelCheckbox && totalAmountInput) {
                                             hostelCheckbox.addEventListener("change", function() {
@@ -995,974 +997,6 @@
                         </div>
                         <!-- Add more content as needed -->
                     </div>
-
-                    <!-- Single Endowment PG Tab Content -->
-                    <div class="tab-pane fade" id="single-endowment-pg" role="tabpanel"
-                        aria-labelledby="single-endowment-pg-tab">
-                        <h3 class="text-center text-dark mt-4">Singular Endowment: Establish one Seat in perpetuity
-                            (PG)</h3>
-                       <div class="row mt-5 justify-content-center">
-
-                            <div class="col-md-5 mb-2">
-                                <h3 class="text-light text-center p-3" style="background-color: #004476;">Engineering
-                                    Students</h3>
-                                <form id="singular-endowment-pg-eng-form"
-                                    action="{{ route('default.perpetual.seat') }}" method="post"
-                                    enctype="multipart/form-data">
-
-                                    @csrf
-                                    <div class="form-group" hidden>
-                                        <input type="text" name="program_type" value="One Year Undergraduate"
-                                            class="form-control">
-                                        <label for="degree">Degree:</label>
-                                        <input type="text" name="degree" value="Engineering"
-                                            class="form-control">
-                                        {{-- <input type="text" name="seats" value="1" class="form-control"> --}}
-
-                                    </div>
-                                    <div class="row p-2 mt-4">
-                                        <div class="form-group ml-3">
-                                            <input type="checkbox" value="4000000" name="hostelandmessing"
-                                                class="" >
-                                            <label for="singular-endowment-pg-eng-AdditionalExpenses">Include mess and
-                                                hostel expenses
-                                                (4,000,000 
-                                                PKR)</label>
-                                        </div>
-                                        <div class="form-group ml-3">
-                                            <label for="singular-endowment-pg-eng-TotalAmount">Total Amount:</label>
-                                            <input type="text" class="total_amount form-control"
-                                                name="totalAmount" value="5000000" readonly>
-                                        </div>
-                                    </div>
-
-
-
-                                    {{-- Donor info --}}
-                                    <div id="donorInfo">
-                                        <h4 class="text-dark mt-4">Donor Information:</h4>
-
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label for="donor_name">Name:</label>
-                                                    <input type="text" id="donor_name" name="donor_name"
-                                                        placeholder="Enter Your Full Name" class="form-control "
-                                                        required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label for="donor_email">Email:</label>
-                                                    <input type="email" id="donor_email" name="donor_email"
-                                                        placeholder="Enter your Valid Email" class="form-control"
-                                                        required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label for="phone">Phone:</label>
-                                                    <input type="number" id="phone" name="phone"
-                                                        placeholder="Enter Your Phone# (+92)" class="form-control"
-                                                        required>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="container-fluid">
-                                                    <div class="row ml-3">
-                                                        <span class="ml-4 text-dark mb-2">Are You Alumni or Industrial
-                                                            Partner</span>
-                                                        <div class="col-md-10 mb-3">
-                                                            <select class="form-control" name="about_partner"
-                                                                id="singular-endowment-pg-eng-alumni_select">
-                                                                <option value="" disabled selected>Select an
-                                                                    option
-                                                                </option>
-                                                                <option value="Alumni"
-                                                                    id="singular-endowment-pg-eng-Alumni">Alumni
-                                                                </option>
-                                                                <option value="Industrial-Partner"
-                                                                    id="singular-endowment-pg-eng-Industrial-Partner">
-                                                                    Industrial Partner</option>
-                                                                <option value="Philanthropist"
-                                                                    id="singular-endowment-pg-eng-Philanthropist">
-                                                                    Philanthropist</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row ml-4 d-none"
-                                                        id="singular-endowment-pg-eng-div-philanthropist">
-                                                        <div class="col-md-10">
-                                                            <label for="">How do you know us?</label>
-                                                            <textarea name="philanthropist_text" id="" cols="40" rows="5"></textarea>
-                                                        </div>
-                                                    </div>
-
-
-
-
-                                                    <div class="row d-none ml-3"
-                                                        id="singular-endowment-pg-eng-alumni">
-                                                        <div class="col-md-10">
-                                                            <label for="school_select">Select School</label>
-                                                            <select name="school" id="school_select"
-                                                                class="form-control">
-                                                                <option value="" selected>Select School</option>
-                                                                @foreach ($schools as $item)
-                                                                    <option value="{{ $item->schoolname }}">
-                                                                        {{ $item->schoolname }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-md-10">
-                                                            <label for="country_select">Select Country</label>
-                                                            <select name="country" id="country_select"
-                                                                class="form-control">
-                                                                @foreach ($countries as $item)
-                                                                    <option value="{{ $item->countryname }}">
-                                                                        {{ $item->countryname }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-md-10">
-                                                            <label for="year" class="form-label">Select Year of
-                                                                Graduation</label>
-                                                            <select id="year" name="year"
-                                                                class="form-control">
-                                                                <option value="" selected>Select Year of
-                                                                    Graduation
-                                                                </option>
-                                                                @for ($i = date('Y'); $i >= 1990; $i--)
-                                                                    <option value="{{ $i }}">
-                                                                        {{ $i }}
-                                                                    </option>
-                                                                @endfor
-                                                            </select>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-check mb-3 mt-2 ml-3">
-                                                <input
-                                                    class="form-check-input ml-3  singular-endowment-pg-eng-paynow-radio"
-                                                    name="payments_status" type="radio"
-                                                    id="singular-endowment-pg-eng-showBankDetails" value="Paynow">
-                                                <label class="form-check-label ml-4"
-                                                    for="showBankDetailsNonEng">Paynow</label>
-
-                                                <input class="form-check-input ml-3 pledge-radio"
-                                                    name="payments_status" type="radio"
-                                                    id="singular-endowment-pg-eng-pledge" value="make_a_pledge">
-                                                <label class="form-check-label ml-4"
-                                                    for="singular-endowment-pg-eng-pledge">Make a
-                                                    Pledge</label>
-                                            </div>
-
-                                            <!-- Elements to show/hide -->
-                                            <span id="singular-endowment-pg-eng-paynow"
-                                                class="text-dark d-none mb-2 ml-4">
-                                                Attach Screenshots/ Receipt of Fund Transfer
-                                            </span>
-
-                                            <div id="singular-endowment-pg-eng-paynowProof"
-                                                class="form-group d-none ml-3">
-                                                <label for="prove">Proof:</label>
-                                                <input type="file" id="prove" name="prove"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-
-                                    <input type="submit" name="submit" id=""
-                                        class="btn btn-primary ml-3">
-                                </form>
-                                <script>
-                                    document.addEventListener("DOMContentLoaded", function() {
-                                        // Scope to singular-endowment-pg-eng form only
-                                        const form = document.querySelector('#singular-endowment-pg-eng-form'); // Add this ID to your form tag!
-
-                                        if (!form) return;
-
-                                        // Elements inside singular-endowment-pg-eng form
-                                        const hostelCheckbox = form.querySelector('input[name="hostelandmessing"]');
-                                        const totalAmountInput = form.querySelector('.total_amount');
-
-                                        const alumniSelect = form.querySelector('#singular-endowment-pg-eng-alumni_select');
-                                        const alumniFields = form.querySelector('#singular-endowment-pg-eng-alumni');
-                                        const philanthropistFields = form.querySelector('#singular-endowment-pg-eng-div-philanthropist');
-
-                                        const payNowRadio = form.querySelector('#singular-endowment-pg-eng-showBankDetails');
-                                        const pledgeRadio = form.querySelector('#singular-endowment-pg-eng-pledge');
-                                        const payNowText = form.querySelector('#singular-endowment-pg-eng-paynow');
-                                        const payNowProof = form.querySelector('#singular-endowment-pg-eng-paynowProof');
-
-                                        const bankDetails = document.getElementById('bankDetails'); // This may exist globally
-
-                                        const baseAmount = 5000000;
-                                        const hostelAmount = 4000000;
-
-                                        // ✅ Update Total Amount based on checkbox
-                                        if (hostelCheckbox && totalAmountInput) {
-                                            hostelCheckbox.addEventListener("change", function() {
-                                                totalAmountInput.value = this.checked ?
-                                                    baseAmount + hostelAmount :
-                                                    baseAmount;
-                                            });
-                                        }
-
-                                        // ✅ Toggle fields based on Alumni / Partner selection
-                                        if (alumniSelect) {
-                                            alumniSelect.addEventListener("change", function() {
-                                                const selected = this.value;
-
-                                                if (alumniFields) alumniFields.classList.add("d-none");
-                                                if (philanthropistFields) philanthropistFields.classList.add("d-none");
-
-                                                if (selected === "Alumni" && alumniFields) {
-                                                    alumniFields.classList.remove("d-none");
-                                                }
-
-                                                if ((selected === "Philanthropist" || selected === "Industrial-Partner") &&
-                                                    philanthropistFields) {
-                                                    philanthropistFields.classList.remove("d-none");
-                                                }
-                                            });
-                                        }
-
-                                        // ✅ Show/hide proof upload field
-                                        function togglePayNowElements(show) {
-                                            if (payNowText) payNowText.classList.toggle("d-none", !show);
-                                            if (payNowProof) payNowProof.classList.toggle("d-none", !show);
-                                            if (bankDetails) bankDetails.style.display = show ? "block" : "none";
-                                        }
-
-                                        if (payNowRadio) {
-                                            payNowRadio.addEventListener("change", function() {
-                                                if (this.checked) togglePayNowElements(true);
-                                            });
-                                        }
-
-                                        if (pledgeRadio) {
-                                            pledgeRadio.addEventListener("change", function() {
-                                                if (this.checked) togglePayNowElements(false);
-                                            });
-                                        }
-                                    });
-                                </script>
-
-                            </div>
-
-                            <div class="col-md-5 mb-2">
-                                <h3 class="text-light text-center p-3" style="background-color: #004476;">Non
-                                    Engineering
-                                    Students</h3>
-
-                                <form id="sircular-endowment-pg-non-eng-form"
-                                    action="{{ route('default.perpetual.seat') }}" method="post"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-group" hidden>
-                                        <input type="text" name="program_type" value="One Year Undergraduate"
-                                            class="form-control">
-                                        <label for="degree">Degree:</label>
-                                        <input type="text" name="degree" value="Non Engineering"
-                                            class="form-control">
-                                    </div>
-
-                                    <div class="row p-2 mt-4">
-                                        <div class="form-group ml-3">
-                                            <input type="checkbox" value="4000000" name="hostelandmessing"
-                                                id="sircular-endowment-pg-non-eng-hostel">
-                                            <label for="sircular-endowment-pg-non-eng-hostel">Include mess and hostel
-                                                expenses (4,000,000 
-                                                PKR)</label>
-                                        </div>
-                                        <div class="form-group ml-3">
-                                            <label for="sircular-endowment-pg-non-eng-totalAmount">Total
-                                                Amount:</label>
-                                            <input type="text"
-                                                class="form-control sircular-endowment-pg-non-eng-totalAmount"
-                                                name="totalAmount" value="5000000" readonly>
-                                        </div>
-                                    </div>
-
-                                    {{-- Donor Info --}}
-                                    <div id="donorInfo">
-                                        <h4 class="text-dark mt-4">Donor Information:</h4>
-                                        <div class="row">
-                                            <div class="col-sm-12 form-group">
-                                                <label for="donor_name">Name:</label>
-                                                <input type="text" id="donor_name" name="donor_name"
-                                                    placeholder="Enter Your Full Name" class="form-control"
-                                                    required>
-                                            </div>
-                                            <div class="col-sm-12 form-group">
-                                                <label for="donor_email">Email:</label>
-                                                <input type="email" id="donor_email" name="donor_email"
-                                                    placeholder="Enter your Valid Email" class="form-control"
-                                                    required>
-                                            </div>
-                                            <div class="col-sm-12 form-group">
-                                                <label for="phone">Phone:</label>
-                                                <input type="number" id="phone" name="phone"
-                                                    placeholder="Enter Your Phone# (+92)" class="form-control"
-                                                    required>
-                                            </div>
-                                        </div>
-
-                                        <div class="container-fluid">
-                                            <div class="row ml-3">
-                                                <span class="ml-4 text-dark mb-2">Are You Alumni or Industrial
-                                                    Partner</span>
-                                                <div class="col-md-10 mb-3">
-                                                    <select class="form-control" name="about_partner"
-                                                        id="sircular-endowment-pg-non-eng-alumni_select">
-                                                        <option value="" disabled selected>Select an option
-                                                        </option>
-                                                        <option value="Alumni">Alumni</option>
-                                                        <option value="Industrial-Partner">Industrial Partner</option>
-                                                        <option value="Philanthropist">Philanthropist</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="row ml-4 d-none"
-                                                id="sircular-endowment-pg-non-eng-div-philanthropist">
-                                                <div class="col-md-10">
-                                                    <label for="">How do you know us?</label>
-                                                    <textarea name="philanthropist_text" cols="40" rows="5"></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="row d-none ml-3" id="sircular-endowment-pg-non-eng-alumni">
-                                                <div class="col-md-10">
-                                                    <label for="school_select">Select School</label>
-                                                    <select name="school" id="school_select"
-                                                        class="form-control">
-                                                        <option value="" selected>Select School</option>
-                                                        @foreach ($schools as $item)
-                                                            <option value="{{ $item->schoolname }}">
-                                                                {{ $item->schoolname }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <label for="country_select">Select Country</label>
-                                                    <select name="country" id="country_select"
-                                                        class="form-control">
-                                                        @foreach ($countries as $item)
-                                                            <option value="{{ $item->countryname }}">
-                                                                {{ $item->countryname }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <label for="year">Select Year of Graduation</label>
-                                                    <select id="year" name="year" class="form-control">
-                                                        <option value="" selected>Select Year of Graduation
-                                                        </option>
-                                                        @for ($i = date('Y'); $i >= 1990; $i--)
-                                                            <option value="{{ $i }}">{{ $i }}
-                                                            </option>
-                                                        @endfor
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="form-check mb-3 mt-2 ml-3">
-                                                <input class="form-check-input ml-3" name="payments_status"
-                                                    type="radio"
-                                                    id="sircular-endowment-pg-non-eng-showBankDetails"
-                                                    value="Paynow">
-                                                <label class="form-check-label ml-4"
-                                                    for="sircular-endowment-pg-non-eng-showBankDetails">Paynow</label>
-
-                                                <input class="form-check-input ml-3" name="payments_status"
-                                                    type="radio" id="sircular-endowment-pg-non-eng-pledge"
-                                                    value="make_a_pledge">
-                                                <label class="form-check-label ml-4"
-                                                    for="sircular-endowment-pg-non-eng-pledge">Make a
-                                                    Pledge</label>
-                                            </div>
-
-                                            <span id="sircular-endowment-pg-non-eng-paynow"
-                                                class="text-dark d-none mb-2 ml-4">
-                                                Attach Screenshots/ Receipt of Fund Transfer
-                                            </span>
-
-                                            <div id="sircular-endowment-pg-non-eng-paynowProof"
-                                                class="form-group d-none ml-3">
-                                                <label for="prove">Proof:</label>
-                                                <input type="file" id="prove" name="prove"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <input type="submit" name="submit" class="btn btn-primary ml-3">
-                                </form>
-                                <script>
-                                    document.addEventListener("DOMContentLoaded", function() {
-                                        const form = document.querySelector('#sircular-endowment-pg-non-eng-form');
-                                        const hostelCheckbox = form.querySelector('#sircular-endowment-pg-non-eng-hostel');
-                                        const totalAmountInput = form.querySelector('.sircular-endowment-pg-non-eng-totalAmount');
-
-                                        const alumniSelect = form.querySelector('#sircular-endowment-pg-non-eng-alumni_select');
-                                        const alumniFields = form.querySelector('#sircular-endowment-pg-non-eng-alumni');
-                                        const philanthropistFields = form.querySelector('#sircular-endowment-pg-non-eng-div-philanthropist');
-
-                                        const payNowRadio = form.querySelector('#sircular-endowment-pg-non-eng-showBankDetails');
-                                        const pledgeRadio = form.querySelector('#sircular-endowment-pg-non-eng-pledge');
-                                        const payNowText = form.querySelector('#sircular-endowment-pg-non-eng-paynow');
-                                        const payNowProof = form.querySelector('#sircular-endowment-pg-non-eng-paynowProof');
-
-                                        const bankDetails = document.getElementById('bankDetails'); // Optional if present elsewhere
-
-                                        const baseAmount = 5000000; // ✅ matches HTML input value
-                                        const hostelAmount = 4000000;
-
-                                        // Update Total Amount
-                                        if (hostelCheckbox && totalAmountInput) {
-                                            hostelCheckbox.addEventListener("change", function() {
-                                                totalAmountInput.value = this.checked ? baseAmount + hostelAmount : baseAmount;
-                                            });
-                                        }
-
-                                        // Alumni/Philanthropist toggle
-                                        if (alumniSelect) {
-                                            alumniSelect.addEventListener("change", function() {
-                                                const value = this.value;
-
-                                                alumniFields.classList.add("d-none");
-                                                philanthropistFields.classList.add("d-none");
-
-                                                if (value === "Alumni") {
-                                                    alumniFields.classList.remove("d-none");
-                                                } else if (value === "Philanthropist" || value === "Industrial-Partner") {
-                                                    philanthropistFields.classList.remove("d-none");
-                                                }
-                                            });
-                                        }
-
-                                        // Paynow / Pledge toggle
-                                        function togglePayNowElements(show) {
-                                            payNowText.classList.toggle("d-none", !show);
-                                            payNowProof.classList.toggle("d-none", !show);
-                                            if (bankDetails) bankDetails.style.display = show ? "block" : "none";
-                                        }
-
-                                        if (payNowRadio) {
-                                            payNowRadio.addEventListener("change", () => togglePayNowElements(true));
-                                        }
-
-                                        if (pledgeRadio) {
-                                            pledgeRadio.addEventListener("change", () => togglePayNowElements(false));
-                                        }
-                                    });
-                                </script>
-                            </div>
-                        </div>
-                        <!-- Add more content as needed -->
-                    </div>
-
-                    <!-- Circular Endowment PG Tab Content -->
-                    <div class="tab-pane fade" id="circular-endowment-pg" role="tabpanel"
-                        aria-labelledby="circular-endowment-pg-tab">
-                        <h3 class="text-center text-dark mt-4">Circular Endowment: 4 seats in perpetuity - student
-                            after student (PG)</h3>
-                       <div class="row mt-5 justify-content-center">
-
-                            <div class="col-md-4 mb-2">
-                                <h3 class="text-light text-center p-3" style="background-color: #004476;">
-                                    Engineering
-                                    Students</h3>
-                                <form id="circular-endowment-pg-eng-form"
-                                    action="{{ route('default.perpetual.seat') }}" method="post"
-                                    enctype="multipart/form-data">
-
-                                    @csrf
-                                    <div class="form-group" hidden>
-                                        <input type="text" name="program_type" value="One Year Undergraduate"
-                                            class="form-control">
-                                        <label for="degree">Degree:</label>
-                                        <input type="text" name="degree" value="Engineering"
-                                            class="form-control">
-                                        {{-- <input type="text" name="seats" value="1" class="form-control"> --}}
-
-                                    </div>
-                                    <div class="row p-2 mt-4">
-                                        <div class="form-group ml-3">
-                                            <input type="checkbox" name="hostelandmessing"
-                                                class="" value="4000000">
-                                            <label for="circular-endowment-pg-eng-AdditionalExpenses">Include mess and
-                                                hostel expenses
-                                                (40,000,00
-                                                PKR)</label>
-                                        </div>
-                                        <div class="form-group ml-3">
-                                            <label for="circular-endowment-pg-eng-TotalAmount">Total Amount:</label>
-                                            <input type="text" class="total_amount form-control"
-                                                name="totalAmount" value="20000000" readonly>
-                                        </div>
-                                    </div>
-
-
-
-                                    {{-- Donor info --}}
-                                    <div id="donorInfo">
-                                        <h4 class="text-dark mt-4">Donor Information:</h4>
-
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label for="donor_name">Name:</label>
-                                                    <input type="text" id="donor_name" name="donor_name"
-                                                        placeholder="Enter Your Full Name" class="form-control "
-                                                        required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label for="donor_email">Email:</label>
-                                                    <input type="email" id="donor_email" name="donor_email"
-                                                        placeholder="Enter your Valid Email" class="form-control"
-                                                        required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label for="phone">Phone:</label>
-                                                    <input type="number" id="phone" name="phone"
-                                                        placeholder="Enter Your Phone# (+92)" class="form-control"
-                                                        required>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="container-fluid">
-                                                    <div class="row ml-3">
-                                                        <span class="ml-4 text-dark mb-2">Are You Alumni or Industrial
-                                                            Partner</span>
-                                                        <div class="col-md-10 mb-3">
-                                                            <select class="form-control" name="about_partner"
-                                                                id="circular-endowment-pg-eng-alumni_select">
-                                                                <option value="" disabled selected>Select an
-                                                                    option
-                                                                </option>
-                                                                <option value="Alumni"
-                                                                    id="circular-endowment-pg-eng-Alumni">Alumni
-                                                                </option>
-                                                                <option value="Industrial-Partner"
-                                                                    id="circular-endowment-pg-eng-Industrial-Partner">
-                                                                    Industrial Partner</option>
-                                                                <option value="Philanthropist"
-                                                                    id="circular-endowment-pg-eng-Philanthropist">
-                                                                    Philanthropist</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row ml-4 d-none"
-                                                        id="circular-endowment-pg-eng-div-philanthropist">
-                                                        <div class="col-md-10">
-                                                            <label for="">How do you know us?</label>
-                                                            <textarea name="philanthropist_text" id="" cols="40" rows="5"></textarea>
-                                                        </div>
-                                                    </div>
-
-
-
-
-                                                    <div class="row d-none ml-3"
-                                                        id="circular-endowment-pg-eng-alumni">
-                                                        <div class="col-md-10">
-                                                            <label for="school_select">Select School</label>
-                                                            <select name="school" id="school_select"
-                                                                class="form-control">
-                                                                <option value="" selected>Select School</option>
-                                                                @foreach ($schools as $item)
-                                                                    <option value="{{ $item->schoolname }}">
-                                                                        {{ $item->schoolname }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-md-10">
-                                                            <label for="country_select">Select Country</label>
-                                                            <select name="country" id="country_select"
-                                                                class="form-control">
-                                                                @foreach ($countries as $item)
-                                                                    <option value="{{ $item->countryname }}">
-                                                                        {{ $item->countryname }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-md-10">
-                                                            <label for="year" class="form-label">Select Year of
-                                                                Graduation</label>
-                                                            <select id="year" name="year"
-                                                                class="form-control">
-                                                                <option value="" selected>Select Year of
-                                                                    Graduation
-                                                                </option>
-                                                                @for ($i = date('Y'); $i >= 1990; $i--)
-                                                                    <option value="{{ $i }}">
-                                                                        {{ $i }}
-                                                                    </option>
-                                                                @endfor
-                                                            </select>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-check mb-3 mt-2 ml-3">
-                                                <input
-                                                    class="form-check-input ml-3  circular-endowment-pg-eng-paynow-radio"
-                                                    name="payments_status" type="radio"
-                                                    id="circular-endowment-pg-eng-showBankDetails" value="Paynow">
-                                                <label class="form-check-label ml-4"
-                                                    for="showBankDetailsNonEng">Paynow</label>
-
-                                                <input class="form-check-input ml-3 pledge-radio"
-                                                    name="payments_status" type="radio"
-                                                    id="circular-endowment-pg-eng-pledge" value="make_a_pledge">
-                                                <label class="form-check-label ml-4"
-                                                    for="circular-endowment-pg-eng-pledge">Make a
-                                                    Pledge</label>
-                                            </div>
-
-                                            <!-- Elements to show/hide -->
-                                            <span id="circular-endowment-pg-eng-paynow"
-                                                class="text-dark d-none mb-2 ml-4">
-                                                Attach Screenshots/ Receipt of Fund Transfer
-                                            </span>
-
-                                            <div id="circular-endowment-pg-eng-paynowProof"
-                                                class="form-group d-none ml-3">
-                                                <label for="prove">Proof:</label>
-                                                <input type="file" id="prove" name="prove"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-
-                                    <input type="submit" name="submit" id=""
-                                        class="btn btn-primary ml-3">
-                                </form>
-                                <script>
-                                    document.addEventListener("DOMContentLoaded", function() {
-                                        // Scope to circular-endowment-pg-eng form only
-                                        const form = document.querySelector('#circular-endowment-pg-eng-form'); // Add this ID to your form tag!
-
-                                        if (!form) return;
-
-                                        // Elements inside circular-endowment-pg-eng form
-                                        const hostelCheckbox = form.querySelector('input[name="hostelandmessing"]');
-                                        const totalAmountInput = form.querySelector('.total_amount');
-
-                                        const alumniSelect = form.querySelector('#circular-endowment-pg-eng-alumni_select');
-                                        const alumniFields = form.querySelector('#circular-endowment-pg-eng-alumni');
-                                        const philanthropistFields = form.querySelector('#circular-endowment-pg-eng-div-philanthropist');
-
-                                        const payNowRadio = form.querySelector('#circular-endowment-pg-eng-showBankDetails');
-                                        const pledgeRadio = form.querySelector('#circular-endowment-pg-eng-pledge');
-                                        const payNowText = form.querySelector('#circular-endowment-pg-eng-paynow');
-                                        const payNowProof = form.querySelector('#circular-endowment-pg-eng-paynowProof');
-
-                                        const bankDetails = document.getElementById('bankDetails'); // This may exist globally
-
-                                        const baseAmount = 20000000;
-                                        const hostelAmount = 4000000;
-
-                                        // ✅ Update Total Amount based on checkbox
-                                        if (hostelCheckbox && totalAmountInput) {
-                                            hostelCheckbox.addEventListener("change", function() {
-                                                totalAmountInput.value = this.checked ?
-                                                    baseAmount + hostelAmount :
-                                                    baseAmount;
-                                            });
-                                        }
-
-                                        // ✅ Toggle fields based on Alumni / Partner selection
-                                        if (alumniSelect) {
-                                            alumniSelect.addEventListener("change", function() {
-                                                const selected = this.value;
-
-                                                if (alumniFields) alumniFields.classList.add("d-none");
-                                                if (philanthropistFields) philanthropistFields.classList.add("d-none");
-
-                                                if (selected === "Alumni" && alumniFields) {
-                                                    alumniFields.classList.remove("d-none");
-                                                }
-
-                                                if ((selected === "Philanthropist" || selected === "Industrial-Partner") &&
-                                                    philanthropistFields) {
-                                                    philanthropistFields.classList.remove("d-none");
-                                                }
-                                            });
-                                        }
-
-                                        // ✅ Show/hide proof upload field
-                                        function togglePayNowElements(show) {
-                                            if (payNowText) payNowText.classList.toggle("d-none", !show);
-                                            if (payNowProof) payNowProof.classList.toggle("d-none", !show);
-                                            if (bankDetails) bankDetails.style.display = show ? "block" : "none";
-                                        }
-
-                                        if (payNowRadio) {
-                                            payNowRadio.addEventListener("change", function() {
-                                                if (this.checked) togglePayNowElements(true);
-                                            });
-                                        }
-
-                                        if (pledgeRadio) {
-                                            pledgeRadio.addEventListener("change", function() {
-                                                if (this.checked) togglePayNowElements(false);
-                                            });
-                                        }
-                                    });
-                                </script>
-
-                            </div>
-
-                            <div class="col-md-4 mb-2">
-                                <h3 class="text-light text-center p-3" style="background-color: #004476;">Non
-                                    Engineering
-                                    Students</h3>
-
-                                <form id="circular-endowment-pg-non-eng-form"
-                                    action="{{ route('default.perpetual.seat') }}" method="post"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-group" hidden>
-                                        <input type="text" name="program_type" value="One Year Undergraduate"
-                                            class="form-control">
-                                        <label for="degree">Degree:</label>
-                                        <input type="text" name="degree" value="Non Engineering"
-                                            class="form-control">
-                                    </div>
-
-                                    <div class="row p-2 mt-4">
-                                        <div class="form-group ml-3">
-                                            <input type="checkbox" value="4000000" name="hostelandmessing"
-                                                id="circular-endowment-pg-non-eng-hostel">
-                                            <label for="circular-endowment-pg-non-eng-hostel">Include mess and hostel
-                                                expenses (4,000,000 
-                                                PKR)</label>
-                                        </div>
-                                        <div class="form-group ml-3">
-                                            <label for="circular-endowment-pg-non-eng-totalAmount">Total
-                                                Amount:</label>
-                                            <input type="text"
-                                                class="form-control circular-endowment-pg-non-eng-totalAmount"
-                                                name="totalAmount" value="30000000" readonly>
-                                        </div>
-                                    </div>
-
-                                    {{-- Donor Info --}}
-                                    <div id="donorInfo">
-                                        <h4 class="text-dark mt-4">Donor Information:</h4>
-                                        <div class="row">
-                                            <div class="col-sm-12 form-group">
-                                                <label for="donor_name">Name:</label>
-                                                <input type="text" id="donor_name" name="donor_name"
-                                                    placeholder="Enter Your Full Name" class="form-control"
-                                                    required>
-                                            </div>
-                                            <div class="col-sm-12 form-group">
-                                                <label for="donor_email">Email:</label>
-                                                <input type="email" id="donor_email" name="donor_email"
-                                                    placeholder="Enter your Valid Email" class="form-control"
-                                                    required>
-                                            </div>
-                                            <div class="col-sm-12 form-group">
-                                                <label for="phone">Phone:</label>
-                                                <input type="number" id="phone" name="phone"
-                                                    placeholder="Enter Your Phone# (+92)" class="form-control"
-                                                    required>
-                                            </div>
-                                        </div>
-
-                                        <div class="container-fluid">
-                                            <div class="row ml-3">
-                                                <span class="ml-4 text-dark mb-2">Are You Alumni or Industrial
-                                                    Partner</span>
-                                                <div class="col-md-10 mb-3">
-                                                    <select class="form-control" name="about_partner"
-                                                        id="circular-endowment-pg-non-eng-alumni_select">
-                                                        <option value="" disabled selected>Select an option
-                                                        </option>
-                                                        <option value="Alumni">Alumni</option>
-                                                        <option value="Industrial-Partner">Industrial Partner</option>
-                                                        <option value="Philanthropist">Philanthropist</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="row ml-4 d-none"
-                                                id="circular-endowment-pg-non-eng-div-philanthropist">
-                                                <div class="col-md-10">
-                                                    <label for="">How do you know us?</label>
-                                                    <textarea name="philanthropist_text" cols="40" rows="5"></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="row d-none ml-3" id="circular-endowment-pg-non-eng-alumni">
-                                                <div class="col-md-10">
-                                                    <label for="school_select">Select School</label>
-                                                    <select name="school" id="school_select"
-                                                        class="form-control">
-                                                        <option value="" selected>Select School</option>
-                                                        @foreach ($schools as $item)
-                                                            <option value="{{ $item->schoolname }}">
-                                                                {{ $item->schoolname }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <label for="country_select">Select Country</label>
-                                                    <select name="country" id="country_select"
-                                                        class="form-control">
-                                                        @foreach ($countries as $item)
-                                                            <option value="{{ $item->countryname }}">
-                                                                {{ $item->countryname }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <label for="year">Select Year of Graduation</label>
-                                                    <select id="year" name="year" class="form-control">
-                                                        <option value="" selected>Select Year of Graduation
-                                                        </option>
-                                                        @for ($i = date('Y'); $i >= 1990; $i--)
-                                                            <option value="{{ $i }}">{{ $i }}
-                                                            </option>
-                                                        @endfor
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="form-check mb-3 mt-2 ml-3">
-                                                <input class="form-check-input ml-3" name="payments_status"
-                                                    type="radio"
-                                                    id="circular-endowment-pg-non-eng-showBankDetails"
-                                                    value="Paynow">
-                                                <label class="form-check-label ml-4"
-                                                    for="circular-endowment-pg-non-eng-showBankDetails">Paynow</label>
-
-                                                <input class="form-check-input ml-3" name="payments_status"
-                                                    type="radio" id="circular-endowment-pg-non-eng-pledge"
-                                                    value="make_a_pledge">
-                                                <label class="form-check-label ml-4"
-                                                    for="circular-endowment-pg-non-eng-pledge">Make a
-                                                    Pledge</label>
-                                            </div>
-
-                                            <span id="circular-endowment-pg-non-eng-paynow"
-                                                class="text-dark d-none mb-2 ml-4">
-                                                Attach Screenshots/ Receipt of Fund Transfer
-                                            </span>
-
-                                            <div id="circular-endowment-pg-non-eng-paynowProof"
-                                                class="form-group d-none ml-3">
-                                                <label for="prove">Proof:</label>
-                                                <input type="file" id="prove" name="prove"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <input type="submit" name="submit" class="btn btn-primary ml-3">
-                                </form>
-                                <script>
-                                    document.addEventListener("DOMContentLoaded", function() {
-                                        const form = document.querySelector('#circular-endowment-pg-non-eng-form');
-                                        const hostelCheckbox = form.querySelector('#circular-endowment-pg-non-eng-hostel');
-                                        const totalAmountInput = form.querySelector('.circular-endowment-pg-non-eng-totalAmount');
-
-                                        const alumniSelect = form.querySelector('#circular-endowment-pg-non-eng-alumni_select');
-                                        const alumniFields = form.querySelector('#circular-endowment-pg-non-eng-alumni');
-                                        const philanthropistFields = form.querySelector('#circular-endowment-pg-non-eng-div-philanthropist');
-
-                                        const payNowRadio = form.querySelector('#circular-endowment-pg-non-eng-showBankDetails');
-                                        const pledgeRadio = form.querySelector('#circular-endowment-pg-non-eng-pledge');
-                                        const payNowText = form.querySelector('#circular-endowment-pg-non-eng-paynow');
-                                        const payNowProof = form.querySelector('#circular-endowment-pg-non-eng-paynowProof');
-
-                                        const bankDetails = document.getElementById('bankDetails'); // Optional if present elsewhere
-
-                                        const baseAmount = 30000000; // ✅ matches HTML input value
-                                        const hostelAmount = 4000000;
-
-                                        // Update Total Amount
-                                        if (hostelCheckbox && totalAmountInput) {
-                                            hostelCheckbox.addEventListener("change", function() {
-                                                totalAmountInput.value = this.checked ? baseAmount + hostelAmount : baseAmount;
-                                            });
-                                        }
-
-                                        // Alumni/Philanthropist toggle
-                                        if (alumniSelect) {
-                                            alumniSelect.addEventListener("change", function() {
-                                                const value = this.value;
-
-                                                alumniFields.classList.add("d-none");
-                                                philanthropistFields.classList.add("d-none");
-
-                                                if (value === "Alumni") {
-                                                    alumniFields.classList.remove("d-none");
-                                                } else if (value === "Philanthropist" || value === "Industrial-Partner") {
-                                                    philanthropistFields.classList.remove("d-none");
-                                                }
-                                            });
-                                        }
-
-                                        // Paynow / Pledge toggle
-                                        function togglePayNowElements(show) {
-                                            payNowText.classList.toggle("d-none", !show);
-                                            payNowProof.classList.toggle("d-none", !show);
-                                            if (bankDetails) bankDetails.style.display = show ? "block" : "none";
-                                        }
-
-                                        if (payNowRadio) {
-                                            payNowRadio.addEventListener("change", () => togglePayNowElements(true));
-                                        }
-
-                                        if (pledgeRadio) {
-                                            pledgeRadio.addEventListener("change", () => togglePayNowElements(false));
-                                        }
-                                    });
-                                </script>
-                            </div>                          
-                        </div>
-                        <!-- Add more content as needed -->
-                    </div>
-
 
                     <div id="bankDetails" class="container mt-3" style="display: none;">
                         <div class="row mb-3">

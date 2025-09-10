@@ -69,16 +69,16 @@
 
                                 </div>
                                 <div class="row p-2 mt-4">
-                                    <div class="form-group ml-3">
+                                    {{-- <div class="form-group ml-3">
                                         <input type="checkbox" value="275000" name="hostelandmessing" class=""
                                             value="275000">
                                         <label for="ug-eng-AdditionalExpenses">Include mess and hostel expenses (275,000
                                             PKR)</label>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group ml-3">
                                         <label for="ug-eng-TotalAmount">Total Amount:</label>
                                         <input type="text" class="total_amount form-control" name="totalAmount"
-                                            value="350000" readonly>
+                                            value="395000" readonly>
                                     </div>
                                 </div>
 
@@ -111,8 +111,7 @@
                                             <div class="form-group">
                                                 <label for="phone">Phone:</label>
                                                 <input type="number" id="phone" name="phone"
-                                                    placeholder="Enter Your Phone# (+92)" class="form-control"
-                                                    required>
+                                                    placeholder="Enter Your Phone# (+92)" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -232,8 +231,8 @@
                                     const payNowProof = document.getElementById('ug-eng-paynowProof');
                                     const bankDetails = document.getElementById('bankDetails');
 
-                                    let baseAmount = 300000;
-                                    let hostelAmount = 275000;
+                                    let baseAmount = 395000;
+                                    let hostelAmount = 0;
 
                                     // ✅ Update Total Amount
                                     hostelCheckbox.addEventListener("change", function() {
@@ -297,16 +296,16 @@
                                 </div>
 
                                 <div class="row p-2 mt-4">
-                                    <div class="form-group ml-3">
-                                        <input type="checkbox" value="275000" name="hostelandmessing"
+                                    {{-- <div class="form-group ml-3">
+                                        <input type="checkbox" value="0" name="hostelandmessing"
                                             id="ug-non-eng-hostel">
                                         <label for="ug-non-eng-hostel">Include mess and hostel expenses (275,000
                                             PKR)</label>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group ml-3">
                                         <label for="ug-non-eng-totalAmount">Total Amount:</label>
                                         <input type="text" class="form-control ug-non-eng-totalAmount"
-                                            name="totalAmount" value="500000" readonly>
+                                            name="totalAmount" value="551000" readonly>
                                     </div>
                                 </div>
 
@@ -430,8 +429,8 @@
 
                                     const bankDetails = document.getElementById('bankDetails'); // Optional if present elsewhere
 
-                                    const baseAmount = 500000; // ✅ matches HTML input value
-                                    const hostelAmount = 275000;
+                                    const baseAmount = 551000; // ✅ matches HTML input value
+                                    const hostelAmount = 0;
 
                                     // Update Total Amount
                                     if (hostelCheckbox && totalAmountInput) {
@@ -610,7 +609,7 @@
                                 </div>
 
                                 {{-- Link --}}
-                               
+
 
                                 <input type="submit" class="btn btn-primary" value="Submit">
                             </form>
@@ -691,17 +690,17 @@
 
                                 </div>
                                 <div class="row p-2 mt-4">
-                                    <div class="form-group ml-3">
-                                        <input type="checkbox" value="275000" name="hostelandmessing" class=""
+                                    {{-- <div class="form-group ml-3">
+                                        <input type="checkbox" value="0" name="hostelandmessing" class=""
                                             value="275000">
                                         <label for="pg-eng-AdditionalExpenses">Include mess and hostel expenses
                                             (275,000
                                             PKR)</label>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group ml-3">
                                         <label for="pg-eng-TotalAmount">Total Amount:</label>
                                         <input type="text" class="total_amount form-control" name="totalAmount"
-                                            value="370000" readonly>
+                                            value="259000" readonly>
                                     </div>
                                 </div>
 
@@ -865,8 +864,8 @@
 
                                     const bankDetails = document.getElementById('bankDetails'); // This may exist globally
 
-                                    const baseAmount = 300000;
-                                    const hostelAmount = 275000;
+                                    const baseAmount = 259000;
+                                    const hostelAmount = 0;
 
                                     // ✅ Update Total Amount based on checkbox
                                     if (hostelCheckbox && totalAmountInput) {
@@ -931,21 +930,25 @@
                                     <input type="text" name="program_type" value="Defult PG Oneyear"
                                         class="form-control">
                                     <label for="degree">Degree:</label>
-                                    <input type="text" name="degree" value="Non Engineering" class="form-control">
+                                    <input type="text" name="degree" value="Non Engineering"
+                                        class="form-control">
                                 </div>
 
                                 <div class="row p-2 mt-4">
-                                    <div class="form-group ml-3">
+                                    {{-- <div class="form-group ml-3">
                                         <input type="checkbox" value="275000" name="hostelandmessing"
                                             class="">
                                         <label for="pg-non-eng-AdditionalExpenses">Include mess and hostel expenses
                                             (275,000 PKR)</label>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group ml-3">
                                         <label for="pg-non-eng-TotalAmount">Total Amount:</label>
                                         <input type="text" class="total_amount form-control" name="totalAmount"
-                                            value="500000" readonly>
+                                            value="305000" readonly>
+
+
                                     </div>
+                                    <span class="text-success ml-3">Only for Social Sciences</span>
                                 </div>
 
                                 {{-- Donor info --}}
@@ -1092,8 +1095,8 @@
                                     const payNowProof = form.querySelector('#pg-non-eng-paynowProof');
                                     const bankDetails = document.getElementById('bankDetails'); // optional, global use
 
-                                    const baseAmount = 300000;
-                                    const hostelAmount = 275000;
+                                    const baseAmount = 305000;
+                                    const hostelAmount = 0;
 
                                     if (hostelCheckbox && totalAmountInput) {
                                         hostelCheckbox.addEventListener("change", function() {
@@ -1271,7 +1274,7 @@
                                 </div>
 
                                 {{-- Link --}}
-                               
+
 
                                 <input type="submit" class="btn btn-primary" value="Submit">
                             </form>

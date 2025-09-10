@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -46,28 +45,35 @@
                                 <div class="card-header">
                                     <h2>Alumni Country List</h2>
                                     <span>
-                                        <a href="{{ route('ug.course.list') }}" class="btn btn-warning">UG Course List</a>
+                                        <a href="{{ route('ug.course.list') }}" class="btn btn-warning">UG Course
+                                            List</a>
                                     </span>
                                 </div>
 
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <div class="col-md-6">
-                                            <form action="{{ route('ug.course.store') }}" method="POST">
+                                            <form action="{{ route('ug.course.update', $ugcourses->id) }}"
+                                                method="POST">
                                                 @csrf
-                                                <label for="" class="form-label">Program</label>
+                                               
+
+                                                <label for="program" class="form-label">Program</label>
                                                 <input type="text" name="program" class="form-control"
+                                                    value="{{ old('program', $ugcourses->program) }}"
                                                     placeholder="Enter New Course" required>
 
-                                                <label for="" class="form-label">degree</label>
+                                                <label for="degree" class="form-label">Degree</label>
                                                 <input type="text" name="degree" class="form-control"
-                                                    placeholder="Enter New degree" required>
+                                                    value="{{ old('degree', $ugcourses->degree) }}"
+                                                    placeholder="Enter New Degree" required>
 
-                                                    <label for="" class="form-label">Fee</label>
+                                                <label for="fee" class="form-label">Fee</label>
                                                 <input type="number" name="fee" class="form-control"
+                                                    value="{{ old('fee', $ugcourses->fee) }}"
                                                     placeholder="Enter New Fee" required>
 
-                                                <input type="submit" name="submit" class="btn btn-primary mt-3" >
+                                                <input type="submit" value="Update" class="btn btn-primary mt-3">
                                             </form>
                                         </div>
                                     </div>

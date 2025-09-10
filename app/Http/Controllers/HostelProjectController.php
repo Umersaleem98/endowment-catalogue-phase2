@@ -19,27 +19,29 @@ class HostelProjectController extends Controller
    
    public function PaymentDone(Request $request)
 {
-    $validated = $request->validate([
-        'donor_name'   => 'required|string|max:255',
-        'donor_email'  => 'required|email|max:255',
-        'country_code' => 'required|string|max:10',
-        'phone'        => 'required|string|max:20',
-        'total_cost'   => 'required|numeric',
-        'prove'        => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-    ]);
+
+    // dd();
+    $paymentsdone = new SupportHostelProject();
+    $paymentsdone->donor_name   = $request->donor_name;
+    $paymentsdone->donor_email  = $request->donor_email;
+    $paymentsdone->country_code = $request->country_code;
+    $paymentsdone->phone        = $request->phone;
+    $paymentsdone->total_cost   = $request->total_cost;
 
     // Handle file upload
     if ($request->hasFile('prove')) {
-        $fileName = time() . '.' . $request->prove->extension(); // only filename.extension
+        $fileName = time() . '.' . $request->prove->extension();
         $request->prove->move(public_path('uploads/projecthostel'), $fileName);
 
-        // save only filename in DB
-        $validated['prove'] = $fileName;
+        $paymentsdone->prove = $fileName; // save filename in DB
     }
 
-    SupportHostelProject::create($validated);
+    $paymentsdone->save();
 
-    return redirect()->route('hostel.project.index')->with('success', 'Thank you for supporting our hostel project!');
+    return redirect()
+        ->route('hostel.project.index')
+        ->with('success', 'Thank you for supporting our hostel project!');
 }
+
 
 }
