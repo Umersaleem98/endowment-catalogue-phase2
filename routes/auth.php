@@ -40,8 +40,8 @@ Route::get('students', [StudentDashboardController::class, 'index'])->name('stud
 Route::get('students/add', [StudentDashboardController::class, 'create'])->name('add.new.student');
 Route::post('students/store', [StudentDashboardController::class, 'Store'])->name('store.new.student');
 Route::get('students/adopted/{id}', [StudentDashboardController::class, 'Adopted'])->name('students.adopted');
-Route::get('students/edit/{id}', [StudentDashboardController::class, 'Edit'])->name('student.edit');
-Route::post('students/update/{id}', [StudentDashboardController::class, 'update'])->name('students.update');
+Route::get('students/edit/{id}', [StudentDashboardController::class, 'Edit'])->name('students.edit');
+Route::post('students/update/{id}', [StudentDashboardController::class, 'Update'])->name('students.update');
 
 
 Route::get('students/delete/{id}', [StudentDashboardController::class, 'Delete'])->name('students.delete');

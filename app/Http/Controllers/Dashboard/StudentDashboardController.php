@@ -106,14 +106,16 @@ class StudentDashboardController extends Controller
 }
 
 
-   public function Edit($id)
-    {
-        $students = Student::find($id);
-        return view('admin.students.edits', compact('students'));
-    }
+public function Edit($id)
+{
+    $student = Student::findOrFail($id);
+    return view('admin.students.edits', compact('student'));
+}
 
 
-        public function update(Request $request, $id)
+
+
+        public function Update(Request $request, $id)
 {
     $student = Student::findOrFail($id);
 
@@ -162,8 +164,8 @@ class StudentDashboardController extends Controller
     // Update other fields
     $student->update($request->except('images'));
 
-    return redirect()->route('students.index', $student->id)
-                     ->with('success', 'Student updated successfully!');
+    return redirect()->route('students.index')
+                 ->with('success', 'Student updated successfully!');
 }
 
 

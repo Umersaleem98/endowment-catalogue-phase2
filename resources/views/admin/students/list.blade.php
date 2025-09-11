@@ -285,7 +285,7 @@
                                                                 @endif
                                                             </td>
                                                             <td>
-                                                                <a href="{{ route('student.edit', ['id' => $student->id]) }}"
+                                                                <a href="{{ route('students.edit', $student->id) }}"
                                                                     class="btn btn-info btn-sm py-0 px-2">Edit</a>
                                                             </td>
                                                             <td>
