@@ -33,6 +33,7 @@ class CourseUGdataManagmentController extends Controller
 
     public function Edit($id)
     {
+
         $ugcourses = SupportADegreeForOneYearUg::find($id);
          return view('admin.UGCoursesManagment.edit', compact('ugcourses'));
         

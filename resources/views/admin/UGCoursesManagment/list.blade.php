@@ -70,14 +70,10 @@ hello
                                                         <td>{{ $item->program }}</td>
                                                         <td>{{ $item->degree }}</td>
                                                         <td>{{ $item->fee }}</td>
-                                                        {{-- <td>
-                                                        <a href="{{ url('countryedit/' . $item->id) }}" class="btn btn-success btn-sm">
-                                                            Edit
-                                                        </a>
-                                                    </td> --}}
+                                                      
 
                                                         <td>
-                                                            <a href="{{ route('course.edit' , $item->id)}}" class="btn btn-info btn-sm">Edit</a>
+                                                            <a href="{{ route('ug.course.edit', $item->id)}}" class="btn btn-info btn-sm">Edit</a>
                                                         </td>
 
                                                         <td>

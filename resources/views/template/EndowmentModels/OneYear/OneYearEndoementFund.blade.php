@@ -189,12 +189,12 @@
                                             <input class="form-check-input ml-3  ug-eng-paynow-radio"
                                                 name="payments_status" type="radio" id="ug-eng-showBankDetails"
                                                 value="Paynow">
-                                            <label class="form-check-label ml-4"
+                                            <label class="form-check-label ml-5"
                                                 for="showBankDetailsNonEng">Paynow</label>
 
                                             <input class="form-check-input ml-3 pledge-radio" name="payments_status"
                                                 type="radio" id="ug-eng-pledge" value="make_a_pledge">
-                                            <label class="form-check-label ml-4" for="ug-eng-pledge">Make a
+                                            <label class="form-check-label ml-5" for="ug-eng-pledge">Make a
                                                 Pledge</label>
                                         </div>
 
@@ -389,12 +389,12 @@
                                         <div class="form-check mb-3 mt-2 ml-3">
                                             <input class="form-check-input ml-3" name="payments_status"
                                                 type="radio" id="ug-non-eng-showBankDetails" value="Paynow">
-                                            <label class="form-check-label ml-4"
+                                            <label class="form-check-label ml-5"
                                                 for="ug-non-eng-showBankDetails">Paynow</label>
 
                                             <input class="form-check-input ml-3" name="payments_status"
                                                 type="radio" id="ug-non-eng-pledge" value="make_a_pledge">
-                                            <label class="form-check-label ml-4" for="ug-non-eng-pledge">Make a
+                                            <label class="form-check-label ml-5" for="ug-non-eng-pledge">Make a
                                                 Pledge</label>
                                         </div>
 
@@ -596,11 +596,11 @@
                                 <div class="form-check mt-3">
                                     <input class="form-check-input ml-2" name="payments_status" type="radio"
                                         id="ug-custom-paynow" value="Paynow">
-                                    <label class="form-check-label ml-2" for="ug-custom-paynow">Paynow</label>
+                                    <label class="form-check-label ml-4 mb-3" for="ug-custom-paynow">Paynow</label>
 
                                     <input class="form-check-input ml-2" name="payments_status" type="radio"
                                         id="ug-custom-pledge" value="make_a_pledge">
-                                    <label class="form-check-label ml-2" for="ug-custom-pledge">Make a Pledge</label>
+                                    <label class="form-check-label ml-4 mb-3" for="ug-custom-pledge">Make a Pledge</label>
                                 </div>
 
                                 <div class="form-group d-none mt-2" id="ug-custom-proofDiv">
@@ -815,12 +815,12 @@
                                             <input class="form-check-input ml-3  pg-eng-paynow-radio"
                                                 name="payments_status" type="radio" id="pg-eng-showBankDetails"
                                                 value="Paynow">
-                                            <label class="form-check-label ml-4"
+                                            <label class="form-check-label ml-5"
                                                 for="showBankDetailsNonEng">Paynow</label>
 
                                             <input class="form-check-input ml-3 pledge-radio" name="payments_status"
                                                 type="radio" id="pg-eng-pledge" value="make_a_pledge">
-                                            <label class="form-check-label ml-4" for="pg-eng-pledge">Make a
+                                            <label class="form-check-label ml-5" for="pg-eng-pledge">Make a
                                                 Pledge</label>
                                         </div>
 
@@ -1056,12 +1056,12 @@
                                             <input class="form-check-input ml-3 pg-non-eng-paynow-radio"
                                                 name="payments_status" type="radio" id="pg-non-eng-showBankDetails"
                                                 value="Paynow">
-                                            <label class="form-check-label ml-4"
+                                            <label class="form-check-label ml-5"
                                                 for="pg-non-eng-showBankDetails">Paynow</label>
 
                                             <input class="form-check-input ml-3 pledge-radio" name="payments_status"
                                                 type="radio" id="pg-non-eng-pledge" value="make_a_pledge">
-                                            <label class="form-check-label ml-4" for="pg-non-eng-pledge">Make a
+                                            <label class="form-check-label ml-5" for="pg-non-eng-pledge">Make a
                                                 Pledge</label>
                                         </div>
 
@@ -1172,7 +1172,7 @@
                                 <div class="form-check mb-2">
                                     <input type="checkbox" class="form-check-input ml-2" id="pg-custom-hostel"
                                         value="275000">
-                                    <label class="form-check-label ml-2" for="pg-custom-hostel">
+                                    <label class="form-check-label ml-4 mb-3" for="pg-custom-hostel">
                                         Include mess and hostel expenses (275,000 PKR)
                                     </label>
                                 </div>
@@ -1261,11 +1261,11 @@
                                 <div class="form-check mt-3">
                                     <input class="form-check-input ml-2" name="payments_status" type="radio"
                                         id="pg-custom-paynow" value="Paynow">
-                                    <label class="form-check-label ml-2" for="pg-custom-paynow">Paynow</label>
+                                    <label class="form-check-label ml-4 mb-3" for="pg-custom-paynow">Paynow</label>
 
                                     <input class="form-check-input ml-2" name="payments_status" type="radio"
                                         id="pg-custom-pledge" value="make_a_pledge">
-                                    <label class="form-check-label ml-2" for="pg-custom-pledge">Make a Pledge</label>
+                                    <label class="form-check-label ml-4 mb-3" for="pg-custom-pledge">Make a Pledge</label>
                                 </div>
 
                                 <div class="form-group d-none mt-2" id="pg-custom-proofDiv">

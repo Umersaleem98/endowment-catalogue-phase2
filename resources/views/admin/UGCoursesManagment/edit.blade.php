@@ -56,7 +56,7 @@
                                             <form action="{{ route('ug.course.update', $ugcourses->id) }}"
                                                 method="POST">
                                                 @csrf
-                                               
+
 
                                                 <label for="program" class="form-label">Program</label>
                                                 <input type="text" name="program" class="form-control"
@@ -75,6 +75,7 @@
 
                                                 <input type="submit" value="Update" class="btn btn-primary mt-3">
                                             </form>
+
                                         </div>
                                     </div>
                                 </div>

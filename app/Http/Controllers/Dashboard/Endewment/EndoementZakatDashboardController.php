@@ -13,4 +13,15 @@ class EndoementZakatDashboardController extends Controller
         $zakatpayment =EndoementZakatPayment::all();
         return view('admin.zakatpayment.list', compact('zakatpayment'));
     }
+
+   public function Delete($id)
+{
+    $zakatpayment = EndoementZakatPayment::find($id);
+    $zakatpayment->delete();
+
+    return redirect()
+        ->route('zakat.payments.list') // 👈 change this to your listing route name
+        ->with('success', 'Zakat payment deleted successfully.');
+}
+
 }

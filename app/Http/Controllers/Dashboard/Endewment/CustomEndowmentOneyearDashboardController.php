@@ -15,11 +15,36 @@ class CustomEndowmentOneyearDashboardController extends Controller
         $oneyears = CustomPackageOneYearDegree::all();
         return view('admin.customoneyear.list', compact('oneyears'));
     }
+
+    public function DeleteOneyear($id)
+{
+    $oneyears = CustomPackageOneYearDegree::find($id);
+    $oneyears->delete();
+
+    return redirect()
+        ->route('custom.oneyear.endowment.list') // 👈 change this to your listing route name
+        ->with('success', 'Zakat payment deleted successfully.');
+}
+
+
     public function indexforyear()
     {
         $fouryears = CustomPackageFourYearDegree::all();
         return view('admin.customfouryear.list', compact('fouryears'));
     }
+
+   
+    public function Deletefouryear($id)
+{
+    $oneyears = CustomPackageFourYearDegree::find($id);
+    $oneyears->delete();
+
+    return redirect()
+        ->route('custom.fouryear.endowment.list') // 👈 change this to your listing route name
+        ->with('success', 'Zakat payment deleted successfully.');
+}
+
+
     
     public function indexperpetualseat()
     {

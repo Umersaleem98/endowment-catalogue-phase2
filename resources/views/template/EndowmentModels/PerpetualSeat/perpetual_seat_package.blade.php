@@ -215,13 +215,13 @@
                                                     class="form-check-input ml-3  single-endowment-ug-eng-paynow-radio"
                                                     name="payments_status" type="radio"
                                                     id="single-endowment-ug-eng-showBankDetails" value="Paynow">
-                                                <label class="form-check-label ml-4"
+                                                <label class="form-check-label ml-5"
                                                     for="showBankDetailsNonEng">Paynow</label>
 
                                                 <input class="form-check-input ml-3 pledge-radio"
                                                     name="payments_status" type="radio"
                                                     id="single-endowment-ug-eng-pledge" value="make_a_pledge">
-                                                <label class="form-check-label ml-4"
+                                                <label class="form-check-label ml-5"
                                                     for="single-endowment-ug-eng-pledge">Make a
                                                     Pledge</label>
                                             </div>
@@ -431,13 +431,13 @@
                                                 <input class="form-check-input ml-3" name="payments_status"
                                                     type="radio" id="single-endowment-ug-non-eng-showBankDetails"
                                                     value="Paynow">
-                                                <label class="form-check-label ml-4"
+                                                <label class="form-check-label ml-5"
                                                     for="single-endowment-ug-non-eng-showBankDetails">Paynow</label>
 
                                                 <input class="form-check-input ml-3" name="payments_status"
                                                     type="radio" id="single-endowment-ug-non-eng-pledge"
                                                     value="make_a_pledge">
-                                                <label class="form-check-label ml-4"
+                                                <label class="form-check-label ml-5"
                                                     for="single-endowment-ug-non-eng-pledge">Make a
                                                     Pledge</label>
                                             </div>
@@ -678,13 +678,13 @@
                                                     class="form-check-input ml-3  circular-endowment-eng-paynow-radio"
                                                     name="payments_status" type="radio"
                                                     id="circular-endowment-eng-showBankDetails" value="Paynow">
-                                                <label class="form-check-label ml-4"
+                                                <label class="form-check-label ml-5"
                                                     for="showBankDetailsNonEng">Paynow</label>
 
                                                 <input class="form-check-input ml-3 pledge-radio"
                                                     name="payments_status" type="radio"
                                                     id="circular-endowment-eng-pledge" value="make_a_pledge">
-                                                <label class="form-check-label ml-4"
+                                                <label class="form-check-label ml-5"
                                                     for="circular-endowment-eng-pledge">Make a
                                                     Pledge</label>
                                             </div>
@@ -906,13 +906,13 @@
                                                 <input class="form-check-input ml-3" name="payments_status"
                                                     type="radio" id="circular-endowment-ug-non-eng-showBankDetails"
                                                     value="Paynow">
-                                                <label class="form-check-label ml-4"
+                                                <label class="form-check-label ml-5"
                                                     for="circular-endowment-ug-non-eng-showBankDetails">Paynow</label>
 
                                                 <input class="form-check-input ml-3" name="payments_status"
                                                     type="radio" id="circular-endowment-ug-non-eng-pledge"
                                                     value="make_a_pledge">
-                                                <label class="form-check-label ml-4"
+                                                <label class="form-check-label ml-5"
                                                     for="circular-endowment-ug-non-eng-pledge">Make a Pledge</label>
                                             </div>
 

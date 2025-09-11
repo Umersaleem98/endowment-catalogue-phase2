@@ -54,15 +54,23 @@ Route::post('students/bulkDelete', [StudentDashboardController::class, 'deleteSe
 
 // Custom Endownemt Dashboard Controller Routes 
 Route::get('zakat/payments/list', [EndoementZakatDashboardController::class, 'index'])->name('zakat.payments.list');
+Route::get('zakat/payments/delete/{id}', [EndoementZakatDashboardController::class, 'Delete'])->name('zakat.payments.delete');
 // Defult Endownemt Dashboard Controller Routes 
 Route::get('oneyear/endowment/list', [DefultEndowmentOneyearDashboardController::class, 'index'])->name('oneyear.endowment.list');
-Route::get('defult.oneyear.destroy/{id}', [DefultEndowmentOneyearDashboardController::class, 'Delete'])->name('defult.oneyear.destroy');
+Route::get('defult.oneyear.destroy/{id}', [DefultEndowmentOneyearDashboardController::class, 'DeleteOneyear'])->name('defult.oneyear.destroy');
 
 Route::get('fouryear/endowment/list', [DefultEndowmentOneyearDashboardController::class, 'indexforyear'])->name('fouryear.endowment.list');
+Route::get('defult.fouryear.destroy/{id}', [DefultEndowmentOneyearDashboardController::class, 'DeleteFouryear'])->name('defult.fouryear.destroy');
+
 Route::get('perpetualseat/endowment/list', [DefultEndowmentOneyearDashboardController::class, 'indexperpetualseat'])->name('perpetualseat.endowment.list');
+Route::get('defult.perpetualseat.destroy/{id}', [DefultEndowmentOneyearDashboardController::class, 'Deleteperpetualseat'])->name('defult.perpetualseat.destroy');
+
 // Custom Endownemt Dashboard Controller Routes 
 Route::get('custom/oneyear/endowment/list', [CustomEndowmentOneyearDashboardController::class, 'index'])->name('custom.oneyear.endowment.list');
+Route::get('custom/oneyear/endowment/delete/{id}', [CustomEndowmentOneyearDashboardController::class, 'DeleteOneyear'])->name('custom.oneyear.endowment.delete');
+
 Route::get('custom/fouryear/endowment/list', [CustomEndowmentOneyearDashboardController::class, 'indexforyear'])->name('custom.fouryear.endowment.list');
+Route::get('custom/fouryear/endowment/delete/{id}', [CustomEndowmentOneyearDashboardController::class, 'Deletefouryear'])->name('custom.fouryear.endowment.delete');
 Route::get('custom/perpetualseat/endowment/list', [CustomEndowmentOneyearDashboardController::class, 'indexperpetualseat'])->name('custom.perpetualseat.endowment.list');
 // Teams Dashboard Controller Routes 
 Route::get('add/team', [TeamsDashboardController::class, 'index'])->name('add.team');
@@ -116,8 +124,8 @@ Route::post('country/delete/{id}', [CountryDataManagmentController::class, 'dele
 Route::get('ug/course/list', [CourseUGdataManagmentController::class, 'index'])->name('ug.course.list');
 Route::get('ug/course/index', [CourseUGdataManagmentController::class, 'create'])->name('ug.course.index');
 Route::post('ug/course/create', [CourseUGdataManagmentController::class, 'store'])->name('ug.course.store');
-Route::get('course/edit/{id}', [CourseUGdataManagmentController::class, 'Edit'])->name('course.edit');
-Route::post('course/update/{id}', [CourseUGdataManagmentController::class, 'Update'])->name('ug.course.update');
+Route::get('course/edit/{id}', [CourseUGdataManagmentController::class, 'Edit'])->name('ug.course.edit');
+Route::post('course/update/ug/{id}', [CourseUGdataManagmentController::class, 'Update'])->name('ug.course.update');
 Route::get('course/delete/{id}', [CourseUGdataManagmentController::class, 'delete'])->name('course.destroy');
 
 //UG Courses data managment dashboard
@@ -126,7 +134,6 @@ Route::get('pg/course/list', [CoursePGdataManagmentController::class, 'index'])-
 Route::get('pg/course/index', [CoursePGdataManagmentController::class, 'create'])->name('pg.course.index');
 Route::post('pg/course/create', [CoursePGdataManagmentController::class, 'store'])->name('pg.course.store');
 Route::get('course/edit/pg/{id}', [CoursePGdataManagmentController::class, 'EditPG'])->name('pg.course.edit');
-
 Route::post('course/update/{id}', [CoursePGdataManagmentController::class, 'UpdatePG'])->name('pg.course.update');
 Route::post('course/delete/{id}', [CoursePGdataManagmentController::class, 'delete'])->name('course.destroy.pg');
 

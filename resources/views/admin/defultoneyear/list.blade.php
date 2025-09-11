@@ -96,7 +96,7 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <a href="{{ url('defult.oneyear.destroy', $item->id) }}"
+                                                            <a href="{{ route('defult.oneyear.destroy', $item->id) }}"
                                                                 class="btn btn-sm btn-danger">Delete</a>
                                                         </td>
                                                     </tr>

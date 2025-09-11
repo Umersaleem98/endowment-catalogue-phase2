@@ -36,6 +36,13 @@
                           <div class="card card-default">
                               <div class="card-header">
                                   <h2>Custom Four Year Endowment list</h2>
+                                   @if (session('success'))
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            {{ session('success') }}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                    @endif
 
                               </div>
                               <div class="card-body">
@@ -82,6 +89,9 @@
                                                         @else
                                                             No Proof
                                                         @endif
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{route('custom.fouryear.endowment.delete', $item->id)}}" class="btn btn-danger btn-sm">Delete</a>
                                                     </td>
                                           </tr>
                                       @endforeach

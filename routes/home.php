@@ -47,6 +47,7 @@ Route::post('endowment/support/oneyear', [OneYearSupportController::class, 'Cust
 Route::get('support/for/entire/year', [FourYearSupportController::class, 'index'])->name('index.support.for.entire.year');
 
 Route::post('default/package/full/degree', [FourYearSupportController::class, 'DefultFourYearundergraduate'])->name('support.for.entire.year');
+
 Route::post('endowment/support/entire/year', [FourYearSupportController::class, 'CustomFourYearundergraduate'])->name('custom.endowment.support.entire.year');
 // perpetual_seat support endoement fund routes and controllers 
 Route::get('perpetual/seat/yourname', [PerpetualSeatSupportController::class, 'index'])->name('index.perpetual.seat');

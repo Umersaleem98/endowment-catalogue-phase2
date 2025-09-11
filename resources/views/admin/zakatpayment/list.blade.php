@@ -72,6 +72,9 @@
                                                                 No Proof
                                                             @endif
                                                         </td>
+                                                        <td>
+                                                            <a href="{{route('zakat.payments.delete', $item->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
