@@ -1,146 +1,110 @@
 <style>
     a {
         color: white;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #ccc;
     }
 </style>
 
-<footer class="footer">
+<footer class="footer bg-dark text-light pt-5">
     <div class="container">
+        <div class="footer_content">
+            <div class="row gy-4">
 
-
-        <div class="footer_content" style="margin-top: -80px">
-            <div class="row">
-
-                <!-- Footer Column - About -->
-                <div class="col-lg-3 footer_col d-flex flex-column align-items-center text-center text-light">
-
-                    <!-- Logo -->
+                <!-- About -->
+                <div class="col-lg-3 text-center">
                     <div class="logo_container mb-3">
-                        <div class="logo">
-                            <!-- Use asset function for the image URL -->
-                            <img src="{{ asset('templates/images/logo.png') }}" alt="Logo" class="img-fluid"
-                                style="max-width: 120px;">
-                        </div>
+                        <img src="{{ asset('templates/images/logo.png') }}" alt="Logo" class="img-fluid"
+                             style="max-width: 120px;">
                     </div>
-                    <p class="footer_about_text text-light" style="font-size: 16px;">Inspiring Minds, Crafting Futures
-                    </p>
-                </div>
-                <!-- Footer Column - Menu -->
-                <div class="col-lg-3 footer_col">
-                    <div class="footer_column_title">Menu</div>
-                    <div class="footer_column_content">
-                        <ul>
-                            <li class="footer_list_item text-light">
-                                <a href="{{ url('/') }}" target="_blank" rel="noopener noreferrer">Home</a>
-                            </li>
-                            <li class="footer_list_item text-light">
-                                <a href="{{ url('about_us') }}" target="_blank" rel="noopener noreferrer">About us</a>
-                            </li>
-                            <li class="footer_list_item text-light">
-                                <a href="{{ url('/signrature_program') }}" target="_blank"
-                                    rel="noopener noreferrer">Signature Programs</a>
-                            </li>
-                            <li class="footer_list_item text-light">
-                                <a href="{{ url('/nust_trust_foundation') }}" target="_blank"
-                                    rel="noopener noreferrer">Nust Trust Fund</a>
-                            </li>
-                            <li class="footer_list_item text-light">
-                                <a href="{{ url('r_m_o') }}" target="_blank" rel="noopener noreferrer">Resource
-                                    Mobilization Officer</a>
-                            </li>
-                            <li class="footer_list_item text-light">
-                                <a href="{{ url('/our_team') }}" target="_blank" rel="noopener noreferrer">Our Team</a>
-                            </li>
-                            <li class="footer_list_item text-light">
-                                <a href="{{ url('/contact_us') }}" target="_blank" rel="noopener noreferrer">Contact
-                                    Us</a>
-                            </li>
-                        </ul>
-
-                    </div>
+                    <p class="small mb-0">Inspiring Minds, Crafting Futures</p>
                 </div>
 
-                <!-- Footer Column - Usefull Links -->
-
-                <div class="col-lg-3 footer_col">
-                    <div class="footer_column_title">Useful Links</div>
-                    <div class="footer_column_content">
-                        <ul>
-                            <li class="footer_list_item text-light">
-                                <a href="{{ url('https://nust.edu.pk/about-us') }}" target="_blank">NUST</a>
-                            </li>
-                            <li class="footer_list_item text-light">
-                                <a href="{{ url('https://www.linkedin.com/company/uaonust/') }}"
-                                    target="_blank">LinkedIn</a>
-                            </li>
-                            <li class="footer_list_item text-light">
-                                <a href="{{ url('https://www.facebook.com/uao.nust?mibextid=kFxxJD') }}"
-                                    target="_blank">Facebook</a>
-                            </li>
-                            <li class="footer_list_item text-light">
-                                <a href="{{ url('https://www.instagram.com/uao.nust?igsh=MWk3ZmU3cGdscHp2NA==') }}"
-                                    target="_blank">Instagram</a>
-                            </li>
-                        </ul>
-
-                    </div>
+                <!-- Menu -->
+                <div class="col-lg-3">
+                    <h5 class="mb-3">Menu</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ url('/') }}" target="_blank">Home</a></li>
+                        <li><a href="{{ url('about_us') }}" target="_blank">About Us</a></li>
+                        <li><a href="{{ url('/signrature_program') }}" target="_blank">Signature Programs</a></li>
+                        <li><a href="{{ url('/nust_trust_foundation') }}" target="_blank">Nust Trust Fund</a></li>
+                        <li><a href="{{ url('r_m_o') }}" target="_blank">Resource Mobilization Officer</a></li>
+                        <li><a href="{{ url('/our_team') }}" target="_blank">Our Team</a></li>
+                        <li><a href="{{ url('/contact_us') }}" target="_blank">Contact Us</a></li>
+                    </ul>
                 </div>
 
-                <!-- Footer Column - Contact -->
+                <!-- Useful Links -->
+                <div class="col-lg-3">
+                    <h5 class="mb-3">Useful Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://nust.edu.pk/about-us" target="_blank">NUST</a></li>
+                        <li><a href="https://www.linkedin.com/company/uaonust/" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://www.facebook.com/uao.nust" target="_blank">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/uao.nust" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
 
-                <div class="col-lg-3 footer_col">
-                    <div class="footer_column_title">Contact</div>
-                    <div class="footer_column_content">
-                        <ul>
-                            <li class="footer_contact_item">
-                                <div class="footer_contact_icon">
-                                    <img src="{{ asset('templates/images/placeholder.svg') }}" alt="Placeholder Icon">
-                                </div>
-                                <span class="text-light"> RIC Secretariat NUST H-12 </span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Islamabad</span>
-                            </li>
-                            <li class="footer_contact_item">
-                                <div class="footer_contact_icon">
-                                    <img src="{{ asset('templates/images/smartphone.svg') }}" alt="Smartphone Icon">
-                                </div>
-                                <span class="text-light">+92 336 5317822</span>
-
-                            </li>
-                            <li class="footer_contact_item">
-                                <div class="footer_contact_icon">
-                                    <img src="{{ asset('templates/images/envelope.svg') }}" alt="Envelope Icon">
-                                </div>
-                                <span class="text-light">Advancement@nust.edu.pk</span>
-                            </li>
-                        </ul>
-                    </div>
+                <!-- Contact -->
+                <div class="col-lg-3">
+                    <h5 class="mb-3">Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fa-solid fa-location-dot me-2"></i> RIC Secretariat NUST H-12, Islamabad</li>
+                        <li><i class="fa-solid fa-phone me-2"></i> +92 336 5317822</li>
+                        <li><i class="fa-solid fa-envelope me-2"></i> Advancement@nust.edu.pk</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </footer>
 
-</div>
+<!-- ✅ Latest JS Libraries (2025) -->
 
-<!-- jQuery (latest stable) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- jQuery (v3.7.1) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-3gJwYp4B5BzKqKPEJfFBLdKnsA9BLbnpo9mYq3cAJ7EZoDJbb+AzI/fyQbJ0FfQ4LLrdWuqZsmAQ2rO9i9N+DQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- Bootstrap 4 JS + Popper -->
-<script src="{{ asset('templates/styles/bootstrap4/popper.js') }}"></script>
-<script src="{{ asset('templates/styles/bootstrap4/bootstrap.min.js') }}"></script>
+<!-- Bootstrap 5.3.8 Bundle (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 
-<!-- Plugins -->
-<script src="{{ asset('templates/plugins/greensock/TweenMax.min.js') }}"></script>
-<script src="{{ asset('templates/plugins/greensock/TimelineMax.min.js') }}"></script>
-<script src="{{ asset('templates/plugins/scrollmagic/ScrollMagic.min.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
-<script src="{{ asset('templates/plugins/greensock/ScrollToPlugin.min.js') }}"></script>
-<script src="{{ asset('templates/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
-<script src="{{ asset('templates/plugins/scrollTo/jquery.scrollTo.min.js') }}"></script>
-<script src="{{ asset('templates/plugins/easing/easing.js') }}"></script>
+<!-- GSAP (v3.12.5) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-vmNhVd+7XnVNv1uUzqzS8yGZzWQDXDyPSn4gSV2zkQWiG9bODi5FZtF0FtGfR96qTTC6qC3uD8L4Yy0K61XYaA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- Custom JS -->
+<!-- ScrollMagic (v2.0.8) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"
+        integrity="sha512-Mq6aFlV+4XQkY6ngYIMPEg+Qq/2vG4KwN9tMAnb6jKH6dKxwCN7lNRJ7a3I5bCwKzqMF6N2v5p6G5cmI3HVgDg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Owl Carousel 2.3.4 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-pvQhJHmcTHRrAjRQ11vL4sYlPZC/XgxHBPu3F8FxmCQ6jny0fI3Y40r8lC+Y/hEyzH40MRwC+zHgV7ipm2U5ow=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- jQuery ScrollTo (v2.1.3) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"
+        integrity="sha512-SRPnyx2dh/1oKZWZBg8eBRrfxpGJmLQlNPlYf8mZfWbdh6dxQWBrM4vTVwP4Zmz27zQ0LaVi/TTJtR9ePBYR2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- jQuery Easing (v1.4.1) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"
+        integrity="sha512-0L3zP9duFneDTXW3k7r9uoq5nOAt9osQzD3Amq1VdYv5Q2gY2fIocgW8VZ9VjfbfVwPaE6A7OBP1E1qzZzUztw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- AOS (v2.3.4) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+        integrity="sha512-GY4rDqF6VfIIsAsi6MBtQ6f6FgVfhsz6qI9OsmN9kg8RGNFXhNZybNpiFlJv42H67bJcH+6MS5MwMyvZ4eLL8A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    AOS.init();
+</script>
+
+<!-- ✅ Custom JS -->
 <script src="{{ asset('templates/js/custom.js') }}"></script>
-
-
