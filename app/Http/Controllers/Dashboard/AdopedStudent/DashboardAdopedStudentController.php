@@ -62,7 +62,7 @@ class DashboardAdopedStudentController extends Controller
     $student->save();
 
     return redirect()
-        ->route('adopted.students.list')
+        ->back()
         ->with('success', 'Student has been change status  successfully.');
 }
 
@@ -76,13 +76,13 @@ public function UnmarksHostel($id)
     $student->save();
 
     return redirect()
-        ->route('adopted.students.list')
+        ->back()
         ->with('success', 'Student has been change status  successfully.');
 }
 
 
 
- public function Edit($id)
+ public function edit($id)
     {
         $students = Student::find($id);
         return view('admin.AdopedStudent.edits', compact('students'));
@@ -138,7 +138,7 @@ public function UnmarksHostel($id)
     // Update other fields
     $student->update($request->except('images'));
 
-    return redirect()->route('adopted.students.list', $student->id)
+    return redirect()->back()
                      ->with('success', 'Student updated successfully!');
 }
 

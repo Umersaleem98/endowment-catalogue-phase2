@@ -41,13 +41,25 @@ Route::get('students/add', [StudentDashboardController::class, 'create'])->name(
 Route::post('students/store', [StudentDashboardController::class, 'Store'])->name('store.new.student');
 Route::get('students/adopted/{id}', [StudentDashboardController::class, 'Adopted'])->name('students.adopted');
 Route::get('students/edit/{id}', [StudentDashboardController::class, 'Edit'])->name('students.edit');
-Route::post('students/update/{id}', [StudentDashboardController::class, 'Update'])->name('students.update');
-
+Route::post('students/update/{id}', [StudentDashboardController::class, 'Update']);
 
 Route::get('students/delete/{id}', [StudentDashboardController::class, 'Delete'])->name('students.delete');
 Route::post('students/import', [StudentDashboardController::class, 'importExcel'])->name('students.import');
 Route::post('students/export', [StudentDashboardController::class, 'exportSelected'])->name('students.export');
 Route::post('students/bulkDelete', [StudentDashboardController::class, 'deleteSelected'])->name('students.bulkDelete');
+
+
+// Adoped Student dashboard 
+Route::get('adopted/students/list', [DashboardAdopedStudentController::class, 'index']);
+Route::get('adopted/student/edit/{id}', [DashboardAdopedStudentController::class, 'edit']);
+Route::post('adopted/student/update/{id}', [DashboardAdopedStudentController::class, 'Update']);
+
+// // Update request
+// Adoped Student dashboard 
+Route::post('adopted/students/update/{id}', [DashboardAdopedStudentController::class, 'Update'])->name('students.update.adopted');
+
+Route::get('/students/unadopted/{id}', [DashboardAdopedStudentController::class, 'Unadopted'])->name('students.unadopted');
+
 
 
 
@@ -105,13 +117,6 @@ Route::get('business/center/project/list', [DashboardFundaProjectBusinessCenter:
 Route::get('student/story/payment', [DashboardStudentsStory::class, 'Payment_index'])->name('student.story.payment');
 Route::get('student/story/pledge/payment', [DashboardStudentsStory::class, 'Pledge_index'])->name('student.story.pledge.payment');
 
-// Adoped Student dashboard 
-Route::get('adopted/students/list', [DashboardAdopedStudentController::class, 'index'])->name('adopted.students.list');
-Route::get('student/edit/{id}', [DashboardAdopedStudentController::class, 'Edit'])->name('students.edit.adopted');
-// // Update request
-Route::post('students/update/{id}', [DashboardAdopedStudentController::class, 'Update'])->name('students.update.adopted');
-
-Route::get('/students/unadopted/{id}', [DashboardAdopedStudentController::class, 'Unadopted'])->name('students.unadopted');
 
 // Country data managment dashboard 
 Route::get('country/data/list', [CountryDataManagmentController::class, 'index'])->name('country.data.list');

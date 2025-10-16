@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use Exception;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Exports\StudentsExport;
@@ -9,7 +10,9 @@ use App\Imports\StudentsImport;
 use App\Models\OpenfundStudent;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\UniqueConstraintViolationException; // Add this
 
 class StudentDashboardController extends Controller
 {
@@ -108,17 +111,15 @@ class StudentDashboardController extends Controller
 
 public function Edit($id)
 {
-    $student = Student::findOrFail($id);
+    $student = Student::find($id);
     return view('admin.students.edits', compact('student'));
 }
-
-
 
 
         public function Update(Request $request, $id)
 {
     $student = Student::findOrFail($id);
-
+// dd();
     // Validate request
     $request->validate([
         'qalam_id' => 'required|string|max:255',
@@ -164,11 +165,9 @@ public function Edit($id)
     // Update other fields
     $student->update($request->except('images'));
 
-    return redirect()->route('students.index')
+    return redirect()->back()
                  ->with('success', 'Student updated successfully!');
 }
-
-
 
     public function Delete($id)
     {
@@ -177,18 +176,56 @@ public function Edit($id)
         return redirect()->route('students.index')->with('success', 'Student updated successfully.');
     }
 
+public function importExcel(Request $request)
+{
+    $request->validate([
+        'file' => 'required|file|mimes:xlsx,xls,csv'
+    ]);
 
-    public function importExcel(Request $request)
-    {
-
-        $request->validate([
-            'file' => 'required|mimes:xlsx,xls,csv'
-        ]);
-
+    try {
+        // Attempt the import using the StudentsImport class 
+        // (which should be using updateOrCreate to handle duplicates)
         Excel::import(new StudentsImport, $request->file('file'));
 
-        return back()->with('success', 'Students imported successfully!');
+        return back()->with('success', 'Students imported successfully! 🎉');
+
+    } catch (UniqueConstraintViolationException $e) {
+        // This handles if a duplicate qalam_id still sneaks through or if updateOrCreate fails.
+        // NOTE: If you are using updateOrCreate in StudentsImport, this is less likely.
+        $errorMessage = 'Import failed due to a duplicate entry. Check your Excel file for repeated Qalam IDs (e.g., 413514).';
+        return back()->with('error', $errorMessage);
+
+    } catch (QueryException $e) {
+        // This handles the "Column 'make_pledge' cannot be null" type of error.
+        if (str_contains($e->getMessage(), '1048 Column')) {
+            $columnName = explode('Column ', $e->getMessage())[1] ?? 'a required column';
+            $columnName = explode(' cannot be null', $columnName)[0];
+            
+            $errorMessage = "Import failed: Data missing for the required column {$columnName}. Please ensure all cells for required fields are filled.";
+        } else {
+            $errorMessage = 'Database Error during import: ' . $e->getMessage();
+        }
+        return back()->with('error', $errorMessage);
+
+    } catch (Exception $e) {
+        // Catch all other import-related errors (e.g., file structure issues)
+        $errorMessage = 'An unexpected error occurred during import: ' . $e->getMessage();
+        return back()->with('error', $errorMessage);
     }
+}
+
+
+    // public function importExcel(Request $request)
+    // {
+
+    //     $request->validate([
+    //         'file' => 'required|mimes:xlsx,xls,csv'
+    //     ]);
+
+    //     Excel::import(new StudentsImport, $request->file('file'));
+
+    //     return back()->with('success', 'Students imported successfully!');
+    // }
 
     public function exportSelected(Request $request)
     {

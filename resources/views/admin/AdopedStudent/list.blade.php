@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="collapse" id="filterSection">
-                                <form method="GET" action="{{ route('adopted.students.list') }}" class="row g-2">
+                                <form method="GET" action="{{ url('adopted.students.list') }}" class="row g-2">
                                     <div class="col-md-2">
                                         <input type="text" name="qalam_id" class="form-control form-control-sm mb-2"
                                             placeholder="Qalam ID" value="{{ request('qalam_id') }}">
@@ -142,7 +142,7 @@
                                         <button type="submit" class="btn btn-primary btn-sm">Search</button>
                                     </div>
                                     <div class="col-auto">
-                                        <a href="{{ route('adopted.students.list') }}"
+                                        <a href="{{ url('adopted.students.list') }}"
                                             class="btn btn-secondary btn-sm">Reset</a>
                                     </div>
                                 </form>
@@ -191,7 +191,7 @@
                                         <h5>Adopted Students List</h5>
 
                                         <!-- Show entries -->
-                                        <form method="GET" action="{{ route('adopted.students.list') }}"
+                                        <form method="GET" action="{{ url('adopted.students.list') }}"
                                             id="perPageForm" class="form-inline">
                                             <label for="perPage" class="mr-2 mb-0">Show</label>
                                             <select name="per_page" id="perPage"
@@ -277,7 +277,7 @@
                                                                 @endif
                                                             </td>
                                                             <td>
-                                                                <a href="{{ route('students.edit.adopted', ['id' => $student->id]) }}"
+                                                                <a href="{{ url('adopted/student/edit', ['id' => $student->id]) }}"
                                                                     class="btn btn-info btn-sm py-0 px-2">Edit</a>
                                                             </td>
                                                             {{-- <td>

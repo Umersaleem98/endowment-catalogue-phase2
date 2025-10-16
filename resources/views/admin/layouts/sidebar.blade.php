@@ -33,7 +33,7 @@
                             </li>
 
                             <li>
-                                <a class="sidenav-item-link" href="{{ route('adopted.students.list') }}">
+                                <a class="sidenav-item-link" href="{{ url('adopted/students/list') }}">
                                     <span class="nav-text">Adopted Students List</span>
                                 </a>
                             </li>
