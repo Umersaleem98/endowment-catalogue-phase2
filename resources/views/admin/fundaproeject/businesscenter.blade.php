@@ -1,111 +1,113 @@
 <!DOCTYPE html>
-
-
 <html lang="en" dir="ltr">
 
 <head>
   <title>Business Center Payments</title>
-    @include('admin.layouts.head')
+  @include('admin.layouts.head')
 </head>
 
-
 <body class="navbar-fixed sidebar-fixed" id="body">
-    <script>
-        NProgress.configure({
-            showSpinner: false
-        });
-        NProgress.start();
-    </script>
+  <script>
+    NProgress.configure({ showSpinner: false });
+    NProgress.start();
+  </script>
 
+  <div id="toaster"></div>
+  <div class="wrapper">
+    @include('admin.layouts.sidebar')
 
-    <div id="toaster"></div>
-    <div class="wrapper">
-        @include('admin.layouts.sidebar')
+    <div class="page-wrapper">
+      <!-- Header -->
+      @include('admin.layouts.header')
 
-        <div class="page-wrapper">
+      <div class="content-wrapper">
+        <div class="content">
+          <!-- Table Section -->
+          <div class="row">
+              @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
 
-            <!-- Header -->
-            @include('admin.layouts.header')
-            <div class="content-wrapper">
-              <div class="content">
-                  <!-- Top Statistics -->
-                  <!-- Table Product -->
-                  <div class="row">
-                      <div class="col-12">
-                          <div class="card card-default">
-                              <div class="card-header">
-                                  <h2>Business Center Payments</h2>
+            <div class="col-12">
+              <div class="card card-default">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                  <h2>Business Center Payments</h2>
+                </div>
+               
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table id="productsTable" class="table table-hover table-product" style="width:100%">
+                      <thead class="table-light">
+                        <tr>
+                          <th>ID</th>
+                          <th>Description</th>
+                          <th>Area (Sq. Ft)</th>
+                          <th>Quantity</th>
+                          <th>Total Area (Sq. Ft)</th>
+                          <th>Construction Cost</th>
+                          <th>Total Project Cost</th>
+                          <th>Total in Million</th>
+                          <th>Project Name</th>
+                          <th>Donor Name</th>
+                          <th>Donor Email</th>
+                          <th>Donor Phone</th>
+                          <th>Prove</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach ($businesscenter as $item)
+                        <tr>
+                          <td>{{ $item->id }}</td>
+                          <td>{{ $item->description }}</td>
+                          <td>{{ $item->area_sft }}</td>
+                          <td>{{ $item->quantity }}</td>
+                          <td>{{ $item->total_area_sft }}</td>
+                          <td>{{ $item->construction_cost }}</td>
+                          <td>{{ $item->total_project_cost }}</td>
+                          <td>{{ $item->total_in_million }}</td>
+                          <td>{{ $item->project_name }}</td>
+                          <td>{{ $item->donor_name }}</td>
+                          <td>{{ $item->donor_email }}</td>
+                          <td>{{ $item->donor_phone }}</td>
+                          <td>
+                            @if ($item->prove && file_exists(public_path('uploads/fundaprojects_paymentsbusiness_center_store-proof/' . $item->prove)))
+                              <img src="{{ asset('uploads/fundaprojects_paymentsbusiness_center_store-proof/' . $item->prove) }}"
+                                alt="Proof" style="width: 50px; height:50px; object-fit:cover;">
+                            @else
+                              No Proof
+                            @endif
+                          </td>
+                          <td>
 
-                              </div>
-                              <div class="card-body">
-                                 <div class="table-responsive">
-                                  <table id="productsTable" class="table table-hover table-product"
-                                  style="width:100%">
-                                  <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Description</th>
-                                        <th>Area (Sq. Ft)</th>
-                                        <th>Quantity</th>
-                                        <th>Total Area (Sq. Ft)</th>
-                                        <th>Construction Cost</th>
-                                        <th>Total Project Cost</th>
-                                        <th>Total in Million</th>
-                                        <th>Project Name</th>
-                                        <th>Donor Name</th>
-                                        <th>Donor Email</th>
-                                        <th>Donor Phone</th>
-                                        <th>Prove</th>
-                                    </tr>
-                                </thead>
-                                  <tbody>
-                                    @foreach ($businesscenter as $item)
-                                    <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->description }}</td>
-                                        <td>{{ $item->area_sft }}</td>
-                                        <td>{{ $item->quantity }}</td>
-                                        <td>{{ $item->total_area_sft }}</td>
-                                        <td>{{ $item->construction_cost }}</td>
-                                        <td>{{ $item->total_project_cost }}</td>
-                                        <td>{{ $item->total_in_million }}</td>
-                                        <td>{{ $item->project_name }}</td>
-                                        <td>{{ $item->donor_name }}</td>
-                                        <td>{{ $item->donor_email }}</td>
-                                        <td>{{ $item->donor_phone }}</td>
-                                        <td>
-                                            <img src="{{ asset('uploads\fundaprojects_paymentsbusiness_center_store-proof/' . $item->prove) }}"
-                                            alt="Image" style="width: 50px; height:50px;">
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                    
+                             <a class="btn btn-danger btn-sm"
+                                                               href="{{ url('business/center/project/delete', $item->id) }}"
+                                                               onclick="return confirm('Are you sure you want to delete this payment?');">
+                                                                Delete
+                                                            </a>
 
-                                  </tbody>
-                              </table>
-                                 </div>
-
-                              </div>
-                          </div>
-                      </div>
+                            
+                          </td>
+                        </tr>
+                        @endforeach
+                      </tbody>
+                    </table>
                   </div>
+                </div>
 
               </div>
-
+            </div>
           </div>
 
-
-            <!-- Footer -->
-
-
         </div>
+      </div>
+
     </div>
+  </div>
 
-    @include('admin.layouts.script')
-
-    <!--  -->
-
-
+  @include('admin.layouts.script')
 </body>
 
 </html>

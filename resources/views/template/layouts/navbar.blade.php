@@ -1,13 +1,72 @@
+<!-- ✅ Modern Bootstrap 5.3 Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm py-2" id="navbar">
+    <div class="container-fluid px-lg-4">
+
+        <!-- Left Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
+            <img src="{{ asset('templates/logo/logo.png') }}" alt="Left Logo" class="navbar-logo">
+        </a>
+
+        <!-- Mobile Toggler -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav align-items-lg-center gap-lg-1">
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('aboutus') ? 'active' : '' }}" href="{{ route('aboutus') }}">About
+                        Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('signrature.program') ? 'active' : '' }}"
+                        href="{{ route('signrature.program') }}">Signature Programs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('nust.trust.foundation') ? 'active' : '' }}"
+                        href="{{ route('nust.trust.foundation') }}">Nust Trust Fund</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('r.m.o') ? 'active' : '' }}"
+                        href="{{ route('r.m.o') }}">Resource Mobilization Officers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('our.team') ? 'active' : '' }}"
+                        href="{{ route('our.team') }}">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('contactus') ? 'active' : '' }}"
+                        href="{{ route('contactus') }}">Contact Us</a>
+                </li>
+
+            </ul>
+        </div>
+
+        <!-- Right Logo -->
+        <a class="navbar-brand right-logo d-none d-lg-block" href="{{ route('home') }}">
+            <img src="{{ asset('templates/logo/logo3.png') }}" alt="Right Logo" class="navbar-logo blinking-animation">
+        </a>
+
+    </div>
+</nav>
+
+<!-- ✅ Navbar Styling -->
 <style>
-    /* General navbar styling */
+    /* Navbar base */
     .navbar {
-        background-color: #ffffff;
-        transition: background-color 0.4s ease;
-        padding: 0.6rem 1rem;
+        transition: all 0.4s ease;
+        backdrop-filter: blur(8px);
     }
 
+    /* Transparent on scroll */
     .navbar.transparent {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 0.9) !important;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
 
@@ -16,54 +75,35 @@
         height: 55px;
         width: auto;
         object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .navbar-logo:hover {
+        transform: scale(1.05);
     }
 
     /* Nav links */
     .nav-link {
         font-size: 16px;
         font-weight: 600;
-        color: black;
+        color: #000;
+        padding: 10px 14px;
         transition: color 0.3s ease, transform 0.2s ease;
-        padding: 10px 12px;
     }
 
     .nav-link:hover {
-        color: #004476; /* Blue hover */
+        color: #004476;
         transform: translateY(-2px);
     }
 
-    /* Active link */
-    .nav-item.active .nav-link,
+    /* Active state */
     .nav-link.active {
         color: #004476 !important;
         font-weight: 700;
         border-bottom: 2px solid #004476;
     }
 
-    /* Keep color on hover for active link */
-    .nav-item.active .nav-link:hover,
-    .nav-link.active:hover {
-        color: #004476 !important;
-    }
-
-    /* Nav item spacing */
-    .nav-item {
-        margin: 0 5px;
-    }
-
-    /* Responsive logos */
-    .navbar-brand {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* Right logo (desktop only) */
-    .navbar-brand.right-logo {
-        margin-right: 1rem;
-    }
-
-    /* On small screens */
+    /* Responsive adjustments */
     @media (max-width: 992px) {
         .navbar-logo {
             height: 45px;
@@ -71,71 +111,44 @@
 
         .navbar-collapse {
             text-align: center;
-        }
-
-        .navbar-nav {
+            background: #fff;
+            border-radius: 0.5rem;
             margin-top: 10px;
+            padding: 10px 0;
         }
 
-        .navbar-brand.right-logo {
-            display: none;
+        .navbar-nav .nav-link {
+            display: inline-block;
+            padding: 10px;
         }
+
+        .right-logo {
+            display: none !important;
+        }
+    }
+
+    /* Optional blink animation */
+    @keyframes blink {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+    }
+
+    .blinking-animation {
+        animation: blink 2s infinite;
     }
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="navbar">
-    <!-- Left Logo -->
-    <a class="navbar-brand ms-lg-4" href="{{ route('home') }}">
-        <img src="{{ asset('templates/logo/logo.png') }}" alt="Left Logo" class="navbar-logo">
-    </a>
-
-    <!-- Toggler for mobile -->
-    <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('home') }}">Home</a>
-            </li>
-            <li class="nav-item {{ Request::is('aboutus') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('aboutus') }}">About Us</a>
-            </li>
-            <li class="nav-item {{ Request::is('signrature.program') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('signrature.program') }}">Signature Programs</a>
-            </li>
-            <li class="nav-item {{ Request::is('nust.trust.foundation') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('nust.trust.foundation') }}">Nust Trust Fund</a>
-            </li>
-            <li class="nav-item {{ Request::is('r.m.o') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('r.m.o') }}">Resource Mobilization Officers</a>
-            </li>
-            <li class="nav-item {{ Request::is('our.team') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('our.team') }}">Our Team</a>
-            </li>
-            <li class="nav-item {{ Request::is('contactus') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('contactus') }}">Contact Us</a>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Right Logo -->
-    <a class="navbar-brand right-logo d-none d-lg-block me-lg-4" href="{{ route('home') }}">
-        <img src="{{ asset('templates/logo/logo3.png') }}" alt="Right Logo" class="navbar-logo blinking-animation">
-    </a>
-</nav>
-
+<!-- ✅ Navbar Scroll Script -->
 <script>
-    // Navbar transparency on scroll
-    window.addEventListener('scroll', function () {
-        const navbar = document.getElementById('navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('transparent');
-        } else {
-            navbar.classList.remove('transparent');
-        }
+    document.addEventListener("scroll", function() {
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("transparent", window.scrollY > 50);
     });
 </script>

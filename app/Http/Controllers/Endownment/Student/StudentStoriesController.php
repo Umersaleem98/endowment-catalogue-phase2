@@ -14,19 +14,76 @@ use App\Models\StudentsStoryPayments;
 
 class StudentStoriesController extends Controller
 { 
- public function student_stories(Request $request)
-{
-    $disciplines = Discipline::all();
-    $domiciles = Domicile::all();
-    $provinces = Province::all();
+//  public function student_stories(Request $request)
+// {
+//     $disciplines = Discipline::all();
+//     $domiciles = Domicile::all();
+//     $provinces = Province::all();
 
+//     $gender = $request->input('gender');
+//     $province = $request->input('province');
+//     $discipline = $request->input('discipline');
+//     $degree = $request->input('degree');
+//     $domicile = $request->input('domicile');
+//     $perPage = $request->input('per_page', 8); // 👈 Default 8
+
+//     $query = Student::query();
+
+//     if ($gender && $gender !== 'all') {
+//         $query->where('gender', $gender);
+//     }
+//     if ($province && $province !== 'all') {
+//         $query->where('province', $province);
+//     }
+//     if ($discipline && $discipline !== 'all') {
+//         $query->where('discipline', $discipline);
+//     }
+//     if ($degree && $degree !== 'all') {
+//         $query->where('degree', $degree);
+//     }
+//     if ($domicile && $domicile !== 'all') {
+//         $query->where('domicile', $domicile);
+//     }
+
+//     // Sorting
+//     $query->orderBy('monthly_income', 'asc');
+//     $query->orderByRaw("CASE WHEN images = 'dummy.png' THEN 1 ELSE 0 END, images");
+
+//     // Pagination with perPage
+//     $students = $query->paginate($perPage)->appends($request->all());
+
+//     if ($request->ajax()) {
+//         $studentsHtml = view('template.support_scholar.partials.students', compact('students'))->render();
+//         $paginationHtml = view('template.support_scholar.partials.pagination', compact('students'))->render();
+//         return response()->json(['studentsHtml' => $studentsHtml, 'paginationHtml' => $paginationHtml]);
+//     }
+
+//     $isPledgeApproved = $students->first()->make_pledge ?? 0;
+//     $isPaymentApproved = $students->first()->payment_approved ?? 0;
+
+//     return view('template.support_scholar.index', compact(
+//         'students','disciplines','domiciles','provinces','isPledgeApproved','isPaymentApproved'
+//     ));
+// }
+
+public function student_stories(Request $request)
+{
+    // ✅ Fetch unique values for filters directly from 'students' table
+    $disciplines = Student::select('discipline')->distinct()->orderBy('discipline')->pluck('discipline');
+    $domiciles = Student::select('domicile')->distinct()->orderBy('domicile')->pluck('domicile');
+    $provinces = Student::select('province')->distinct()->orderBy('province')->pluck('province');
+    $degrees = Student::select('degree')->distinct()->orderBy('degree')->pluck('degree');
+    $genders = Student::select('gender')->distinct()->orderBy('gender')->pluck('gender');
+
+    // ✅ Get filter inputs
     $gender = $request->input('gender');
     $province = $request->input('province');
     $discipline = $request->input('discipline');
     $degree = $request->input('degree');
     $domicile = $request->input('domicile');
-    $perPage = $request->input('per_page', 8); // 👈 Default 8
+    $perPage = $request->input('per_page', 8);
 
+    // ✅ Build query
     $query = Student::query();
 
     if ($gender && $gender !== 'all') {
@@ -45,26 +102,31 @@ class StudentStoriesController extends Controller
         $query->where('domicile', $domicile);
     }
 
-    // Sorting
-    $query->orderBy('monthly_income', 'asc');
-    $query->orderByRaw("CASE WHEN images = 'dummy.png' THEN 1 ELSE 0 END, images");
+    // ✅ Sorting logic
+    $query->orderBy('monthly_income', 'asc')
+          ->orderByRaw("CASE WHEN images = 'dummy.png' THEN 1 ELSE 0 END, images");
 
-    // Pagination with perPage
+    // ✅ Paginate results
     $students = $query->paginate($perPage)->appends($request->all());
 
+    // ✅ For AJAX filtering
     if ($request->ajax()) {
         $studentsHtml = view('template.support_scholar.partials.students', compact('students'))->render();
         $paginationHtml = view('template.support_scholar.partials.pagination', compact('students'))->render();
         return response()->json(['studentsHtml' => $studentsHtml, 'paginationHtml' => $paginationHtml]);
     }
 
+    // ✅ Optional flags
     $isPledgeApproved = $students->first()->make_pledge ?? 0;
     $isPaymentApproved = $students->first()->payment_approved ?? 0;
 
+    // ✅ Pass to view
     return view('template.support_scholar.index', compact(
-        'students','disciplines','domiciles','provinces','isPledgeApproved','isPaymentApproved'
+        'students', 'disciplines', 'domiciles', 'provinces', 'degrees', 'genders',
+        'isPledgeApproved', 'isPaymentApproved'
     ));
 }
+
 
 public function student_stories_ind($id)
     {

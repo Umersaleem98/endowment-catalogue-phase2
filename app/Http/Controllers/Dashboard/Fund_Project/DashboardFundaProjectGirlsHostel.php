@@ -13,4 +13,19 @@ class DashboardFundaProjectGirlsHostel extends Controller
      $girlsHostel = GirlsHostelCostEstimate::all();
      return view('admin.fundaproeject.girlshostel', compact('girlsHostel'));
     }
+
+    public function Delete($id)
+{
+    $record = GirlsHostelCostEstimate::findOrFail($id);
+
+    // Delete proof image if it exists
+    if ($record->prove && file_exists(public_path('uploads/fundaprojects_payments_girls-proof/' . $record->prove))) {
+        unlink(public_path('uploads/fundaprojects_payments_girls-proof/' . $record->prove));
+    }
+
+    $record->delete();
+
+    return redirect()->back()->with('success', 'Payment record deleted successfully!');
+}
+
 }

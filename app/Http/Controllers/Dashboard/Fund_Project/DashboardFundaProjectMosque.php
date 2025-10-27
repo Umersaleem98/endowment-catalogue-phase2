@@ -13,4 +13,20 @@ class DashboardFundaProjectMosque extends Controller
      $mosque = Mosque::all();
      return view('admin.fundaproeject.mosque', compact('mosque'));
     }
+
+
+    public function Delete($id)
+{
+    $record = Mosque::findOrFail($id);
+
+    // Delete proof file if exists
+    if ($record->prove && file_exists(public_path('uploads/fundaprojects_payments_mosque-proof/' . $record->prove))) {
+        unlink(public_path('uploads/fundaprojects_payments_mosque-proof/' . $record->prove));
+    }
+
+    $record->delete();
+
+    return redirect()->back()->with('success', 'Record deleted successfully.');
+}
+
 }

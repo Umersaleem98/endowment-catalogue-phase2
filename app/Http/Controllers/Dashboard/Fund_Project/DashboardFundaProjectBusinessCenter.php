@@ -13,5 +13,21 @@ class DashboardFundaProjectBusinessCenter extends Controller
     $businesscenter = BusinessCenter::all();
     return view('admin.fundaproeject.businesscenter', compact('businesscenter'));
    }
+
+
+   public function Delete($id)
+{
+    $record = BusinessCenter::findOrFail($id);
+
+    // Delete proof file if exists
+    if ($record->prove && file_exists(public_path('uploads/fundaprojects_paymentsbusiness_center_store-proof/' . $record->prove))) {
+        unlink(public_path('uploads/fundaprojects_paymentsbusiness_center_store-proof/' . $record->prove));
+    }
+
+    $record->delete();
+
+    return redirect()->back()->with('success', 'Record deleted successfully.');
+}
+
     
 }

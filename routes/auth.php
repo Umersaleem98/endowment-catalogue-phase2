@@ -108,10 +108,18 @@ Route::get('user/edit/{id}', [UserDashboardController::class, 'edit'])->name('us
 Route::post('update/user/{id}', [UserDashboardController::class, 'update'])->name('users.update');
 Route::get('user/delete/{id}', [UserDashboardController::class, 'delete'])->name('user.delete');
 // Fund a projects dashboard 
+
 Route::get('boys/hostel/project/list', [DashboardFundaProjectBoysHostel::class, 'list'])->name('boys.hostel.project.list');
+Route::get('boys/hostel/project/delete/{id}', [DashboardFundaProjectBoysHostel::class, 'Delete']);
+
 Route::get('girls/hostel/project/list', [DashboardFundaProjectGirlsHostel::class, 'list'])->name('girls.hostel.project.list');
+Route::get('girls/hostel/project/delete/{id}', [DashboardFundaProjectGirlsHostel::class, 'Delete']);
+
 Route::get('mosque/project/list', [DashboardFundaProjectMosque::class, 'list'])->name('mosque.project.list');
+Route::get('mosque/project/delete/{id}', [DashboardFundaProjectMosque::class, 'Delete']);
+
 Route::get('business/center/project/list', [DashboardFundaProjectBusinessCenter::class, 'list'])->name('business.center.project.list');
+Route::get('business/center/project/delete/{id}', [DashboardFundaProjectBusinessCenter::class, 'Delete']);
 
 // Student stories dashboard 
 Route::get('student/story/payment', [DashboardStudentsStory::class, 'Payment_index'])->name('student.story.payment');

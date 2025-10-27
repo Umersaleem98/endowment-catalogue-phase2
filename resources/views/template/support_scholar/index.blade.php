@@ -1,41 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Students Stories</title>
     @include('template.layouts.head')
+
     <style>
         .pagination li.active a {
             background-color: #007bff;
             border-color: #007bff;
             color: white;
         }
+
         .pagination li a:hover {
             background-color: #0056b3;
             border-color: #0056b3;
             color: white;
         }
-        input.form-control, select.form-control {
+
+        input.form-control,
+        select.form-control {
             color: black;
         }
+
         input.form-control::placeholder {
             color: black;
             opacity: 1;
         }
+
         select.form-control option {
             color: black;
         }
+
         .filter-col {
             width: 16.666667%;
         }
+
         .filter-active {
             background-color: #FFB606 !important;
             color: white !important;
         }
+
         @media (max-width: 767.98px) {
             .filter-col {
                 width: 100%;
                 margin-bottom: 10px;
             }
+
             .filter-label {
                 display: block;
                 font-weight: bold;
@@ -44,144 +55,176 @@
         }
     </style>
 </head>
+
 <body>
-<div class="super_container">
-    @include('template.layouts.navbar')
-    @include('template.layouts.home')
+    <div class="super_container">
+        @include('template.layouts.navbar')
+        @include('template.layouts.home')
 
-    <div class="teachers page_section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <form id="filterForm">
-                        <div class="row">
-                            <div class="col-md-2 mb-3 filter-col">
-                                <select name="gender" id="genderFilter" class="form-control filter-select">
-                                    <option value="all" selected>All Genders</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2 mb-3 filter-col">
-                                <select name="province" id="provinceFilter" class="form-control filter-select">
-                                    <option value="all" selected>All Province</option>
-                                    @foreach ($provinces as $item)
-                                        <option value="{{ $item->provinces }}">{{ $item->provinces }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-md-2 mb-3 filter-col">
-                                <select name="discipline" id="disciplineFilter" class="form-control filter-select">
-                                    <option value="all" selected>All Disciplines</option>
-                                    @foreach ($disciplines as $item)
-                                        <option value="{{ $item->discipline }}">{{ $item->discipline }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-md-2 mb-3 filter-col">
-                                <select name="degree" id="degreeFilter" class="form-control filter-select">
-                                    <option value="all" selected>All Degrees</option>
-                                    <option value="UG">Undergraduate (UG)</option>
-                                    <option value="PG">Postgraduate (PG)</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2 mb-3 filter-col">
-                                <select name="domicile" id="cityFilter" class="form-control filter-select">
-                                    <option value="all" selected>All Cities</option>
-                                    @foreach ($domiciles as $item)
-                                        <option value="{{ $item->domicile }}">{{ $item->domicile }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-md-2 mb-3 filter-col">
-                                <button type="submit" class="btn btn-primary w-100">Filter</button>
-                            </div>
-                        </div>
+        <div class="teachers page_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="filterForm">
+                            <div class="row">
 
-                        <div class="row mt-3">
-                            <div class="col-md-3">
-                                <select name="per_page" id="perPageFilter" class="form-control filter-select">
-                                    <option value="8" selected>Show 8</option>
-                                    <option value="50">Show 50</option>
-                                    <option value="100">Show 100</option>
-                                    <option value="150">Show 150</option>
-                                    <option value="200">Show 200</option>
-                                    <option value="250">Show 250</option>
-                                    <option value="300">Show 300</option>
-                                </select>
+                                {{-- Gender Filter --}}
+                                <div class="col-md-2 mb-3 filter-col">
+                                    <select name="gender" id="genderFilter" class="form-control filter-select">
+                                        <option value="all" selected>All Genders</option>
+                                        @foreach ($genders as $item)
+                                            @if (!empty($item))
+                                                <option value="{{ $item }}">{{ ucfirst($item) }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                {{-- Province Filter --}}
+                                <div class="col-md-2 mb-3 filter-col">
+                                    <select name="province" id="provinceFilter" class="form-control filter-select">
+                                        <option value="all" selected>All Provinces</option>
+                                        @foreach ($provinces as $item)
+                                            @if (!empty($item))
+                                                <option value="{{ $item }}">{{ $item }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                {{-- Discipline Filter --}}
+                                <div class="col-md-2 mb-3 filter-col">
+                                    <select name="discipline" id="disciplineFilter" class="form-control filter-select">
+                                        <option value="all" selected>All Disciplines</option>
+                                        @foreach ($disciplines as $item)
+                                            @if (!empty($item))
+                                                <option value="{{ $item }}">{{ $item }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                {{-- Degree Filter --}}
+                                <div class="col-md-2 mb-3 filter-col">
+                                    <select name="degree" id="degreeFilter" class="form-control filter-select">
+                                        <option value="all" selected>All Degrees</option>
+                                        @foreach ($degrees as $item)
+                                            @if (!empty($item))
+                                                <option value="{{ $item }}">{{ $item }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                {{-- Domicile Filter --}}
+                                <div class="col-md-2 mb-3 filter-col">
+                                    <select name="domicile" id="cityFilter" class="form-control filter-select">
+                                        <option value="all" selected>All Cities</option>
+                                        @foreach ($domiciles as $item)
+                                            @if (!empty($item))
+                                                <option value="{{ $item }}">{{ $item }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                {{-- Filter Button --}}
+                                <div class="col-md-2 mb-3 filter-col">
+                                    <button type="submit" class="btn btn-primary w-100">Filter</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+
+                            {{-- Per Page Selector --}}
+                            <div class="row mt-3">
+                                <div class="col-md-3">
+                                    <select name="per_page" id="perPageFilter" class="form-control filter-select">
+                                        <option value="8" selected>Show 8</option>
+                                        <option value="50">Show 50</option>
+                                        <option value="100">Show 100</option>
+                                        <option value="150">Show 150</option>
+                                        <option value="200">Show 200</option>
+                                        <option value="250">Show 250</option>
+                                        <option value="300">Show 300</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                {{-- Students Cards --}}
+                <div class="row mt-3" id="studentsContainer">
+                    @include('template.support_scholar.partials.students', ['students' => $students])
+                </div>
+
+                {{-- Pagination --}}
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-sm justify-content-center" id="pagination">
+                        @include('template.support_scholar.partials.pagination', ['students' => $students])
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        {{-- Background Section --}}
+        <div class="milestones">
+            <div class="milestones_background"
+                style="background-image:url('{{ asset('images/milestones_background.jpg') }}')"></div>
+            <div class="container">
+                <div class="row">
+                    <!-- milestone content -->
                 </div>
             </div>
-
-            <div class="row mt-3" id="studentsContainer">
-                @include('template.support_scholar.partials.students', ['students' => $students])
-            </div>
-
-            <nav aria-label="Page navigation">
-                <ul class="pagination pagination-sm justify-content-center" id="pagination">
-                    @include('template.support_scholar.partials.pagination', ['students' => $students])
-                </ul>
-            </nav>
         </div>
     </div>
 
-    <div class="milestones">
-        <div class="milestones_background" style="background-image:url('{{ asset('images/milestones_background.jpg') }}')"></div>
-        <div class="container">
-            <div class="row">
-                <!-- milestone content -->
-            </div>
-        </div>
-    </div>
-</div>
+    @include('template.layouts.footer')
 
-@include('template.layouts.footer')
+    {{-- jQuery for AJAX filtering --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function fetchStudents(page = 1) {
+                const formData = $('#filterForm').serialize();
+                $.ajax({
+                    url: "{{ route('student.stories') }}?page=" + page,
+                    type: 'GET',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(response) {
+                        $('#studentsContainer').html(response.studentsHtml);
+                        $('#pagination').html(response.paginationHtml);
+                        highlightActiveFilters();
+                    }
+                });
+            }
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        function fetchStudents(page = 1) {
-            const formData = $('#filterForm').serialize();
-            $.ajax({
-                url: "{{ route('student.stories') }}?page=" + page,
-                type: 'GET',
-                data: formData,
-                dataType: 'json',
-                success: function(response) {
-                    $('#studentsContainer').html(response.studentsHtml);
-                    $('#pagination').html(response.paginationHtml);
-                    highlightActiveFilters();
-                }
+            function highlightActiveFilters() {
+                $('.filter-select').each(function() {
+                    const value = $(this).val();
+                    $(this).toggleClass('filter-active', value && value !== 'all' && value !== '8');
+                });
+            }
+
+            $('#filterForm').on('submit', function(event) {
+                event.preventDefault();
+                fetchStudents();
+                highlightActiveFilters();
             });
-        }
 
-        function highlightActiveFilters() {
-            $('.filter-select').each(function() {
-                const value = $(this).val();
-                $(this).toggleClass('filter-active', value && value !== 'all' && value !== '8');
+            $(document).on('click', '.pagination a', function(event) {
+                event.preventDefault();
+                const page = $(this).attr('href').split('page=')[1];
+                fetchStudents(page);
             });
-        }
 
-        $('#filterForm').on('submit', function(event) {
-            event.preventDefault();
-            fetchStudents();
+            $('#perPageFilter').on('change', function() {
+                fetchStudents(1);
+            });
+
             highlightActiveFilters();
         });
-
-        $(document).on('click', '.pagination a', function(event) {
-            event.preventDefault();
-            const page = $(this).attr('href').split('page=')[1];
-            fetchStudents(page);
-        });
-
-        $('#perPageFilter').on('change', function() {
-            fetchStudents(1); // reset to page 1
-        });
-
-        highlightActiveFilters();
-    });
-</script>
+    </script>
 </body>
+
 </html>
