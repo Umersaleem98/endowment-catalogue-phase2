@@ -29,5 +29,16 @@ class DashboardFundaProjectBusinessCenter extends Controller
     return redirect()->back()->with('success', 'Record deleted successfully.');
 }
 
-    
+    public function BusinessCenterBulkDelete(Request $request)
+{
+    $ids = $request->input('ids');
+
+    if (!empty($ids) && is_array($ids)) {
+        BusinessCenter::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('success', 'Selected records deleted successfully!');
+    }
+
+    return redirect()->back()->with('error', 'No records selected for deletion.');
+}
+
 }

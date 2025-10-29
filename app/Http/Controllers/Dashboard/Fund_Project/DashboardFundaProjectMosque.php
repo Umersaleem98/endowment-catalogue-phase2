@@ -29,4 +29,24 @@ class DashboardFundaProjectMosque extends Controller
     return redirect()->back()->with('success', 'Record deleted successfully.');
 }
 
+
+public function MosqueBulkDelete(Request $request)
+{
+    $ids = $request->input('ids');
+
+    // Handle both array and string input safely
+    if (is_string($ids)) {
+        $ids = explode(',', $ids);
+    }
+
+    if (!empty($ids) && is_array($ids)) {
+        Mosque::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('success', 'Selected records deleted successfully!');
+    }
+
+    return redirect()->back()->with('error', 'No records selected for deletion.');
+}
+
+
+
 }

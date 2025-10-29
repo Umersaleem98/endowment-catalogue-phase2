@@ -19,20 +19,33 @@ class DefultEndowmentOneyearDashboardController extends Controller
 
         public function DeleteOneyear($id)
     {
-        $oneyears = DefaultPackageOneYearDegree::find($id);
+            $oneyears = DefaultPackageOneYearDegree::find($id);
 
-         if ($oneyears->prove && file_exists(public_path('uploads/Oneyear-proof/' . $oneyears->prove))) {
-        unlink(public_path('uploads/Oneyear-proof/' . $oneyears->prove));
-    }
+            if ($oneyears->prove && file_exists(public_path('uploads/Oneyear-proof/' . $oneyears->prove))) {
+            unlink(public_path('uploads/Oneyear-proof/' . $oneyears->prove));
+        }
 
-    $oneyears->delete();
+        $oneyears->delete();
 
-    return redirect()
-        ->route('oneyear.endowment.list') // 👈 change this to your listing route name
-        ->with('success', 'Zakat payment deleted successfully.');
+        return redirect()
+            ->route('oneyear.endowment.list') // 👈 change this to your listing route name
+            ->with('success', 'Zakat payment deleted successfully.');
 
         
     }
+
+
+    public function DefultOnebulkDelete(Request $request)
+{
+    $ids = $request->input('selected_ids', []);
+    
+    if (!empty($ids)) {
+        \App\Models\DefaultPackageOneYearDegree::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('success', 'Selected records deleted successfully.');
+    }
+
+    return redirect()->back()->with('error', 'No records selected.');
+}
 
 
 
@@ -45,21 +58,37 @@ class DefultEndowmentOneyearDashboardController extends Controller
 
      public function DeleteFouryear($id)
     {
-        $fouryears = DefaultPackageFourYearDegree::find($id);
+            $fouryears = DefaultPackageFourYearDegree::find($id);
 
-         if ($fouryears->prove && file_exists(public_path('uploads/Fouryear-proof/' . $fouryears->prove))) {
-        unlink(public_path('uploads/Fouryear-proof/' . $fouryears->prove));
-    }
+            if ($fouryears->prove && file_exists(public_path('uploads/Fouryear-proof/' . $fouryears->prove))) {
+            unlink(public_path('uploads/Fouryear-proof/' . $fouryears->prove));
+        }
 
-    $fouryears->delete();
+        $fouryears->delete();
 
-    return redirect()
-        ->route('fouryear.endowment.list') // 👈 change this to your listing route name
-        ->with('success', 'Zakat payment deleted successfully.');
+        return redirect()
+            ->route('fouryear.endowment.list') // 👈 change this to your listing route name
+            ->with('success', 'Zakat payment deleted successfully.');
 
         
     }
     
+    public function DefultFourbulkDelete(Request $request)
+{
+    $ids = $request->input('selected_ids', []);
+    
+    if (!empty($ids)) {
+        \App\Models\DefaultPackageFourYearDegree::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('success', 'Selected records deleted successfully.');
+    }
+
+    return redirect()->back()->with('error', 'No records selected.');
+}
+
+
+
+
+
     public function indexperpetualseat()
     {
         $perpetualseat = DefultPackagePerpetualSeatDegree::all();
@@ -83,5 +112,20 @@ class DefultEndowmentOneyearDashboardController extends Controller
 
         
     }
+
+
+    public function DefultPerpetualbulkDelete(Request $request)
+{
+    $ids = $request->input('selected_ids', []);
+
+    if (!empty($ids)) {
+        DefultPackagePerpetualSeatDegree::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('success', 'Selected records deleted successfully.');
+    }
+
+    return redirect()->back()->with('error', 'No records selected.');
+}
+
+
 
 }

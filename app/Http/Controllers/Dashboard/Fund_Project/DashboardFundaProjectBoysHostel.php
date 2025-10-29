@@ -29,4 +29,17 @@ class DashboardFundaProjectBoysHostel extends Controller
     return redirect()->back()->with('success', 'Payment record deleted successfully!');
 }
 
+
+public function bulkDelete(Request $request)
+{
+    // Convert comma-separated IDs into an array
+    $ids = explode(',', $request->ids);
+
+    // Delete records using the Eloquent model
+    BoysHostelCostEstimate::whereIn('id', $ids)->delete();
+
+    // Redirect back with success message
+    return redirect()->back()->with('success', 'Selected records deleted successfully!');
+}
+
 }

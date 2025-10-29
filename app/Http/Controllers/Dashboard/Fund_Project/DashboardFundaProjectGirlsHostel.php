@@ -28,4 +28,20 @@ class DashboardFundaProjectGirlsHostel extends Controller
     return redirect()->back()->with('success', 'Payment record deleted successfully!');
 }
 
+
+public function GirlsbulkDelete(Request $request)
+{
+    // Get IDs directly (they come as an array)
+    $ids = $request->input('ids');
+
+    if (!empty($ids) && is_array($ids)) {
+        GirlsHostelCostEstimate::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('success', 'Selected records deleted successfully!');
+    }
+
+    return redirect()->back()->with('error', 'No records selected for deletion.');
+}
+
+
+
 }

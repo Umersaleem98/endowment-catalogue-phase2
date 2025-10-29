@@ -67,22 +67,40 @@ Route::get('/students/unadopted/{id}', [DashboardAdopedStudentController::class,
 // Custom Endownemt Dashboard Controller Routes 
 Route::get('zakat/payments/list', [EndoementZakatDashboardController::class, 'index'])->name('zakat.payments.list');
 Route::get('zakat/payments/delete/{id}', [EndoementZakatDashboardController::class, 'Delete'])->name('zakat.payments.delete');
+Route::post('zakat-payments/bulk-delete', [EndoementZakatDashboardController::class, 'ZakatbulkDelete'])->name('zakat.bulk.delete');
+
+
 // Defult Endownemt Dashboard Controller Routes 
 Route::get('oneyear/endowment/list', [DefultEndowmentOneyearDashboardController::class, 'index'])->name('oneyear.endowment.list');
 Route::get('defult.oneyear.destroy/{id}', [DefultEndowmentOneyearDashboardController::class, 'DeleteOneyear'])->name('defult.oneyear.destroy');
+Route::post('defult-one-year/bulk-delete', [DefultEndowmentOneyearDashboardController::class, 'DefultOnebulkDelete'])->name('defult.oneyear.bulkDelete');
+
+
 
 Route::get('fouryear/endowment/list', [DefultEndowmentOneyearDashboardController::class, 'indexforyear'])->name('fouryear.endowment.list');
 Route::get('defult.fouryear.destroy/{id}', [DefultEndowmentOneyearDashboardController::class, 'DeleteFouryear'])->name('defult.fouryear.destroy');
+Route::post('defult-four-year/bulk-delete', [DefultEndowmentOneyearDashboardController::class, 'DefultFourbulkDelete'])->name('defult.fouryear.bulkDelete');
+
 
 Route::get('perpetualseat/endowment/list', [DefultEndowmentOneyearDashboardController::class, 'indexperpetualseat'])->name('perpetualseat.endowment.list');
 Route::get('defult.perpetualseat.destroy/{id}', [DefultEndowmentOneyearDashboardController::class, 'Deleteperpetualseat'])->name('defult.perpetualseat.destroy');
 
+Route::post('/defult-perpetual-seat/bulk-delete', [DefultEndowmentOneyearDashboardController::class, 'DefultPerpetualbulkDelete'])->name('defult.perpetualseat.bulkDelete');
+
+
 // Custom Endownemt Dashboard Controller Routes 
 Route::get('custom/oneyear/endowment/list', [CustomEndowmentOneyearDashboardController::class, 'index'])->name('custom.oneyear.endowment.list');
+Route::post('custom-oneyear/bulk-delete', [CustomEndowmentOneyearDashboardController::class, 'CustomOneyearbulkDelete'])
+    ->name('custom.oneyear.bulk.delete');
+
 Route::get('custom/oneyear/endowment/delete/{id}', [CustomEndowmentOneyearDashboardController::class, 'DeleteOneyear'])->name('custom.oneyear.endowment.delete');
 
 Route::get('custom/fouryear/endowment/list', [CustomEndowmentOneyearDashboardController::class, 'indexforyear'])->name('custom.fouryear.endowment.list');
 Route::get('custom/fouryear/endowment/delete/{id}', [CustomEndowmentOneyearDashboardController::class, 'Deletefouryear'])->name('custom.fouryear.endowment.delete');
+Route::post('custom-fouryear/bulk-delete', [CustomEndowmentOneyearDashboardController::class, 'CustomFouryearbulkDelete'])
+    ->name('custom.fouryear.bulk.delete');
+
+
 Route::get('custom/perpetualseat/endowment/list', [CustomEndowmentOneyearDashboardController::class, 'indexperpetualseat'])->name('custom.perpetualseat.endowment.list');
 // Teams Dashboard Controller Routes 
 Route::get('add/team', [TeamsDashboardController::class, 'index'])->name('add.team');
@@ -111,15 +129,26 @@ Route::get('user/delete/{id}', [UserDashboardController::class, 'delete'])->name
 
 Route::get('boys/hostel/project/list', [DashboardFundaProjectBoysHostel::class, 'list'])->name('boys.hostel.project.list');
 Route::get('boys/hostel/project/delete/{id}', [DashboardFundaProjectBoysHostel::class, 'Delete']);
+Route::post('boys/hostel/bulk-delete', [DashboardFundaProjectBoysHostel::class, 'bulkDelete'])->name('boys.hostel.bulk.delete');
 
 Route::get('girls/hostel/project/list', [DashboardFundaProjectGirlsHostel::class, 'list'])->name('girls.hostel.project.list');
+
+
 Route::get('girls/hostel/project/delete/{id}', [DashboardFundaProjectGirlsHostel::class, 'Delete']);
+
+Route::post('girls/hostel/bulk-delete', [DashboardFundaProjectGirlsHostel::class, 'GirlsbulkDelete'])
+    ->name('girls.bulk.delete');
+
 
 Route::get('mosque/project/list', [DashboardFundaProjectMosque::class, 'list'])->name('mosque.project.list');
 Route::get('mosque/project/delete/{id}', [DashboardFundaProjectMosque::class, 'Delete']);
+Route::post('mosque/bulk-delete', [DashboardFundaProjectMosque::class, 'MosqueBulkDelete'])->name('mosque.bulk.delete');
+
+
 
 Route::get('business/center/project/list', [DashboardFundaProjectBusinessCenter::class, 'list'])->name('business.center.project.list');
 Route::get('business/center/project/delete/{id}', [DashboardFundaProjectBusinessCenter::class, 'Delete']);
+Route::post('business-center/bulk-delete', [DashboardFundaProjectBusinessCenter::class, 'BusinessCenterBulkDelete'])->name('business.center.bulk.delete');
 
 // Student stories dashboard 
 Route::get('student/story/payment', [DashboardStudentsStory::class, 'Payment_index'])->name('student.story.payment');
@@ -157,5 +186,8 @@ Route::get('payments/delete/{id}', [DashboardHostelController::class, 'delete'])
 Route::get('hostel/project/payment/index', [DashboardHostelProjectController::class,'index'])->name('hostel.project.payment.list');
 
 Route::get('hostel/project/payment/delete/{id}', [DashboardHostelProjectController::class,'delete'])->name('hostel.project.payment.delete');
+
+Route::post('hostel/bulk-delete', [DashboardHostelProjectController::class, 'HostelBulkDelete'])->name('hostel.bulk.delete');
+
 
 });

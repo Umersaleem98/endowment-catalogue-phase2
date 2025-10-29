@@ -105,7 +105,7 @@ class StudentDashboardController extends Controller
 
     $student->save();
 
-    return redirect()->route('students.index')->with('success', 'Student added successfully!');
+    return redirect()->back()->with('success', 'Student added successfully!');
 }
 
 
@@ -173,7 +173,7 @@ public function Edit($id)
     {
         $students = Student::find($id);
         $students->delete();
-        return redirect()->route('students.index')->with('success', 'Student updated successfully.');
+        return redirect()->back()->with('success', 'Student updated successfully.');
     }
 
 public function importExcel(Request $request)
@@ -215,17 +215,6 @@ public function importExcel(Request $request)
 }
 
 
-    // public function importExcel(Request $request)
-    // {
-
-    //     $request->validate([
-    //         'file' => 'required|mimes:xlsx,xls,csv'
-    //     ]);
-
-    //     Excel::import(new StudentsImport, $request->file('file'));
-
-    //     return back()->with('success', 'Students imported successfully!');
-    // }
 
     public function exportSelected(Request $request)
     {
@@ -246,13 +235,13 @@ public function importExcel(Request $request)
     {
         $ids = $request->input('selected_students', []);
         if (empty($ids)) {
-            return redirect()->route('students.index')
+            return redirect()->back()
                 ->with('error', 'No students selected for deletion.');
         }
 
         Student::whereIn('id', $ids)->delete();
 
-        return redirect()->route('students.index')
+        return redirect()->back()
             ->with('success', 'Selected students deleted successfully.');
     }
 
@@ -267,7 +256,7 @@ public function importExcel(Request $request)
     $student->save();
 
     return redirect()
-        ->route('students.index')
+        ->back()
         ->with('success', 'Student has been marked as adopted successfully.');
 }
    

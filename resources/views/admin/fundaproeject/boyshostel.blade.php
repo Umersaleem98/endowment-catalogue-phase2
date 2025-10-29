@@ -6,7 +6,10 @@
     @include('admin.layouts.head')
 
     <style>
-        body, table, th, td {
+        body,
+        table,
+        th,
+        td {
             color: #000;
         }
 
@@ -19,10 +22,11 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 1000px; /* ✅ Enables horizontal scroll if many columns */
+            min-width: 1000px;
         }
 
-        th, td {
+        th,
+        td {
             text-align: center;
             vertical-align: middle !important;
             white-space: nowrap;
@@ -61,7 +65,9 @@
 
 <body class="navbar-fixed sidebar-fixed" id="body">
     <script>
-        NProgress.configure({ showSpinner: false });
+        NProgress.configure({
+            showSpinner: false
+        });
         NProgress.start();
     </script>
 
@@ -83,8 +89,16 @@
                             @endif
 
                             <div class="card card-default">
-                                <div class="card-header">
+                                <div class="card-header d-flex justify-content-between align-items-center">
                                     <h2>Boys Hostel Payments</h2>
+                                    <!-- ✅ Bulk Delete Button -->
+                                    <form id="bulkDeleteForm" method="POST"
+                                        action="{{ url('boys/hostel/bulk-delete') }}">
+                                        @csrf
+                                        <input type="hidden" name="ids" id="delete_ids">
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            onclick="deleteSelected()">Delete Selected</button>
+                                    </form>
                                 </div>
 
                                 <div class="card-body">
@@ -92,6 +106,9 @@
                                         <table id="productsTable" class="table table-hover table-bordered align-middle">
                                             <thead>
                                                 <tr>
+                                                    <th>
+                                                        <input type="checkbox" id="selectAll">
+                                                    </th>
                                                     <th>ID</th>
                                                     <th>Description</th>
                                                     <th>Area (Sq. Ft)</th>
@@ -105,12 +122,16 @@
                                                     <th>Donor Email</th>
                                                     <th>Donor Phone</th>
                                                     <th>Prove</th>
-                                                    <th>Action</th> <!-- ✅ New Column -->
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($boysHostel as $item)
                                                     <tr>
+                                                        <td>
+                                                            <input type="checkbox" class="record-checkbox"
+                                                                value="{{ $item->id }}">
+                                                        </td>
                                                         <td>{{ $item->id }}</td>
                                                         <td>{{ $item->description }}</td>
                                                         <td>{{ $item->area_sft }}</td>
@@ -126,21 +147,19 @@
                                                         <td>
                                                             @if ($item->prove && file_exists(public_path('uploads/fundaprojects_payments_boys-proof/' . $item->prove)))
                                                                 <a href="{{ asset('uploads/fundaprojects_payments_boys-proof/' . $item->prove) }}"
-                                                                   target="_blank">
+                                                                    target="_blank">
                                                                     <img src="{{ asset('uploads/fundaprojects_payments_boys-proof/' . $item->prove) }}"
-                                                                         alt="Proof"
-                                                                         style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
+                                                                        alt="Proof"
+                                                                        style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
                                                                 </a>
                                                             @else
                                                                 <span class="text-danger fw-semibold">No Proof</span>
                                                             @endif
                                                         </td>
-
                                                         <td>
-                                                            <!-- ✅ Delete Button -->
                                                             <a class="btn btn-danger btn-sm"
-                                                               href="{{ url('boys/hostel/project/delete', $item->id) }}"
-                                                               onclick="return confirm('Are you sure you want to delete this payment?');">
+                                                                href="{{ url('boys/hostel/project/delete', $item->id) }}"
+                                                                onclick="return confirm('Are you sure you want to delete this payment?');">
                                                                 Delete
                                                             </a>
                                                         </td>
@@ -161,5 +180,29 @@
     </div>
 
     @include('admin.layouts.script')
+
+    <!-- ✅ JavaScript for Select/Delete -->
+    <script>
+        // Select All Checkbox
+        document.getElementById('selectAll').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.record-checkbox');
+            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+        });
+
+        // Delete Selected
+        function deleteSelected() {
+            const selected = Array.from(document.querySelectorAll('.record-checkbox:checked')).map(cb => cb.value);
+            if (selected.length === 0) {
+                alert('Please select at least one record to delete.');
+                return;
+            }
+
+            if (confirm('Are you sure you want to delete the selected records?')) {
+                document.getElementById('delete_ids').value = selected.join(',');
+                document.getElementById('bulkDeleteForm').submit();
+            }
+        }
+    </script>
 </body>
+
 </html>

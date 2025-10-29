@@ -32,6 +32,17 @@ class DashboardHostelProjectController extends Controller
         ->with('success', 'Payment record deleted successfully!');
 }
 
+public function HostelBulkDelete(Request $request)
+{
+    $ids = $request->input('ids');
+
+    if (!empty($ids) && is_array($ids)) {
+        SupportHostelProject::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('success', 'Selected records deleted successfully!');
+    }
+
+    return redirect()->back()->with('success', 'No records selected for deletion.');
+}
 
 
 }

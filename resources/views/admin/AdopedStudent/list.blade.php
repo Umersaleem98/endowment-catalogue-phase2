@@ -286,7 +286,7 @@
                                                             </td> --}}
                                                             <td>
                                                                 <a href="{{ route('students.unadopted', ['id' => $student->id]) }}"
-                                                                    class="btn btn-warning btn-sm py-0 px-2">Adopted</a>
+                                                                    class="btn btn-warning btn-sm py-0 px-2">Unadopted</a>
                                                             </td>
 
 

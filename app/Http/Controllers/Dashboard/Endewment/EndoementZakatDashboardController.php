@@ -24,4 +24,17 @@ class EndoementZakatDashboardController extends Controller
         ->with('success', 'Zakat payment deleted successfully.');
 }
 
+public function ZakatbulkDelete(Request $request)
+{
+    $ids = explode(',', $request->ids);
+
+    if (!empty($ids)) {
+        EndoementZakatPayment::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('success', 'Selected records deleted successfully!');
+    }
+
+    return redirect()->back()->with('success', 'No records selected for deletion.');
+}
+
+
 }
