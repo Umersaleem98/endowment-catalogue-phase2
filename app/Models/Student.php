@@ -8,6 +8,7 @@ class Student extends Model
 {
     protected $table = 'students';
 
+    // Mass assignable fields
     protected $fillable = [
         'qalam_id',
         'student_name',
@@ -33,5 +34,14 @@ class Student extends Model
         'payment_approved',
         'hostel_status',
         'images',
+    ];
+
+    // Cast boolean fields to bool automatically
+    protected $casts = [
+        'make_pledge' => 'boolean',
+        'payment_approved' => 'boolean',
+        'hostel_status' => 'boolean',
+        'year_of_admission' => 'integer',
+        'monthly_income' => 'decimal:2',
     ];
 }

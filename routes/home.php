@@ -2,98 +2,78 @@
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\Pages\TeamController;
-use App\Http\Controllers\HostelProjectController;
-use App\Http\Controllers\Pages\AboutUsController;
-use App\Http\Controllers\Pages\ContactUsController;
-use App\Http\Controllers\Pages\NustTrustFundController;
-use App\Http\Controllers\Fund_Project\FundaProjectMosque;
-use App\Http\Controllers\Endownment\Zakat\ZakatController;
-use App\Http\Controllers\OneYear\OneYearSupportController;
-use App\Http\Controllers\Pages\SignatureProgramController;
-use App\Http\Controllers\Endownment\EndowmentHomeController;
-use App\Http\Controllers\Endownment\Hostel\HostelController;
-use App\Http\Controllers\Fund_Project\FundProjectController;
-use App\Http\Controllers\Fund_Project\FundaProjectBoysHostel;
-use App\Http\Controllers\Fund_Project\FundaProjectgirlsHostel;
-use App\Http\Controllers\Fund_Project\FundaProjectBusinessCenter;
-use App\Http\Controllers\Endownment\Four\FourYearSupportController;
-use App\Http\Controllers\Endownment\Student\StudentStoriesController;
-use App\Http\Controllers\Pages\ResourceMobilizationOfficerController;
-use App\Http\Controllers\Endownment\PerpetualSeat\PerpetualSeatSupportController;
-
+use App\Http\Controllers\Home\Home\HomeController;
+use App\Http\Controllers\Home\Pages\TeamController;
+use App\Http\Controllers\Home\Pages\AboutUsController;
+use App\Http\Controllers\Home\Pages\ContactUsController;
+use App\Http\Controllers\Home\Pages\NustTrustFundController;
+use App\Http\Controllers\Home\Hostel\SupportHostelController;
+use App\Http\Controllers\Home\EndowmentModel\AnnualControoller;
+use App\Http\Controllers\Home\Pages\SignatureProgramController;
+use App\Http\Controllers\Home\EndowmentModel\ZakatFundController;
+use App\Http\Controllers\Home\FundProjects\FundProjectController;
+use App\Http\Controllers\Home\EndowmentModel\FulldegreeController;
+use App\Http\Controllers\Home\EndowmentModel\EndowmentHomeController;
+use App\Http\Controllers\Home\FundProjects\Mosque\FundaProjectMosque;
+use App\Http\Controllers\Home\StudentStories\StudentStoriesController;
+use App\Http\Controllers\Home\Pages\ResourceMobilizationOfficerController;
+use App\Http\Controllers\Home\EndowmentModel\PerpetualSeatSupportController;
+use App\Http\Controllers\Home\FundProjects\BoysHostel\FundaProjectBoysHostel;
+use App\Http\Controllers\Home\FundProjects\Business\FundaProjectBusinessCenter;
+use App\Http\Controllers\Home\FundProjects\GirlsHostel\FundaProjectgirlsHostel;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
+Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');
 Route::get('/ourteam', [TeamController::class, 'index'])->name('our.team');
-// Route::get('/meetoutteam/{id}', [TeamController::class, 'About_team'])->name('');
 Route::get('/rmo', [ResourceMobilizationOfficerController::class, 'index'])->name('r.m.o');
 Route::get('/signrature/program', [SignatureProgramController::class, 'index'])->name('signrature.program');
 Route::get('/nust/trust/foundation', [NustTrustFundController::class, 'index'])->name('nust.trust.foundation');
-Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');
 Route::get('/contactus', [ContactUsController::class, 'index'])->name('contactus');
 
-
-// Endoenment Model routes and controllers 
-
 Route::get('/select/endowmentmodel', [EndowmentHomeController::class, 'index'])->name('select.endowmentmode');
-// One Year support endoement fund routes and controllers 
-Route::get('support/for/one/year', [OneYearSupportController::class, 'index'])->name('index.support.for.one.year');
-Route::post('default/one/year/degree', [OneYearSupportController::class, 'DefultOneYearundergraduate'])->name('support.for.one.year');
-Route::post('endowment/support/oneyear', [OneYearSupportController::class, 'CustomOneYearundergraduate'])->name('custom.endowment.supportone.year');
-// One Year support endoement fund routes and controllers 
-Route::get('support/for/entire/year', [FourYearSupportController::class, 'index'])->name('index.support.for.entire.year');
 
-Route::post('default/package/full/degree', [FourYearSupportController::class, 'DefultFourYearundergraduate'])->name('support.for.entire.year');
+Route::get('Annual/support/endowment', [AnnualControoller::class, 'index'])->name('annual.support.index');
+Route::post('default/Annual/support/endowment', [AnnualControoller::class, 'DefultOneYearundergraduate'])->name('defult.annual.support.store');
+Route::post('custom/Annual/support/endowment', [AnnualControoller::class, 'CustomOneYearundergraduate'])->name('custom.annual.support.store');
 
-Route::post('endowment/support/entire/year', [FourYearSupportController::class, 'CustomFourYearundergraduate'])->name('custom.endowment.support.entire.year');
-// perpetual_seat support endoement fund routes and controllers 
+
+Route::get('fulldegree/support/endowment', [FulldegreeController::class, 'index'])->name('index.support.fulldegree');
+Route::post('default/fulldegree/support/endowment', [FulldegreeController::class, 'DefultFourYearundergraduate'])->name('defult.fulldegree.support.store');
+Route::post('custom/fulldegree/support/endowment', [FulldegreeController::class, 'CustomFourYearundergraduate'])->name('custom.fulldegree.support.store');
+
 Route::get('perpetual/seat/yourname', [PerpetualSeatSupportController::class, 'index'])->name('index.perpetual.seat');
-Route::post('default/perpetual/seat', [PerpetualSeatSupportController::class, 'DefultPerpetualSeatundergraduate'])->name('default.perpetual.seat');
-Route::post('perpetual/seat/yourname', [PerpetualSeatSupportController::class, 'CustomPerpetualSeatundergraduate'])->name('custom.perpetual.seat.yourname');
-// Zakat fund routes and controllers 
-Route::get('endowment/zakat/funds', [ZakatController::class, 'index'])->name('endowment.zakat.funds');
-Route::get('endowment/zakat/payment', [ZakatController::class, 'zakatPayment'])->name('endowment.zakat.payment.index');
-Route::post('endowment/zakat/payment', [ZakatController::class, 'payments'])->name('endowment.zakat.payment');
-// Students stories routes and controllers 
+Route::post('default/perpetual/seat', [PerpetualSeatSupportController::class, 'DefultPerpetualSeatundergraduate'])->name('default.perpetual.seat.store');
+
+
+Route::get('endowment/zakat/funds', [ZakatFundController::class, 'index'])->name('endowment.zakat.funds');
+Route::get('endowment/zakat/payment', [ZakatFundController::class, 'zakatPayment'])->name('endowment.zakat.payment.index');
+Route::post('endowment/zakat/payment', [ZakatFundController::class, 'payments'])->name('endowment.zakat.payment');
 
 Route::get('student/stories', [StudentStoriesController::class, 'student_stories'])->name('student.stories');
-Route::get('student/stories/indiviual/{id}', [StudentStoriesController::class, 'student_stories_ind'])->name('student.stories.indiviual');
+Route::get('student/stories/indiviual/{id}', [StudentStoriesController::class, 'student_stories_ind'])->name('student.stories.individual');
 Route::get('payment/{id}', [StudentStoriesController::class, 'payment_index'])->name('payment.stories.index');
 Route::get('Make_a_Pledge/{id}', [StudentStoriesController::class, 'Make_a_Pledge'])->name('Make.a.Pledge');
-// Route::post('payments/{id}', [StudentStoriesController::class, 'paymentsstore']);
 Route::post('/payments/{id}', [StudentStoriesController::class, 'store'])->name('stories.payments.store');
 Route::post('/pledge/payment/{id}', [StudentStoriesController::class, 'pledgestore'])->name('pledge.payment.store');
 
-// hostel Controller templates 
-Route::get('/students/hostel/{id}', [HostelController::class, 'index'])->name('students.hostel');
-// Route::get('/students/hostel/{id}', [StudentController::class, 'viewHostel'])->name('students.hostel');
-Route::post('/hostel-payments/{id}', [HostelController::class, 'store']);
-
-// Route::post('/hostel-payments', [HostelController::class, 'store']);
-
-// Other Projects routes and controllers 
 
 Route::get('select/project', [FundProjectController::class, 'index'])->name('select.project');
-Route::get('fund_project/{id}', [FundProjectController::class, 'FundProject']);
-Route::get('payments_project/{id}', [FundProjectController::class, 'payment_fund_a_project']);
-Route::post('fund_a_project', [FundProjectController::class, 'payment_fund_a_project_store']);
+// Route::get('fund_project/{id}', [FundProjectController::class, 'FundProject']);
+// Route::get('payments_project/{id}', [FundProjectController::class, 'payment_fund_a_project']);
+// Route::post('fund_a_project', [FundProjectController::class, 'payment_fund_a_project_store']);
 
-Route::get('boyshostel/{id}', [FundaProjectBoysHostel::class, 'index']);
+Route::get('boys/hostel', [FundaProjectBoysHostel::class, 'index'])->name('boys.hostel.index');
 Route::post('boys/hostel/store', [FundaProjectBoysHostel::class, 'store'])->name('boys.hostel.store');
 
-Route::get('girlshostel/{id}', [FundaProjectgirlsHostel::class, 'index']);
+Route::get('girls/hostel', [FundaProjectgirlsHostel::class, 'index'])->name('girls.hostel.index');
 Route::post('girls/hostel/store', [FundaProjectgirlsHostel::class, 'store'])->name('girls.hostel.store');
 
-Route::get('mosque/{id}', [FundaProjectMosque::class, 'index']);
+Route::get('mosque/index', [FundaProjectMosque::class, 'index'])->name('mosque.project.index');
 Route::post('mosque/store', [FundaProjectMosque::class, 'store'])->name('mosque.store');
 
-Route::get('business_center/{id}', [FundaProjectBusinessCenter::class, 'index']);
+Route::get('business/center/index', [FundaProjectBusinessCenter::class, 'index'])->name('business.center.index');
 Route::post('business/center/store', [FundaProjectBusinessCenter::class, 'store'])->name('business.center.store');
 
-Route::get('hostel/project/index', [HostelProjectController::class, 'index'])->name('hostel.project.index');
-Route::get('hostel/project/payments', [HostelProjectController::class, 'PaymentIndex'])->name('hostel.project.payments');
-Route::post('hostel/project/payments', [HostelProjectController::class, 'PaymentDone'])->name('hostel.project.done');
-
+Route::get('hostel/project/index', [SupportHostelController::class, 'index'])->name('hostel.project.index');
+Route::get('hostel/project/payments', [SupportHostelController::class, 'Payments'])->name('hostel.project.payments');
+Route::post('hostel/project/payments/store', [SupportHostelController::class, 'store'])->name('hostel.project.payments.store');

@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    @include('template.layouts.head')
+    @include('Layouts.templates.head')
 
     <style>
         body {
             background: #FFFFFF;
+
         }
 
         /* Preloader styles */
@@ -25,12 +26,19 @@
         }
 
         @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         /* Hide content initially */
-        #content { display: none; }
+        #content {
+            display: none;
+        }
 
         /* Increase preloader image size */
         .loader img {
@@ -40,16 +48,30 @@
         }
 
         @keyframes slowBlink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
 
         /* Responsive preloader */
         @media (max-width: 768px) {
-            .loader img { height: 60vw; width: 60vw; }
+            .loader img {
+                height: 60vw;
+                width: 60vw;
+            }
         }
+
         @media (max-width: 576px) {
-            .loader img { height: 70vw; width: 70vw; }
+            .loader img {
+                height: 70vw;
+                width: 70vw;
+            }
         }
 
         /* Floating WhatsApp button */
@@ -67,15 +89,20 @@
             box-shadow: 2px 2px 3px #999;
             z-index: 100;
         }
-        .my-float { margin-top: 16px; }
+
+        .my-float {
+            margin-top: 16px;
+        }
 
         /* ===== Overlay Background ===== */
         #overlay {
             display: none;
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
             z-index: 99998;
         }
 
@@ -83,9 +110,11 @@
         #popupBanner {
             display: none;
             position: fixed;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            background: transparent; /* fully transparent */
+            background: transparent;
+            /* fully transparent */
             border: none;
             padding: 0;
             text-align: center;
@@ -97,8 +126,15 @@
 
         /* Fade-in animation */
         @keyframes popupFadeIn {
-            from { opacity: 0; transform: translate(-50%, -60%); }
-            to   { opacity: 1; transform: translate(-50%, -50%); }
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
         }
 
         /* Close button */
@@ -106,7 +142,7 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             color: white;
             border: none;
             border-radius: 50%;
@@ -117,6 +153,7 @@
             transition: 0.3s ease-in-out;
             z-index: 1000;
         }
+
         #popupBanner button:hover {
             background: #e60000;
             transform: scale(1.1);
@@ -142,6 +179,7 @@
             transition: 0.3s ease-in-out;
             display: inline-block;
         }
+
         #popupBanner a.btn:hover {
             background: linear-gradient(45deg, #0056b3, #0088cc);
             transform: scale(1.05);
@@ -149,7 +187,9 @@
 
         /* Mobile */
         @media (max-width: 768px) {
-            #popupBanner { width: 90%; }
+            #popupBanner {
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -164,12 +204,13 @@
 
     <!-- Main Content -->
     <div id="content" class="super_container">
-        @include('template.layouts.navbar')
-        @include('template.layouts.slider')
-        @include('template.layouts.video')
-        @include('template.layouts.testimonial')
-        @include('template.pages.note_of_gratitude')
-        @include('template.layouts.footer')
+        @include('Layouts.templates.navbar')
+        @include('Layouts.templates.slider')
+        @include('Layouts.templates.video')
+        @include('Layouts.templates.testimonial')
+        @include('Layouts.templates.note_of_gratitude')
+        @include('Layouts.templates.footer')
+        @include('Layouts.templates.cookies')
     </div>
 
     <!-- Floating WhatsApp Button -->
@@ -183,14 +224,15 @@
     <!-- Popup Banner -->
     <div id="popupBanner">
         <button onclick="closePopup()">&times;</button>
-        <img src="{{ asset('templates/project_category/hostel_project.jpg') }}" alt="Ad Banner" class="img-fluid rounded mb-3">
+        <img src="{{ asset('templates/project_category/hostel_project.jpg') }}" alt="Ad Banner"
+            class="img-fluid rounded mb-3">
         <br>
         <a href="{{ route('hostel.project.index') }}" class="btn btn-primary">Donate Now</a>
     </div>
 
     <!-- JavaScript -->
     <script>
-        window.addEventListener("load", function () {
+        window.addEventListener("load", function() {
             setTimeout(() => {
                 document.getElementById("preloader").style.display = "none";
                 document.getElementById("content").style.display = "block";
@@ -211,4 +253,5 @@
 
     <script src="{{ asset('templates/js/script.js') }}"></script>
 </body>
+
 </html>
