@@ -25,6 +25,9 @@ class FulldegreeController extends Controller
     public function DefultFourYearundergraduate(Request $request)
     {
 
+        $request->validate([
+        'prove' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+    ]);
         // Handle file upload (do this BEFORE sending the email)
         $attachmentPath = null;
         if ($request->hasFile('prove')) {
@@ -68,9 +71,12 @@ class FulldegreeController extends Controller
     }
 
 
-
-    public function CustomFourYearundergraduate(Request $request)
+public function CustomFourYearundergraduate(Request $request)
 {
+    $request->validate([
+        'prove' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+    ]);
+
     $students = SupportADegreeForOneYearPg::all();
     $schools = School::all();
     $countries = Country::all();
@@ -113,4 +119,5 @@ class FulldegreeController extends Controller
 
     return redirect()->route('select.endowmentmode')->with('success', 'Custom Package is submitted successfully!');
 }
+
 }

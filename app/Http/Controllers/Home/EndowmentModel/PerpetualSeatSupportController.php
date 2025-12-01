@@ -23,6 +23,10 @@ class PerpetualSeatSupportController extends Controller
     public function DefultPerpetualSeatundergraduate(Request $request)
     {
 
+
+         $request->validate([
+        'prove' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+    ]);
         // Fetch data
         $students = SupportADegreeForOneYearPg::all();
         $schools = School::all();
